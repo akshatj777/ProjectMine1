@@ -104,4 +104,9 @@ public class CreateACHOrganizationStepDef extends DriverScript {
 	  public void i_Verify_LocationID_Should_be_Same_as_Organization_CCN() throws Throwable {
 		 createACH.iVerifyLocationIDShouldbeSameasOrganizationCCN();
 	    }
+	 
+	 @And("^I verify Location ID should be greater than \"([^\"]*)\"$")
+	  public void i_Verify_LocationID_Should_be_Greater(int value) throws Throwable {
+		 createACH.iVerifyLocationIdShouldBeGreater(value);
+	    }
 }

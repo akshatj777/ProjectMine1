@@ -47,11 +47,6 @@ public class CreateManagingOrganization extends BaseClass {
 	}
 	
 	public void iClickOnButtonOnCreateOrganizationPage(String text) {
-//		WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
-//		scrollIntoViewByJS(element);
-//		delay();
-//		clickElement(element);
-		
 		 delay();
 		 WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
 		 JavascriptExecutor executor = (JavascriptExecutor)driver;

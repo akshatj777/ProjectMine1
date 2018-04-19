@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -350,5 +349,12 @@ public class CreateACHOrganization extends BaseClass{
     	iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), CreateACHOrganization.achOrg_noMO.get("CCN"));
 		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='public_fixedDataTableCell_cellContent' and contains(text(),'"+CreateACHOrganization.achOrg_noMO.get("CCN")+"')]")));
+    }
+    
+    public void iVerifyLocationIdShouldBeGreater(int value)
+    {
+    	String locationId =driver.findElements(By.cssSelector(".public_fixedDataTableCell_cellContent")).get(6).getText();
+    	int loc_Id = Integer.parseInt(locationId);
+    	Assert.assertTrue(value<loc_Id);
     }
 }
