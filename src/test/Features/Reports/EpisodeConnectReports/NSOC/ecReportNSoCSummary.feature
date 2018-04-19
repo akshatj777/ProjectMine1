@@ -441,8 +441,8 @@ Feature: Verification of Next Site of Care Summary EC Report
 
     Examples: 
       | email                     | networktier1   | networktier2 | networktier3 |
-      | RPFIN2User2@yopmail.com   | Out of Network | Tier 1       | Tier 2       |
-      | OPSFINTier1_2@yopmail.com | Out of Network | Tier 1       | Tier 2       |
+      | RPFIN2User2@yopmail.com   | Out Of Network | Tier 1       | Tier 2       |
+      | OPSFINTier1_2@yopmail.com | Out Of Network | Tier 1       | Tier 2       |
 
   Scenario Outline: Verify drag and drop functionality for ccn and network tier(post acute admission) to the report
     Given I am on the login page
@@ -466,12 +466,6 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Facility CCN" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Hospital Facility CCN" column is added to report after selecting add to report option
-    #Drag and Drop(Network Tier Post Acute Admission)
-    When I click to "Network Tier (Post Acute Admission)" field filter under "Network Tier (Post Acute Admission)" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Network Tier (Post Acute Admission)" field is appearing in the layout section after selecting add to report
-    Then I verify "Network Tier (Post Acute Admission)" column is added to report after selecting add to report option
 
     Examples: 
       | email                   |
@@ -487,17 +481,15 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
     #Default Filters
-    Then I verify "Dashboard Admission Month" is appearing under preselected anchor hospital admission year filter
-    Then I verify "is between (and includes) 2017-01 and 2018-12" is appearing under preselected filters for anchor Discharge Date Key
-    Then I verify "anchor Discharge Date Key" is appearing under preselected anchor hospital admission year filter
-    Then I verify "includes 1" is appearing under preselected filters for anchor Discharge Date Key
+    Then I should see "Dashboard Admission Month is between (and includes) 2017-01 and 2018-12" is present under preselected anchor month filter
+    Then I verify "anchor Discharge Date Key includes 1" is appearing under preselected filters for anchor Discharge Date Key
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Default Dimensions
@@ -515,13 +507,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I verify "Anchor Hospital Facility" column is already present on the reports
     And I verify "Anchor Hospital Discharge Care Setting" column is already present on the reports
     And I verify "# Episodes" column is already present on the reports
-    And I verify "Anchor Hospital Admission Month" column is already present on the reports
     #Dimension Fields(Drag and Drop)
-    When I click to "Anchor Hospital Facility" field filter under "Anchor Hospital Facility" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Anchor Hospital Facility" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Facility" column is added to report after selecting add to report option
     When I click to "Anchor Post Acute Provider" field filter under "Anchor Post Acute Provider" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -562,7 +548,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Discharge Provider" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Discharge Provider" column is added to report after selecting add to report option
-    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Post Acute Discharge Provider" filter field
+    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Hospital Discharge Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Discharge Facility CCN" field is appearing in the layout section after selecting add to report
@@ -602,11 +588,6 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     And I verify "Bundle DRG Code" field is appearing in the layout section after selecting add to report
     Then I verify "Bundle DRG Code" column is added to report after selecting add to report option
-    When I click to "Anchor Hospital Admission Month" field filter under "Anchor Hospital Admit Date" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Anchor Hospital Admission Month" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Admission Month" column is added to report after selecting add to report option
     When I click to "Anchor Hospital Admission Week" field filter under "Anchor Hospital Admit Date.Anchor Hospital Admission Weeks" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -616,12 +597,12 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Admission Quarter" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Admission Quarter" column is added to report after selecting add to report option
+    Then I verify "Anchor Hospital Admission Quarter" column is appearing in report after selecting add to report option
     When I click to "Anchor Hospital Admission Year" field filter under "Anchor Hospital Admit Date" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Admission Year" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Admission Year" column is added to report after selecting add to report option
+    Then I verify "Anchor Hospital Admission Year" column is appearing in report after selecting add to report option
     When I click to "Anchor Hospital Discharge Week" field filter under "Anchor Hospital Discharge Date.Anchor Hospital Discharge Weeks" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -652,7 +633,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Admission Quarter" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Admission Quarter" column is added to report after selecting add to report option
-    When I click to "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Discharge Date" filter field
+    When I click to "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Admit Date" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Admission Year" field is appearing in the layout section after selecting add to report
@@ -692,21 +673,15 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
     #measures field drag and drop
-    When I click to "# Episodes" field filter under "Measures" filter field in layout section
-    And I choose remove report option from select options of filter field
-    Then I search for the field "#" from the available fields
-    When I click to "# Episodes" field filter under "Measures" filter field
-    And I verify "# Episodes" field is appearing in the layout section after selecting add to report
-    Then I verify "# Episodes" column is added to report after selecting add to report option
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
     And I verify "# Episodes" field is appearing in the layout section after selecting add to report
     Then I verify "# Episodes" column is added to report after selecting add to report option
 
@@ -724,7 +699,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
@@ -758,7 +733,6 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I switch to new window
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
-    Then I should verify "Anchor Hospital Admission Weeks" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Hospital Admission Week" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Hospital Admit Date" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Hospital Admission Year" is appearing under Episodes drill through columns popup
@@ -805,7 +779,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
@@ -833,7 +807,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I click on Apply filters button for global filters
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
@@ -883,7 +857,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
@@ -933,7 +907,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe

@@ -1742,4 +1742,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_anchor_hospital_admission_year_appearing_under_preselected_filter(String text) throws Throwable{
     	reportHomePage.iVerifyAnchorAdmissionYearPreSelectedFilter(text);
     }
+    
+    @Then("^I verify \"([^\"]*)\" column is appearing in report after selecting add to report option$")
+    public void i_velrify_column_is_appearing_in_report_after_selecting_add_to_report_option(String text) throws Throwable{
+    	reportHomePage.iVerifyColumnAfterClickingAddToReport(text);
+    }
 }

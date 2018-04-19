@@ -1349,6 +1349,8 @@ public class ReportHomePage extends BaseClass {
     }
 
 	public void ichooseremovereportoptionfromselectoptionoffilterfield() {
+		WebElement element = driver.findElement(By.xpath("//*[@id='PM:removeAttr_text']"));
+    	scrollIntoViewByJS(element);
 		clickElement(driver.findElement(By.xpath("//*[@id='PM:removeAttr_text']")));
 		
 	}
@@ -1359,7 +1361,9 @@ public class ReportHomePage extends BaseClass {
 	}
 
 	public void iclickfilterfieldinlayoutsection(String filterTitle,String filterField) {
-		clickElement(driver.findElement(By.xpath("//div[contains(@id,'gem_["+filterTitle+"].["+filterField+"]') and @formula=["+filterTitle+"].["+filterField+"]']")));
+		clickElement(driver.findElement(By.xpath("//div[contains(@id,'gem_["+filterField+"].["+filterTitle+"]')]/div[@class='gemMenuHandle scalable']")));
+		delay();
+		delay();
     }
 
     public void iVerifyTextOnTheFAQPage(String text){
@@ -1372,5 +1376,11 @@ public class ReportHomePage extends BaseClass {
     
     public void iWillWaitUntillLoadingMessageDisappears(){
     	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#pageLoadingMessage")));
+    }
+    
+    public void iVerifyColumnAfterClickingAddToReport(String text){
+    	WebElement element = driver.findElement(By.xpath("//div[@title='"+text+"']"));
+    	scrollIntoViewByJS(element);
+    	isElementVisible(driver.findElement(By.xpath("//div[@title='"+text+"']")));
     }
 }
