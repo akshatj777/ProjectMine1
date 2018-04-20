@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
  */
 public class ReportHomePage extends BaseClass {
 	
-	WebDriverWait wait = new WebDriverWait(driver, 360);
+	WebDriverWait wait = new WebDriverWait(driver, 420);
 
     public ReportHomePage(WebDriver driver){
         super(driver);
@@ -753,7 +753,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyAnchorAdmissionYearPreSelectedFilter(String text){
-    	verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Anchor Hospital Admit Date].[Anchor Hospital Admit Date]']/span")),text);
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Anchor Hospital Admit Date].[Anchor Hospital Admission Year]']/span")),text);
     }
     
     public void iClickOnFacilityFilterUnderFilterOptions(String facility){
@@ -862,6 +862,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iWillWaitToSeeReportNameInsideIframe(String reportname){
+    	delay();
+    	longDelay();
     	iWillWaitToSee(By.xpath("//*[@id='RPT001ReportName'][text()='"+reportname+"']"));
     	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
     }
@@ -1383,5 +1385,13 @@ public class ReportHomePage extends BaseClass {
     	WebElement element = driver.findElement(By.xpath("//div[@title='"+text+"']"));
     	scrollIntoViewByJS(element);
     	isElementVisible(driver.findElement(By.xpath("//div[@title='"+text+"']")));
+    }
+    
+    public void iVerifyAnchorDischrgeCareSettingFilterTextInSelectedFiltersInSNFLOSReport(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Dim Anchor Discharge Care Setting].[Anchor Discharge Care Setting]']/span")),text);
+    }
+    
+    public void iVerifyNetworkTierAnchorDischargeTextInSelectedFilterUnderSNFLOSReport(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier (Anchor Discharge)].[Network Tier (Anchor Discharge)]']/span")),text);
     }
 }

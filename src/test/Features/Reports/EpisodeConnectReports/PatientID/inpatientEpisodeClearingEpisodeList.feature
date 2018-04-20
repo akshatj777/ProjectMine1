@@ -14,6 +14,9 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     Then I click on a number under episodes column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
@@ -70,6 +73,9 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     Then I click on a number under episodes column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
@@ -98,6 +104,9 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
     And I wait until refresh button is disappeared
     Then I click on a number under episodes column
     Then I switch to new window
@@ -132,6 +141,9 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click to "DOB" field filter under "Patient" filter field
     And I choose add to report option from select options of filter field
@@ -159,6 +171,9 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click to "Last Working Bundle" field filter under "Last Working DRG" filter field
@@ -196,6 +211,9 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click to "Last Final Bundle" field filter under "Last Final DRG" filter field
     And I choose "Filter" option from select options of filter field
@@ -230,6 +248,9 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click to "Patient Risk" field filter under "Patient" filter field
     And I choose "Filter" option from select options of filter field
@@ -255,6 +276,9 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click to "Risk Score" field filter under "Patient" filter field

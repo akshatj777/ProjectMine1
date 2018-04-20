@@ -930,20 +930,6 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<model>" result in "Model" field column for "Model" filter field
-    When I click to "Episode Status" field filter under "Episode Status" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Episode Status" field is appearing in the layout section after selecting add to report
-    Then I verify "Episode Status" column is added to report after selecting add to report option
-    When I click to "Episode Status" field filter under "Episode Status" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Episode Status" in the header text of filter page
-    And I should see "potentialM3" in the filter value list
-    And I click on "potentialM3" in the filter value list
-    And I click on add selected in the filter model
-    And I click on ok button from filter
-    And I wait until refresh button is disappeared
-    And I should see "potentialM3" result in "Episode Status" field column for "Episode Status" filter field
     When I click to "Anchor Post Acute Discharge Care Type" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type" in the header text of filter page

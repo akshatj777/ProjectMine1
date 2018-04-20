@@ -46,4 +46,4 @@ Feature: Verification of anchor facility filter in next site of care summary rep
 
     Examples: 
       | email                | admission month1 | anchorFacility1        |
-      | exe20jun@Yopmail.com | 2017-02          | Mt. Carmel - St. Ann's |
+      | exe20jun@Yopmail.com | 2018-03          | Mt. Carmel - St. Ann's |

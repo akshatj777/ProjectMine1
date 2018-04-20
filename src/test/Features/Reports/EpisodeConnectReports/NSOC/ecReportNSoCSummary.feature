@@ -378,8 +378,6 @@ Feature: Verification of Next Site of Care Summary EC Report
       | email                              | dischargefacilityccn filter |
       | shutestaug231132a@yopmail.com      | Not Available               |
       | reptestachmodel2opsfin@yopmail.com | Not Available               |
-      | shutestaug231132a@yopmail.com      |                           0 |
-      | reptestachmodel2opsfin@yopmail.com |                           0 |
 
   Scenario Outline: User should be able to filter the values for Tier One,Tier Two and Out Of Network under network tier(anchor discharge) filter field
     Given I am on the login page
@@ -1060,4 +1058,71 @@ Feature: Verification of Next Site of Care Summary EC Report
       | OPSFINMoneMtwotest@yopmail.com       |     2 |
       | OPSFINMoneMthreetestuser@yopmail.com |     1 |
       | OPSFINMtwoMthreetestuser@yopmail.com |     2 |
+      
+  Scenario Outline: User should be able to see Anchor Hospital Discharge Facility CCN and network tier(anchor hospital discharge) and filter the values for network tier(anchor discharge) when discharge facility ccn filter is 0
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click on show all filters icon button
+    Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
+    Then I remove "anchor Discharge Date Key" field filter under "anchor Discharge Date Key" filter field from default filters
+    And I wait until refresh button is disappeared
+    #Drag and Drop(Anchor Hospital Discharge Facility CCN)
+    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Hospital Discharge Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Discharge Facility CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Facility CCN" column is added to report after selecting add to report option
+    #Filtering(Anchor Hospital Discharge Facility CCN)
+    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Hospital Discharge Facility" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Anchor Hospital Discharge Facility CCN" in the header text of filter page
+    And I should see "<dischargefacilityccn filter>" in the filter value list
+    And I click on "<dischargefacilityccn filter>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    #Anchor Discharge Care Setting(SNF and HHA Filtering)
+    When I click to "Anchor Hospital Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Anchor Hospital Discharge Care Setting" in the header text of filter page
+    And I should see "HHA" in the filter value list
+    And I click on "HHA" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Anchor Hospital Discharge Care Setting includes HHA" is appearing under selected anchor discharge care setting filter
+    #Drag and Drop(Anchor Discharge Care Setting for SNF and HHA)
+    And I verify "Anchor Hospital Discharge Care Setting" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Care Setting" column is added to report after selecting add to report option
+    #Network Tier(Anchor Discharge - Tier Unknown)
+    When I click to "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Network Tier (Anchor Hospital Discharge)" in the header text of filter page
+    And I should see "Tier Unknown" in the filter value list
+    And I should not see "Tier 1" in the filter value list
+    And I should not see "Tier 2" in the filter value list
+    And I should not see "Out of Network" in the filter value list
+    And I click on "Tier Unknown" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier (Anchor Hospital Discharge) includes Tier Unknown" is appearing under selected network tier anchor discharge filter
+
+    Examples: 
+      | email                              | dischargefacilityccn filter |
+      | shutestaug231132a@yopmail.com      |                           0 |
+      | reptestachmodel2opsfin@yopmail.com |                           0 |
       
