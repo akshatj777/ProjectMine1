@@ -43,8 +43,15 @@ public class CreateACHOrganization extends BaseClass{
 	public void iEnterCNNorNPIorEINIdOnCreateOrganizationPage(String id, String field) throws InterruptedException {
 		if (id.contains("ACH")){
 			if((id.substring(id.indexOf("-")+1).trim()).equals("CCN")){
-				tempAchOrg.put("CCN", createRandomNumber(10));
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("CCN"));
+				if(field.contains("Location_Id")){
+					
+					//store location id and fetch here
+					iFillInText(driver.findElement(By.xpath("//input[@name='locations[0].locationId']")), achOrg.get("LID"));
+				}
+				else{
+					tempAchOrg.put("CCN", createRandomNumber(10));
+					iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("CCN"));
+				}
 			}
 			else if((id.substring(id.indexOf("-")+1).trim()).equals("EIN")){
 				tempAchOrg.put("EIN", createRandomNumber(10));
