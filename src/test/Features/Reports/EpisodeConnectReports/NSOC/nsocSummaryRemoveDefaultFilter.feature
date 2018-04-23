@@ -17,8 +17,6 @@ Feature: Remove the default filters from NSoC Summary Report
     When I click on show all filters icon button
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
     Then I remove "anchor Discharge Date Key" field filter under "anchor Discharge Date Key" filter field from default filters
-    #Then I remove "isAnchorAdmission" field filter under "isAnchorAdmission" filter field from default filters
-    #Then I remove "Model" field filter under "Model" filter field from default filters
     When I click on field-panel-icon button
     When I click to "Anchor Hospital Discharge Month" field filter under "Anchor Hospital Discharge Date" filter field
     And I choose "Filter" option from select options of filter field

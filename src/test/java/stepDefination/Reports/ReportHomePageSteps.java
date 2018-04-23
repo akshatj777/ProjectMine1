@@ -940,7 +940,7 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iClickOnFindButtonAfterEnteringAnchorAdmissionQuarter();
     }
     
-    @Then("^I verify \"([^\"]*)\" is appearing under preselected anchor admission year filter$")
+    @Then("^I verify \"([^\"]*)\" is appearing under preselected anchor admission date filter$")
     public void i_verify_anchor_admission_year_appearing_under_preselected_filter(String text) throws Throwable{
     	reportHomePage.iVerifyAnchorAdmissionYearPreSelectedFilter(text);
     }
@@ -1731,7 +1731,7 @@ public class ReportHomePageSteps extends DriverScript {
     
     @Then("^I should see \"([^\"]*)\" is present under preselected anchor discharge date key filter$")
     public void i_should_see_is_present_under_preselected_anchor_discharge_date_key_filter(String text) throws Throwable{
-    	reportHomePage.iSeeAnchorMonthFilterPreselected(text);
+    	reportHomePage.iSeeAnchorDischargeDateKeyFilterPreselected(text);
     }
 
     @And("^I verify search field is appearing below the count on performance evaluation by physician page$")
@@ -1789,9 +1789,9 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iWillWaitUntillLoadingMessageDisappears();
     }
     
-    @And("^I verify apply button is not clickable in the filters after unchecking all option$")
-    public void i_verify_apply_button_is_not_clickable_in_the_filters_after_unchecking_all_option() throws Throwable{
-    	reportHomePage.iVerifyApPlyButtonIsNotClickableAfterDesectingAll();
+    @And("^I verify apply button is not clickable for ([^\"]*) in the filters after unchecking all option$")
+    public void i_verify_apply_button_is_not_clickable_in_the_filters_after_unchecking_all_option(String text) throws Throwable{
+    	reportHomePage.iVerifyApPlyButtonIsNotClickableAfterDesectingAll(text);
     }
     
     @And("^I select a \"([^\"]*)\" name in filter and verify the same name is appearing on scorecard page$")
@@ -1923,6 +1923,41 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I verify \"([^\"]*)\" is not appearing in the added field \"([^\"]*)\"$")
     public void i_verify_is_not_appearing_in_the_added_field(String text,String field) throws Throwable{
     	reportHomePage.iVerifyIsNoTAppearinGInTheAddedField(text, field);
+    }
+    
+    @Then("^I should not see \"([^\"]*)\" report after clicking on dashboards$")
+    public void i_should_not_see_report_after_clicking_on_dashboards(String report) throws Throwable{
+    	reportHomePage.iShouldNotSeeReportName(report);	
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under preselected anchor admission year filter$")
+    public void i_verify_anchor_hospital_admission_year_appearing_under_preselected_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyAnchorAdmissionYearPreSelectedFilter(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" column is appearing in report after selecting add to report option$")
+    public void i_velrify_column_is_appearing_in_report_after_selecting_add_to_report_option(String text) throws Throwable{
+    	reportHomePage.iVerifyColumnAfterClickingAddToReport(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected anchor discharge care setting filter in snf los report$")
+    public void i_verify_is_appearing_under_selected_anchor_discharge_care_setting_filter_in_snf_los_report(String text) throws Throwable{
+    	reportHomePage.iVerifyAnchorDischrgeCareSettingFilterTextInSelectedFiltersInSNFLOSReport(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected network tier anchor discharge filter under snf los report$")
+    public void i_verify_is_appearing_under_selected_network_tier_anchor_discharge_filter_under_snf_los_report(String text) throws Throwable{
+    	reportHomePage.iVerifyNetworkTierAnchorDischargeTextInSelectedFilterUnderSNFLOSReport(text);
+    }
+    
+    @And("^I click on \"([^\"]*)\" in the filter value list for anchor hospital facility$")
+    public void i_click_on_in_the_filter_value_list_for_anchor_hospital_facility(String filterText) throws Throwable {
+         reportHomePage.iClickOnFilterTextFormFilterValueListForAnchorHospitalFacility(filterText);
+    }
+    
+    @And("^I click on \"([^\"]*)\" button under the ([^\"]*) in filter options$")
+    public void iClickOnApplyButtonForTheFilterField(String button,String text) throws Throwable{
+    	reportHomePage.iClickOnApplyButtonUnderFilterNameInFilterOptions(button, text);
     }
 }
 

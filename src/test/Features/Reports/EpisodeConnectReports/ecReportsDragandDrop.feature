@@ -170,6 +170,9 @@ Feature: Cover the drag and drop functionality through add to report in ec repor
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Dashboard Anchor CCN Drag and Drop

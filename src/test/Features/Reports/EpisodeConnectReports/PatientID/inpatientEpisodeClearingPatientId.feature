@@ -15,6 +15,9 @@ Feature: Inpatient Episode Clearing Patient ID
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click to "Participant" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
@@ -78,8 +81,8 @@ Feature: Inpatient Episode Clearing Patient ID
     Examples: 
       | email                              | participant | anchorFacility1                    | anchorFacility2               | episodeInitiator1                | ccn1   | BPID1    | anchor admission quarter1 |
       | shutestaug231132a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |
-      | shutestaug221130a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |
+      #| shutestaug221130a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |
       | reptestachmodel2opsfin@yopmail.com | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |
-      | shutestaug15240p@yopmail.com       | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |
-      | shutestaug221145a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |
-      | repopsnofintest@yopmail.com        | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |
+      #| shutestaug15240p@yopmail.com       | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |
+      #| shutestaug221145a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |
+      #| repopsnofintest@yopmail.com        | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |

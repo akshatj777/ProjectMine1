@@ -150,4 +150,9 @@ public class CommonSteps extends DriverScript {
  
     	System.out.println("Hurray");
     }
+    
+    @And("^I switch back to old window in reports$")
+    public void iSwitchBackToOLDWindowInReports(){
+    	baseClass.switchBacktoOldWindow();
+    }
 }
