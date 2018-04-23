@@ -34,7 +34,7 @@ Feature: Verification of anchor facility filter in next site of care summary rep
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Hospital Facility" in the header text of filter page
     And I should see "<anchorFacility1>" in the filter value list
-    And I click on "<anchorFacility1>" in the filter value list
+    And I click on "<anchorFacility1>" in the filter value list for anchor hospital facility
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared

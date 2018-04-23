@@ -1757,4 +1757,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_is_appearing_under_selected_network_tier_anchor_discharge_filter_under_snf_los_report(String text) throws Throwable{
     	reportHomePage.iVerifyNetworkTierAnchorDischargeTextInSelectedFilterUnderSNFLOSReport(text);
     }
+    
+    @And("^I click on \"([^\"]*)\" in the filter value list for anchor hospital facility$")
+    public void i_click_on_in_the_filter_value_list_for_anchor_hospital_facility(String filterText) throws Throwable {
+         reportHomePage.iClickOnFilterTextFormFilterValueListForAnchorHospitalFacility(filterText);
+    }
 }

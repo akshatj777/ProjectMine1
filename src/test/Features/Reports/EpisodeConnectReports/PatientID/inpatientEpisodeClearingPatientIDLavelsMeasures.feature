@@ -14,16 +14,13 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
-    Then I should see Episode DRG Issues reports column Tile text as "Participant"
-    Then I should see Episode DRG Issues reports column Tile text as "Episode Initiator"
-    Then I should see Episode DRG Issues reports column Tile text as "Anchor Facility"
-    Then I should see Episode DRG Issues reports column Tile text as "Bundle"
-    Then I should see Episode DRG Issues reports column Tile text as "Anchor Discharge Care Setting"
-    Then I should see Episode DRG Issues reports column Tile text as "Anchor Admission Month"
     When I click on show all filters icon button
     Then I verify "Anchor Hospital Admit Date includes previous 30 Anchor Hospital Admit Date" is appearing under preselected anchor admission date filter
     Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
     And I wait until refresh button is disappeared
+    Then I should see Episode DRG Issues reports column Tile text as "Participant"
+    Then I should see Episode DRG Issues reports column Tile text as "Episode Initiator"
+    Then I should see Episode DRG Issues reports column Tile text as "Anchor Hospital Facility"
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     Then I should see "# Episodes" under "measures" field

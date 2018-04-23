@@ -23,34 +23,40 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
     Then I should verify "Episode Initiator" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Facility CCN" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Facility" is appearing under Episodes table
+    Then I should verify "Patient Risk" is appearing under Episodes table
     Then I should verify "Medicare ID" is appearing under Episodes table
-    Then I should verify "Eligibility" is appearing under Episodes table
     Then I should verify "Patient" is appearing under Episodes table
     Then I should verify "DOB" is appearing under Episodes table
-    Then I should verify "Patient Risk" is appearing under Episodes table
-    Then I should verify "Anchor Hospital Discharge Date" is appearing under Episodes table
-    Then I should verify "Dashboard - Anchor CCN" is appearing under Episodes table
+    Then I should verify "DOD" is appearing under Episodes table
+    Then I should verify "Onboarding Status" is appearing under Episodes table
+    Then I should verify "Eligibility" is appearing under Episodes table
+    Then I should verify "Episode Status" is appearing under Episodes table
+    Then I should verify "Bundle" is appearing under Episodes table
+    Then I should verify "Bundle DRG Code" is appearing under Episodes table
+    Then I should verify "Bundle DRG Status" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Facility CCN" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Facility" is appearing under Episodes table
-    Then I should verify "NSOC Category" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Care Setting" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Care Type" is appearing under Episodes table
-    Then I should verify "Anchor Hospital Discharge Care Setting Code (EC)" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Care Type Code (EC)" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Care Type Detail (EC)" is appearing under Episodes table
-    Then I should verify "CARL Status" is appearing under Episodes table
-    Then I should verify "Last Predicted DRG" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Care Setting Code (EC)" is appearing under Episodes table
     Then I should verify "Last Predicted Bundle" is appearing under Episodes table
+    Then I should verify "Last Predicted DRG" is appearing under Episodes table
     Then I should verify "Last Predicted DRG Date" is appearing under Episodes table
-    Then I should verify "Last Working DRG" is appearing under Episodes table
     Then I should verify "Last Working Bundle" is appearing under Episodes table
+    Then I should verify "Last Working DRG" is appearing under Episodes table
     Then I should verify "Last Working DRG Date" is appearing under Episodes table
-    Then I should verify "Last Final DRG" is appearing under Episodes table
     Then I should verify "Last Final Bundle" is appearing under Episodes table
+    Then I should verify "Last Final DRG" is appearing under Episodes table
     Then I should verify "Last Final DRG Date" is appearing under Episodes table
     Then I should verify "Record Creator" is appearing under Episodes table
     Then I should verify "Physician Name" is appearing under Episodes table
     Then I should verify "Days Left in Bundle" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Admit Date" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Date" is appearing under Episodes table
     
     Examples: 
       | email                          |

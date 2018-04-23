@@ -456,6 +456,10 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I switch to reports embedded iframe
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
+    Then I remove "anchor Discharge Date Key" field filter under "anchor Discharge Date Key" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #CCN Drag and Drop

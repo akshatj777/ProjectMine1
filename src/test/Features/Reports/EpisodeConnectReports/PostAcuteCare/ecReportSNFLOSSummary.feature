@@ -441,7 +441,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier (Anchor Discharge) includes Out Of Network" is appearing under selected network tier anchor discharge filter
+    Then I verify "Network Tier (Anchor Discharge) includes Out Of Network" is appearing under selected network tier anchor discharge filter under snf los report
     And I verify "<networktier1>" is visible under "Network Tier (Anchor Discharge)" column in the report
     Then I remove "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field from default filters
     #Filtering(Tier 1)
@@ -452,7 +452,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier (Anchor Discharge) includes Tier 1" is appearing under selected network tier anchor discharge filter
+    Then I verify "Network Tier (Anchor Discharge) includes Tier 1" is appearing under selected network tier anchor discharge filter under snf los report
     And I verify "<networktier2>" is visible under "Network Tier (Anchor Discharge)" column in the report
     Then I remove "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field from default filters
     #Filtering(Tier 2)
@@ -463,7 +463,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier (Anchor Discharge) includes Tier 2" is appearing under selected network tier anchor discharge filter
+    Then I verify "Network Tier (Anchor Discharge) includes Tier 2" is appearing under selected network tier anchor discharge filter under snf los report
     And I verify "<networktier3>" is visible under "Network Tier (Anchor Discharge)" column in the report
 
     Examples: 
@@ -485,6 +485,11 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     When I switch to reports embedded iframe
     And I will wait to see "SNF LOS Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
+    Then I remove "Model" field filter under "Model" filter field from default filters
+    Then I remove "DataQualityFlag" field filter under "DataQualityFlag" filter field from default filters
+    Then I remove "isSNFAdmissionReport" field filter under "isSNFAdmissionReport" filter field from default filters
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #CCN Drag and Drop
@@ -573,7 +578,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier (Anchor Discharge) includes Tier Unknown" is appearing under selected network tier anchor discharge filter
+    Then I verify "Network Tier (Anchor Discharge) includes Tier Unknown" is appearing under selected network tier anchor discharge filter under snf los report
 
     Examples: 
       | email                              | 1stpostacuteccn filter |
