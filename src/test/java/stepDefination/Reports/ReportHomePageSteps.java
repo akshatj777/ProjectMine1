@@ -1789,9 +1789,9 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iWillWaitUntillLoadingMessageDisappears();
     }
     
-    @And("^I verify apply button is not clickable in the filters after unchecking all option$")
-    public void i_verify_apply_button_is_not_clickable_in_the_filters_after_unchecking_all_option() throws Throwable{
-    	reportHomePage.iVerifyApPlyButtonIsNotClickableAfterDesectingAll();
+    @And("^I verify apply button is not clickable for ([^\"]*) in the filters after unchecking all option$")
+    public void i_verify_apply_button_is_not_clickable_in_the_filters_after_unchecking_all_option(String text) throws Throwable{
+    	reportHomePage.iVerifyApPlyButtonIsNotClickableAfterDesectingAll(text);
     }
     
     @And("^I select a \"([^\"]*)\" name in filter and verify the same name is appearing on scorecard page$")
@@ -1928,6 +1928,11 @@ public class ReportHomePageSteps extends DriverScript {
     @And("^I click on \"([^\"]*)\" in the filter value list for anchor hospital facility$")
     public void i_click_on_in_the_filter_value_list_for_anchor_hospital_facility(String filterText) throws Throwable {
          reportHomePage.iClickOnFilterTextFormFilterValueListForAnchorHospitalFacility(filterText);
+    }
+    
+    @And("^I click on \"([^\"]*)\" button under the ([^\"]*) in filter options$")
+    public void iClickOnApplyButtonForTheFilterField(String button,String text) throws Throwable{
+    	reportHomePage.iClickOnApplyButtonUnderFilterNameInFilterOptions(button, text);
     }
 }
 

@@ -835,7 +835,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnParticiapntFieldFilterUnderFilterOptions(String participant,String text){
-    	clickElement(driver.findElement(By.xpath("//div[@class='filter-item-label'][text()='"+participant+"']")));
+    	clickElement(driver.findElement(By.xpath("//div[@id='"+text+"FilterObj'] //div[text()='"+participant+"']")));
     }
     
     public void iVerifyParticipantFieldAfterApplyingFilter(String participant,String text) {
@@ -843,6 +843,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnApplyButtonForFilterInFilterOptions(){
+    	longDelay();
     	clickElement(driver.findElement(By.cssSelector(".filter-btn-apply.dirty")));
     }
     
@@ -888,6 +889,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iWaitUntillLoadingIconDisappears(){
+    	longDelay();
     	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".img.blockUIDefaultImg")));
     }
     
@@ -927,9 +929,12 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyTextUnderPhysicianDashboardReport(String text){
     	iWillWaitToSee(By.xpath("//div[contains(text(),'"+text+"')]"));
         verifyTextForElement(driver.findElement(By.cssSelector("#tableTitleObj")), text);
+        longDelay();
     }
     
     public void iClickOnFirstNameUnderAttributedPhysicianColumn(){
+    	delay();
+    	longDelay();
     	clickElement(driver.findElement(By.cssSelector("#performanceTableObjTable>tbody>tr:first-child>td:first-child")));
     }
     
@@ -943,9 +948,11 @@ public class ReportHomePage extends BaseClass {
     
     public void iVerifyScorecardUnderPerformanceScorecard(String text){
     	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+text+"')]/ancestor::div[@class='templateRow']")));
+    	longDelay();
     }
     
     public void iVerifyInitiallyTop100PhysiciansLoaded(String text){
+    	longDelay();
     	isElementVisible(driver.findElement(By.xpath("//div[contains(@class,'pentaho-toggle-button-horizontal-first')]/button[text()='"+text+"']")));
     }
     
@@ -1122,6 +1129,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyHeaderNameCenterAlligned(String text){
+    	delay();
     	VerifyElementCssProperty(By.xpath("//th[text()='"+text+"']"),"text-align");
     }
     
@@ -1389,6 +1397,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyAttributedPhysicianFilterOnPhysicianPage(){
+    	longDelay();
     	isElementVisible(driver.findElement(By.cssSelector("#physicianFilterObj")));
     }
     
@@ -1420,8 +1429,8 @@ public class ReportHomePage extends BaseClass {
     	isElementNotPresentOnPage(By.xpath("//*[text()='"+text+"']"));
     }
     
-    public void iVerifyApPlyButtonIsNotClickableAfterDesectingAll(){
-    	driver.findElement(By.cssSelector("#payerFilterObj .filter-btn-apply.pristine")).isEnabled();
+    public void iVerifyApPlyButtonIsNotClickableAfterDesectingAll(String text){
+    	driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-btn-apply.pristine")).isEnabled();
     }
     
     public void iSelectNameInFilterAndVerifySmeNameOnScoreCardPage(String text){
@@ -1442,6 +1451,7 @@ public class ReportHomePage extends BaseClass {
     
     public void iClickOnRadioButtonOnPhysicianDashboard(String text,String value){
     	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    	longDelay();
     }
     
     public void iVerifyColumnNameOnScoreCardPage(String text){
@@ -1495,9 +1505,9 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyCurrentAndSystemInsidePerformanceComparison(String text,String drg){
-    	WebElement element = driver.findElement(By.xpath("//table[@id='qtrPerf"+drg+"TableObjTable'] //th[text()='"+text+"']]"));
+    	WebElement element = driver.findElement(By.xpath("//table[@id='qtrPerf"+drg+"TableObjTable'] //th[text()='"+text+"']"));
     	scrollIntoViewByJS(element);
-    	verifyTextForElementFromListByXpath("//table[@id='qtrPerf"+drg+"TableObjTable'] //th[text()='"+text+"']]",text);
+    	isElementVisible(driver.findElement(By.xpath("//table[@id='qtrPerf"+drg+"TableObjTable'] //th[text()='"+text+"']")));
     }
     
     public void iVerifyDataUnderFractureAndNonFractureColumns(String text,String drg){
@@ -1536,5 +1546,10 @@ public class ReportHomePage extends BaseClass {
     
     public void iClickOnFilterTextFormFilterValueListForAnchorHospitalFacility(String filterText){
         clickElement(driver.findElement(By.xpath("//*[starts-with(@id,'FT_AVA') and text()=\""+filterText+"\"]")));
+    }
+    
+    public void iClickOnApplyButtonUnderFilterNameInFilterOptions(String button,String text){
+    	longDelay();
+    	clickElement(driver.findElement(By.xpath(".//*[@id='"+text+"FilterObj'] //button[contains(text(),'"+button+"')]")));
     }
 }
