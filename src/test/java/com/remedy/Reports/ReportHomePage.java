@@ -1593,4 +1593,9 @@ public class ReportHomePage extends BaseClass {
     	longDelay();
     	clickElement(driver.findElement(By.xpath(".//*[@id='"+text+"FilterObj'] //button[contains(text(),'"+button+"')]")));
     }
+    
+    public void iVerifyDataAppearingAfterOpeningReport(){
+    	isElementVisible(driver.findElement(By.xpath("//td[@class='pivotTableRowLabelSection']/div/table/tbody/tr")));
+    	isElementVisible(driver.findElement(By.xpath("//td[@class='pivotTableRowLabelSection']/div/table/tbody/tr")));
+    }
 }

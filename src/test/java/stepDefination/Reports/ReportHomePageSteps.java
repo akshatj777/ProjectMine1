@@ -1959,5 +1959,10 @@ public class ReportHomePageSteps extends DriverScript {
     public void iClickOnApplyButtonForTheFilterField(String button,String text) throws Throwable{
     	reportHomePage.iClickOnApplyButtonUnderFilterNameInFilterOptions(button, text);
     }
+    
+    @Then("^I verify data is appearing after opening report$")
+    public void i_verify_data_is_appearing_after_opening_report() throws Throwable{
+    	reportHomePage.iVerifyDataAppearingAfterOpeningReport();
+    }
 }
 

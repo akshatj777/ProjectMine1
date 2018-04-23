@@ -16,6 +16,7 @@ Feature: Accepatance testing for reports
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
+    Then I verify data is appearing after opening report
     #Participant
     And I verify there is no "Null" value appearing inside report in the column "Participant"
     And I verify there is no "0" value appearing inside report in the column "Participant"
@@ -165,6 +166,7 @@ Feature: Accepatance testing for reports
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
+    Then I verify data is appearing after opening report
     When I click to "<anchor facility>" field filter under "<facility type>" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -192,6 +194,7 @@ Feature: Accepatance testing for reports
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
+    Then I verify data is appearing after opening report
     #Participant
     When I click to "Participant" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
@@ -297,6 +300,7 @@ Feature: Accepatance testing for reports
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
+    Then I verify data is appearing after opening report
     #Participant
     When I click to "Participant" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
@@ -433,6 +437,7 @@ Feature: Accepatance testing for reports
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
+    Then I verify data is appearing after opening report
     #Participant
     When I click to "Participant" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
