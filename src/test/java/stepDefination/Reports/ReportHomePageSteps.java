@@ -1914,5 +1914,20 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_velrify_column_is_appearing_in_report_after_selecting_add_to_report_option(String text) throws Throwable{
     	reportHomePage.iVerifyColumnAfterClickingAddToReport(text);
     }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected anchor discharge care setting filter in snf los report$")
+    public void i_verify_is_appearing_under_selected_anchor_discharge_care_setting_filter_in_snf_los_report(String text) throws Throwable{
+    	reportHomePage.iVerifyAnchorDischrgeCareSettingFilterTextInSelectedFiltersInSNFLOSReport(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected network tier anchor discharge filter under snf los report$")
+    public void i_verify_is_appearing_under_selected_network_tier_anchor_discharge_filter_under_snf_los_report(String text) throws Throwable{
+    	reportHomePage.iVerifyNetworkTierAnchorDischargeTextInSelectedFilterUnderSNFLOSReport(text);
+    }
+    
+    @And("^I click on \"([^\"]*)\" in the filter value list for anchor hospital facility$")
+    public void i_click_on_in_the_filter_value_list_for_anchor_hospital_facility(String filterText) throws Throwable {
+         reportHomePage.iClickOnFilterTextFormFilterValueListForAnchorHospitalFacility(filterText);
+    }
 }
 
