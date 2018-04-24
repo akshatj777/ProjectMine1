@@ -146,8 +146,5 @@ public class CommonSteps extends DriverScript {
             Action selected = builder.build();
             selected.perform();
     	}
-
- 
-    	System.out.println("Hurray");
     }
 }
