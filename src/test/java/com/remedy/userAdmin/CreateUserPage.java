@@ -30,7 +30,7 @@ public class CreateUserPage extends BaseClass{
 	public final static String time = df.format(timestamp);
 	String userRole = null;
 	String userApplications = null;
-	String userNPI = "";
+	static String userNPI = "";
 	public static HashMap<String,HashMap<String,String>> usersEmailPerRole=new HashMap<String,HashMap<String,String>>();
 	public static HashMap<String,HashMap<String,String>> usersApplicationsPerRole=new HashMap<String,HashMap<String,String>>();
 	public static HashMap<String,HashMap<String,String>> usersNPIPerRole=new HashMap<String,HashMap<String,String>>();
@@ -110,14 +110,19 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterFirstName(String text){
+    	if(!(text.isEmpty())){
     	iWillWaitToSee(By.xpath("//input[@placeholder='First Name']"));
         iFillInText(driver.findElement(By.xpath("//input[@placeholder='First Name']")), text);
     }
+    }
 
     public void iEnterLasttName(String text) {
+    	if(!(text.isEmpty())){
         iWillWaitToSee(By.xpath("//input[@placeholder='Last Name']"));
     	iFillInText(driver.findElement(By.xpath("//input[@placeholder='Last Name']")), text);
-    }
+   
+    	}
+    	}
 
     public final static String iGenerateEmail(String text) {
         final String mail = text + time;
@@ -138,11 +143,12 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterPhone(String text) {
-    	if(!(text.equals("")))
-    	{
-    		iWillWaitToSee(By.xpath("//input[@placeholder='Phone']"));
-            iFillInText(driver.findElement(By.xpath("//input[@placeholder='Phone']")), text);
-    	}
+
+    	if(!(text.isEmpty())){
+    	iWillWaitToSee(By.xpath("//input[@placeholder='Phone']"));
+        iFillInText(driver.findElement(By.xpath("//input[@placeholder='Phone']")), text);
+
+    }
     }
 
     public void iEnterTheEmailToGeneratePassword(String text) {
@@ -298,11 +304,15 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iSelectTileForTheRole(String appList){
+    	String apps = "";
+    	
     	if(appList.contains(","))
     	{
     		StringTokenizer st = new StringTokenizer(appList,",");
-            while (st.hasMoreTokens()) {  
-            	clickElement(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
+            while (st.hasMoreTokens()) {
+            	String a = st.nextToken().trim();
+            	iWillWaitToSee(By.xpath("//label[.='"+a+"']"));
+            	clickElement(driver.findElement(By.xpath("//label[.='"+a+"']")));
             }
     	}
     	else
@@ -310,9 +320,18 @@ public class CreateUserPage extends BaseClass{
     		iWillWaitToSee(By.xpath("//label[.='"+appList+"']"));
     		clickElement(driver.findElement(By.xpath("//label[.='"+appList+"']")));
     	}
-    	userApplications = appList;
+    	for(int i=1; i<=(driver.findElements(By.xpath("//div[@class='column padding']")).size());i++)
+    	{
+    		if(driver.findElements(By.xpath("//div[@class='column padding']["+i+"]/div[@class='ui checked checkbox']")).size()>0)
+    		{
+    			apps = apps.concat(driver.findElement(By.xpath("//div[@class='column padding']["+i+"]/div[@class='ui checked checkbox']/label")).getText());
+    			apps = apps.concat(",");
+    		}
+    	}
+    	apps = apps.substring(0, apps.length()-1);
+    	userApplications = apps;
     }
-
+    
     public void iClickOnContinueToDashboardMessage() {
         clickElement(driver.findElement(By.xpath("//button[text()='Continue to my dashboard']")));
     }
@@ -546,6 +565,7 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iVerifyPatientCardOnActivePatientPage(String role){
+	   driver.manage().timeouts().pageLoadTimeout(600, TimeUnit.SECONDS);
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 	   StringTokenizer st = new StringTokenizer(application, ",");
 	   while(st.hasMoreTokens())
@@ -709,6 +729,7 @@ public class CreateUserPage extends BaseClass{
 					   while(st.hasMoreTokens())
 					   {
 						   String a = st.nextToken().trim();
+						   iWillWaitToSee(By.xpath("//p[contains(text(),\""+a+"\")]"));
 						   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[contains(text(),\""+a+"\")]")));
 					   }
 				   }
@@ -786,6 +807,7 @@ public class CreateUserPage extends BaseClass{
    }
    public void verifyFieldNames(String fieldName)
    {
+	   iWillWaitToSee(By.xpath("//label[text()='"+fieldName+"']"));
 	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[text()='"+fieldName+"']")));
    }
    
@@ -845,8 +867,72 @@ public class CreateUserPage extends BaseClass{
 	   clickElement(driver.findElement(By.xpath("//label[.='All Locations']")));   
    }
 
-   public void clickSubmitButton() throws Throwable {
-	   clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
+   public void clickSubmitButtonForEdit(String user) throws Throwable {
+	   iWillWaitToSee(By.xpath("//button[.='Submit']"));
+		clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
+		HashMap<String,String> emailList = new HashMap<String,String>();
+		HashMap<String,String> applicationsList = new HashMap<String,String>();
+		HashMap<String,String> NPIList = new HashMap<String,String>();
+		if(user.contains("--"))
+		{
+			String newRole = user.substring(user.indexOf("-")+1, user.lastIndexOf("-")-1);
+			String oldRole = user.substring(user.lastIndexOf("-")+1,user.length());
+			String userL = user.substring(0,user.indexOf("-")); 
+			emailList.put(newRole, CreateUserPage.usersEmailPerRole.get(userL+"-"+oldRole).get(oldRole).trim());
+			applicationsList.put(newRole, userApplications);
+			NPIList.put(newRole, CreateUserPage.usersNPIPerRole.get(userL+"-"+oldRole).get(oldRole).trim());
+			
+			if(user.contains("Super Admin"))
+			{
+				usersEmailPerRole.put(userL+"-"+newRole, emailList);
+				usersApplicationsPerRole.put(userL+"-"+newRole, applicationsList);
+				usersNPIPerRole.put(userL+"-"+newRole, NPIList);
+				System.out.println(usersEmailPerRole.toString());
+				System.out.println(usersApplicationsPerRole.toString());
+				System.out.println(usersNPIPerRole.toString());
+			}
+			else if(user.contains("Remedy Technical Administrator"))
+			{
+				usersEmailPerRole.put(user.trim(), emailList);
+				usersApplicationsPerRole.put(user.trim(), applicationsList);
+				usersNPIPerRole.put(user.trim(), NPIList);
+			}
+			else if(user.contains("Partner Technical Administrator"))
+			{
+				usersEmailPerRole.put(user.trim(), emailList);
+				usersApplicationsPerRole.put(user.trim(), applicationsList);
+				usersNPIPerRole.put(user.trim(), NPIList);
+			}
+		}
+		else
+		{
+			emailList.put(user.substring(user.indexOf("-")+1), CreateUserPage.usersEmailPerRole.get(user).get(user.substring((user.indexOf("-")+1)).trim()));
+			applicationsList.put(user.substring(user.indexOf("-")+1), userApplications);
+			NPIList.put(user.substring(user.indexOf("-")+1), CreateUserPage.usersNPIPerRole.get(user).get(user.substring((user.indexOf("-")+1))));
+			
+			if(user.contains("Super Admin"))
+			{
+				usersEmailPerRole.put(user.trim(), emailList);
+				usersApplicationsPerRole.put(user.trim(), applicationsList);
+				usersNPIPerRole.put(user.trim(), NPIList);
+				System.out.println(usersEmailPerRole.toString());
+				System.out.println(usersApplicationsPerRole.toString());
+				System.out.println(usersNPIPerRole.toString());
+			}
+			else if(user.contains("Remedy Technical Administrator"))
+			{
+				usersEmailPerRole.put(user.trim(), emailList);
+				usersApplicationsPerRole.put(user.trim(), applicationsList);
+				usersNPIPerRole.put(user.trim(), NPIList);
+			}
+			else if(user.contains("Partner Technical Administrator"))
+			{
+				usersEmailPerRole.put(user.trim(), emailList);
+				usersApplicationsPerRole.put(user.trim(), applicationsList);
+				usersNPIPerRole.put(user.trim(), NPIList);
+			}
+		}
    }
    
 	public void clickSubmitButtonForDifferentUsers(String user) throws Throwable {
@@ -864,6 +950,9 @@ public class CreateUserPage extends BaseClass{
 			usersEmailPerRole.put(user.trim()+"-"+userRole.trim(), emailList);
 			usersApplicationsPerRole.put(user.trim()+"-"+userRole.trim(), applicationsList);
 			usersNPIPerRole.put(user.trim()+"-"+userRole.trim(), NPIList);
+			System.out.println(usersEmailPerRole.toString());
+			System.out.println(usersApplicationsPerRole.toString());
+			System.out.println(usersNPIPerRole.toString());
 		}
 		else if(user.contains("Remedy Technical Administrator"))
 		{
@@ -941,10 +1030,11 @@ public class CreateUserPage extends BaseClass{
         			   scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")));
         			   driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")).clear();
         			   String a = st.nextToken().trim();
-        			   delay();
+        			   Thread.sleep(3000);
         			   iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), a);
+        			   Thread.sleep(3000);
         			   clickElement(driver.findElement(By.xpath("//label[contains(text(),\""+a+"\")]")));
-        			   delay();
+        			   Thread.sleep(3000);
         		   }
         		   driver.findElement(By.xpath("//a[contains(text(),'Applications')]")).click();
         	   }
@@ -974,11 +1064,10 @@ public class CreateUserPage extends BaseClass{
    	{
 		   longDelay();
 	   if(!(driver.findElements(By.xpath("//div[text()='Select']")).size()>0))
-	   {
-		   longDelay();
-		   driver.findElement(By.xpath("//i[@class='delete icon']")).click();
-		   longDelay();
-	   }
+		 {
+			 
+			return;
+			 }
 	   if(programList.contains(","))
 	   {
 		   StringTokenizer st = new StringTokenizer(programList,",");
@@ -1000,7 +1089,32 @@ public class CreateUserPage extends BaseClass{
 	   }
    	}
    }
-   
+   public void deselectPrograms(String programList) throws Throwable {
+		if (!(programList.equals(""))) {
+			longDelay();
+			
+			if (programList.contains(",")) {
+				StringTokenizer st = new StringTokenizer(programList, ",");
+				driver.findElement(By.cssSelector(".ui.selection.dropdown")).click();
+				while (st.hasMoreTokens()) {
+					String programs = st.nextToken().trim();
+					iWillWaitToSee(By.xpath("//label[text()='" + programs + "']"));
+					driver.findElement(By.xpath("//label[text()='" + programs + "']")).click();
+					Thread.sleep(2000);
+				}
+			} else {
+
+				longDelay();
+				driver.findElement(By.cssSelector(".ui.selection.dropdown")).click();
+				longDelay();
+				driver.findElement(By.xpath("//label[text()='" + programList + "']")).click();
+				longDelay();
+
+			}
+			driver.findElement(By.cssSelector(".ui.selection.dropdown")).click();
+		}
+	}
+
    public void selectLocations(String locationList) throws Throwable {
 	   if(!(locationList.equals("")))
 	   	{
@@ -1077,7 +1191,7 @@ public class CreateUserPage extends BaseClass{
     	   }
     	   
 	   	    }	
-	   }
+	   }else{return;}
    }
    
    public void selectLocationsForDownstreamProvider(String locationList) throws Throwable {
@@ -1261,9 +1375,11 @@ public class CreateUserPage extends BaseClass{
     	   {
     		   token = newToken;   
     	   }
+    	   iWillWaitToSee(By.xpath("//p[text()='"+token.trim()+"']"));
     	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+token.trim()+"']")));
        } 
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Institute']")));
+	   iWillWaitToSee(By.xpath("//p[text()='Institute']"));
+       Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Institute']")));
    }
    
    public void verifyProductTilesNotPresent(String products) throws Throwable {
@@ -1298,7 +1414,6 @@ public class CreateUserPage extends BaseClass{
    
    public void verifyProductNotPresentOnAppTab(String products) throws Throwable {
 	   StringTokenizer st = new StringTokenizer(products,",");
-	   String token = null;
        while (st.hasMoreTokens()) 
        {
     	   String newToken = st.nextToken().trim();
@@ -1312,8 +1427,8 @@ public class CreateUserPage extends BaseClass{
    
    public void enterCharacterInLocationSearch(String text) throws Throwable {
 	   if(!text.equalsIgnoreCase("All locations")){
-		   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), text);
-		   delay();
+		   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), text);
+		   //delay();
 	   }
    }
    
@@ -1608,6 +1723,7 @@ public class CreateUserPage extends BaseClass{
 	 public void removeAlreadySelectedRole() throws Throwable {
 		 driver.findElement(By.xpath("//i[@class='close icon']")).click();
 	 }
+
 	 
 	 public void iVerifyTheSelectedLocationsInTheSelectLocationsSection(String text){
 		 	wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]"))));
@@ -1653,4 +1769,6 @@ public class CreateUserPage extends BaseClass{
 		 clickElement(driver.findElement(By.xpath("//div[@class='single-chevron']//i[@class='"+text+"']")));
 		 longDelay();
 	 }
+	 
 }
+

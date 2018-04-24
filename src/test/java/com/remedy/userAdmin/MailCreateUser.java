@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
@@ -14,9 +16,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import com.remedy.baseClass.BaseClass;
 import com.remedy.resources.DriverScript;
@@ -29,10 +33,12 @@ public class MailCreateUser extends BaseClass{
 	static String mail = "test.automatemail";
 	static String email = null;
 
+
 	public MailCreateUser(WebDriver driver) {
 		super(driver);
 	}
 	
+
 	public void iAmOnMailLoginPage() throws InterruptedException, AWTException {
 //		driver.get("chrome://settings/");
 //		Thread.sleep(5000);
@@ -42,10 +48,12 @@ public class MailCreateUser extends BaseClass{
 //		Select oSelect = new Select(driver.findElement(By.cssSelector("* /deep/ #zoomLevel")));
 //		oSelect.selectByValue("0.9");
 		driver.navigate().to("https://accounts.google.com");
+
         if(DriverScript.Config.getProperty("Browser").equals("chrome"))
         {
         	driver.manage().window().maximize();
         }
+
 	}
 	
 	public void iEnterUserNameToLoginMailAccount(String username) {
@@ -94,7 +102,9 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iClickOnSelectAllCheckBoxInMail() {
+
 		iWillWaitToSee(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']"));
+
 		clickElement(driver.findElement(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']")));
 	}
 	
@@ -134,6 +144,7 @@ public class MailCreateUser extends BaseClass{
 		if(emailName.equalsIgnoreCase("test.automatemail"))
 			{
 			email = emailName+"+"+RandomStringUtils.randomAlphabetic(8)+"@gmail.com";
+
 			iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
 			driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(email);
 			}
@@ -146,6 +157,7 @@ public class MailCreateUser extends BaseClass{
 		else
 			{
 			iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
+
 			driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(emailName);
 			}
 	}
@@ -181,7 +193,9 @@ public class MailCreateUser extends BaseClass{
 	
 	public void i_Verify_The_Unread_Mail_In_Inbox_In_My_Account(){
 		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox (')]"));
+
 		isElementPresentOnPage(By.xpath("//a[contains(text(),'Inbox (')]"));
+
 	}
 	
 	public void iVerifyChangePasswordMailinInboxInMyAccount() {
@@ -206,6 +220,8 @@ public class MailCreateUser extends BaseClass{
 	
 	public void iEnterNewUserEmailForLoginToRemedy(String role) {
 		String emailVal = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
+
+
 		iWillWaitToSee(By.xpath("//input[@name='email']"));
 		iFillInText(driver.findElement(By.xpath("//input[@name='email']")), emailVal);
 	}
@@ -216,6 +232,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iOpenNewTabAndCloseLastTab() throws AWTException, InterruptedException, IOException {		
+
 	    if(DriverScript.Config.getProperty("Browser").equals("chrome"))
 	    {
 	    	driver.get("chrome://settings/clearBrowserData");
@@ -223,6 +240,7 @@ public class MailCreateUser extends BaseClass{
 		    driver.findElement(By.cssSelector("* /deep/ #clearBrowsingDataConfirm")).click();
 		    Thread.sleep(10000);
 	    }
-		
+
 	}
+	
 }
