@@ -1598,4 +1598,12 @@ public class ReportHomePage extends BaseClass {
     	isElementVisible(driver.findElement(By.xpath("//td[@class='pivotTableRowLabelSection']/div/table/tbody/tr")));
     	isElementVisible(driver.findElement(By.xpath("//td[@class='pivotTableRowLabelSection']/div/table/tbody/tr")));
     }
+    
+    public void iVerifyAnchorAdmissionYearDefaultFilter(String text){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Anchor Hospital Admit Date].[Anchor Hospital Admission Year]']/span")),text);
+    }
+    
+    public void iSeeAnchorPostAcuteAdmissionYearFilterPreselectedUnderEpisodeDrgIssuesReport(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@formula='[Anchor Post Acute Admit Date].[Anchor Post Acute Admission Year]']/span")),text);
+    }
 }

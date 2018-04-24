@@ -1964,5 +1964,15 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_data_is_appearing_after_opening_report() throws Throwable{
     	reportHomePage.iVerifyDataAppearingAfterOpeningReport();
     }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under default filter anchor admission year$")
+    public void i_verify_anchor_hospital_admission_year_appearing_under_default_filter_anchor_admission_year(String text) throws Throwable{
+    	reportHomePage.iVerifyAnchorAdmissionYearDefaultFilter(text);
+    }
+    
+    @Then("^I verify anchor post acute admission year \"([^\"]*)\" is preselected under episode drg issues model3 report$")
+    public void i_verify_anchor_post_acute_admission_year_is_preselected_under_episode_drg_issues_model3_report(String text) throws Throwable{
+    	reportHomePage.iSeeAnchorPostAcuteAdmissionYearFilterPreselectedUnderEpisodeDrgIssuesReport(text);
+    }
 }
 

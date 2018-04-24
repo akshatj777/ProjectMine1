@@ -158,7 +158,8 @@ Feature: Readmission Model3 report verification
     And I wait to see "Reports" tile
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
-    And I should not see Reports Tile text as "Readmissions"
+    When I click on the Reports Tile with text "Readmissions"
+    Then I should not see "Readmissions [Model 3]" report after clicking on readmissions
 
     Examples: 
       | email                         | facility | model  |

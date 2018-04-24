@@ -92,9 +92,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
     Then I should see "# Episodes" under "measures" field
     Then I should see "Participant" under "dimensions" field
     Then I should see "Episode Initiator" under "dimensions" field
-    Then I should see "Bundle" under "dimensions" field
-    Then I should see "Anchor Post Acute Discharge Care Setting" under "dimensions" field
-    Then I should see "Anchor Post Acute Admission Month" under "dimensions" field
+    Then I should see "Anchor Post Acute Provider" under "dimensions" field
 
     Examples: 
       | email                              | role   | facility    |
@@ -117,6 +115,9 @@ Feature: Inpatient Episode Clearing Model3 report verification
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
@@ -178,6 +179,9 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I switch to default window from iframe
     Then I verify "InPatient Episode Clearing [Model 3]" in the reports header page
     When I see "0" filters applied under global filters applied count
@@ -227,6 +231,9 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on "Participant" field which is listed under "Episode Initiator" filter from available fields
     And I choose "Filter" option from select options of filter field
@@ -260,6 +267,9 @@ Feature: Inpatient Episode Clearing Model3 report verification
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -308,6 +318,9 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Drag and Drop(Add to Report)
@@ -355,6 +368,9 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on "Episode Initiator" field which is listed under "Episode Initiator" filter from available fields
     And I choose "Filter" option from select options of filter field
@@ -387,6 +403,9 @@ Feature: Inpatient Episode Clearing Model3 report verification
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on "Bundle" field which is listed under "Bundle" filter from available fields
@@ -449,6 +468,9 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Drag and Drop(Add to report)
@@ -489,6 +511,9 @@ Feature: Inpatient Episode Clearing Model3 report verification
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -534,6 +559,9 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Drag and Drop(Add to Report)
@@ -577,6 +605,9 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     Then I verify the episodes count matches with dill through
 
     Examples: 
@@ -600,6 +631,9 @@ Feature: Inpatient Episode Clearing Model3 report verification
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -631,9 +665,11 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
-    When I click on show all filters icon button
     #Drag and Drop
     When I click on "Anchor Post Acute Discharge Month" field which is listed under "Anchor Post Acute Discharge Date" filter from available fields
     And I choose add to report option from select options of filter field
@@ -679,6 +715,9 @@ Feature: Inpatient Episode Clearing Model3 report verification
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
     And I wait until refresh button is disappeared
     Then I click on a number under episodes column
     Then I switch to new window
@@ -739,9 +778,11 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admit Date" field filter under "Anchor Post Acute Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
-    When I click on show all filters icon button
     Then I remove "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Admit Date" filter field from default filters
     When I click to "Eligibility" field filter under "Eligibility" filter field
     And I choose add to report option from select options of filter field
