@@ -1165,7 +1165,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iSeeAnchorPostAcuteAdmissionYearFilterPreselected(String text){
-    	verifyTextForElement(driver.findElement(By.xpath(".//div[@formula='[Anchor Post Acute Admit Date].[Anchor Post Acute Admit Date]']/span")),text);
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@formula='[Anchor Post Acute Admit Date].[Anchor Post Acute Admission Year]']/span")),text);
     }
     
     public void iSeeIsAnchorAdmissionFilterPreselected(String text){

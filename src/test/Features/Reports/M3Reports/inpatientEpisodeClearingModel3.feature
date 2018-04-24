@@ -783,7 +783,6 @@ Feature: Inpatient Episode Clearing Model3 report verification
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
-    Then I remove "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Admit Date" filter field from default filters
     When I click to "Eligibility" field filter under "Eligibility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -793,7 +792,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
     And I choose "Filter" option from select options of filter field
     And I should see "Eligibility" in the header text of filter page
     Then I verify there are no duplicate values in the eligibility filter field list
-   And I should see "<eligibility1>" in the filter value list
+    And I should see "<eligibility1>" in the filter value list
     And I should see "<eligibility2>" in the filter value list
     And I should see "<eligibility3>" in the filter value list
     And I should see "<eligibility4>" in the filter value list
