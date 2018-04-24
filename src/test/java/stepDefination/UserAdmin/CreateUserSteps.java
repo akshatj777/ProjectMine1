@@ -506,9 +506,9 @@ public class CreateUserSteps extends DriverScript {
 		createUser.clickSelectAllLocationsButton();
 	}
 
-	@Then("^I click on Submit button$")
-	public void clickSubmitButton() throws Throwable {
-		createUser.clickSubmitButton();
+	@Then("^I click on Submit button while edit for \"([^\"]*)\"$")
+	public void clickSubmitButtonForEdit(String user) throws Throwable {
+		createUser.clickSubmitButtonForEdit(user);
 	}
 	
 	@Then("^I click on Submit button for \"([^\"]*)\"$")
@@ -583,6 +583,10 @@ public class CreateUserSteps extends DriverScript {
 	
 	@Then("^I select \"([^\"]*)\" locations for Downstream Provider role$")
 	public void selectLocationsForDownstreamProvider(String locationList) throws Throwable {
+		createUser.selectLocationsForDownstreamProvider(locationList);
+	}
+	@Then("^I deselect \"([^\"]*)\" locations for Downstream Provider role$")
+	public void deselectLocationsForDownstreamProvider(String locationList) throws Throwable {
 		createUser.selectLocationsForDownstreamProvider(locationList);
 	}
 	
@@ -757,6 +761,17 @@ public class CreateUserSteps extends DriverScript {
 	 public void i_remove_Already_Selected_Role() throws Throwable {
 		 createUser.removeAlreadySelectedRole();
 	 }
+
+	 @Then("^I deselect \"([^\"]*)\" programs$")
+		public void deselectPrograms(String programList) throws Throwable {
+			createUser.deselectPrograms(programList);
+		}
+	 @Then("^I deselect \"([^\"]*)\" locations$")
+		public void deselectLocations(String locationList) throws Throwable {
+			createUser.selectLocations(locationList);
+		}
+
+
 	 
 	 @And("^I verify selected Location \"([^\"]*)\" in the selected Locations section$")
 		public void i_verify_The_Selected_Locations_In_The_selectLocations_Section(String text) throws Throwable {
@@ -808,3 +823,4 @@ public class CreateUserSteps extends DriverScript {
 		 createUser.iClickonArrowButtonsonLandingPage(text);
 	 }
 }
+
