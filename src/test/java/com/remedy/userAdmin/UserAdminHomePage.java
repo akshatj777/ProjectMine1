@@ -3,12 +3,14 @@ package com.remedy.userAdmin;
 import com.remedy.baseClass.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by salam on 7/29/15.
  */
 public class UserAdminHomePage extends BaseClass {
-
+WebDriverWait wait= new WebDriverWait(driver, 30);
 	public UserAdminHomePage(WebDriver driver) {
 
 		super(driver);
@@ -16,9 +18,11 @@ public class UserAdminHomePage extends BaseClass {
 
 	public void clickCreateUserButton() throws InterruptedException {
 		delay();
+
 		Thread.sleep(5000);
 		iWillWaitToSee(By.xpath("//button[text()='Add User']"));
 		clickElement(driver.findElement(By.xpath("//button[text()='Add User']")));
+
 	}
 
 	public void clickImportUsers() {
@@ -59,16 +63,19 @@ public class UserAdminHomePage extends BaseClass {
 	}
 
 	public void iSeeUserAdminPageHeader(String pageHeader) {
+
 		iWillWaitToSee(By.cssSelector(".row.page-header>h1"));
 		verifyTextForElement(driver.findElement(By.cssSelector(".row.page-header>h1")), pageHeader);
+
 	}
 
 	public void iSeeCreateUserText(String createUser) {
-		verifyTextForElement(driver.findElement(By.xpath("//button[@href='#/user/create']")), createUser);
+		verifyTextForElement(driver.findElement(By.xpath("//button[@class='ui green right floated button add-user-button']")), createUser);
 	}
 	
 	public void iSeeUserAdminPageLogo() {
 		isElementVisible(driver.findElement(By.cssSelector(".flex-item.order-2.btn.logo.valentino-icon-program-admin")));
+	
 	}
 
 	public void iSelectSortOption(String desc) {
