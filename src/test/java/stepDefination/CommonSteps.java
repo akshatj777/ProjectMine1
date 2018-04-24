@@ -146,9 +146,6 @@ public class CommonSteps extends DriverScript {
             Action selected = builder.build();
             selected.perform();
     	}
-
- 
-    	System.out.println("Hurray");
     }
     
     @And("^I switch back to old window in reports$")
