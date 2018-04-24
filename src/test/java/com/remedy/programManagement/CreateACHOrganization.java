@@ -17,6 +17,7 @@ public class CreateACHOrganization extends BaseClass{
 	public static HashMap<String, String> achOrg_noMO = new HashMap<String, String>();
 	public static String oldACH_WithoutMO;
 	public static String oldACH_WithMO;
+	public static String location_Id;
 
 	public CreateACHOrganization(WebDriver driver) {
 		super(driver);
@@ -43,15 +44,8 @@ public class CreateACHOrganization extends BaseClass{
 	public void iEnterCNNorNPIorEINIdOnCreateOrganizationPage(String id, String field) throws InterruptedException {
 		if (id.contains("ACH")){
 			if((id.substring(id.indexOf("-")+1).trim()).equals("CCN")){
-				if(field.contains("Location_Id")){
-					
-					//store location id and fetch here
-					iFillInText(driver.findElement(By.xpath("//input[@name='locations[0].locationId']")), achOrg.get("LID"));
-				}
-				else{
-					tempAchOrg.put("CCN", createRandomNumber(10));
-					iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("CCN"));
-				}
+				tempAchOrg.put("CCN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("CCN"));
 			}
 			else if((id.substring(id.indexOf("-")+1).trim()).equals("EIN")){
 				tempAchOrg.put("EIN", createRandomNumber(10));
@@ -329,39 +323,80 @@ public class CreateACHOrganization extends BaseClass{
     	verifyTextForElement(driver.findElement(By.cssSelector(".Select-noresults")), text);
     }
     
-    public void iEnterLocationIDForLocationOnACHOrg(String text, int num) {
+    public void iEnterLocationIDForLocationOnACHOrg(String text, int num, String field) {
     	num = num-1;
-    	if(text.equals("LID"))
-    	{
-			tempAchOrg.put("LID", createRandomNumber(20));
-			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), tempAchOrg.get("LID"));
-		}
-    	else if(text.equals("DUPLICATE_LID"))
-    	{
-    		iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), achOrg.get("LID"));
-    	}
-    	else if(text.equals("greaterthan20"))
-    	{
-    		String value = createRandomNumber(22);
-			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), value);
-    	}
-    	else
-    	{
-    		iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), text);
+    	if (field.contains("Hospital")){
+    		if(text.equals("LID"))
+        	{
+    			tempAchOrg.put("LID", createRandomNumber(20));
+    			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), tempAchOrg.get("LID"));
+    		}
+        	else if(text.equals("DUPLICATE_LID"))
+        	{
+        		iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), achOrg.get("LID"));
+        	}
+        	else if(text.equals("greaterthan20"))
+        	{
+        		String value = createRandomNumber(22);
+    			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), value);
+        	}
+        	else
+        	{
+        		iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), text);
+        	}
+    	}else if(field.contains("SNF")){
+    		if(text.equals("LID"))
+        	{
+    			CreateSNFOrganization.tempSNFOrg.put("LID", createRandomNumber(20));
+    			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), CreateSNFOrganization.tempSNFOrg.get("LID"));
+    		}
+        	else if(text.equals("DUPLICATE_LID"))
+        	{
+        		iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), CreateSNFOrganization.tempSNFOrg.get("LID"));
+        	}
+        	else if(text.equals("greaterthan20"))
+        	{
+        		String value = createRandomNumber(22);
+    			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), value);
+        	}
+        	else
+        	{
+        		iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), text);
+        	}
     	}
     }
-    public void iVerifyLocationIDShouldbeSameasOrganizationCCN()
+    
+    public void iVerifyLocationIDShouldbeSameasOrganizationCCN(String text)
     {
-    	delay();
-    	iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), CreateACHOrganization.achOrg_noMO.get("CCN"));
-		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='public_fixedDataTableCell_cellContent' and contains(text(),'"+CreateACHOrganization.achOrg_noMO.get("CCN")+"')]")));
-    }
+    	if(text.contains("Hospital")){
+    		delay();
+        	iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), CreateACHOrganization.achOrg_noMO.get("CCN"));
+    		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+    		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='public_fixedDataTableCell_cellContent' and contains(text(),'"+CreateACHOrganization.achOrg_noMO.get("CCN")+"')]")));
+    	}
+    	else if(text.contains("SNF")){
+    		delay();
+        	iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), CreateSNFOrganization.SNFOrg_noMO.get("CCN"));
+    		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+    		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='public_fixedDataTableCell_cellContent' and contains(text(),'"+CreateSNFOrganization.SNFOrg_noMO.get("CCN")+"')]")));
+        
+    	}
+    } 
     
     public void iVerifyLocationIdShouldBeGreater(int value)
     {
-    	String locationId =driver.findElements(By.cssSelector(".public_fixedDataTableCell_cellContent")).get(6).getText();
-    	int loc_Id = Integer.parseInt(locationId);
+    	location_Id =driver.findElements(By.xpath("//div[@class='fixedDataTableCellLayout_main public_fixedDataTableCell_main' and (contains(@style,'height: 30px;'))]")).get(0).getText();
+    	int loc_Id = Integer.parseInt(location_Id);
     	Assert.assertTrue(value<loc_Id);
+    }
+    
+    public void iProvideFromLastCreatedIdOnCreateOrganizationPage(String id,String field) throws InterruptedException {
+    	if(id.equalsIgnoreCase("CCN")){
+    		iFillInText(driver.findElement(By.xpath("//input[@placeholder='CCN']")), location_Id);
+    	}
+    	else if(id.equalsIgnoreCase("Location_Id")){
+    		iFillInText(driver.findElement(By.xpath("//input[@name='locations[0].locationId']")), location_Id);
+    	}
+    	
     }
 }

@@ -97,16 +97,21 @@ public class CreateACHOrganizationStepDef extends DriverScript {
 	 
 	 @And("^I enter Location Id ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
 	  public void i_Enter_LocationID_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {
-		 createACH.iEnterLocationIDForLocationOnACHOrg(text,num);
+		 createACH.iEnterLocationIDForLocationOnACHOrg(text,num,field);
 	    }
 	 
-	 @And("^I verify Location ID should be same as Organization CCN$")
-	  public void i_Verify_LocationID_Should_be_Same_as_Organization_CCN() throws Throwable {
-		 createACH.iVerifyLocationIDShouldbeSameasOrganizationCCN();
+	 @And("^I verify Location ID should be same as \"([^\"]*)\" Organization CCN$")
+	  public void i_Verify_LocationID_Should_be_Same_as_Organization_CCN(String text) throws Throwable {
+		 createACH.iVerifyLocationIDShouldbeSameasOrganizationCCN(text);
 	    }
 	 
 	 @And("^I verify Location ID should be greater than \"([^\"]*)\"$")
 	  public void i_Verify_LocationID_Should_be_Greater(int value) throws Throwable {
 		 createACH.iVerifyLocationIdShouldBeGreater(value);
+	    }
+	 
+	 @And("^I provide \"([^\"]*)\" as last created \"([^\"]*)\" on create organization page$")
+	  public void i_Provide_From_Last_Created_Id_Create_Organization_Page(String id,String field) throws Throwable {
+		 createACH.iProvideFromLastCreatedIdOnCreateOrganizationPage(id,field);
 	    }
 }

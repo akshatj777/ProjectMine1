@@ -123,6 +123,7 @@ Feature: Create SNF organization functionality tests
     And I provide unique "SNF - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I enter Location Id <Location_ID> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
@@ -130,27 +131,337 @@ Feature: Create SNF organization functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                                      | SNF_Name                                                                     | Address1                                                  | Short_Name                                     | Address2                                                  | City                                           | Postal_Code  | Loc_Name                                                                     | Loc_Address1                                              | Loc_Address2                                              | Loc_City                                                  | Loc_Postal_Code | CCN           | EIN           | NPI           | ValidationMessage                                              |
-      | Check Character Limit for SNF name field                         | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |                                                           |                                                           |                 |               |               |               | The Organization Name may not be greater than 75 characters.   |
-      | Check Character Limit for Address1 field                         |                                                                              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                                                |                                                           |                                                |              |                                                                              |                                                           |                                                           |                                                           |                 |               |               |               | The first address line may not be greater than 55 characters.  |
-      | Check Character Limit for Short Name field                       |                                                                              |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                           |                                                |              |                                                                              |                                                           |                                                           |                                                           |                 |               |               |               | The shortName may not be greater than 45 characters.           |
-      | Check Character Limit for Address2 field                         |                                                                              |                                                           |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                                                |              |                                                                              |                                                           |                                                           |                                                           |                 |               |               |               | The second address line may not be greater than 55 characters. |
-      | Check Character Limit for City field                             |                                                                              |                                                           |                                                |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |              |                                                                              |                                                           |                                                           |                                                           |                 |               |               |               | The City may not be greater than 45 characters.                |
-      | Check Character Limit for Postal code field                      |                                                                              |                                                           |                                                |                                                           |                                                | 10000-00000  |                                                                              |                                                           |                                                           |                                                           |                 |               |               |               | Please enter a valid Postal Code                               |
-      | Check Character Limit for Location name field                    |                                                                              |                                                           |                                                |                                                           |                                                |              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstqrstuvwxyzabcdefghijklmnopqrst |                                                           |                                                           |                                                           |                 |               |               |               | The Location Name may not be greater than 75 characters.       |
-      | Check Character Limit for Location Address1 field                |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                                                           |                                                           |                 |               |               |               | The first address line may not be greater than 55 characters.  |
-      | Check Character Limit for Location Address2 field                |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstjklmnopqrst |                                                           |                 |               |               |               | The second address line may not be greater than 55 characters. |
-      | Check Character Limit for Location City field                    |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                 |               |               |               | The City may not be greater than 45 characters.                |
-      | Check Character Limit for Location Postal code field             |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |                                                           |                                                           | 10000-00000     |               |               |               | Please enter a valid Postal Code                               |
-      | Check Character Limit for CCN field - Less than 6 characters     |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |                                                           |                                                           |                 | lessThan6     |               |               | The CCN must be at least 6 characters.                         |
-      | Check Character Limit for CCN field - Greater than 10 characters |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |                                                           |                                                           |                 | greaterThan10 |               |               | The CCN may not be greater than 10 characters.                 |
-      | Check Character Limit for EIN field                              |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |                                                           |                                                           |                 |               | greaterThan10 |               | The EIN may not be greater than 10 characters.                 |
-      | Check Character Limit for NPI field                              |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |                                                           |                                                           |                 |               |               | greaterThan10 | The NPI may not be greater than 10 characters.                 |
-      | Check Allowed Characters for Postal code field                   |                                                                              |                                                           |                                                |                                                           |                                                | abcdefghijkl |                                                                              |                                                           |                                                           |                                                           |                 |               |               |               | Please enter a valid Postal Code                               |
-      | Check Allowed Characters for Location Postal code field          |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |                                                           |                                                           | abcdefghijkl    |               |               |               | Please enter a valid Postal Code                               |
-      | Check Allowed Characters for CCN field                           |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |                                                           |                                                           |                 | @$%^&6!*&57   |               |               | The CCN field must be alphanumeric.                            |
-      | Check Allowed Characters for EIN field                           |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |                                                           |                                                           |                 |               | $@^&*%67$^&   |               | The EIN field must be alphanumeric.                            |
-      | Check Allowed Characters for NPI field                           |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |                                                           |                                                           |                 |               |               | *@$%^93%#^&4  | The NPI field must be alphanumeric.                            |
+      | Description                                                      | SNF_Name                                                                     | Address1                                                  | Short_Name                                     | Address2                                                  | City                                           | Postal_Code  | Loc_Name                                                                     | Loc_Address1                                              | Location_Id   | Loc_Address2                                              | Loc_City                                                  | Loc_Postal_Code | CCN           | EIN           | NPI           | ValidationMessage                                              |
+      | Check Character Limit for SNF name field                         | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |               |                                                           |                                                           |                 |               |               |               | The Organization Name may not be greater than 75 characters.   |
+      | Check Character Limit for Address1 field                         |                                                                              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                                                |                                                           |                                                |              |                                                                              |                                                           |               |                                                           |                                                           |                 |               |               |               | The first address line may not be greater than 55 characters.  |
+      | Check Character Limit for Short Name field                       |                                                                              |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                           |                                                |              |                                                                              |                                                           |               |                                                           |                                                           |                 |               |               |               | The shortName may not be greater than 45 characters.           |
+      | Check Character Limit for Address2 field                         |                                                                              |                                                           |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                                                |              |                                                                              |                                                           |               |                                                           |                                                           |                 |               |               |               | The second address line may not be greater than 55 characters. |
+      | Check Character Limit for City field                             |                                                                              |                                                           |                                                |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |              |                                                                              |                                                           |               |                                                           |                                                           |                 |               |               |               | The City may not be greater than 45 characters.                |
+      | Check Character Limit for Postal code field                      |                                                                              |                                                           |                                                |                                                           |                                                | 10000-00000  |                                                                              |                                                           |               |                                                           |                                                           |                 |               |               |               | Please enter a valid Postal Code                               |
+      | Check Character Limit for Location name field                    |                                                                              |                                                           |                                                |                                                           |                                                |              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstqrstuvwxyzabcdefghijklmnopqrst |                                                           |               |                                                           |                                                           |                 |               |               |               | The Location Name may not be greater than 75 characters.       |
+      | Check Character Limit for Location Address1 field                |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |               |                                                           |                                                           |                 |               |               |               | The first address line may not be greater than 55 characters.  |
+      | Check Character Limit for Location id field                      |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           | LID           |                                                           |                                                           |                 |               |               |               | The Location Id may not be greater than 20 characters.         |
+      | Check Character Limit for Location Address2 field                |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |               | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstjklmnopqrst |                                                           |                 |               |               |               | The second address line may not be greater than 55 characters. |
+      | Check Character Limit for Location City field                    |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |               |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                 |               |               |               | The City may not be greater than 45 characters.                |
+      | Check Character Limit for Location Postal code field             |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |               |                                                           |                                                           | 10000-00000     |               |               |               | Please enter a valid Postal Code                               |
+      | Check Character Limit for CCN field - Less than 6 characters     |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |               |                                                           |                                                           |                 | lessThan6     |               |               | The CCN must be at least 6 characters.                         |
+      | Check Character Limit for CCN field - Greater than 10 characters |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |               |                                                           |                                                           |                 | greaterThan10 |               |               | The CCN may not be greater than 10 characters.                 |
+      | Check Character Limit for EIN field                              |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |               |                                                           |                                                           |                 |               | greaterThan10 |               | The EIN may not be greater than 10 characters.                 |
+      | Check Character Limit for NPI field                              |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |               |                                                           |                                                           |                 |               |               | greaterThan10 | The NPI may not be greater than 10 characters.                 |
+      | Check Allowed Characters for Postal code field                   |                                                                              |                                                           |                                                |                                                           |                                                | abcdefghijkl |                                                                              |                                                           |               |                                                           |                                                           |                 |               |               |               | Please enter a valid Postal Code                               |
+      | Check Allowed Characters for Location Postal code field          |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |               |                                                           |                                                           | abcdefghijkl    |               |               |               | Please enter a valid Postal Code                               |
+      | Check Allowed Characters for CCN field                           |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |               |                                                           |                                                           |                 | @$%^&6!*&57   |               |               | The CCN field must be alphanumeric.                            |
+      | Check Allowed Characters for EIN field                           |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |               |                                                           |                                                           |                 |               | $@^&*%67$^&   |               | The EIN field must be alphanumeric.                            |
+      | Check Allowed Characters for NPI field                           |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |               |                                                           |                                                           |                 |               |               | *@$%^93%#^&4  | The NPI field must be alphanumeric.                            |
+      | Validation message for invalid Character format- Location Id     |                                                                              |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           | @$%fg^&*hg123 |                                                           |                                                           |                 |               |               |               | The Location Id format is invalid.                             |
+
+  Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Create SNF Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <SNF_Name> in "SNF Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "SNF - <CCN>" in "CCN" on create organization page
+    And I verify "Location 1" on "Create SNF" organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I enter Location Id <Location_ID> for Location "1" on "create SNF" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Location 2" on "Create SNF" organization page
+    And I enter location name <Loc_Name2> for Location "2" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "2" on "create" organization page
+    And I enter Location Id <Location_ID> for Location "2" on "create SNF" organization page
+    And I select location type <Loc_Type> for Location "2" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
+    And I select region <Loc_Region> for Location "2" on "create" organization page
+    And I enter city <Loc_City> for Location "2" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "2" on "create" organization page
+    And I select state <Loc_State> for Location "2" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+		Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
+    
+    Examples: 
+      | Description                                                                            | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Location_ID | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | Loc_Name2 | Message                                                                                          |
+      | Validation message for duplicate Location ID within same SNF organization - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 |  1236547890 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | Loc_Name2| There is a conflict error because an entity with similar identifying attributes already existed. |
+
+  Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Create SNF Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <SNF_Name> in "SNF Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "SNF - <CCN>" in "CCN" on create organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
+    When I search with "SNFNAME - <Has_MO>" on organization in search box
+    And I click "SNFNAME - <Has_MO>" field in search list on organization page
+    Then I verify Location ID should be same as "SNF" Organization CCN
+
+    Examples: 
+      | Description                                                                                  | Has_MO | Managing_Org | SNF_Name             | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                |
+      | Create a SNF Organization with Mandatory Fields and CCN as mandatory identifier - Without MO | NO     |              | equalsTo75Characters | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Create SNF Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <SNF_Name> in "SNF Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "SNF - <NPI>" in "NPI" on create organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
+    When I search with "SNFNAME - <Has_MO>" on organization in search box
+    And I click "SNFNAME - <Has_MO>" field in search list on organization page
+    And I verify Location ID should be greater than "100000"
+
+    Examples: 
+      | Description                                                                                      | Has_MO | Managing_Org | SNF_Name             | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                |
+      | Create a SNF Organization with Mandatory Fields and any other identifier except CCN - Without MO | NO     |              | equalsTo75Characters | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Create SNF Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <SNF_Name> in "SNF Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "SNF - <NPI>" in "NPI" on create organization page
+    And I verify "Location 1" on "Create SNF" organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Location 2" on "Create SNF" organization page
+    And I enter location name <Loc_Name> for Location "2" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "2" on "create" organization page
+    And I select location type <Loc_Type> for Location "2" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
+    And I select region <Loc_Region> for Location "2" on "create" organization page
+    And I enter city <Loc_City> for Location "2" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "2" on "create" organization page
+    And I select state <Loc_State> for Location "2" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
+    When I search with "SNFNAME - <Has_MO>" on organization in search box
+    And I click "SNFNAME - <Has_MO>" field in search list on organization page
+
+        And I verify Location ID should be greater than "100000"
+    Examples: 
+      | Description                                                                                 | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name      | CCN | EIN | NPI | Message                                |
+      | Create a SNF Organization without CCN identifier and having multiple locations - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | CCN | EIN | NPI | SNF Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Create SNF Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <SNF_Name> in "SNF Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "SNF - <NPI>" in "NPI" on create organization page
+    And I verify "Location 1" on "Create SNF" organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "SNF Organization Successfully Created." after submitting the "create SNF - <Has_MO>" organization page
+    When I search with "SNFNAME - <Has_MO>" on organization in search box
+    And I click "SNFNAME - <Has_MO>" field in search list on organization page
+    And I verify Location ID should be greater than "100000"
+    When I click on Organization link on Program Management page
+    When I click on "SNF" organization tab on organization dashboard
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Create SNF Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <SNF_Name> in "SNF Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide "CCN" as last created "Location_Id" on create organization page
+    And I verify "Location 1" on "Create SNF" organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                                                                                   | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Location_ID | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name      | CCN |  NPI | Message                                                                                                                  |
+      | Verify auto generated location ID when CCN of current organization is already used as location Id for some other organization | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 |  LID | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | CCN | NPI | There is a conflict error because an entity with similar identifying attributes already existed.(Error need to confirm ) |
+
+  Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Create SNF Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <SNF_Name> in "SNF Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "SNF - <CCN>" in "CCN" on create organization page
+    And I verify "Location 1" on "Create SNF" organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I enter Location Id <Location_ID> for Location "1" on "create SNF" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                         | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Location_ID | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name      | CCN | EIN | NPI | Message                                |
+      | Create a SNF Organization(With - Location Id + CCN) | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 |  1236547890 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | CCN | EIN | NPI | SNF Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I click on "Hospital" organization tab on organization dashboard
+    Then I click on "+" button on "Hospital" organization page
+    And I verify "Create Hospital Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter ACHNAME in "Hospital Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
+    And I verify "Location 1" on "Create Hospital" organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I enter Location Id <Location_ID> for Location "1" on "create" organization page
+    And I select location type Inpatient for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "Hospital Organization Successfully Created." after submitting the "create ACH - <Has_MO>" organization page
+    When I search with "ACHNAME - <Has_MO>" on organization in search box
+    And I click "ACHNAME - <Has_MO>" field in search list on organization page
+    And I verify Location ID should be greater than "100000"
+    When I click on Organization link on Program Management page
+    When I click on "SNF" organization tab on organization dashboard
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Create SNF Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <SNF_NAME> in "SNF Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "SNF - <NPI>" in "NPI" on create organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I provide "Location_Id" as last created "Location_Id" on create organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                     | Has_MO | Managing_Org | SNF_NAME | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Location_ID | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | NPI | Message                                                                                          |
+      | Validation message using already existing Hospital Location ID. | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 |  1236547890 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | NPI | There is a conflict error because an entity with similar identifying attributes already existed. |
 
   Scenario Outline: <Description>
     When I click on "SNF" organization tab on organization dashboard

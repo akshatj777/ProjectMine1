@@ -124,7 +124,7 @@ Feature: Create Hospital organization functionality tests
     And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
-    And I enter Location Id <Location_ID> for Location "1" on "create" organization page
+    And I enter Location Id <Location_ID> for Location "1" on "create Hospital" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
@@ -174,9 +174,9 @@ Feature: Create Hospital organization functionality tests
     And I provide unique "ACH - <EIN>" in "EIN" on create organization page
     And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I verify "Location 1" on "Create Hospital" organization page
-    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter location name LocationName for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
-    And I enter Location Id <Location_ID> for Location "1" on "create" organization page
+    And I enter Location Id <Location_ID> for Location "1" on "create Hospital" organization page
     And I select location type <Loc_Type> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
@@ -188,7 +188,7 @@ Feature: Create Hospital organization functionality tests
     And I verify "Location 2" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "2" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "2" on "create" organization page
-    And I enter Location Id <Location_ID> for Location "2" on "create" organization page
+    And I enter Location Id <Location_ID> for Location "2" on "create Hospital" organization page
     And I select location type <Loc_Type> for Location "2" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
     And I select region <Loc_Region> for Location "2" on "create" organization page
@@ -486,9 +486,9 @@ Feature: Create Hospital organization functionality tests
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
-    When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
-    And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
-    Then I verify Location ID should be same as Organization CCN
+    When I search with "ACHNAME - <Has_MO>" on organization in search box
+    And I click "ACHNAME - <Has_MO>" field in search list on organization page
+    Then I verify Location ID should be same as "Hospital" Organization CCN
 
     Examples: 
       | Description                                                                                       | Has_MO | Managing_Org | Hosp_Name            | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                     |
@@ -569,8 +569,8 @@ Feature: Create Hospital organization functionality tests
 
     #    And I verify Location ID should be greater than "100000"
     Examples: 
-      | Description                                                                                      | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name      | CCN | EIN | NPI | Message                                                                                          |
-      | Create a Hospital Organization without CCN identifier and having multiple locations - Without MO | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | CCN | EIN | NPI | There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Description                                                                                      | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name      | CCN | EIN | NPI | Message                                     |
+      | Create a Hospital Organization without CCN identifier and having multiple locations - Without MO | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -589,7 +589,6 @@ Feature: Create Hospital organization functionality tests
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
-    And I enter Location Id <Location_ID> for Location "1" on "create" organization page
     And I select location type <Loc_Type> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
@@ -609,7 +608,7 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "ACH - <CCN>" in "location_Id" on create organization page
+    And I provide "CCN" as last created "Location_Id" on create organization page
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
@@ -624,8 +623,8 @@ Feature: Create Hospital organization functionality tests
     Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
 
     Examples: 
-      | Description                                                                                      | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Location_ID | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name      | CCN | EIN | NPI | Message                                                                                                                  |
-      | Create a Hospital Organization without CCN identifier and having multiple locations - Without MO | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 |  1234567890 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | CCN | EIN | NPI | There is a conflict error because an entity with similar identifying attributes already existed.(Error need to confirm ) |
+      | Description                                                                                                                   | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Location_ID | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name      | CCN | EIN | NPI | Message                                                                                          |
+      | verify auto generated location ID when CCN of current organization is already used as location Id for some other organization | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 |  1234567890 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | CCN | EIN | NPI | There is a conflict error because an entity with similar identifying attributes already existed. |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -644,7 +643,7 @@ Feature: Create Hospital organization functionality tests
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
-    And I enter Location Id <Location_ID> for Location "1" on "create" organization page
+    And I enter Location Id <Location_ID> for Location "1" on "create Hospital" organization page
     And I select location type <Loc_Type> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
@@ -653,11 +652,71 @@ Feature: Create Hospital organization functionality tests
     And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "Submit" button on "create" organization page
-    Then I verify duplicate "<Message>" after submitting the "create ACH - <Has_MO>" organization page
+    Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
 
     Examples: 
       | Description                                              | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Location_ID | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name      | CCN | EIN | NPI | Message                                     |
       | Create a Hospital Organization(With - Location Id + CCN) | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 |  1236547890 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Create SNF Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter SNF in "SNF Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "SNF - <NPI>" in "NPI" on create organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I select location type Skilled Nursing for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "SNF Organization Successfully Created." after submitting the "create SNF - <Has_MO>" organization page
+    When I search with "SNFNAME - <Has_MO>" on organization in search box
+    And I click "SNFNAME - <Has_MO>" field in search list on organization page
+    And I verify Location ID should be greater than "100000"
+    When I click on Organization link on Program Management page
+    When I click on "Hospital" organization tab on organization dashboard
+    Then I click on "+" button on "Hospital" organization page
+    And I verify "Create Hospital Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <Hosp_Name> in "Hospital Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
+    And I verify "Location 1" on "Create Hospital" organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I provide "Location_Id" as last created "Location_Id" on create organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Location_ID | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name      | CCN | EIN | NPI | Message                                                                                         |
+      | Validation message using already existing SNF Location ID. | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 |  1236547890 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | CCN | EIN | NPI | There is a conflict error because an entity with similar identifying attributes already existed |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -729,8 +788,6 @@ Feature: Create Hospital organization functionality tests
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
     And I provide unique "ACH - <CCN>" in "CCN" on create organization page
-    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
-    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
     And I select location type <Loc_Type> for Location "1" on "create" organization page
