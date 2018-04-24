@@ -1,11 +1,8 @@
 package stepDefination.Episode1;
 
 import org.openqa.selenium.By;
-
 import com.remedy.episode1.PatientDetails;
 import com.remedy.resources.DriverScript;
-//import com.thoughtworks.selenium.webdriven.commands.IsElementPresent;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
