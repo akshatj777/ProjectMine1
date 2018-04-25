@@ -331,6 +331,11 @@ public class CreateACHOrganization extends BaseClass{
     			tempAchOrg.put("LID", createRandomNumber(20));
     			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), tempAchOrg.get("LID"));
     		}
+    		if(text.equals("LIDmorethan20characters"))
+        	{
+    			tempAchOrg.put("LID", createRandomNumber(21));
+    			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), tempAchOrg.get("LID"));
+    		}
         	else if(text.equals("DUPLICATE_LID"))
         	{
         		iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), achOrg.get("LID"));
