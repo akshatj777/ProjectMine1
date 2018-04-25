@@ -1974,5 +1974,10 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_anchor_post_acute_admission_year_is_preselected_under_episode_drg_issues_model3_report(String text) throws Throwable{
     	reportHomePage.iSeeAnchorPostAcuteAdmissionYearFilterPreselectedUnderEpisodeDrgIssuesReport(text);
     }
+    
+    @Then("^I verify anchor post acute admission year \"([^\"]*)\" is preselected under ipec model3 report$")
+    public void i_verify_anchor_post_acute_admission_year_is_preselected_under_ipec_model3_report(String text) throws Throwable{
+    	reportHomePage.iSeeAnchorPostAcuteAdmissionYearFilterPreselectedInIPECModel3(text);
+    }
 }
 

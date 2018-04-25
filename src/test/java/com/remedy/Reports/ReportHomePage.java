@@ -1604,4 +1604,8 @@ public class ReportHomePage extends BaseClass {
     public void iSeeAnchorPostAcuteAdmissionYearFilterPreselectedUnderEpisodeDrgIssuesReport(String text){
     	verifyTextForElement(driver.findElement(By.xpath(".//div[@formula='[Anchor Post Acute Admit Date].[Anchor Post Acute Admission Year]']/span")),text);
     }
+    
+    public void iSeeAnchorPostAcuteAdmissionYearFilterPreselectedInIPECModel3(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@formula='[Anchor Post Acute Admit Date].[Anchor Post Acute Admission Date]']/span")),text);
+    }
 }
