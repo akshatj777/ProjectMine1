@@ -421,7 +421,6 @@ Feature: Global Filters Verification for Multiple Scenarios
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<participant>" result in "Participant" field column for "Episode Initiator" filter field
-    When I click on filter count label to see preselected filters
     Then I verify participant is selected with <participant> under selected filters
     When I switch to default window from iframe
     Then I scroll the page to bottom by "-250"
