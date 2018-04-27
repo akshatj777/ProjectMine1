@@ -57,7 +57,7 @@ public class BaseClass {
 	}
 	public WebDriverWait waitTo()
 	{
-		WebDriverWait wait = new WebDriverWait(driver, 120);
+		WebDriverWait wait = new WebDriverWait(driver, 240);
 		return wait;
 	}
 
@@ -530,5 +530,8 @@ public class BaseClass {
 	public String getTheCurrentUrl(){
 		return driver.getCurrentUrl();
 	}
+	
+	public void scrollToTopOfThePage(){
+		((JavascriptExecutor)driver).executeScript("window.scrollTo(0, -document.body.scrollHeight)");	
+	}
 }
-
