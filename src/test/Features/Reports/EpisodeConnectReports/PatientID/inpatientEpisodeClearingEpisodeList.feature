@@ -147,9 +147,6 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
-    When I click on show all filters icon button
-    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
-    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click to "DOB" field filter under "Patient" filter field
     And I choose add to report option from select options of filter field
