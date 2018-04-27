@@ -20,24 +20,16 @@ public class BulkUserCreationPage extends BaseClass{
 
     }
 
-
     public void iUplaodFile(){
 
 
         String filepath =  (System.getProperty("user.dir") + "/src/test/java/com/remedy/resources/bulkUserCreation.txt");
         WebElement elem = driver.findElement(By.cssSelector(".button-import>button"));
         elem.sendKeys(filepath);
-
-
     }
 
     public void iVerifySuccssfulUserCreationMessage(String text){
 
         verifyTextForElement(driver.findElement(By.xpath("//div[5]/div/div/div/div[2]/div/div[2]/div/span[2]")), text);
     }
-
-
-
-
-
 }

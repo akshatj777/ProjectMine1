@@ -12,17 +12,14 @@ public class BulkLoadSteps extends DriverScript{
 
     BulkUserCreationPage bulkUser = new BulkUserCreationPage (driver);
 
-
     @And("^I upload file for bulk load users$")
     public void iUploadFileForBulkLoadUsers() throws Throwable {
 
         bulkUser.iUplaodFile();
     }
 
-
     @And("^I verify the Success Message$")
     public void iVerifyTheSucessMessage() throws Throwable {
         bulkUser.iVerifySuccssfulUserCreationMessage("1 user(s) successfully created");
-
     }
 }
