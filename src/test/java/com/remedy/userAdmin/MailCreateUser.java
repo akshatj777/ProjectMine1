@@ -33,27 +33,12 @@ public class MailCreateUser extends BaseClass{
 	static String mail = "test.automatemail";
 	static String email = null;
 
-
 	public MailCreateUser(WebDriver driver) {
 		super(driver);
 	}
-	
 
 	public void iAmOnMailLoginPage() throws InterruptedException, AWTException {
-//		driver.get("chrome://settings/");
-//		Thread.sleep(5000);
-//		scrollIntoViewByJS(driver.findElement(By.cssSelector("* /deep/ #zoomLevel")));
-//		driver.findElement(By.cssSelector("* /deep/ #zoomLevel")).click();
-//		delay();
-//		Select oSelect = new Select(driver.findElement(By.cssSelector("* /deep/ #zoomLevel")));
-//		oSelect.selectByValue("0.9");
 		driver.navigate().to("https://accounts.google.com");
-
-        if(DriverScript.Config.getProperty("Browser").equals("chrome"))
-        {
-        	driver.manage().window().maximize();
-        }
-
 	}
 	
 	public void iEnterUserNameToLoginMailAccount(String username) {
@@ -84,9 +69,7 @@ public class MailCreateUser extends BaseClass{
 			{
 				clickElement(driver.findElement(By.xpath("//span[text()='Sign in']")));
 			}
-			
 		}
-		
 	}
 	
 	public void iClickOnMailIconOnMyAccount() {	
@@ -95,6 +78,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iClickOnInboxUnderMail() throws InterruptedException {
+		Thread.sleep(4000);
 		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox')]"));
 		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
 		Thread.sleep(4000);
@@ -102,9 +86,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iClickOnSelectAllCheckBoxInMail() {
-
 		iWillWaitToSee(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']"));
-
 		clickElement(driver.findElement(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']")));
 	}
 	
@@ -144,7 +126,6 @@ public class MailCreateUser extends BaseClass{
 		if(emailName.equalsIgnoreCase("test.automatemail"))
 			{
 			email = emailName+"+"+RandomStringUtils.randomAlphabetic(8)+"@gmail.com";
-
 			iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
 			driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(email);
 			}
@@ -157,7 +138,6 @@ public class MailCreateUser extends BaseClass{
 		else
 			{
 			iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
-
 			driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(emailName);
 			}
 	}
@@ -203,9 +183,13 @@ public class MailCreateUser extends BaseClass{
     	Assert.assertTrue(isElementPresentOnPage((By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password We recently received a request to create')]"))));
 	}
 	
-	public void iClickOnChangePasswordMailInInboxInMyAccount() {
+	public void iClickOnChangePasswordMailInInboxInMyAccount() throws InterruptedException {
 		iWillWaitToSee(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]"));
-		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")));
+		Thread.sleep(3000);
+		if(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")).isEnabled())
+		{
+			clickElement(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")));
+		}
 	}
 	
 	public void iEnterNewPasswordToSetNewPassword(String text) {
@@ -240,7 +224,5 @@ public class MailCreateUser extends BaseClass{
 		    driver.findElement(By.cssSelector("* /deep/ #clearBrowsingDataConfirm")).click();
 		    Thread.sleep(10000);
 	    }
-
 	}
-	
 }
