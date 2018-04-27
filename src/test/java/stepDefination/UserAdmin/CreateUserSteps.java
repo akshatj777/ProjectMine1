@@ -500,6 +500,11 @@ public class CreateUserSteps extends DriverScript {
 	public void verifyHeader(String text) throws Throwable {
 		createUser.verifyHeader(text);
 	}
+	
+	@Then("^I select already selected \"([^\"]*)\"$")
+	public void selectAlreadySelectedHealthSystem(String text) throws Throwable {
+		createUser.clickAlreadySelectedHealthSystem(text);
+	}
 
 	@Then("^I click on Select All Locations button$")
 	public void clickSelectAllLocationsButton() throws Throwable {
@@ -514,6 +519,14 @@ public class CreateUserSteps extends DriverScript {
 	@Then("^I click on Submit button for \"([^\"]*)\"$")
 	public void clickSubmitButtonForDifferentUsers(String user) throws Throwable {
 		createUser.clickSubmitButtonForDifferentUsers(user);
+	}
+
+
+	
+	@Then("^I click on Submit button to check for error message$")
+	public void clickSubmitButtonToCheckError() throws Throwable {
+		createUser.clickSubmitButtonToCheckErrorMessage();
+
 	}
 
 	@Then("^I verify applications \"([^\"]*)\" are unchecked$")
@@ -555,7 +568,10 @@ public class CreateUserSteps extends DriverScript {
 	public void enterTextLearningPathwaySearchBox(String searchParam) throws Throwable {
 		createUser.enterTextLearningPathwaySearchBox(searchParam);
 	}
-
+	@Then("^I remove \"([^\"]*)\" from the results$")
+	public void removeLearningPath(String searchParam) throws Throwable {
+		createUser.selectLearningPath(searchParam);
+	}
 	@Then("^I select \"([^\"]*)\" from the results$")
 	public void selectLearningPath(String searchParam) throws Throwable {
 		createUser.selectLearningPath(searchParam);
@@ -590,6 +606,7 @@ public class CreateUserSteps extends DriverScript {
 		createUser.selectLocationsForDownstreamProvider(locationList);
 	}
 	
+	@When("^I deselect \"([^\"]*)\" locations for PTA user$")
 	@Then("^I select \"([^\"]*)\" locations for PTA user$")
 	public void selectLocationsForPTAUser(String locationList) throws Throwable {
 		createUser.selectLocationsForPTAUser(locationList);
@@ -708,7 +725,7 @@ public class CreateUserSteps extends DriverScript {
 	 }
 	 
 	 @And("^I verify No results found under Learning Pathway search box$")
-	 public void i_Verify_NoResultsfound_Under_LearningPathway_Search(){
+	 public void i_Verify_NoResultsfound_Under_LearningPathway_Search() throws InterruptedException{
 		 createUser.iVerifyNoResultsFoundUnderLearningPathWaySearch();
 	 }
 	 
@@ -762,6 +779,7 @@ public class CreateUserSteps extends DriverScript {
 		 createUser.removeAlreadySelectedRole();
 	 }
 
+
 	 @Then("^I deselect \"([^\"]*)\" programs$")
 		public void deselectPrograms(String programList) throws Throwable {
 			createUser.deselectPrograms(programList);
@@ -771,7 +789,10 @@ public class CreateUserSteps extends DriverScript {
 			createUser.selectLocations(locationList);
 		}
 
-
+	 @And("^I verify selected Location \"([^\"]*)\" are not shown in selected Locations section$")
+	 public void i_verify_The_Selected_Locations_Not_Present_In_The_selectLocations_Section(String text) throws Throwable {
+			createUser.iVerifyTheSelectedLocationsAreNotPresentInSelectLocationsSection(text);
+		}
 	 
 	 @And("^I verify selected Location \"([^\"]*)\" in the selected Locations section$")
 		public void i_verify_The_Selected_Locations_In_The_selectLocations_Section(String text) throws Throwable {
@@ -822,5 +843,21 @@ public class CreateUserSteps extends DriverScript {
 		public void i_Click_on_Arrow_Buttons_on_Landing_Page(String text) throws Throwable {
 		 createUser.iClickonArrowButtonsonLandingPage(text);
 	 }
+	 @Then("^I enter NPI field with existing NPI for \"([^\"]*)\"$")
+	 public void iEnterExistingNPI(String userRole){
+		 createUser.iEnterExistingNPI(userRole);
+	 }
+	 @Then("^I should see error message for duplicate value \"([^\"]*)\"$")
+	 public void duplicateNPIMsg(String text){
+		 createUser.duplicateNPIMsg(text);
+	 }
+	
+	 @Then("^I enter existing Email to Create user for \"([^\"]*)\"$")
+	 public void iEnterExistingEmail(String userRole){
+		 createUser.iEnterExistingEmail(userRole);
+	 }
+	 @Then("^I verify that \\\"([^\\\"]*)\\\" is not present under the bpid$")
+	 public void iVerifyAllLocationsPresence(String text) {
+		 createUser.iVerifyAllLocationsPresence(text);
+	 }
 }
-
