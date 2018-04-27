@@ -118,4 +118,8 @@ public class ViewUserSteps extends DriverScript{
 	public void i_verify_disabled(String applicationsDisabled) throws Throwable {
 		objViewUserPage.verifyDisabledApplications(applicationsDisabled);
 	}
+	@Then("^I refresh the view user page$")
+	public void iRefreshViewUserPage() {
+		objViewUserPage.iRefreshViewUserPage();
+	}
 }

@@ -66,7 +66,7 @@ public class SuperUserLandingPageSteps extends DriverScript {
 
 	@Then("^I \"([^\"]*)\" user$")
 	public void iLockUnlockUser(String action) throws Throwable {
-		ua2LandingPage.iLockUnlockUser();
+		ua2LandingPage.iLockUnlockUser(action);
 	}
 	
 	@Then("^I verify user is \"([^\"]*)\"$")
@@ -172,6 +172,47 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	public void i_Verify_Email_For_PTA_Executive_Role(String text, String Role){
 		ua2LandingPage.iVerifyEmailForPTAExecutiveRole(text, Role);
 	}
+	@Then("^I verify availability of link \"([^\"]*)\"$")
+	public void iVerifyDeleteUserLink(String text){
+	ua2LandingPage.iVerifyDeleteUserLink(text);
+	}
+
+	@Then("^I click on \"([^\"]*)\" link on general information tab$")
+	public void i_click_on_link_on_general_information_tab(String arg1) throws Throwable {
+		ua2LandingPage.iClickOnDeleteUser(arg1);
+	}
+	@Then("^I verify text \"([^\"]*)\"$")
+	public void iVerifyTextWhileDeletingUser(String text){
+		ua2LandingPage.iVerifyTextWhileDeletingUser(text);
+	}
+	@Then("^I verify \"([^\"]*)\" button on deletion alert$")
+	public void iVerifyCancelButtonWhileDeletingUser(String text){
+		ua2LandingPage.iVerifyCancelButtonWhileDeletingUser(text);
+	}
+	@Then("^I click on \"([^\"]*)\" button on deletion alert$")
+	public void iClickCancelButtonWhileDeletingUser(String text){
+		ua2LandingPage.iClickCancelButtonWhileDeletingUser(text);
+	}
+	@Then("^I verify availability of \"([^\"]*)\" button on deletion alert$")
+	public void iVerifyDeleteButtonWhileDeletingUser(String text){
+		ua2LandingPage.iVerifyDeleteButtonWhileDeletingUser(text);
+	}
+	@Then("^I click on \"([^\"]*)\" button to delete user$")
+	public void iClickDeleteButtonToDeleteUser(String text){
+		ua2LandingPage.iClickDeleteButtonToDeleteUser(text);
+	}
+	
+	
+	@Then("^I click on \"([^\"]*)\" tile from menu$")
+	public void iClickOnTileFromEC(String text){
+		ua2LandingPage.iClickOnTileFromEC(text);
+	}
+	@Then("^I click on \"([^\"]*)\" from Management dropdown$")
+	public void iSelectTileFromManagementDropDown(String text){
+		ua2LandingPage.iSelectTileFromManagementDropDown(text);
+	}
+	@Then("^I verify page tile for reports page$")
+	public void iVerifyReportsPage(){
+	ua2LandingPage.iVerifyReportsPage();
+	}
 }
-
-

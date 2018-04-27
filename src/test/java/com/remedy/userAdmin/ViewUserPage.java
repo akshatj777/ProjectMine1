@@ -17,6 +17,7 @@ public class ViewUserPage extends BaseClass {
 	}
 
 	public void searchForUserRole(String userRole) throws Throwable {
+		driver.navigate().refresh();
 		iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']"));
 		Thread.sleep(3000);
 		String email = CreateUserPage.usersEmailPerRole.get(userRole).get(userRole.substring((userRole.indexOf("-")+1)).trim());
@@ -74,9 +75,9 @@ public class ViewUserPage extends BaseClass {
 				StringTokenizer st = new StringTokenizer(healthSystem, ",");
 				while(st.hasMoreTokens())
 				{
-					
-					iWillWaitToSee(By.xpath("//span[contains(text(),'"+st.nextToken().trim()+"')]"));
-					Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[contains(text(),'"+st.nextToken().trim()+"')]")));
+					String app = st.nextToken().trim();
+					iWillWaitToSee(By.xpath("//span[contains(text(),'"+app+"')]"));
+					Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[contains(text(),'"+app+"')]")));
 				}
 			}
 			else
@@ -126,12 +127,12 @@ public class ViewUserPage extends BaseClass {
 					String location = token.substring(token.lastIndexOf("--")+2, token.length());
 			    	driver.findElement(By.xpath("//span[contains(text(),'"+healthSystem+"')]")).click();
 			    	Thread.sleep(3000);
-			    	if(driver.findElement(By.xpath("//div[@class='content active']//input")).isDisplayed())
+			    	if(driver.findElement(By.xpath("//div[@class='content active data-permissions-content']//input")).isDisplayed())
 			    	{
-			    		driver.findElement(By.xpath("//div[@class='content active']//input")).sendKeys(location);
+			    		driver.findElement(By.xpath("//div[@class='content active data-permissions-content']//input")).sendKeys(location);
 			    		Thread.sleep(3000);
-			    		iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]"));
-			    		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]")));
+			    		iWillWaitToSee(By.xpath("//div[@class='content active data-permissions-content']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]"));
+			    		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='content active data-permissions-content']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]")));
 			    		Thread.sleep(3000);
 			    		driver.findElement(By.xpath("//span[contains(text(),'"+healthSystem+"')]")).click();
 			    	}
@@ -144,12 +145,12 @@ public class ViewUserPage extends BaseClass {
 				String location = locations.substring(locations.lastIndexOf("--")+2, locations.length());
 				driver.findElement(By.xpath("//span[contains(text(),'"+healthSystem+"')]")).click();
 				Thread.sleep(3000);
-				if(driver.findElement(By.xpath("//div[@class='content active']//input")).isDisplayed())
+				if(driver.findElement(By.xpath("//div[@class='content active data-permissions-content']//input")).isDisplayed())
 		    	{
-		    		driver.findElement(By.xpath("//div[@class='content active']//input")).sendKeys(location);
+		    		driver.findElement(By.xpath("//div[@class='content active data-permissions-content']//input")).sendKeys(location);
 		    		Thread.sleep(3000);
-		    		iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]"));
-		    		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]")));
+		    		iWillWaitToSee(By.xpath("//div[@class='content active data-permissions-content']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]"));
+		    		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='content active data-permissions-content']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]")));
 		    		Thread.sleep(3000);
 		    	}
 			}
@@ -165,7 +166,7 @@ public class ViewUserPage extends BaseClass {
 	}
 	
 	public void clickCrossButton() throws Throwable {
-		driver.findElement(By.xpath("//i[@class='close icon']")).click();
+		driver.findElement(By.xpath("//*[name()='svg' and @fill='#48677b']//*[name()='g' and @id='iCons']")).click();
 	}
 	
 	public void clickEditIcon() throws Throwable {
@@ -239,5 +240,8 @@ public class ViewUserPage extends BaseClass {
 				isElementPresentOnPage(By.xpath("//tr/td[text()='"+applicationsDisabled+"']/parent::tr/td[text()='Disabled']"));
 			}
 		}
+	}
+public void iRefreshViewUserPage() {
+	driver.navigate().refresh();
 	}
 }
