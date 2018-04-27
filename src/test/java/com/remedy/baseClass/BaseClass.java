@@ -530,5 +530,8 @@ public class BaseClass {
 	public String getTheCurrentUrl(){
 		return driver.getCurrentUrl();
 	}
+	
+	public void scrollToTopOfThePage(){
+		((JavascriptExecutor)driver).executeScript("window.scrollTo(0, -document.body.scrollHeight)");	
+	}
 }
-
