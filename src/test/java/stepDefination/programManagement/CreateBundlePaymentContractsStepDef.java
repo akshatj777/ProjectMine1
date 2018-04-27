@@ -11,7 +11,6 @@ public class CreateBundlePaymentContractsStepDef extends DriverScript {
 	CreateBundlePaymentContracts CreateBPContracts= new CreateBundlePaymentContracts(driver);
 	CreateManagingOrganization createMO = new CreateManagingOrganization(driver);
 	
-	
 	@And("^I verify \"([^\"]*)\" field on create Contracts page under Payor Organization$")
 	  public void i_Verify_Contracts_Field_On_Create_Contracts_Page_Under_payor_Organiztion(String text) throws Throwable {
 		CreateBPContracts.iVerifyContractsFieldOnCreateContractsPageUnderPayorOrganiztion(text);
@@ -26,9 +25,4 @@ public class CreateBundlePaymentContractsStepDef extends DriverScript {
 	  public void i_Click_and_Search_with_Invalid_Name_on_Dropdown_Box(String text) throws Throwable {
 		CreateBPContracts.iClickandSearchWithInvalidNameonDropdownBox(text);
 	 }
-	
-//	@And("^I enter price \"([^\"]*)\" in \"([^\"]*)\" field for \"([^\"]*)\" on create Contract page$")
-//	  public void i_Click_and_Search_with_Invalid_Name_on_Dropdown_Box(String text, String field, String field1) throws Throwable {
-//		CreateBPContracts.iEnterPriceDetailsInCreateContractPage(text,field,field1);
-//	 }
 }
