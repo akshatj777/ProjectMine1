@@ -546,5 +546,8 @@ public class BaseClass {
   	  int startIndex = length - subStringLength;
   	  return inputString.substring(startIndex);
   	 }
+	
+	public void scrollToTopOfThePage(){
+		((JavascriptExecutor)driver).executeScript("window.scrollTo(0, -document.body.scrollHeight)");	
+	}
 }
-

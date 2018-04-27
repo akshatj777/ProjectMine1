@@ -1,20 +1,20 @@
 package com.remedy.userAdmin;
 
-import java.util.StringTokenizer;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import com.remedy.baseClass.BaseClass;
 import com.remedy.userAdmin.CreateUserPage;
 
 public class SuperUserLandingPage extends BaseClass {
 	static String mail = "test.automatemail";
 	static String email = null;
-
-	public SuperUserLandingPage(WebDriver driver) {
-
+	WebDriverWait wait = new WebDriverWait(driver, 60);
+	
+	public SuperUserLandingPage(WebDriver driver) 
+	{
 		super(driver);
 	}
 
@@ -35,10 +35,10 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iVerifyLandingPageUI(String text) {
-		iWillWaitToSee(By.cssSelector("table.ui.celled.sortable.striped.table.users-table"));
-		iWillWaitToSee(By.cssSelector("div.chevron-group"));
+		iWillWaitToSee(By.cssSelector("table.ui.celled.sortable.striped.table tbody"));
+		//iWillWaitToSee(By.cssSelector("div.chevron-group"));
 		if (text.contains("User table"))
-			isElementVisible(driver.findElement(By.cssSelector("table.ui.celled.sortable.striped.table.users-table")));
+			isElementVisible(driver.findElement(By.cssSelector("table.ui.celled.sortable.striped.table tbody")));
 		else if(text.equals("SearchBox"))
 		{
 			iWillWaitToSee(By.xpath("//input[@placeholder='Search']"));
@@ -50,7 +50,8 @@ public class SuperUserLandingPage extends BaseClass {
 		}
 		else if(text.equals("EmailOnTopRight"))
 		{
-			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='lbarinstein+qaadmin@remedypartners.com']")));
+			//Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='lbarinstein+qaadmin@remedypartners.com']")));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='Leonid']")));
 		}
 		else if(text.equals("Next Page Icon"))
 		{
@@ -269,6 +270,7 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iClickOnTopUserDropDown() {
+		iWillWaitToSee(By.id("lastName"));
 		iWillWaitToSee(By.cssSelector("i.dropdown.icon"));
 		clickElement(driver.findElements(By.cssSelector("i.dropdown.icon")).get(1));
 	}
@@ -277,21 +279,32 @@ public class SuperUserLandingPage extends BaseClass {
 		selectElementByDesc(".item", text);
 	}
 
-	public void iLockUnlockUser() {
-		clickElement(driver.findElement(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg']")));
-		longDelay();
+	public void iLockUnlockUser(String action) {
+		if(action.equals("lock"))
+		{
+			iWillWaitToSee(By.xpath("//span[@class='component-lock-icon unlocked']"));
+			driver.findElement(By.xpath("//span[@class='component-lock-icon unlocked']")).click();
+			delay();
+		}
+		else if(action.equals("unlock"))
+		{
+			iWillWaitToSee(By.xpath("//span[@class='component-lock-icon locked']"));
+			driver.findElement(By.xpath("//span[@class='component-lock-icon locked']")).click();
+			delay();
+		}
 	}
 	
 	public void verifyLockedUser(String action) {
 		if(action.equals("Locked"))
 		{
-			Assert.assertTrue(isElementPresentOnPage(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#007193']")));
+			iWillWaitToSee(By.xpath("//span[@class='component-lock-icon locked']"));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[@class='component-lock-icon locked']")));
 		}
 		else if(action.equals("Unlocked"))
 		{
-			Assert.assertTrue(isElementPresentOnPage(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#D5EBFB']")));
+			iWillWaitToSee(By.xpath("//span[@class='component-lock-icon unlocked']"));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[@class='component-lock-icon unlocked']")));
 		}
-		
 	}
 
 	public void iVerifyTextfromUnlockPopup(String text) {
@@ -307,20 +320,24 @@ public class SuperUserLandingPage extends BaseClass {
 	public void iClickOnButtonFromPopup(String text) {
 		iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
 		clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+		longDelay();
 	}
 
 	public void iClickOnUsersLink() {
+		iWillWaitToSee(By.xpath("//a[@href='https://user-admin-dev.remedypartners.com']"));
 		clickElement(driver.findElement(By.xpath("//a[@href='https://user-admin-dev.remedypartners.com']")));
 		longDelay();
 	}
 
 	public void iClickOnAddUserButton() {
-		iWillWaitToSee(By.cssSelector("button.ui.green.right.floated.button.add-user-button"));
-		clickElement(driver.findElement(By.cssSelector("button.ui.green.right.floated.button.add-user-button")));
+		scrollToTopOfThePage();
+		iWillWaitToSee(By.xpath("//button[text()='Add User']"));
+		clickElement(driver.findElement(By.xpath("//button[text()='Add User']")));
 	}
 
 	public void iverifyAddUserButton() {
-		isElementVisible(driver.findElement(By.cssSelector("button.ui.green.right.floated.button.add-user-button")));
+		scrollToTopOfThePage();
+		isElementPresentOnPage(By.xpath("//button[text()='Add User']"));
 	}
 
 	public void iVerifyAddUserPage() {
@@ -329,8 +346,8 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iClickOnCloseIconFromAddUserPage() {
-		iWillWaitToSee(By.cssSelector("i.close.icon"));
-		clickElement(driver.findElement(By.cssSelector("i.close.icon")));
+		iWillWaitToSee(By.xpath("//*[name()='svg'][@fill='#48677b']"));
+		clickElement(driver.findElement(By.xpath("//*[name()='svg'][@fill='#48677b']")));
 	}
 
 	public void verifyUserBlockedMessageOnLandingPage() {
@@ -373,14 +390,15 @@ public void iVerifyRowCountForSearchByEmail(){
 	Assert.assertEquals(driver.findElements(By.cssSelector(".five.wide")).size(), 1);
 }
 public void iSelectAUser(){
+	scrollToTopOfThePage();
 	iWillWaitToSee(By.cssSelector("td.five.wide"));
 	clickElement(driver.findElements(By.cssSelector("td.five.wide")).get(0));
 	
 }
-public void iVerifyViewUserPage(){
-	delay();
-	iWillWaitToSee(By.cssSelector(".six.wide.column.header-navigation>a"));
-	isElementPresent(By.cssSelector(".six.wide.column.header-navigation>a"));
+public void iVerifyViewUserPage()
+{
+	iWillWaitToSee(By.xpath("//a[text()='All Users /']"));
+	Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[text()='All Users /']")));
 }
 public void iShouldNotSeeErrorMsgOnUsersPage(String text){
 	Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+text+"')]")));
@@ -424,7 +442,55 @@ public void iVerifyProductListInTopNavigationBarIsClosed(){
 }
 
 public void iVerifyEmailForPTAExecutiveRole(String text, String Role){
-	String emailVal = CreateUserPage.usersEmailPerRole.get(Role).get(Role.substring((Role.indexOf("-")+1)).trim());
-	Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+emailVal.toLowerCase()+"']")));
+	//String emailVal = CreateUserPage.usersEmailPerRole.get(Role).get(Role.substring((Role.indexOf("-")+1)).trim());
+	//Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+emailVal.toLowerCase()+"']")));
+	Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='FirstName']")));
 }
+public void iVerifyDeleteUserLink(String text){
+	iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+	Assert.assertTrue(isElementPresentOnPage(By.xpath("//*[contains(text(),'"+text+"')]")));
+}
+public void iClickOnDeleteUser(String text){
+	iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+	clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+}
+public void iVerifyTextWhileDeletingUser(String text){
+	iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+	isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+}
+public void iVerifyCancelButtonWhileDeletingUser(String text){
+	iWillWaitToSee(By.xpath("//a[contains(text(),'"+text+"')]"));
+	isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
+}
+public void iClickCancelButtonWhileDeletingUser(String text){
+	clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
+}
+public void iVerifyDeleteButtonWhileDeletingUser(String text){
+	iWillWaitToSee(By.xpath("//button[contains(text(),'"+text+"')]"));
+	isElementVisible(driver.findElement(By.xpath("//button[contains(text(),'"+text+"')]")));
+}
+public void iClickDeleteButtonToDeleteUser(String text){
+	iWillWaitToSee(By.xpath("//button[contains(text(),'"+text+"')]"));
+	clickElement(driver.findElement(By.xpath("//button[contains(text(),'"+text+"')]")));
+	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
+}
+public void iClickOnTileFromEC(String text){
+	iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']"));
+	clickElement(driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']")));
+	driver.findElement(By.xpath("//li[@feature='app.user-admin-1']")).click();
+	
+}
+public void iSelectTileFromManagementDropDown(String text){
+
+	clickElement(driver.findElement(By.cssSelector(".ui.dropdown.remedy-connect-title"))); 	
+iWillWaitToSee(By.xpath("//span[contains(text(),'"+text+"')]"));
+clickElement(driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]")));
+
+		clickSingleElementFromList(By.xpath("//a"), text);		
+}
+public void iVerifyReportsPage(){
+	iWillWaitToSee(By.cssSelector(".dropdown-tile-head"));
+	System.out.println(driver.getCurrentUrl());
+	Assert.assertTrue(driver.getCurrentUrl().contains("reports"));
+}	
 }
