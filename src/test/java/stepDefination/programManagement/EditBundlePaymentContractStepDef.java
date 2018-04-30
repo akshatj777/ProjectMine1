@@ -31,4 +31,14 @@ public class EditBundlePaymentContractStepDef extends DriverScript {
 	  public void i_Verify_Contract_Id_Field_is_not_Editable(String text) throws Throwable {
 		editBPContract.iVerifyContractIdFieldisnotEditable(text);
 	 }
+	
+	@Then("^I edit \"([^\"]*)\" in \"([^\"]*)\" field for \"([^\"]*)\" on edit Contract page$")
+	  public void i_Edit_Price_Field_on_Edit_Contarct_Page(String text, String field, String field1) throws Throwable {
+		editBPContract.iEditPriceFieldonEditContarctPage(text,field,field1);
+	 }
+	
+	@Then("^I click on react date picker icon for \"([^\"]*)\" for index \"([^\"]*)\" on edit contract page$")
+	  public void i_Click_on_ReactDatePicker_Icon_on_Edit_Contarct_Page(String field, int index) throws Throwable {
+		editBPContract.iClickonReactDatePickerIcononEditContarctPage(field, index);
+	 }
 }

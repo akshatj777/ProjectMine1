@@ -514,7 +514,7 @@ public class BaseClass {
 	        String a = Integer.toString(rs.getRow());
 	        row.put(a, column);
 	        }
-	    String pID = row.get("1").get("participant id");
+	    String pID = row.get("1").get("participant_id");
 	    con.close();
 	    return pID;
 }
