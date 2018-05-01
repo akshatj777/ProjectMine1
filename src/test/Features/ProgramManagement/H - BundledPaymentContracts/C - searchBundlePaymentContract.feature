@@ -5,7 +5,7 @@ Feature: Search a Bundle Payment Contract Functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    And I switch to new window
+    #And I switch to new window
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -118,7 +118,6 @@ Feature: Search a Bundle Payment Contract Functionality tests
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
-    #And i navigate my URL "https://program-management-qa.remedypartners.com/#/organization-viewer/45/programs"
     And I verify "Programs" as default tab selected on view profile of "Payor" Organization
     And I verify "Contracts" tab present under "Payor" Organization
     And I click on "Contracts" tab on view profile of "Payor" Organization

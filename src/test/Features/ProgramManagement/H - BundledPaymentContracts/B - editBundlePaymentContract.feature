@@ -5,7 +5,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    And I switch to new window
+    #And I switch to new window
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -40,7 +40,7 @@ Feature: Edit Bundle Payment Contract functionality tests
 
     Examples: 
       | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2018/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | CP1qYUXSUWabZ2738 |    96 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/07/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | CP1qYUXSUWabZ2738 |    96 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -104,11 +104,11 @@ Feature: Edit Bundle Payment Contract functionality tests
     And I edit "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on edit Contract page
     And I edit "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price1" on edit Contract page
     Then I click on "Submit" button on "edit" organization page
-    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
+    Then I verify "<Message>" after submitting the "edit Contracts" on Payor organization page
 
     Examples: 
       | Description              | Payor_Name | Bundle_Payment_Contract | Program     | Organization_Type | Organization_Name | Price | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Trend_Factor | Upper_Bound | Lower_Bound | Message                        |
-      | Edit and save a contract | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | ACH               | ACHNAME           |    96 | 2017/03/15        | 2019/10/10      | 2017/06/01      | 2018/06/30    | 2017/08/01     | 2018/04/30   | 2017/10/01        | 2017/12/30      |              |             |             | Contract Successfully Updated. |
+      | Edit and save a contract | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | ACH               | ACHNAME           |    96 | 2017/03/15        | 2019/10/10      | 2017/06/01      | 2018/06/30    | 2017/07/01     | 2018/02/28   | 2017/10/01        | 2017/12/30      |           78 |          87 |          97 | Contract Successfully Updated. |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -287,3 +287,42 @@ Feature: Edit Bundle Payment Contract functionality tests
     Examples: 
       | Description                                                      | Payor_Name | Bundle_Payment_Contract | Program     | Bundle2             |
       | Error message for an invalid Bundle search on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | InvalidSearchBundle |
+
+  Scenario Outline: <Description>
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    Then I search with "<Bundle_Payment_Contract>" on view profile of "Payor" Organization search box
+    Then I verify "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
+    Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
+    And I verify "Edit Contract" header text on edit organization page
+    Then I click on "Add Bundle" button on "edit" organization page
+    And I select Bundle "<Bundle2>" for Contract "1" on "edit" Contracts page
+    Then I edit "<Price2>" in "price" field for "Bundle2 Price1" on edit Contract page
+    Then I enter date "<BundleStartDate1>" in "BundleStartDate" field for index "8"
+    Then I enter date "<BundleEndDate1>" in "BundleEndDate" field for index "9"
+    Then I enter date "<PriceStartDate1>" in "PriceStartDate" field for index "10"
+    Then I enter date "<PriceEndDate1>" in "Baseline Date" field for index "11"
+    Then I enter date "<BaselineStartDate1>" in "BaselineStartDate" field for index "12"
+    Then I enter date "<BaselineEndDate1>" in "BaselineEndDate" field for index "13"
+    And I edit "<Trend_Factor2>" in "trendFactor" field for "Bundle2 Price1" on edit Contract page
+    And I edit "<Upper_Bound2>" in "upperBound" field for "Bundle2 Price1" on edit Contract page
+    And I edit "<Lower_Bound2>" in "lowerBound" field for "Bundle21 Price1" on edit Contract page
+    Then I click on "Submit" button on "edit" organization page
+    And I verify "<ValidationMsg>" mandatory field validation message on edit organization page
+
+    Examples: 
+      | Description                                                                                          | Payor_Name | Bundle_Payment_Contract | Program     | Bundle2 | Price2 | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor2 | Upper_Bound2 | Lower_Bound2 | ValidationMsg |
+      | Validation message if newly added Bundle - Bundle Name is left blank                                 | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
+      | Validation message if newly added Bundle - Start Date is left blank                                  | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
+      | Validation message if newly added Bundle - price is left blank                                       | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
+      | Validation message if newly added Bundle - price Start Date is left blank                            | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
+      | Validation message if newly added Bundle Bundle End Date is before the bundle Start Date             | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
+      | Validation message if newly added Bundle Bundle Price End Date is before the Bundle Price Start Date | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
+      | Validation message if newly added Bundle Bundle End Date is after Contract End Date                  | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
+      | Validation message if newly added Bundle Bundle Price End Date is after Bundle End Date              | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
+      | Validation message if newly added Bundle Bundle Start Date is before the Contract Start Date         | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
+      | Validation message if newly added Bundle Bundle Price Start Date is before the Bundle Start Date     | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |

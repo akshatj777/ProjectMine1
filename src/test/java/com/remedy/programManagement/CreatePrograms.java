@@ -1,6 +1,11 @@
 package com.remedy.programManagement;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,6 +30,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.remedy.baseClass.BaseClass;
+import com.remedy.resources.DriverScript;
 
 
 
@@ -833,7 +839,7 @@ public class CreatePrograms extends BaseClass {
 			else if (value.equals("ID"))
 			{
 				String query = "SELECT id from program_management.program where name = '"+CreatePrograms.programs.get(1)+"'";
-				value = fetchParticipantID(query);
+				value = fetchProgramID(query);
 				iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), value);
 				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
@@ -1004,6 +1010,29 @@ public class CreatePrograms extends BaseClass {
 			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-main-id")));
 		  }
 		}
+	}
+	
+	String fetchProgramID(String query) throws ClassNotFoundException, SQLException{
+		HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();
+	    Class.forName("com.mysql.jdbc.Driver");
+	    String connectionString = "jdbc:mysql://"+DriverScript.Config.getProperty("MySQLServerName")+":3306"; 
+	    Connection con=DriverManager.getConnection(connectionString,DriverScript.Config.getProperty("MySQLDBUserName"),DriverScript.Config.getProperty("MySQLPassword")); 
+	    Statement stmt=con.createStatement();  
+	    ResultSet rs=stmt.executeQuery(query);
+	    ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+	    while(rs.next())
+	    {
+	     HashMap<String, String> column = new HashMap<String, String>();
+	        for(int i=1;i<=rsmd.getColumnCount();i++)
+	        {
+	        column.put(rsmd.getColumnName(i),rs.getString(i));
+	        }
+	        String a = Integer.toString(rs.getRow());
+	        row.put(a, column);
+	        }
+	    String pID = row.get("1").get("id");
+	    con.close();
+	    return pID;
 	}
 }
 
