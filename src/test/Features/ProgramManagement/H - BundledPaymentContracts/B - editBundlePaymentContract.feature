@@ -5,8 +5,185 @@ Feature: Edit Bundle Payment Contract functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    #And I switch to new window
+    And I switch to new window
     When I click on Organization link on Program Management page
+
+  Scenario Outline: <Description>
+    Then I verify "+" button under "Managing" organization page
+    Then I click on "+" button on "Managing" organization page
+    And I verify "Create Managing Organization" header text on create organization page
+    Then I enter <MO_Name> in "Managing Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Contact_Person> in "Contact Person" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <Contact_Email> in "Contact Email" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I enter <Contact_Phone> in "Contact Phone" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create MO" organization page
+
+    Examples: 
+      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                     |
+      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Managing Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I click on "Hospital" organization tab on organization dashboard
+    Then I click on "+" button on "Hospital" organization page
+    And I verify "Create Hospital Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <Hosp_Name> in "Hospital Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                             | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                     |
+      | Create Hospital Organization with all the available fields - Without MO | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
+      | Create Hospital Organization with all the available fields - With MO    | YES    | MONAME       | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    Then I click on "+" button on "PGP" organization page
+    And I verify "Create PGP Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <PGP_Name> in "PGP Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select region "<Region>" in "create PGP" organization page
+    And I select market "<Market>" in "create PGP" organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "PGP - <EIN>" in "EIN" on create organization page
+    And I provide unique "PGP - <NPI>" in "NPI" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create PGP - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                        | Has_MO | Managing_Org | PGP_Name | Address1 | Short_Name | Address2 | City | Region  | Market  | State      | Postal_Code | EIN | NPI | Message                                |
+      | Create PGP Organization with all the available fields - Without MO | NO     |              | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
+      | Create PGP Organization with all the available fields - With MO    | YES    | MONAME       | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Create SNF Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <SNF_Name> in "SNF Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "SNF - <CCN>" in "CCN" on create organization page
+    And I provide unique "SNF - <EIN>" in "EIN" on create organization page
+    And I provide unique "SNF - <NPI>" in "NPI" on create organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                        | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                |
+      | Create SNF Organization with all the available fields - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
+      | Create SNF Organization with all the available fields - With MO    | YES    | MONAME       | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I click on "HHA" organization tab on organization dashboard
+    Then I click on "+" button on "HHA" organization page
+    And I verify "Create HHA Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <HHA_Name> in "HHA Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I select region "<Region>" in "create HHA" organization page
+    And I select market "<Market>" in "create HHA" organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "HHA - <CCN>" in "CCN" on create organization page
+    And I provide unique "HHA - <EIN>" in "EIN" on create organization page
+    And I provide unique "HHA - <NPI>" in "NPI" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create HHA - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                        | Has_MO | Managing_Org | HHA_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Region  | Market  | CCN | EIN | NPI | Message                                |
+      | Create HHA Organization with all the available fields - Without MO | NO     |              | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
+      | Create HHA Organization with all the available fields - With MO    | YES    | MONAME       | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I click on "Payor" organization tab on organization dashboard
+    Then I click on "+" button on "Payor" organization page
+    And I verify "Create Payor Organization" header text on create organization page
+    Then I enter <Payor_Name> in "Payor Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Contact_Person> in "Contact Person" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <Contact_Email> in "Contact Email" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I enter <Contact_Phone> in "Contact Phone" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "Payor - <EIN>" in "EIN" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create Payor" organization page
+
+    Examples: 
+      | Description                                         | Payor_Name | Contact_Person    | Contact_Email       | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | EIN | Message                                  |
+      | Create Payor Organization with all available fields | PAYORNAME  | ContactPersonTest | Sample1@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | EIN | Payor Organization Successfully Created. |
+
+  Scenario Outline: Create Programs under Payor Organization
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Programs" as default tab selected on view profile of "Payor" Organization
+    And I verify the "Create New Program" button on view profile of "payor" Organization
+    Then I click on "Create New Program" button on "create" organization page
+    And I verify "Create Program" header text on create organization page
+    Then I enter <Program_Name> in "Program Name" on create organization page
+    And I click on checkbox for "Attribute to the physician who admitted the patient" Attribution rule
+    And I click on checkbox for "Attribute to the triggering provider id on the triggering claim" Attribution rule
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create Programs" on Payor organization page
+
+    Examples: 
+      | Description                              | Payor_Name | Program_Name | Message                      |
+      | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME  | Program Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -39,8 +216,8 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/07/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | CP1qYUXSUWabZ2738 |    96 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1     | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/02/01        | 2019/12/01      | 2017/05/01      | 2018/07/30    | 2017/07/01     | 2018/02/01   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_AICD_30 |    96 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -79,36 +256,6 @@ Feature: Edit Bundle Payment Contract functionality tests
     Examples: 
       | Description                                                                         | Payor_Name | Bundle_Payment_Contract | Program     | Organization_Type | Organization_Name |
       | Verification of details on Contracts under Payor Organization on edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | ACH               | ACHNAME           |
-
-  Scenario Outline: <Description>
-    When I click on "Payor" organization tab on organization dashboard
-    When I search with "<Payor_Name>" on organization in search box
-    And I click "<Payor_Name>" field in search list on organization page
-    And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Contracts" tab present under "Payor" Organization
-    And I click on "Contracts" tab on view profile of "Payor" Organization
-    Then I search with "<Bundle_Payment_Contract>" on view profile of "Payor" Organization search box
-    Then I verify "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
-    Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
-    And I verify "Edit Contract" header text on edit organization page
-    Then I edit "<Price>" in "price" field for "Bundle1 Price1" on edit Contract page
-    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
-    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
-    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
-    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
-    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
-    Then I enter date "<PriceEndDate>" in "Baseline Date" field for index "5"
-    Then I enter date "<BaselineStartDate>" in "BaselineStartDate" field for index "6"
-    Then I enter date "<BaselineEndDate>" in "BaselineEndDate" field for index "7"
-    And I edit "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price1" on edit Contract page
-    And I edit "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on edit Contract page
-    And I edit "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price1" on edit Contract page
-    Then I click on "Submit" button on "edit" organization page
-    Then I verify "<Message>" after submitting the "edit Contracts" on Payor organization page
-
-    Examples: 
-      | Description              | Payor_Name | Bundle_Payment_Contract | Program     | Organization_Type | Organization_Name | Price | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Trend_Factor | Upper_Bound | Lower_Bound | Message                        |
-      | Edit and save a contract | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | ACH               | ACHNAME           |    96 | 2017/03/15        | 2019/10/10      | 2017/06/01      | 2018/06/30    | 2017/07/01     | 2018/02/28   | 2017/10/01        | 2017/12/30      |           78 |          87 |          97 | Contract Successfully Updated. |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -213,13 +360,13 @@ Feature: Edit Bundle Payment Contract functionality tests
 
     Examples: 
       | Description                                                                                              | Payor_Name | Bundle_Payment_Contract | Program     | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | ValidationMsg                                                   |
-      | Validation message for editing Contract with Contract End Date is before the Contract Start Date         | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2017/02/07      | 2017/05/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | The Contract End Date is before the start date                  |
-      | Validation message for editing Contract with Bundle End Date is before the bundle Start Date             | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2017/04/23    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | The bundle end date is before the bundle start date             |
-      | Validation message for editing Contract with Bundle Price End Date is before the Bundle Price Start Date | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/06/30    | 2019/03/03     | 2019/03/01   | 2019/03/09        | 2019/05/12      | The bundle price end date is before the bundle price start date |
-      | Validation messages for editing Contract with Bundle End Date is after Contract End Date                 | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/12/21    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | The bundle end date is after the contract end date              |
+      | Validation message for editing Contract with Contract End Date is before the Contract Start Date         | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2017/01/07      | 2017/05/01      | 2018/07/30    | 2017/07/02     | 2018/02/01   | 2019/03/09        | 2019/05/12      | The Contract End Date is before the start date                  |
+      | Validation message for editing Contract with Bundle End Date is before the bundle Start Date             | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2017/04/23    | 2017/07/02     | 2018/02/01   | 2019/03/09        | 2019/05/12      | The bundle end date is before the bundle start date             |
+      | Validation message for editing Contract with Bundle Price End Date is before the Bundle Price Start Date | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/06/30    | 2017/07/01     | 2017/06/01   | 2019/03/09        | 2019/05/12      | The bundle price end date is before the bundle price start date |
+      | Validation messages for editing Contract with Bundle End Date is after Contract End Date                 | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/12/21    | 2017/07/02     | 2018/02/01   | 2019/03/09        | 2019/05/12      | The bundle end date is after the contract end date              |
       | Validation messages for editing Contract with Bundle Price End Date is after Bundle End Date             | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/06/30    | 2018/03/03     | 2019/07/30   | 2019/03/09        | 2019/05/12      | The bundle price end date is after the bundle end date          |
-      | Validation messages for editing Contract with Bundle Start Date is before the Contract Start Date        | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/02/07      | 2019/06/30    | 2018/03/03     | 2019/07/30   | 2019/03/09        | 2019/05/12      | The bundle price end date is after the bundle end date          |
-      | Validation messages for editing Contract with Bundle Price Start Date is before the Bundle Start Date    | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2017/02/07      | 2017/05/01      | 2019/06/30    | 2017/04/01     | 2019/07/30   | 2019/03/09        | 2019/05/12      | The bundle price end date is after the bundle end date          |
+      | Validation messages for editing Contract with Bundle Start Date is before the Contract Start Date        | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/01/07      | 2019/06/30    | 2018/03/03     | 2019/07/30   | 2019/03/09        | 2019/05/12      | The bundle start date is before the contract start date         |
+      | Validation messages for editing Contract with Bundle Price Start Date is before the Bundle Start Date    | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2017/02/07      | 2017/05/01      | 2019/06/30    | 2017/04/01     | 2019/07/30   | 2019/03/09        | 2019/05/12      | The bundle price start date is before the bundle start date     |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -245,10 +392,10 @@ Feature: Edit Bundle Payment Contract functionality tests
     And I verify "<ValidationMsg2>" mandatory field validation message on edit organization page
 
     Examples: 
-      | Description                                                                                                                  | Payor_Name | Bundle_Payment_Contract | Program     | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | ValidationMsg1                                         | ValidationMsg2 |
-      | Validation messages for editing Contract with Contract Start Date is after the Bundle Start Date and Bundle Price Start Date | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2018/03/05        | 2019/12/19      | 2017/05/01      | 2019/06/30    | 2018/03/03     | 2019/05/30   | 2019/03/09        | 2019/05/12      | The bundle price end date is after the bundle end date |                |
-      | Validation messages for editing Contract with Contract End Date is before the Bundle End Date and Bundle Price End Date      | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/04/19      | 2017/05/01      | 2019/06/30    | 2018/03/03     | 2019/05/30   | 2019/03/09        | 2019/05/12      | The bundle price end date is after the bundle end date |                |
-      | Validation messages for editing Contract with Baseline End Date is before the Baseline Start Date                            | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/06/30    | 2018/03/03     | 2019/07/30   | 2019/03/09        | 2019/02/12      | The bundle price end date is after the bundle end date |                |
+      | Description                                                                                                                  | Payor_Name | Bundle_Payment_Contract | Program     | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | ValidationMsg1                                          | ValidationMsg2 |
+      | Validation messages for editing Contract with Contract Start Date is after the Bundle Start Date and Bundle Price Start Date | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2018/04/05        | 2019/12/19      | 2017/05/01      | 2019/06/30    | 2018/03/03     | 2019/05/30   | 2019/03/09        | 2019/05/12      | The bundle start date is before the contract start date |                |
+      | Validation messages for editing Contract with Contract End Date is before the Bundle End Date and Bundle Price End Date      | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/04/30      | 2017/05/01      | 2019/06/30    | 2018/03/03     | 2019/05/30   | 2019/03/09        | 2019/05/12      | The bundle end date is after the contract end date      |                |
+      | Validation messages for editing Contract with Baseline End Date is before the Baseline Start Date                            | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/06/30    | 2018/03/03     | 2019/07/30   | 2019/03/09        | 2019/02/12      | The bundle price end date is after the bundle end date  |                |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -265,9 +412,9 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I search "<SearchParam>" and verify with search list options on "Bundle_1" dropdown box
 
     Examples: 
-      | Description                                              | Payor_Name | Bundle_Payment_Contract | Program     | SearchParam       |
-      | Search for a Bundle by Bundle Name on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | mB1xAglksoqZt4324 |
-      | Search for a Bundle by Bundle code on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |               226 |
+      | Description                                              | Payor_Name | Bundle_Payment_Contract | Program     | SearchParam |
+      | Search for a Bundle by Bundle Name on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90 |
+      | Search for a Bundle by Bundle code on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |           6 |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -315,14 +462,97 @@ Feature: Edit Bundle Payment Contract functionality tests
     And I verify "<ValidationMsg>" mandatory field validation message on edit organization page
 
     Examples: 
-      | Description                                                                                          | Payor_Name | Bundle_Payment_Contract | Program     | Bundle2 | Price2 | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor2 | Upper_Bound2 | Lower_Bound2 | ValidationMsg |
-      | Validation message if newly added Bundle - Bundle Name is left blank                                 | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
-      | Validation message if newly added Bundle - Start Date is left blank                                  | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
-      | Validation message if newly added Bundle - price is left blank                                       | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
-      | Validation message if newly added Bundle - price Start Date is left blank                            | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
-      | Validation message if newly added Bundle Bundle End Date is before the bundle Start Date             | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
-      | Validation message if newly added Bundle Bundle Price End Date is before the Bundle Price Start Date | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
-      | Validation message if newly added Bundle Bundle End Date is after Contract End Date                  | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
-      | Validation message if newly added Bundle Bundle Price End Date is after Bundle End Date              | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
-      | Validation message if newly added Bundle Bundle Start Date is before the Contract Start Date         | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
-      | Validation message if newly added Bundle Bundle Price Start Date is before the Bundle Start Date     | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |         |     98 |                  |                |                 |               |                    |                  |               |              |              |               |
+      | Description                                                  | Payor_Name | Bundle_Payment_Contract | Program     | Bundle2     | Price2 | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor2 | Upper_Bound2 | Lower_Bound2 | ValidationMsg           |
+      | Edit contract using duplicate Bundles with overlapping dates | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90 |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Bundle already selected |
+
+  Scenario Outline: <Description>
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    Then I search with "<Bundle_Payment_Contract>" on view profile of "Payor" Organization search box
+    Then I verify "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
+    Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
+    And I verify "Edit Contract" header text on edit organization page
+    Then I click on "Add Bundle" button on "edit" organization page
+    And I select Bundle "<Bundle2>" for Contract "1" on "edit" Contracts page
+    Then I edit "<Price2>" in "price" field for "Bundle2 Price1" on edit Contract page
+    Then I enter date "<BundleStartDate1>" in "BundleStartDate" field for index "8"
+    Then I enter date "<BundleEndDate1>" in "BundleEndDate" field for index "9"
+    Then I enter date "<PriceStartDate1>" in "PriceStartDate" field for index "10"
+    Then I enter date "<PriceEndDate1>" in "Baseline Date" field for index "11"
+    Then I enter date "<BaselineStartDate1>" in "BaselineStartDate" field for index "12"
+    Then I enter date "<BaselineEndDate1>" in "BaselineEndDate" field for index "13"
+    And I edit "<Trend_Factor2>" in "trendFactor" field for "Bundle2 Price1" on edit Contract page
+    And I edit "<Upper_Bound2>" in "upperBound" field for "Bundle2 Price1" on edit Contract page
+    And I edit "<Lower_Bound2>" in "lowerBound" field for "Bundle21 Price1" on edit Contract page
+    Then I click on "Submit" button on "edit" organization page
+    And I verify "<ValidationMsg>" mandatory field validation message on edit organization page
+
+    Examples: 
+      | Description                                                                                          | Payor_Name | Bundle_Payment_Contract | Program     | Bundle2     | Price2 | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor2 | Upper_Bound2 | Lower_Bound2 | ValidationMsg                                               |
+      | Validation message if newly added Bundle - Bundle Name is left blank                                 | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |             |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
+      | Validation message if newly added Bundle - Start Date is left blank                                  | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90 |     98 |                  | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
+      | Validation message if newly added Bundle - price is left blank                                       | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90 |        | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
+      | Validation message if newly added Bundle - price Start Date is left blank                            | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90 |     98 | 2018/09/30       | 2019/09/30     |                 | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
+      | Validation message if newly added Bundle Bundle End Date is before the bundle Start Date             | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90 |     98 | 2018/09/30       | 2018/09/01     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle end date is before the bundle start date         |
+      | Validation message if newly added Bundle Bundle Price End Date is before the Bundle Price Start Date | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90 |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2018/10/01    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle end date is before the bundle start date         |
+      | Validation message if newly added Bundle Bundle End Date is after Contract End Date                  | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90 |     98 | 2018/09/30       | 2019/12/11     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle end date is after the contract end date          |
+      | Validation message if newly added Bundle Bundle Price End Date is after Bundle End Date              | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90 |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/10/03    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle price end date is after the bundle end date      |
+      | Validation message if newly added Bundle Bundle Start Date is before the Contract Start Date         | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90 |     98 | 2017/01/15       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle start date is before the contract start date     |
+      | Validation message if newly added Bundle Bundle Price Start Date is before the Bundle Start Date     | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90 |     98 | 2018/09/30       | 2019/09/30     | 2018/07/30      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle price start date is before the bundle start date |
+
+  Scenario Outline: <Description>
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    Then I search with "<Bundle_Payment_Contract>" on view profile of "Payor" Organization search box
+    Then I verify "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
+    Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
+    And I verify "Edit Contract" header text on edit organization page
+    Then I enter date "<BaselineStartDate1>" in "BaselineStartDate" field for index "6"
+    Then I enter date "<BaselineEndDate1>" in "BaselineEndDate" field for index "7"
+    And I edit "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price1" on edit Contract page
+    And I edit "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on edit Contract page
+    And I edit "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price1" on edit Contract page
+    Then I click on "Submit" button on "edit" organization page
+    Then I verify "<Message>" after submitting the "edit Contracts" on Payor organization page
+
+    Examples: 
+      | Description                                      | Payor_Name | Bundle_Payment_Contract | Program     | Organization_Type | Organization_Name | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor | Upper_Bound | Lower_Bound | Message                        |
+      | Edit a Contract With Non-Mandatory Field Missing | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | ACH               | ACHNAME           |                    |                  |              |             |             | Contract Successfully Updated. |
+
+  Scenario Outline: <Description>
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    Then I search with "<Bundle_Payment_Contract>" on view profile of "Payor" Organization search box
+    Then I verify "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
+    Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
+    And I verify "Edit Contract" header text on edit organization page
+    Then I edit "<Price>" in "price" field for "Bundle1 Price1" on edit Contract page
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
+    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
+    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
+    Then I enter date "<PriceEndDate>" in "Baseline Date" field for index "5"
+    Then I enter date "<BaselineStartDate>" in "BaselineStartDate" field for index "6"
+    Then I enter date "<BaselineEndDate>" in "BaselineEndDate" field for index "7"
+    And I edit "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price1" on edit Contract page
+    And I edit "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on edit Contract page
+    And I edit "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price1" on edit Contract page
+    Then I click on "Submit" button on "edit" organization page
+    Then I verify "<Message>" after submitting the "edit Contracts" on Payor organization page
+
+    Examples: 
+      | Description              | Payor_Name | Bundle_Payment_Contract | Program     | Organization_Type | Organization_Name | Price | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Trend_Factor | Upper_Bound | Lower_Bound | Message                        |
+      | Edit and save a contract | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | ACH               | ACHNAME           |    96 | 2017/03/15        | 2019/10/10      | 2017/06/01      | 2018/06/30    | 2017/07/01     | 2018/02/28   | 2017/10/01        | 2017/12/30      |           78 |          87 |          97 | Contract Successfully Updated. |
