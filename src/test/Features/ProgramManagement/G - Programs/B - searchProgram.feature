@@ -57,33 +57,33 @@ Feature: Search a Program
       | Search for a Program by the ID           | PAYORNAME  | ID          |
       | Search for a Program by the Program name | PAYORNAME  | PROGRAMNAME |
 
-  #Scenario Outline: <Description>
-    #When I search with "<Payor_Name>" on organization in search box
-    #And I click "<Payor_Name>" field in search list on organization page
-    #And I verify "<Payor_Name>" name on the header of view profile
-    #And I verify "Programs" as default tab selected on view profile of "Payor" Organization
-    #Then I search with "<Program_Name>" on organization in search box
-    #And I verify "<Program_Name>" field in search list on organization page
-    #And I click "<Program_Name>" field in search list on organization page
-    #And I verify "Edit Program" header text on edit organization page
-    #And I edit "Program Name" field to "<Edited_Program_Name>" for organization
-    #Then I click on "Submit" button on "edit" organization page
-    #Then I verify "<Message>" after submitting the "edit Programs" on Payor organization page
-    #Then I search with "<Edited_Program_Name>" on organization in search box
-    #And I verify "<Edited_Program_Name>" field in search list on organization page
-#
-    #Examples: 
-      #| Description                           | Payor_Name | Program_Name | Edited_Program_Name | Message                      |
-      #| Search after editing the Program name | PAYORNAME  | PROGRAMNAME  | PROGRAMNAME         | Program Successfully Updated |
-#
-  #Scenario Outline: <Description>
-    #When I search with "<Payor_Name>" on organization in search box
-    #And I click "<Payor_Name>" field in search list on organization page
-    #And I verify "<Payor_Name>" name on the header of view profile
-    #And I verify "Programs" as default tab selected on view profile of "Payor" Organization
-    #Then I search "<SearchParam>" and verify with search list options on "Programs" search box
-    #Then I verify the "No matches" message for invalid search in Organization
-#
-    #Examples: 
-      #| Description                             | Payor_Name | SearchParam              |
-      #| Error message if a Program is Not found | PAYORNAME  | InvalidSearchProgramName |
+  Scenario Outline: <Description>
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Programs" as default tab selected on view profile of "Payor" Organization
+    Then I search with "<Program_Name>" on organization in search box
+    And I verify "<Program_Name>" field in search list on organization page
+    And I click "<Program_Name>" field in search list on organization page
+    And I verify "Edit Program" header text on edit organization page
+    And I edit "Program Name" field to "<Edited_Program_Name>" for organization
+    Then I click on "Submit" button on "edit" organization page
+    Then I verify "<Message>" after submitting the "edit Programs" on Payor organization page
+    Then I search with "<Edited_Program_Name>" on organization in search box
+    And I verify "<Edited_Program_Name>" field in search list on organization page
+
+    Examples: 
+      | Description                           | Payor_Name | Program_Name | Edited_Program_Name | Message                      |
+      | Search after editing the Program name | PAYORNAME  | PROGRAMNAME  | PROGRAMNAME         | Program Successfully Updated |
+
+  Scenario Outline: <Description>
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Programs" as default tab selected on view profile of "Payor" Organization
+    Then I search "<SearchParam>" and verify with search list options on "Programs" search box
+    Then I verify the "No matches" message for invalid search in Organization
+
+    Examples: 
+      | Description                             | Payor_Name | SearchParam              |
+      | Error message if a Program is Not found | PAYORNAME  | InvalidSearchProgramName |

@@ -190,4 +190,3 @@ public class LoginPage extends BaseClass {
 		verifyTextForElement(driver.findElement(By.xpath("//span[@class='animated fadeInUp']")), text);
 	}
 }
-

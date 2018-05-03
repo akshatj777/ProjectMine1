@@ -57,7 +57,7 @@ public class BaseClass {
 	}
 	public WebDriverWait waitTo()
 	{
-		WebDriverWait wait = new WebDriverWait(driver, 120);
+		WebDriverWait wait = new WebDriverWait(driver, 300);
 		return wait;
 	}
 
@@ -530,5 +530,24 @@ public class BaseClass {
 	public String getTheCurrentUrl(){
 		return driver.getCurrentUrl();
 	}
+	
+	public void verifyTextNotPresentForElementFromListByXpath(String element, String itemtext) {
+        List<WebElement> listItems = driver.findElements(By.xpath(element));
+        for (WebElement item : listItems) {
+            Assert.assertFalse(item.getText().equalsIgnoreCase(itemtext));
+        }
+    }
+	
+	public String getLastnCharacters(String inputString, int subStringLength) {
+  	  int length = inputString.length();
+  	  if (length <= subStringLength) {
+  	   return inputString;
+  	  }
+  	  int startIndex = length - subStringLength;
+  	  return inputString.substring(startIndex);
+  	 }
+	
+	public void scrollToTopOfThePage(){
+		((JavascriptExecutor)driver).executeScript("window.scrollTo(0, -document.body.scrollHeight)");	
+	}
 }
-
