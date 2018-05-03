@@ -1,5 +1,4 @@
 package com.remedy.programManagement;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -10,7 +9,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.Month;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -18,7 +16,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
+
 import java.util.Map;
 
 import org.junit.Assert;
@@ -31,8 +29,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.remedy.baseClass.BaseClass;
 import com.remedy.resources.DriverScript;
-
-
 
 public class CreatePrograms extends BaseClass {
 	
@@ -216,6 +212,11 @@ public class CreatePrograms extends BaseClass {
 			tempPrograms.put(111, createRandomNumber(8));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempPrograms.get(111));
 		}
+		if(text.contains("AllAlphabetsCID"))
+		{
+			tempPrograms.put(111, createRandomName(text));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempPrograms.get(111));
+		}
 		else if(text.contains("Duplicate_CID"))
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.programs.get(111));
@@ -230,6 +231,9 @@ public class CreatePrograms extends BaseClass {
 			}
 			else if(field1.equals("Bundle2 Price1")){
 				iFillInText(driver.findElement(By.xpath("//input[@name='contracts[0].contractBundles[1].bundlePrices[0]."+field+"']")), text);
+			}
+			else{
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);
 			}
 		}
 	}

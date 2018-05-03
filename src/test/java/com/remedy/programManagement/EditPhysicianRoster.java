@@ -25,6 +25,11 @@ public class EditPhysicianRoster extends BaseClass {
 			iFillInText(driver.findElement(By.xpath("//input[@class='text-input-field-locationFilterTerm']")), text);
 			delay();
 		}
+		else if(org.equals("Payor")){
+			iWillWaitToSee(By.xpath("//input[@class='text-input-field-programFilterTerm']"));
+			iFillInText(driver.findElement(By.xpath("//input[@class='text-input-field-programFilterTerm']")), CreatePrograms.programs.get(1));
+			delay();
+		}
 	}
 	
 	public void iVerifyPhysicianRosterFieldInSearchListOnViewProfileOfOrganizationSearchBox(String text, String org){
@@ -33,10 +38,20 @@ public class EditPhysicianRoster extends BaseClass {
 	}
 	
 	public void iClickPhysicianRosterFieldInSearchListOnViewProfileOfOrganizationSearchBox(String text, String org){
-		iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
-		clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
-		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-		longDelay();
+		if(org.equals("PGP"))
+		{
+			iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
+			clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			longDelay();
+		}
+		else if(org.equals("Payor"))
+		{
+			iWillWaitToSee(By.xpath("//div[text()='"+CreatePrograms.programs.get(1)+"']"));
+			clickElement(driver.findElement(By.xpath("//div[text()='"+CreatePrograms.programs.get(1)+"']")));
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			longDelay();
+		}
 	}
 	
 	public void iVerifyProgramNameIsNotEditable(){
