@@ -5,7 +5,7 @@ Feature: Create Managing organization functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    #And I switch to new window
+    And I switch to new window
 
   Scenario: Verification of availability of all the fields on Create Managing Organization page
     When I click on Organization link on Program Management page

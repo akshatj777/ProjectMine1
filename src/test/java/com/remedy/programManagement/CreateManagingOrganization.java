@@ -34,8 +34,10 @@ public class CreateManagingOrganization extends BaseClass {
 	}
 	
 	public void iVerifyHeaderTextOnCreateOrganizationPage(String text) {
+		delay();
 		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		iVerifyTextFromListOfElement(By.cssSelector(".row.headline"), text);
+		longDelay();
 	}
 	
 	public void iVerifyLabelFieldsOnCreateOrganizationPage(String text) {

@@ -36,6 +36,7 @@ public class EditPhysicianRoster extends BaseClass {
 		iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
 		clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
 		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		longDelay();
 	}
 	
 	public void iVerifyProgramNameIsNotEditable(){
