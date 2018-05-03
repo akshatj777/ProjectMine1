@@ -322,8 +322,6 @@ public class DischargeCarlFormSteps extends DriverScript {
       dischargecarlform.iEnterDetailsInTextboxFieldPresentOnAddPatientModal("firstName");
     }
             
-            
-
     @Then("^I enter random Patient Last Name in the last name text box field present on the Add Patient page$")
     public void i_enter_in_the_last_name_text_box_field_present_on_the_Add_Patient_page() throws Throwable {
     	dischargecarlform.iEnterDetailsInTextboxFieldPresentOnAddPatientModal("lastName");

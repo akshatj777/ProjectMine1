@@ -547,10 +547,21 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnTheNextButtonPresentOnTheAddPatientPage() {
-		longDelay();
-		longDelay();
-		iWillWaitToSee(By.cssSelector("button#submitButton"));
-		clickElement(driver.findElement(By.cssSelector("button#submitButton")));
+		 longDelay();
+		 if(driver.findElements(By.cssSelector("#tblPatients_processing")).size()>0){
+		 waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
+		 }
+		 longDelay();
+		 iWillWaitToSee(By.cssSelector("button#submitButton"));
+		 clickElement(driver.findElement(By.cssSelector("button#submitButton")));
+		 delay();
+		 if(driver.findElements(By.xpath("//button[@type='submit' and @disabled]")).size()>0){
+		 try{
+		 waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.xpath("//button[@type='submit' and @disabled]"))));
+		 }catch(Exception e){
+		 delay();
+		 }
+		 }
 	}
 
 	public void iClickOnCalenderButtonPresentOnTheAddPatientPage() {

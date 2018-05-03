@@ -31,6 +31,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.cucumber.listener.Reporter;
 import com.remedy.baseClass.BaseClass;
 import com.remedy.resources.DriverScript;
 
@@ -443,18 +445,20 @@ public class DischargeCarlForm extends BaseClass {
 	}
 
 	public void iEnterDetailsInTextboxFieldPresentOnAddPatientModal(String detailFileds) {
-	String start; 
+    String start; 
 	if(detailFileds.equals("firstName")){
-	start="Patient";
+    start="PatientA";
+	String prefixFirst=generateRandomString();
     String end=generateRandomString();
-    firstname=start+end;
+	firstname=prefixFirst+start+end;
 	iFillInText(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")), firstname);
 	}else{
-	start="Automation";
+	start="AutomationB";
+    String prefixLast=generateRandomString();
 	String end=generateRandomString();
-	lastname=start+end;
-	iFillInText(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")), lastname);
-	}}
+	lastname=prefixLast+start+end;
+    iFillInText(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")), lastname);
+	 }}
 			
 	public String generateRandomString(){
 	StringBuffer randStr = new StringBuffer();
@@ -505,17 +509,19 @@ public class DischargeCarlForm extends BaseClass {
 	}}
 
 	public void IenterrandomsocialsecuritynumberintheSSNtextboxfieldpresentontheAddPatientpage() {
-    Random r = new Random( System.currentTimeMillis() );
-	String ssn_start="5642";
-	int ssn_end=((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
-	final_ssn=ssn_start+Integer.toString(ssn_end);
-	System.out.println("$$$Final ssn is"+final_ssn);
-	iFillInText(driver.findElement(By.cssSelector("#Patient_Details_ssn")),final_ssn);
-	}
+	 Random r = new Random( System.currentTimeMillis() );
+	 String ssn_start="5";
+	 int ssn_end=(r.nextInt(1000)+1000);
+	 int ssn_middle= (r.nextInt(1000)+1000);
+	// int ssn_end=((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
+	 final_ssn=ssn_start+Integer.toString(ssn_middle)+Integer.toString(ssn_end);
+	 System.out.println("$$$Final ssn is"+final_ssn);
+	 iFillInText(driver.findElement(By.cssSelector("#Patient_Details_ssn")),final_ssn);
+	 }
 	
 	public void IenterduplicatesocialsecuritynumberintheSSNtextboxfieldpresentontheAddPatientpage() {
-		iFillInText(driver.findElement(By.cssSelector("#Patient_Details_ssn")),final_ssn);
-		}
+	iFillInText(driver.findElement(By.cssSelector("#Patient_Details_ssn")),final_ssn);
+	}
 
 	public void Ienterfiltervalueunderfiltertoseeemblempatient() {
 	iWillWaitToSee(By.xpath("//div[@class='ng-scope']/input"));
@@ -536,7 +542,7 @@ public class DischargeCarlForm extends BaseClass {
 	public void urlFilteredbySSN(String URL) {
 		String new_Url=URL.replaceAll("%%SSN",final_ssn);
 		driver.get(BaseURL+new_Url);
-		System.out.println("$$$URL is"+BaseURL+new_Url);
+	    Reporter.addStepLog(new_Url);
 		delay();
 		driver.navigate().refresh();
 		if(driver.findElements(By.cssSelector(".dataTables_processing")).size()>0){

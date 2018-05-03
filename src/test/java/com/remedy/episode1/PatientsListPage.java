@@ -42,6 +42,9 @@ public class PatientsListPage extends BaseClass {
 	public void iClickOnAddPatientButtonPresentOnTheEcPatientsPage(int text) {
 		iWillWaitToSee(By.cssSelector("a#patient-add-button"));
 		clickElement(driver.findElement(By.cssSelector("a#patient-add-button")));
+		if(driver.findElements(By.cssSelector("#tblPatients_processing")).size()>0){
+		  waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
+		}
 	}
 
 	public void iClickOnPinToDashboardInToPinTheFilterToDashboard(String text) {
