@@ -4,7 +4,6 @@ package stepDefination;
 //import com.github.mkolisnyk.cucumber.runner.ExtendedCucumberOptions;
 import com.remedy.resources.DriverScript;
 import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 import stepDefination.Hooks.*;
 
@@ -20,8 +19,12 @@ import stepDefination.Hooks.*;
                 "junit:target/cucumber-results/cucumber-results.xml", "json:target/cucumber-results/cucumber.json"},
         features = { "src/test/Features/"},
         //glue = { "./src/test/java/stepDefination" },
-        tags = {}
 <<<<<<< HEAD
+        tags = {} 
+<<<<<<< HEAD
+=======
+        tags = {}
+>>>>>>> 27d2aadbfc8be4003c8619a3e677b08dffc52540
 
 )*/
 
@@ -31,7 +34,8 @@ import stepDefination.Hooks.*;
                 "junit:target/cucumber-results/cucumber-results.xml", "json:target/cucumber-results/cucumber.json",
                 "com.cucumber.listener.ExtentCucumberFormatter:target/vimalSelvam-cucumberReport/report.html"},
 
-        features = { "src/test/Features/"},
+        features = { "src/test/Features/" },
+
         //glue = { "./src/test/java/stepDefination" },
         tags = {}
 )

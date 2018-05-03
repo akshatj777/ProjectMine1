@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
@@ -14,9 +16,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import com.remedy.baseClass.BaseClass;
 import com.remedy.resources.DriverScript;
@@ -32,20 +36,9 @@ public class MailCreateUser extends BaseClass{
 	public MailCreateUser(WebDriver driver) {
 		super(driver);
 	}
-	
+
 	public void iAmOnMailLoginPage() throws InterruptedException, AWTException {
-//		driver.get("chrome://settings/");
-//		Thread.sleep(5000);
-//		scrollIntoViewByJS(driver.findElement(By.cssSelector("* /deep/ #zoomLevel")));
-//		driver.findElement(By.cssSelector("* /deep/ #zoomLevel")).click();
-//		delay();
-//		Select oSelect = new Select(driver.findElement(By.cssSelector("* /deep/ #zoomLevel")));
-//		oSelect.selectByValue("0.9");
 		driver.navigate().to("https://accounts.google.com");
-        if(DriverScript.Config.getProperty("Browser").equals("chrome"))
-        {
-        	driver.manage().window().maximize();
-        }
 	}
 	
 	public void iEnterUserNameToLoginMailAccount(String username) {
@@ -76,9 +69,7 @@ public class MailCreateUser extends BaseClass{
 			{
 				clickElement(driver.findElement(By.xpath("//span[text()='Sign in']")));
 			}
-			
 		}
-		
 	}
 	
 	public void iClickOnMailIconOnMyAccount() {	
@@ -87,6 +78,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iClickOnInboxUnderMail() throws InterruptedException {
+		Thread.sleep(4000);
 		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox')]"));
 		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
 		Thread.sleep(4000);
@@ -181,7 +173,9 @@ public class MailCreateUser extends BaseClass{
 	
 	public void i_Verify_The_Unread_Mail_In_Inbox_In_My_Account(){
 		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox (')]"));
+
 		isElementPresentOnPage(By.xpath("//a[contains(text(),'Inbox (')]"));
+
 	}
 	
 	public void iVerifyChangePasswordMailinInboxInMyAccount() {
@@ -189,9 +183,13 @@ public class MailCreateUser extends BaseClass{
     	Assert.assertTrue(isElementPresentOnPage((By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password We recently received a request to create')]"))));
 	}
 	
-	public void iClickOnChangePasswordMailInInboxInMyAccount() {
+	public void iClickOnChangePasswordMailInInboxInMyAccount() throws InterruptedException {
 		iWillWaitToSee(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]"));
-		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")));
+		Thread.sleep(3000);
+		if(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")).isEnabled())
+		{
+			clickElement(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")));
+		}
 	}
 	
 	public void iEnterNewPasswordToSetNewPassword(String text) {
@@ -206,6 +204,8 @@ public class MailCreateUser extends BaseClass{
 	
 	public void iEnterNewUserEmailForLoginToRemedy(String role) {
 		String emailVal = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
+
+
 		iWillWaitToSee(By.xpath("//input[@name='email']"));
 		iFillInText(driver.findElement(By.xpath("//input[@name='email']")), emailVal);
 	}
@@ -216,6 +216,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iOpenNewTabAndCloseLastTab() throws AWTException, InterruptedException, IOException {		
+
 	    if(DriverScript.Config.getProperty("Browser").equals("chrome"))
 	    {
 	    	driver.get("chrome://settings/clearBrowserData");
@@ -223,6 +224,5 @@ public class MailCreateUser extends BaseClass{
 		    driver.findElement(By.cssSelector("* /deep/ #clearBrowsingDataConfirm")).click();
 		    Thread.sleep(10000);
 	    }
-		
 	}
 }

@@ -3,14 +3,8 @@ package com.remedy.userAdmin;
 
 import com.remedy.baseClass.BaseClass;
 import com.remedy.resources.DriverScript;
-
-import cucumber.api.java.en.And;
-
 import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
-
 //import org.apache.commons.collections.set.SynchronizedSet;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -69,6 +63,16 @@ public class LandingPage extends BaseClass{
 					System.out.println("After Switching Window Handle : "+driver.getWindowHandle());
 				}
 			}
+			else if(DriverScript.Config.getProperty("Browser").equals("ie"))
+			{
+				Thread.sleep(5000);
+				String parentWindow = driver.getWindowHandle();
+				Set<String> handles = driver.getWindowHandles();
+				if(!((String)handles.toArray()[handles.size()-1]).equals(parentWindow))
+				{
+					driver.switchTo().window((String)handles.toArray()[handles.size()-1]);
+				}
+			}
     		
 		}
 		catch(Exception e)
@@ -102,7 +106,16 @@ public class LandingPage extends BaseClass{
     			}
                 delay();
     		}
-    		
+    		else if(DriverScript.Config.getProperty("Browser").equals("ie"))
+    		{
+    			String parentWindow = driver.getWindowHandle();
+                Set<String> handles = driver.getWindowHandles();
+                if(!((String)handles.toArray()[0]).equals(parentWindow))
+    			{
+    				driver.switchTo().window((String)handles.toArray()[0]);
+    			}
+                delay();
+    		}
     	}
     	catch(Exception e)
     	{
@@ -117,6 +130,7 @@ public class LandingPage extends BaseClass{
     public void iSelectValueFromProfileIconDropDown(String text){
     	clickSingleElementFromList(By.cssSelector(".btn.btn-flyout-nav"), text);
     }
+
 
     public void iClickOnTheTopUserAccountIcon (){
         delay();
@@ -139,21 +153,23 @@ public class LandingPage extends BaseClass{
         clickElement(driver.findElement(By.xpath("//a[contains(text(),'Log Out')]")));
        }
     
+
     public void iClickOnTheTopUserAccountIconOnRemedyConnectPage (){
     	iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']"));
 		clickElement(driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']")));
     }
     
     public void IClickTopUserAccountLink() {
-    	iWillWaitToSee(By.xpath("//div[contains(text(),'.com')]/parent::div/i[@class='dropdown icon']"));
-		clickElement(driver.findElement(By.xpath("//div[contains(text(),'.com')]/parent::div/i[@class='dropdown icon']")));
+    	iWillWaitToSee(By.xpath("//div[@class='ui dropdown menu-profile-btn']//i[@class='dropdown icon']"));
+		clickElement(driver.findElement(By.xpath("//div[@class='ui dropdown menu-profile-btn']//i[@class='dropdown icon']")));
     }
 
-    public void iSelectFromTopUserAccountDropDown(String link){
+    public void iSelectFromTopUserAccountDropDown(String link) throws InterruptedException{
     	driver.navigate().refresh();
+    	Thread.sleep(3000);
     	iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']"));
 	      driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']")).click();
-	      delay();
+	      Thread.sleep(3000);
 	      if(link.equals("Log Out"))
 	      {
 	    	  driver.findElement(By.xpath("//a[@ng-click='user.logout()']")).click(); 
@@ -181,4 +197,3 @@ public class LandingPage extends BaseClass{
     	clickElement(driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']")));
     }
 }
-

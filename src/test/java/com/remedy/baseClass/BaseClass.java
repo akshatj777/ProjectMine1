@@ -6,17 +6,10 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.resources.DriverScript;
-
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
@@ -29,16 +22,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
 import static stepDefination.CommonSteps.actionEvent;
 
 /**
@@ -55,13 +46,14 @@ public class BaseClass {
 	static InputStream inPropFile = null;
 	FileInputStream fisCache;
 	OutputStream outPropFile;
+	public static String parentWindow = null;
 	public BaseClass(final WebDriver driver) {
 		this.driver = driver;
 	}
 	public WebDriverWait waitTo()
 	{
-		WebDriverWait wait = new WebDriverWait(driver, 200);
-		return wait;
+      WebDriverWait wait = new WebDriverWait(driver, 300);
+      return wait;
 	}
 
 	public void delay() {
@@ -206,6 +198,7 @@ public class BaseClass {
 			return;
 		}
 		obj.clear();
+		
 		if ("".equals(text)) {
 			return;
 		}
@@ -262,11 +255,11 @@ public class BaseClass {
     public void switchBacktoOldWindow() {
     	try
     	{
-    		String parentWindow = driver.getWindowHandle();
+    		String parentWindow1 = driver.getWindowHandle();
             Set<String> handles = driver.getWindowHandles();
             driver.close();
             for (String windowHandle : handles) {
-                if (!windowHandle.equals(parentWindow)) {
+                if (!windowHandle.equals(parentWindow1)) {
                     driver.switchTo().window(windowHandle);
                 }
             }
@@ -274,7 +267,7 @@ public class BaseClass {
     	}
     	catch(Exception e)
     	{
-    		System.out.println(e.toString());
+    		//driver.switchTo().window(parentWindow);
     	}
     	
     }
@@ -310,7 +303,8 @@ public class BaseClass {
 	public void switchToNewWindow() {
 		try
 		{
-			String parentWindow = driver.getWindowHandle();
+			parentWindow = driver.getWindowHandle();
+			System.out.println(parentWindow);
 			Set<String> handles = driver.getWindowHandles();
 			for (String windowHandle : handles) {
 				if (!windowHandle.equals(parentWindow)) {
@@ -320,7 +314,7 @@ public class BaseClass {
 		}
 		catch(Exception e)
 		{
-			System.out.println(e.toString());
+			driver.switchTo().window(parentWindow);
 		}
 		
 	}
@@ -381,7 +375,6 @@ public class BaseClass {
 		String attr = element.getAttribute(attribute);
 		Assert.assertTrue(attr.contains(contains));
 	}
-
 	public boolean isElementPresentOnPage(By locatorKey) {
 		boolean value = true;
 		try {
@@ -442,6 +435,7 @@ public class BaseClass {
 	}
 	
 	public void iVerifyTextFromListOfElement(By locator, String text) {
+		
 		List<WebElement> listItems = driver.findElements(locator);
 		String value = null;
 		for (WebElement item : listItems) {
@@ -454,6 +448,7 @@ public class BaseClass {
 	}	
 	
 	public void clickSingleElementFromList(By locator, String text) {
+		
 	    List <WebElement> element = driver.findElements(locator);
 	    for(WebElement ele: element) {
 	    	if (ele.getText().trim().equals(text)) {
@@ -476,7 +471,18 @@ public class BaseClass {
     	String allignment=ele.getCssValue(property);
     	Assert.assertEquals("center", allignment);
 	}
+
+
+	public void isSelected(WebElement element){
+		boolean flag = element.isSelected();
+    	Assert.assertEquals(true, flag);
+	}
 	
+	public void isNotSelected(WebElement element){
+		boolean flag = element.isSelected();
+    	Assert.assertEquals(false, flag);
+	}
+
 	public String createRandomName(String name){
 		return name+RandomStringUtils.randomAlphabetic(8);
 	}
@@ -484,7 +490,6 @@ public class BaseClass {
 	public String createRandomNumber(int num){
 		return RandomStringUtils.randomNumeric(num);
 	}
-	
 	
 	public String fetchParticipantID(String query) throws ClassNotFoundException, SQLException  {
 		HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();
@@ -521,18 +526,19 @@ public class BaseClass {
 		return driver.getCurrentUrl();
 	}
 	
+
 	public static String currentdate(int days,String format) {
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern(format);
-		LocalDate localDate = LocalDate.now();
-		LocalDate b = localDate.minus(Period.ofDays(days));
-		String date = dtf.format(b);
-		return date;
-	}
+		  DateTimeFormatter dtf = DateTimeFormatter.ofPattern(format);
+		  LocalDate newYork = LocalDate.now(ZoneId.of("America/New_York"));
+		  LocalDate b = newYork.minus(Period.ofDays(days));
+		  String date = dtf.format(b);
+		  return date;
+		 }
 	
 	public static String currentdatefrommonth(int months,String format) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern(format);
-		LocalDate localDate = LocalDate.now();
-		LocalDate b = localDate.minus(Period.ofMonths(months));
+		LocalDate newYork = LocalDate.now(ZoneId.of("America/New_York"));
+		LocalDate b = newYork.minus(Period.ofMonths(months));
 		String date = dtf.format(b);
 		return date;
 	}
@@ -575,5 +581,24 @@ public class BaseClass {
 
 		}
 
-}
+    public void verifyTextNotPresentForElementFromListByXpath(String element, String itemtext) {
+        List<WebElement> listItems = driver.findElements(By.xpath(element));
+        for (WebElement item : listItems) {
+            Assert.assertFalse(item.getText().equalsIgnoreCase(itemtext));
+        }
+    }
+	
+	public String getLastnCharacters(String inputString, int subStringLength) {
+  	  int length = inputString.length();
+  	  if (length <= subStringLength) {
+  	   return inputString;
+  	  }
+  	  int startIndex = length - subStringLength;
+  	  return inputString.substring(startIndex);
+  	 }
+	
+	public void scrollToTopOfThePage(){
+		((JavascriptExecutor)driver).executeScript("window.scrollTo(0, -document.body.scrollHeight)");	
+	}
 
+}

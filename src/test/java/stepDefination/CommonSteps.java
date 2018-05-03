@@ -1,26 +1,18 @@
 package stepDefination;
 
 import com.remedy.baseClass.BaseClass;
-import com.remedy.resources.Constants;
 import com.remedy.userAdmin.LandingPage;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import stepDefination.Hooks.InitialSetup;
-
 import java.awt.AWTException;
 import java.awt.Robot;
-import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
@@ -48,6 +40,7 @@ public class CommonSteps extends DriverScript {
         {
         	driver.manage().window().maximize();
         }
+
     }
 
     @Then("^I go to mail verification page$")
@@ -100,7 +93,7 @@ public class CommonSteps extends DriverScript {
 
     @And("^I verify current page \"([^\"]*)\" title$")
     public void iVerifyCurrentPageTitle(String pageTitle) {
-    	 WebDriverWait wait = new WebDriverWait(driver, 60);
+    	 WebDriverWait wait = new WebDriverWait(driver, 120);
     	 wait.until(ExpectedConditions.titleContains(pageTitle));
          Assert.assertEquals(driver.getTitle(), pageTitle);
     }
@@ -157,8 +150,10 @@ public class CommonSteps extends DriverScript {
             Action selected = builder.build();
             selected.perform();
     	}
-
- 
-    	System.out.println("Hurray");
+    }
+    
+    @And("^I switch back to old window in reports$")
+    public void iSwitchBackToOLDWindowInReports(){
+    	baseClass.switchBacktoOldWindow();
     }
 }

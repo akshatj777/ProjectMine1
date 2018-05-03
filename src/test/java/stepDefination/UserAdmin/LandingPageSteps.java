@@ -58,8 +58,9 @@ public class LandingPageSteps extends DriverScript{
     public void iShouldNotSeeTileText(String tileName) throws Throwable {
         landingPage.iVerifyTextNotForTiles(tileName);
     }
-    
+
     @Then("^I click on Hamburger menu on top left of homepage$")
+
     public void iClickOnHamburgurMenu()throws Throwable {
     	landingPage.iClickOnHamburgurMenuOnTop();
     }
