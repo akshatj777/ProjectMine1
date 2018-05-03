@@ -64,9 +64,8 @@ WebDriverWait wait= new WebDriverWait(driver, 30);
 
 	public void iSeeUserAdminPageHeader(String pageHeader) {
 
-		iWillWaitToSee(By.cssSelector(".row.page-header>h1"));
-		verifyTextForElement(driver.findElement(By.cssSelector(".row.page-header>h1")), pageHeader);
-
+		iWillWaitToSee(By.xpath("//h1[text()='Users']"));
+		isElementPresentOnPage(By.xpath("//h1[text()='Users']"));
 	}
 
 	public void iSeeCreateUserText(String createUser) {
