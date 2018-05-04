@@ -1,6 +1,6 @@
 @EC1Smoke
 Feature: Messages on patient list
-@ECFailedTestRerun
+
   Scenario: Send message on patients list with success
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
@@ -35,7 +35,11 @@ Feature: Messages on patient list
     When I fill in "Message Body" xpath "//*[@id='bp_msg_form_message']" with "Test Message Functionality"
     And I click on "Send" button
     And I will wait to see "Message sent" in "p" tag
-    And I refresh the page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I will see patient name title on the patient card
     Then I click on Message Icon on header navigation bar
     And I click on see all messages under Message on header navigation bar
     And I click on "Sent" under Message tab on Dashboard

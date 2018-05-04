@@ -1,6 +1,6 @@
 Feature: Add new DRG
 
-  @EC1Smoke
+  @ECFailedTestRerun2
   Scenario: Add new DRG for first period
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login

@@ -42,7 +42,7 @@ Feature: POT3 will get activated on post acute admission
     When I click on episode marker drop down
     Then I will wait to see "POTENTIAL MODEL 3" state
     Then I verify Episode Marker with Admit Date "30" is created without end date
-@ECFailedTestRerun
+
   Scenario: POT3 will get activated on post acute admission, which its admit date is between HHH discharge to the POT3 episode end date.
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
@@ -81,7 +81,6 @@ Feature: POT3 will get activated on post acute admission
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "89" to show end date and Episode Status "ACTIVE"
-    Then I will verify Episode Marker Admit Date "30" and "minus" Discharge date "0" with "-1" to show end date and Episode Status "POTENTIAL MODEL 3"
     Then I navigate to the "/secure/person/mongoID/careflow#/careFlowForms"
     And I will wait to see patient's name on patient summary page
     Then I verify "Clinical Risk Assessment assigned" in "Assigned Form list" "2"
