@@ -41,7 +41,7 @@ Feature: Managing Various Episode States - Removing DOD
     When I reload the page
     And I will wait to see patient's name on patient summary page
     And I should see tag "Expired"
-
+@ECFailedTestRerun
   Scenario: EXPIRED AS INPATIENT-Active episode with discharge
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag

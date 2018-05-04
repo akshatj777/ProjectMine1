@@ -1,5 +1,8 @@
 package stepDefination.Episode1;
 
+import java.util.Arrays;
+import java.util.Set;
+
 import com.remedy.episode1.PatientsListPage;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.Then;
@@ -176,6 +179,11 @@ public class PatientListPageSteps extends DriverScript {
     @Then("^I should see ([^\"]*) patient on the patient list present on the patient page$")
     public void i_should_see_patient_on_the_patient_list_present_on_the_patient_page(String patientName) throws Throwable {
     	patientsList.iShouldSeePatientOnThePatientListPresentOnThePatientPage(patientName);
+    }
+    
+    @Then ("^I switch back to old window from EC window$")
+    public void switch_back_to_old_window_from_EC_window() {
+    	patientsList.switchbacktooldwindowfromECwindow();
     }
 
     @Then("^I should see clear filter button present on the patient page$")

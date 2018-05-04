@@ -48,7 +48,6 @@ Feature: Patient Details on Patient overview page
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on "TCRN Checklist" label tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
-    Then I click on the Cancel Button on the New Transition on Add Patient page
     And I will wait to see patient's name on patient summary page
 
   Scenario: Patient Details on Patient overview page+

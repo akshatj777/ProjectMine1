@@ -260,7 +260,7 @@ public class ReadmissionWorklist extends BaseClass {
 	  }
 
 	public void Iselectthefacilityonaddanewtransition(String admissiontype,String facilityvalue,String locator) {
-		delay();
+		longDelay();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Actions actions = new Actions(driver);
 		actions.moveToElement(driver.findElement(By.cssSelector(locator))).perform();

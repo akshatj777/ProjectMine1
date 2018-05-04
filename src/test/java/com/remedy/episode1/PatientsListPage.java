@@ -1,6 +1,9 @@
 package com.remedy.episode1;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.Set;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -11,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.baseClass.BaseClass;
+import com.remedy.resources.DriverScript;
 
 /**
  * Created by salam on 5/10/16.
@@ -428,6 +432,50 @@ public class PatientsListPage extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//a[contains(@symfony-routing,'new_appointment_form')]")));
 		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
 		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
+	}
+
+	public void switchbacktooldwindowfromECwindow() {
+		try
+    	{
+    		if(DriverScript.Config.getProperty("Browser").equals("chrome"))
+    		{
+    			String parentWindow = driver.getWindowHandle();
+                Set<String> handles = driver.getWindowHandles();
+                if(!((String)handles.toArray()[0]).equals(parentWindow))
+    			{
+                	driver.close();
+    				driver.switchTo().window((String)handles.toArray()[0]);
+    			}
+                delay();
+    		}
+    		else if(DriverScript.Config.getProperty("Browser").equals("firefox"))
+    		{
+    			String parentWindow = driver.getWindowHandle();
+                Set<String> handles = driver.getWindowHandles();
+                Object[] array = handles.toArray();
+				Arrays.sort(array);
+                if(!(array[0].toString().equals(parentWindow)))
+    			{
+    				driver.switchTo().window(array[0].toString());
+    			}
+                delay();
+    		}
+    		else if(DriverScript.Config.getProperty("Browser").equals("ie"))
+    		{
+    			String parentWindow = driver.getWindowHandle();
+                Set<String> handles = driver.getWindowHandles();
+                if(!((String)handles.toArray()[0]).equals(parentWindow))
+    			{
+    				driver.switchTo().window((String)handles.toArray()[0]);
+    			}
+                delay();
+    		}
+    	}
+    	catch(Exception e)
+    	{
+    		System.out.println(e.toString());
+    	}
+		
 	}
 
 }

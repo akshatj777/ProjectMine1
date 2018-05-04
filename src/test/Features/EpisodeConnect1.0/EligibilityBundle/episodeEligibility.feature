@@ -48,7 +48,7 @@ Feature: Episode eligibility status
     Then I will not see "Episode Marker" xpath element "//*[@id='s2id_episodeSelectionBox']"
     And I should see "Not Eligible" in Eligibility
     And I should see "Unknown" in Onboarding Status
-
+@ECFailedTestRerun
   Scenario: Verify Eligibility should Automatically run upon a patient admission to a SNF.
     Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag

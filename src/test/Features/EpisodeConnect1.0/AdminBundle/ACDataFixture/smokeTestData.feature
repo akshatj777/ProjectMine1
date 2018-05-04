@@ -61,7 +61,7 @@ Feature: Configure Test Data for EC smoke automation.
     When I click on Add button after selecting the drg
     Then I verify "6" is appearing in the drg list under facility
 
-  Scenario: Rhode Island Hospital (66) INTRACRANIAL HEMORRHAGE OR CEREBRAL INFARCTION W/O CC/MCC" "(BPCI) (Stamford) (M2 90 days)
+  Scenario: Rhode Island Hospital (66) INTRACRANIAL HEMORRHAGE OR CEREBRAL INFARCTION W/O CC/MCC"  (Stamford) (M2 90 days)
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login

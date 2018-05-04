@@ -542,7 +542,7 @@ public class DischargeCarlForm extends BaseClass {
 	public void urlFilteredbySSN(String URL) {
 		String new_Url=URL.replaceAll("%%SSN",final_ssn);
 		driver.get(BaseURL+new_Url);
-	    Reporter.addStepLog(new_Url);
+	//    Reporter.addStepLog(new_Url);
 		delay();
 		driver.navigate().refresh();
 		if(driver.findElements(By.cssSelector(".dataTables_processing")).size()>0){

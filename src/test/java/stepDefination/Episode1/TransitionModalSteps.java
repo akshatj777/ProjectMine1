@@ -22,8 +22,7 @@ public class TransitionModalSteps extends DriverScript {
 	}
 
 	@Then("^I select the \"([^\"]*)\" admit date with \"([^\"]*)\" hour \"([^\"]*)\" in transition \"([^\"]*)\"$")
-	public void i_Select_one_hour_later_or_before(int days, int time, String later, String tranistion)
-			throws ParseException {
+	public void i_Select_one_hour_later_or_before(int days, int time, String later, String tranistion) throws ParseException {
 		transition.iSelectonehourlaterorbefore(days, time, later, tranistion);
 	}
 

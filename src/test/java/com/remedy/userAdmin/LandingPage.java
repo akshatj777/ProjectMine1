@@ -88,6 +88,7 @@ public class LandingPage extends BaseClass{
     		{
     			String parentWindow = driver.getWindowHandle();
                 Set<String> handles = driver.getWindowHandles();
+                driver.close();
                 if(!((String)handles.toArray()[0]).equals(parentWindow))
     			{
     				driver.switchTo().window((String)handles.toArray()[0]);
@@ -100,6 +101,7 @@ public class LandingPage extends BaseClass{
                 Set<String> handles = driver.getWindowHandles();
                 Object[] array = handles.toArray();
 				Arrays.sort(array);
+				driver.close();
                 if(!(array[0].toString().equals(parentWindow)))
     			{
     				driver.switchTo().window(array[0].toString());
@@ -110,6 +112,7 @@ public class LandingPage extends BaseClass{
     		{
     			String parentWindow = driver.getWindowHandle();
                 Set<String> handles = driver.getWindowHandles();
+                driver.close();
                 if(!((String)handles.toArray()[0]).equals(parentWindow))
     			{
     				driver.switchTo().window((String)handles.toArray()[0]);

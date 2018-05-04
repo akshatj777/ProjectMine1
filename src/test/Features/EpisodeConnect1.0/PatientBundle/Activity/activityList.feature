@@ -42,7 +42,8 @@ Feature: Activity List
     Then I click on "TCRN Checklist" label tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
-    
+ 
+@ECFailedTestRerun   
  Scenario: Verify activity UI
 	Then I navigate to the "/secure/person/mongoID/recentactivity"
 	And I should see "All" buttons under Recent Activity
@@ -51,7 +52,7 @@ Feature: Activity List
 	And I should see "Notifications" buttons under Recent Activity
 	Then I click on "Notifications" button under Recent Activity
 	And I should see "New Episode has been created" in Notification column on Recent Activity Notification tab 
-	And I should see "QA ADMIN" in By column on Recent Activity Notification tab 
+	And I should see "USERINFO ADMINONE" in By column on Recent Activity Notification tab 
 	And I click on View Changes under Activity
 	And I should see "id" under chnages in view changes
 	And I should see "startDate" under chnages in view changes

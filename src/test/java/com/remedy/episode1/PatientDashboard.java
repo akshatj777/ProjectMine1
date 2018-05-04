@@ -4,6 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.baseClass.BaseClass;
@@ -152,7 +153,14 @@ public class PatientDashboard extends BaseClass {
 	}
 
 	public void iClickOnSeeAllMessagesUnderMessageOnHeaderNavigationBar() {
+		try {
+		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".dataTables_processing"))));	
+		}catch(Exception e) {
+			longDelay();
+		}
+		longDelay();
 		iWillWaitToSee(By.cssSelector("a[href='/secure/message']"));
+		new Actions(driver).moveToElement(driver.findElement(By.cssSelector("a[href='/secure/message']")));
 		clickElement(driver.findElement(By.cssSelector("a[href='/secure/message']")));
 	}
 
@@ -206,8 +214,8 @@ public class PatientDashboard extends BaseClass {
 	}
 
 	public void iClickOnFirstMessageInInbox() {
-		iWillWaitToSee(By.xpath("//tbody/tr//td[text()='QA ADMIN']"));
-		clickElement(driver.findElement(By.xpath("//tbody/tr//td[text()='QA ADMIN']")));
+		iWillWaitToSee(By.xpath("//tbody/tr//td[text()='USERINFO ADMINONE']"));
+		clickElement(driver.findElement(By.xpath("//tbody/tr//td[text()='USERINFO ADMINONE']")));
 	}
 
 	public void iClickOnGearIconForFirstMessageInInbox() {

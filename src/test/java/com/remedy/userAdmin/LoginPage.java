@@ -29,7 +29,7 @@ public class LoginPage extends BaseClass {
 		}
 
 	public void iClickForgotPassword() {
-		clickElement(driver.findElement(By.xpath("//*[text()='Forgot password?']")));
+		clickElement(driver.findElement(By.xpath("//a[contains(text(),'remember your password')]")));
 	}
 
 	public void iEnterEmailForResetPssword(String text) {

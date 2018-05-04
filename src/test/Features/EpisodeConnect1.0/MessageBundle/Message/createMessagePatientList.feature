@@ -1,6 +1,6 @@
 @EC1Smoke
 Feature: Messages on patient list
-
+@ECFailedTestRerun
   Scenario: Send message on patients list with success
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
