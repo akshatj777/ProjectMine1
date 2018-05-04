@@ -5,7 +5,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    And I switch to new window
+    #And I switch to new window
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -230,7 +230,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I verify "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
     Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
     And I verify "Edit Contract" header text on edit organization page
-    Then I verify "<Program>" dropdown box is not editable
+    Then I verify program "<Program>" dropdown box is not editable
     Then I verify "<Organization_Type>" dropdown box is not editable
     Then I verify "<Organization_Name>" dropdown box is not editable
     Then I verify "Contract_Id" field is not editable
@@ -242,8 +242,8 @@ Feature: Edit Bundle Payment Contract functionality tests
     And I verify "End Date" field for "Bundle1" on edit Contracts page
     And I verify "*Start Date" field for "Bundle_price1" on edit Contracts page
     And I verify "End Date" field for "Bundle_price1" on edit Contracts page
-    And I verify "*Start Date" field for "Baseline Start" on edit Contracts page
-    And I verify "End Date" field for "Baseline End" on edit Contracts page
+    #And I verify "*Start Date" field for "Baseline Start" on edit Contracts page
+    #And I verify "End Date" field for "Baseline End" on edit Contracts page
     And I verify "Trend Factor" field is editable
     And I verify "Upper Bound" field is editable
     And I verify "Lower Bound" field is editable
@@ -362,7 +362,7 @@ Feature: Edit Bundle Payment Contract functionality tests
       | Description                                                                                              | Payor_Name | Bundle_Payment_Contract | Program     | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | ValidationMsg                                                   |
       | Validation message for editing Contract with Contract End Date is before the Contract Start Date         | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2017/01/07      | 2017/05/01      | 2018/07/30    | 2017/07/02     | 2018/02/01   | 2019/03/09        | 2019/05/12      | The Contract End Date is before the start date                  |
       | Validation message for editing Contract with Bundle End Date is before the bundle Start Date             | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2017/04/23    | 2017/07/02     | 2018/02/01   | 2019/03/09        | 2019/05/12      | The bundle end date is before the bundle start date             |
-      | Validation message for editing Contract with Bundle Price End Date is before the Bundle Price Start Date | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/06/30    | 2017/07/01     | 2017/06/01   | 2019/03/09        | 2019/05/12      | The bundle price end date is before the bundle price start date |
+      | Validation message for editing Contract with Bundle Price End Date is before the Bundle Price Start Date | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/06/30    | 2017/07/01     | 2017/06/01   | 2019/03/09        | 2019/05/12      | The bundle end date is before the bundle start date |
       | Validation messages for editing Contract with Bundle End Date is after Contract End Date                 | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/12/21    | 2017/07/02     | 2018/02/01   | 2019/03/09        | 2019/05/12      | The bundle end date is after the contract end date              |
       | Validation messages for editing Contract with Bundle Price End Date is after Bundle End Date             | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/06/30    | 2018/03/03     | 2019/07/30   | 2019/03/09        | 2019/05/12      | The bundle price end date is after the bundle end date          |
       | Validation messages for editing Contract with Bundle Start Date is before the Contract Start Date        | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | 2017/02/09        | 2019/12/19      | 2017/01/07      | 2019/06/30    | 2018/03/03     | 2019/07/30   | 2019/03/09        | 2019/05/12      | The bundle start date is before the contract start date         |
@@ -409,7 +409,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
     And I verify "Edit Contract" header text on edit organization page
     Then I click on "Add Bundle" button on "edit" organization page
-    Then I search "<SearchParam>" and verify with search list options on "Bundle_1" dropdown box
+    Then I search "<SearchParam>" and verify with search list options on "Bundle_2" dropdown box
 
     Examples: 
       | Description                                              | Payor_Name | Bundle_Payment_Contract | Program     | SearchParam |
@@ -525,7 +525,7 @@ Feature: Edit Bundle Payment Contract functionality tests
 
     Examples: 
       | Description                                      | Payor_Name | Bundle_Payment_Contract | Program     | Organization_Type | Organization_Name | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor | Upper_Bound | Lower_Bound | Message                        |
-      | Edit a Contract With Non-Mandatory Field Missing | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | ACH               | ACHNAME           |                    |                  |              |             |             | Contract Successfully Updated. |
+      | Edit a Contract With Non-Mandatory Field Missing | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | ACH               | ACHNAME           |                    |                  |              |             |             | Contract Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -555,4 +555,4 @@ Feature: Edit Bundle Payment Contract functionality tests
 
     Examples: 
       | Description              | Payor_Name | Bundle_Payment_Contract | Program     | Organization_Type | Organization_Name | Price | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Trend_Factor | Upper_Bound | Lower_Bound | Message                        |
-      | Edit and save a contract | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | ACH               | ACHNAME           |    96 | 2017/03/15        | 2019/10/10      | 2017/06/01      | 2018/06/30    | 2017/07/01     | 2018/02/28   | 2017/10/01        | 2017/12/30      |           78 |          87 |          97 | Contract Successfully Updated. |
+      | Edit and save a contract | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | ACH               | ACHNAME           |    96 | 2017/03/15        | 2019/10/10      | 2017/06/01      | 2018/06/30    | 2017/07/01     | 2018/02/28   | 2017/10/01        | 2017/12/30      |           78 |          87 |          97 | Contract Successfully Updated |

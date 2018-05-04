@@ -92,17 +92,17 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iClickOnCheckboxeForAttributionRulesOnCreatePrograms(text);
 	    }
 	
-	@And("^I verify the \"([^\"]*)\" on \"([^\"]*)\" Netwotk Conntract page$")
+	@And("^I verify the \"([^\"]*)\" on \"([^\"]*)\" Network Contract page$")
 	  public void i_Verify_PGP_Organization_Name_On_Network_Contract_Page(String text, String page) throws Throwable {
 		programs.iVerifyPGPOrganizationNameOnNetworkContractPage(text, page);
 	    }
 	
-	@And("^I verify Search box for Hospital Organization on \"([^\"]*)\" Netwotk Conntract page$")
+	@And("^I verify Search box for Hospital Organization on \"([^\"]*)\" Network Contract page$")
 	  public void i_Verify_Search_Box_For_Hospital_Organization_On_Network_Contract_Page(String page) throws Throwable {
 		programs.iVerifySearchBoxForHospitalOrganizationOnNetworkContractPage(page);
 	    }
 	
-	@And("^I verify \"([^\"]*)\" field on \"([^\"]*)\" Netwotk Conntract page$")
+	@And("^I verify \"([^\"]*)\" field on \"([^\"]*)\" Network Contract page$")
 	  public void i_Verify_Date_Field_On_Network_Contract_Page(String field, String page) throws Throwable {
 		programs.iVerifyDateFieldOnNetworkContractPage(field, page);
 	    }
@@ -112,7 +112,7 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iVerifyDefaultNetworkContractStartDateShouldBeTodayDate();
 	    }
 	
-	@And("^I verify \"([^\"]*)\" on Create Netwotk Contract page$")
+	@And("^I verify \"([^\"]*)\" on Create Network Contract page$")
 	  public void i_Verify_Program_On_Create_Network_Contract_Page(String text) throws Throwable {
 		programs.iVerifyProgramOnCreateNetworkContractPage(text);
 	    }

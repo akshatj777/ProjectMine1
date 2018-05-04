@@ -5,7 +5,7 @@ Feature: Create Network Contracts functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    And I switch to new window
+    #And I switch to new window
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -160,97 +160,8 @@ Feature: Create Network Contracts functionality tests
 
     Examples: 
       | Description                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1                    | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using PGP Organization | NO     | PAYORNAME  | 2017/01/30        | 2019/12/27      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | DelRefBundle1iUcLlBcukb0312 |   113 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BNC1FhdQtwAnpJ1426          |   113 |          121 |         135 |         106 | Contract Successfully Created |
-
-  Scenario Outline: <Description>
-    When I click on "Payor" organization tab on organization dashboard
-    When I search with "<Payor_Name>" on organization in search box
-    And I click "<Payor_Name>" field in search list on organization page
-    And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Contracts" tab present under "Payor" Organization
-    And I click on "Contracts" tab on view profile of "Payor" Organization
-    And I verify the "Create New Contract" button on view profile of "Payor" Organization
-    Then I click on "Create New Contract" button on "create" organization page
-    And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
-    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
-    And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
-    And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
-    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
-    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
-    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
-    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
-    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
-    Then I enter date "<PriceEndDate>" in "Baseline Date" field for index "5"
-    Then I enter date "<BaselineStartDate>" in "BaselineStartDate" field for index "6"
-    Then I enter date "<BaselineEndDate>" in "BaselineEndDate" field for index "7"
-    And I enter "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price1" on create Contract page
-    And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on create Contract page
-    And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price1" on create Contract page
-    Then I click on "Add Price" button on "create" organization page
-    And I enter "<Price1>" in "price" field for "Bundle1 Price2" on create Contract page
-    Then I enter date "<PriceStartDate1>" in "PriceStartDate" field for index "8"
-    Then I enter date "<PriceEndDate1>" in "Baseline Date" field for index "9"
-    Then I enter date "<BaselineStartDate1>" in "BaselineStartDate" field for index "10"
-    Then I enter date "<BaselineEndDate1>" in "BaselineEndDate" field for index "11"
-    And I enter "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price2" on create Contract page
-    And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price2" on create Contract page
-    And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price2" on create Contract page
-    Then I click on "Submit" button on "create" organization page
-
-    #Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
-    Examples: 
-      | Description                                          | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1             | Price | Price1 | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create contract with 1 Bundle having multiple Prices | NO     | PAYORNAME  | 2017/02/05        | 2019/12/28      | 2018/01/04      | 2019/06/21    | 2018/02/02     | 2018/05/30   | 2018/03/01        | 2018/04/04      | 2018/06/02      | 2018/10/30    | 2018/07/01         | 2018/08/04       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPBun1rSJpbinZbN2926 |   123 |    101 |          121 |         135 |         106 | Contract Successfully Created |
-
-  Scenario Outline: <Description>
-    When I click on "Payor" organization tab on organization dashboard
-    When I search with "<Payor_Name>" on organization in search box
-    And I click "<Payor_Name>" field in search list on organization page
-    And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Contracts" tab present under "Payor" Organization
-    And I click on "Contracts" tab on view profile of "Payor" Organization
-    And I verify the "Create New Contract" button on view profile of "Payor" Organization
-    Then I click on "Create New Contract" button on "create" organization page
-    And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
-    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
-    And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
-    And I enter "<Price1>" in "price" field for "Bundle1 Price1" on create Contract page
-    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
-    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
-    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
-    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
-    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
-    Then I enter date "<PriceEndDate>" in "Baseline Date" field for index "5"
-    Then I enter date "<BaselineStartDate>" in "BaselineStartDate" field for index "6"
-    Then I enter date "<BaselineEndDate>" in "BaselineEndDate" field for index "7"
-    And I enter "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price1" on create Contract page
-    And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on create Contract page
-    And I enter "<Lower_Bound>" in "lowerBound" field for "Bundl1 Price1" on create Contract page
-    Then I click on "Add Bundle" button on "create" organization page
-    And I select Bundle "<Bundle_2>" for Contract "1" on "create" Contracts page
-    And I enter "<Price2>" in "price" field for "Bundle2 Price1" on create Contract page
-    Then I enter date "<BundleStartDate1>" in "BundleStartDate" field for index "8"
-    Then I enter date "<BundleEndDate1>" in "BundleEndDate" field for index "9"
-    Then I enter date "<PriceStartDate1>" in "PriceStartDate" field for index "10"
-    Then I enter date "<PriceEndDate1>" in "Baseline Date" field for index "11"
-    Then I enter date "<BaselineStartDate1>" in "BaselineStartDate" field for index "12"
-    Then I enter date "<BaselineEndDate1>" in "BaselineEndDate" field for index "13"
-    And I enter "<Trend_Factor1>" in "trendFactor" field for "Bundle2 Price1" on create Contract page
-    And I enter "<Upper_Bound1>" in "upperBound" field for "Bundle2 Price1" on create Contract page
-    And I enter "<Lower_Bound1>" in "lowerBound" field for "Bundle2 Price1" on create Contract page
-    Then I click on "Submit" button on "create" organization page
-
-    #Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
-    Examples: 
-      | Description                           | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1              | Bundle_2           | Price1 | Price2 | Trend_Factor | Upper_Bound | Lower_Bound | Trend_Factor1 | Upper_Bound1 | Lower_Bound1 | Message                       |
-      | Create contract with multiple Bundles | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2017/03/01      | 2018/03/30    | 2017/05/01     | 2017/08/30   | 2017/06/09        | 2017/07/12      | 2018/05/01       | 2019/06/30     | 2018/08/03      | 2019/03/26    | 2018/11/09         | 2019/01/12       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | bundle-odMHVgKKzU4124 | BNC2dIojiGTMkl0308 |    113 |     96 |          121 |         135 |         106 |           121 |          135 |          106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization | NO     | PAYORNAME  | 2017/01/30        | 2019/12/27      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BPCI_AMI_60 |   113 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BPCI_AMI_60          |   113 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: Verify available fields on create network contract page
     When I click on "PGP" organization tab on organization dashboard
@@ -263,12 +174,12 @@ Feature: Create Network Contracts functionality tests
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
-    And I verify the "<PGP_Organization_Name>" on "Create" Netwotk Conntract page
-    And I verify "*Program" on Create Netwotk Contract page
-    And I verify Search box for Hospital Organization on "Create" Netwotk Conntract page
-    And I verify "*" field on "Create" Netwotk Conntract page
+    And I verify the "<PGP_Organization_Name>" on "Create" Network Contract page
+    And I verify "*Program" on Create Network Contract page
+    And I verify Search box for Hospital Organization on "Create" Network Contract page
+    And I verify "*" field on "Create" Network Contract page
     And I verify Default Network Contract Start date should be today's date
-    And I verify "End Date" field on "Create" Netwotk Conntract page
+    And I verify "End Date" field on "Create" Network Contract page
     And I verify "Submit" button on create organization page
     And I verify "Cancel" button on create organization page
 
@@ -287,7 +198,7 @@ Feature: Create Network Contracts functionality tests
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
-    And I verify the "<PGP_Organization_Name>" on "Create" Netwotk Conntract page
+    And I verify the "<PGP_Organization_Name>" on "Create" Network Contract page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I verify "<Contract_ID>" in "Contract Id" after selecting Contract Name
     And I verify "<Start_Date>" in "Start Date" after selecting Contract Name
@@ -320,11 +231,11 @@ Feature: Create Network Contracts functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                  | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Organization_Name | ValidationMessage                                        |
-      | Check validation for blank Program Name      | NO     | PGPNAME  |              | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 | ACHNAME           | Program is not present                                   |
-      | Check validation for blank Organization name | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |                   |                                                          |
-      | Check validation for blank Start Date name   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 |            | 2018-02-02 | ACHNAME           | Start Date is not present                                |
-      | Check validation for blank End Date name     | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 |            | ACHNAME           | End Date is greater than the Contract (Program) End Date |
+      | Description                                                                            | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Organization_Name | ValidationMessage                                        |
+      | Validation message if Program is left blank                                            | NO     | PGPNAME  |              | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 | ACHNAME           | Program is not present                                   |
+      | Validation message if Hospital Organization is left blank                              | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |                   |                                                          |
+      | Validation message if Start Date is left blank                                         | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 |            | 2018-02-02 | ACHNAME           | Start Date is not present                                |
+      | Validation message if End Date is left blank when Bundle Payment Contract has End Date | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 |            | ACHNAME           | End Date is greater than the Contract (Program) End Date |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -439,7 +350,56 @@ Feature: Create Network Contracts functionality tests
     Examples: 
       | Description                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | ContractStartDate | ContractEndDate | Message                              |
       | Create Network contract with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/01/12        | 2019/12/20      | NetworkContract Successfully Created |
-      | Create Network contract with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/01/12        | 2019/12/20      | NetworkContract Successfully Created |
+      | Create Network contract with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/03/12        | 2019/09/20      | NetworkContract Successfully Created |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
+    And I verify "Network Contracts" tab present under "PGP" Organization
+    And I click on "Network Contracts" tab on view profile of "PGP" Organization
+    And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Network Contract" button on "create" organization page
+    And I verify "Create Network Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
+    And I click on react date picker close icon for "Start Date"
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    And I click on react date picker close icon for "End Date"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I click on "Submit" button on "create" organization page
+    Then I verify duplicate "<Message>" after submitting the "create Network Contract" organization page
+
+    Examples: 
+      | Description                                                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | ContractStartDate | ContractEndDate | Message                              |
+      | Create Network Contract using duplicate Program and Hospital Organization combination | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/01/12        | 2019/12/20      | NetworkContract Successfully Created |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
+    And I verify "Network Contracts" tab present under "PGP" Organization
+    And I click on "Network Contracts" tab on view profile of "PGP" Organization
+    And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Network Contract" button on "create" organization page
+    And I verify "Create Network Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
+    And I click on react date picker close icon for "Start Date"
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    And I click on react date picker close icon for "End Date"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
+
+    Examples: 
+      | Description                                                                                                                                                       | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | ContractStartDate | ContractEndDate | Message                              |
+      | Create Network Contract using duplicate Program and Hospital Organization combination with separate date range when Bundle payment contract having only StartDate | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/04/12        | 2019/09/20      | NetworkContract Successfully Created |
+      | Create Network Contract using duplicate Program and Hospital Organization combination with separate date range when Bundle payment contract having only StartDate | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/03/12        | 2019/08/20      | NetworkContract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -479,3 +439,140 @@ Feature: Create Network Contracts functionality tests
     Examples: 
       | Description                                   | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name     |
       | Error message if an organization is not found | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | NoNetworkContractName |
+
+  Scenario Outline: <Description>
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
+    Then I click on "Create New Contract" button on "create" organization page
+    And I verify "Create Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
+    And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
+    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
+    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
+    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
+    Then I enter date "<PriceEndDate>" in "Baseline Date" field for index "5"
+    Then I enter date "<BaselineStartDate>" in "BaselineStartDate" field for index "6"
+    Then I enter date "<BaselineEndDate>" in "BaselineEndDate" field for index "7"
+    And I enter "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price1" on create Contract page
+    And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on create Contract page
+    And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price1" on create Contract page
+    Then I click on "Add Price" button on "create" organization page
+    And I enter "<Price1>" in "price" field for "Bundle1 Price2" on create Contract page
+    Then I enter date "<PriceStartDate1>" in "PriceStartDate" field for index "8"
+    Then I enter date "<PriceEndDate1>" in "Baseline Date" field for index "9"
+    Then I enter date "<BaselineStartDate1>" in "BaselineStartDate" field for index "10"
+    Then I enter date "<BaselineEndDate1>" in "BaselineEndDate" field for index "11"
+    And I enter "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price2" on create Contract page
+    And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price2" on create Contract page
+    And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price2" on create Contract page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
+
+    Examples: 
+      | Description                                          | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1                     | Price | Price1 | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create contract with 1 Bundle having multiple Prices | NO     | PAYORNAME  | 2017/02/05        | 2019/12/28      | 2018/01/04      | 2019/06/21    | 2018/02/02     | 2018/05/30   | 2018/03/01        | 2018/04/04      | 2018/06/02      | 2018/10/30    | 2018/07/01         | 2018/08/04       | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BPCI_CERVICALSPINALFUSION_30 |   123 |    101 |          121 |         135 |         106 | Contract Successfully Created |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
+    And I verify "Network Contracts" tab present under "PGP" Organization
+    And I click on "Network Contracts" tab on view profile of "PGP" Organization
+    And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Network Contract" button on "create" organization page
+    And I verify "Create Network Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
+    And I click on react date picker close icon for "Start Date"
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    And I click on react date picker close icon for "End Date"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
+
+    Examples: 
+      | Description                                                                                  | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | ContractStartDate | ContractEndDate | Message                              |
+      | Create network contract with PGP involved in Bundle contract having 2 price list in a bundle | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/02/12        | 2019/12/20      | NetworkContract Successfully Created |
+
+  Scenario Outline: <Description>
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
+    Then I click on "Create New Contract" button on "create" organization page
+    And I verify "Create Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
+    And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
+    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I enter "<Price1>" in "price" field for "Bundle1 Price1" on create Contract page
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
+    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
+    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
+    Then I enter date "<PriceEndDate>" in "Baseline Date" field for index "5"
+    Then I enter date "<BaselineStartDate>" in "BaselineStartDate" field for index "6"
+    Then I enter date "<BaselineEndDate>" in "BaselineEndDate" field for index "7"
+    And I enter "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price1" on create Contract page
+    And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on create Contract page
+    And I enter "<Lower_Bound>" in "lowerBound" field for "Bundl1 Price1" on create Contract page
+    Then I click on "Add Bundle" button on "create" organization page
+    And I select Bundle "<Bundle_2>" for Contract "1" on "create" Contracts page
+    And I enter "<Price2>" in "price" field for "Bundle2 Price1" on create Contract page
+    Then I enter date "<BundleStartDate1>" in "BundleStartDate" field for index "8"
+    Then I enter date "<BundleEndDate1>" in "BundleEndDate" field for index "9"
+    Then I enter date "<PriceStartDate1>" in "PriceStartDate" field for index "10"
+    Then I enter date "<PriceEndDate1>" in "Baseline Date" field for index "11"
+    Then I enter date "<BaselineStartDate1>" in "BaselineStartDate" field for index "12"
+    Then I enter date "<BaselineEndDate1>" in "BaselineEndDate" field for index "13"
+    And I enter "<Trend_Factor1>" in "trendFactor" field for "Bundle2 Price1" on create Contract page
+    And I enter "<Upper_Bound1>" in "upperBound" field for "Bundle2 Price1" on create Contract page
+    And I enter "<Lower_Bound1>" in "lowerBound" field for "Bundle2 Price1" on create Contract page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
+
+    Examples: 
+      | Description                           | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1     | Bundle_2    | Price1 | Price2 | Trend_Factor | Upper_Bound | Lower_Bound | Trend_Factor1 | Upper_Bound1 | Lower_Bound1 | Message                       |
+      | Create contract with multiple Bundles | YES    | PAYORNAME  | 2017/01/02        | 2019/12/30      | 2017/03/04      | 2018/03/30    | 2017/05/01     | 2017/08/30   | 2017/06/09        | 2017/07/12      | 2018/05/01       | 2019/06/30     | 2018/08/03      | 2019/03/26    | 2018/11/09         | 2019/01/12       | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BPCI_CABG_60 | BPCI_PCI_30 |    108 |     96 |          121 |         135 |         106 |            98 |          107 |           67 | Contract Successfully Created |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
+    And I verify "Network Contracts" tab present under "PGP" Organization
+    And I click on "Network Contracts" tab on view profile of "PGP" Organization
+    And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Network Contract" button on "create" organization page
+    And I verify "Create Network Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
+    And I click on react date picker close icon for "Start Date"
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    And I click on react date picker close icon for "End Date"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
+
+    Examples: 
+      | Description                                                                                               | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | ContractStartDate | ContractEndDate | Message                              |
+      | Create network contract with PGP involved in Bundle contract having 2 bundle and 2 price list in a bundle | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/03/24        | 2019/10/20      | NetworkContract Successfully Created |

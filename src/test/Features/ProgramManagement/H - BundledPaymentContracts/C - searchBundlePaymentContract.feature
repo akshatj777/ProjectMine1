@@ -5,7 +5,7 @@ Feature: Search a Bundle Payment Contract Functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    And I switch to new window
+    #And I switch to new window
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -111,7 +111,7 @@ Feature: Search a Bundle Payment Contract Functionality tests
 
     Examples: 
       | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/09        | 2019/12/19      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | mB1xAglksoqZt4324 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/09        | 2019/12/19      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_CERVICALSPINALFUSION_30 |   123 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard

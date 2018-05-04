@@ -5,7 +5,7 @@ Feature: Create Programs organization under Payor Organization functionality tes
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    And I switch to new window
+    #And I switch to new window
     When I click on Organization link on Program Management page
     When I click on "Payor" organization tab on organization dashboard
 

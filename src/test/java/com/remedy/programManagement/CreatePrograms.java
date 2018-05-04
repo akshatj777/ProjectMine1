@@ -798,6 +798,17 @@ public class CreatePrograms extends BaseClass {
 			iWillWaitToSee(By.cssSelector(".react-select-option-row.highlight>div"));
 			Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".react-select-option-row.highlight>div")));
 		}
+		else if(org.equals("Bundle_2"))
+		{
+			delay();
+			scrollIntoViewByJS(driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")));
+			driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+//			delay();
+			iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input"));
+			driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(value);
+			iWillWaitToSee(By.cssSelector(".react-select-option-row.highlight>div"));
+			Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".react-select-option-row.highlight>div")));
+		}
 	}
 	
 	public void iClickOnCancelSearchButton()

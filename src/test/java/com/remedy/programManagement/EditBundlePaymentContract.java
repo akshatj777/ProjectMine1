@@ -20,7 +20,11 @@ public class EditBundlePaymentContract extends BaseClass {
 	}
 	
 	public void iVerifyDropdownBoxisnotEditable(String text){
-		isElementEnabled(driver.findElement(By.xpath("//span[text()='"+text+"']")));
+		isElementEnabled(driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]")));
+	}
+	
+	public void iVerifyProgramDropdownBoxisnotEditable(String text){
+		isElementEnabled(driver.findElement(By.xpath("//div[text()='"+CreatePrograms.programs.get(1)+"']")));
 	}
 	
 	public void iVerifyContractIdFieldisnotEditable(String text){
@@ -43,7 +47,7 @@ public class EditBundlePaymentContract extends BaseClass {
 	}
 	
 	public void iClickonReactDatePickerIcononEditContarctPage(String field, int index){
-		List<WebElement> datepickericons= driver.findElements(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']"));
+		List<WebElement> datepickericons= driver.findElements(By.xpath("//div[@class='react-datepicker-input-field-container start-date-picker ']//button[@class='react-datepicker__close-icon']"));
 		scrollIntoViewByJS(datepickericons.get(index));
 		datepickericons.get(index).click();
 	}

@@ -27,6 +27,11 @@ public class EditBundlePaymentContractStepDef extends DriverScript {
 		editBPContract.iVerifyDropdownBoxisnotEditable(text);
 	 }
 	
+	@Then("^I verify program \"([^\"]*)\" dropdown box is not editable$")
+	  public void i_Verify_Program_Dropdown_Box_is_not_Editable(String text) throws Throwable {
+		editBPContract.iVerifyProgramDropdownBoxisnotEditable(text);
+	 }
+	
 	@Then("^I verify \"([^\"]*)\" field is not editable$")
 	  public void i_Verify_Contract_Id_Field_is_not_Editable(String text) throws Throwable {
 		editBPContract.iVerifyContractIdFieldisnotEditable(text);

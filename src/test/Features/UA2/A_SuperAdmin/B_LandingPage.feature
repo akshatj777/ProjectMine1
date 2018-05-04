@@ -127,7 +127,7 @@ Feature: Super Admin Landing page verification
     And I click on "User Admin" tile from menu
     Then I should see header text "Users"
     Then I click on "Reports" from Management dropdown
-    And I switch to new window
+    #And I switch to new window
     Then I verify page tile for reports page
     And I click on "User Admin" tile from menu
     Then I should see header text "Users"
