@@ -207,17 +207,17 @@ public class CreatePrograms extends BaseClass {
 	
 	public void iEnterDetailsOnCreateContractPage(String text, String field, String field1) 
 	{
-		if(text.contains("CID"))
+		if(text.equals("CID"))
 		{
-			tempPrograms.put(111, createRandomNumber(8));
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempPrograms.get(111));
+			tempPrograms.put(1, createRandomNumber(8));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempPrograms.get(1));
 		}
-		if(text.contains("AllAlphabetsCID"))
+		if(text.equals("AllAlphabetsCID"))
 		{
 			tempPrograms.put(111, createRandomName(text));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempPrograms.get(111));
 		}
-		else if(text.contains("Duplicate_CID"))
+		else if(text.equals("Duplicate_CID"))
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.programs.get(111));
 		}
@@ -233,7 +233,7 @@ public class CreatePrograms extends BaseClass {
 				iFillInText(driver.findElement(By.xpath("//input[@name='contracts[0].contractBundles[1].bundlePrices[0]."+field+"']")), text);
 			}
 			else{
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);
+				//iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);
 			}
 		}
 	}

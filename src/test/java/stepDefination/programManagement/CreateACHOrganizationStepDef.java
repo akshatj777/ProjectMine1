@@ -2,6 +2,7 @@ package stepDefination.programManagement;
 
 import com.remedy.programManagement.CreateACHOrganization;
 import com.remedy.resources.DriverScript;
+
 import cucumber.api.java.en.And;
 
 public class CreateACHOrganizationStepDef extends DriverScript {
@@ -113,5 +114,10 @@ public class CreateACHOrganizationStepDef extends DriverScript {
 	 @And("^I provide \"([^\"]*)\" as last created \"([^\"]*)\" on create organization page$")
 	  public void i_Provide_From_Last_Created_Id_Create_Organization_Page(String id,String field) throws Throwable {
 		 createACH.iProvideFromLastCreatedIdOnCreateOrganizationPage(id,field);
+	    }
+	 
+	 @And("^I verify duplicate Location Message \"([^\"]*)\"$")
+	  public void i_Verify_Duplicate_Location_Message(String text) throws Throwable {
+		 createACH.iVerifyDuplicateLocationMessage(text);
 	    }
 }

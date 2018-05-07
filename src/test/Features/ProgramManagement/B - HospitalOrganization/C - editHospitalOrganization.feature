@@ -320,21 +320,8 @@ Feature: Edit Hospital organization functionality tests
     And I edit "postalCode" field to <Loc_Postal_Code> for Location "1" for organization
     Then I verify "Location 2" on "Edit" organization page
     And I edit "Location Name" field to <Loc_Name> for Location "2" for organization
-    And I edit "address1" field to <Loc_Address1> for Location "2" for organization
-    And I edit Location Type dropdown field to <Loc_Type> for Location "2" for organization
-    And I edit "address2" field to <Loc_Address2> for Location "2" for organization
-    And I edit Region dropdown field to <Loc_Region> for Location "2" for organization
-    And I edit "city" field to <Loc_City> for Location "2" for organization
-    And I edit Market dropdown field to <Loc_Market> for Region "<Loc_Region>" for Location "2" for organization
-    And I edit State dropdown field to <Loc_State> for Location "2" for organization
-    And I edit "postalCode" field to <Loc_Postal_Code> for Location "2" for organization
     Then I click on "Submit" button on "Edit" organization page
-    Then I verify "<Message>" after submitting the "edit ACH - <Has_MO>" organization page
-    Then I search with "<Hosp_Name> - <Has_MO>" on organization in search box
-    And I verify "<Hosp_Name> - <Has_MO>" field in search list on organization page
-    And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
-    And I verify "1" location count on view "Hospital" organization page
-
+    
     Examples: 
       | Description                                                  | Has_MO | Hosp_Name | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Message                                     |
       | Edit a Hospital Organization with duplicate Location details | NO     | ACHNAME   | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | Hospital Organization Successfully Updated. |

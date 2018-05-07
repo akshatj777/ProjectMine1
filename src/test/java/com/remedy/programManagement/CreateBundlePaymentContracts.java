@@ -12,13 +12,28 @@ public class CreateBundlePaymentContracts extends BaseClass{
 	}
 	
 	public void iVerifyContractsFieldOnCreateContractsPageUnderPayorOrganiztion(String text){
-		verifyTextForElement(driver.findElement(By.xpath("//label[text()='"+text+"']")), text);
+		if(text.contains("Price")){
+			isElementPresent(By.xpath("//label[@class='input-field-caption required']"));
+		}
+		else
+		{
+			verifyTextForElement(driver.findElement(By.xpath("//label[text()='"+text+"']")), text);
+		}
 	}
 	
 	public void iVerifyDateFieldsOnCreateContractsPage(String text, String action){
 		if(text.contains("Start Date"))
 		{
-			verifyTextForElement(driver.findElement(By.cssSelector(".required.react-datepicker-field-caption")), text);
+			//verifyTextForElement(driver.findElement(By.xpath("//div[@class='react-datepicker-input-field-container start-date-picker ']")), text);
+			isElementPresent(By.xpath("//div[@class='react-datepicker-input-field-container start-date-picker ']"));
+		}
+		else if(action.equals("Baseline_Start_Date"))
+		{
+			verifyTextForElement(driver.findElement(By.xpath("//label[@class='false react-datepicker-field-caption']")), text);
+		}
+		else if(action.equals("Baseline_End_Date"))
+		{
+			verifyTextForElement(driver.findElement(By.xpath("//label[text()='Baseline End']")), text);
 		}
 		else
 		{
@@ -46,9 +61,7 @@ public class CreateBundlePaymentContracts extends BaseClass{
 		}
 	}
 
-//	public void iEnterPriceDetailsInCreateContractPage(String text, String field, String field1){
-//		if(field1.equals("")){
-//			iFillInText(obj, text);
-//		}
-//	}
+	public void iVerifyBundleDropdownBoxIsAppearingonCreateContractPage(String text, String act){
+		isElementPresent(By.xpath("//div[text()='Select a Bundle']"));
+	}
 }

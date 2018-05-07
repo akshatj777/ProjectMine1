@@ -77,7 +77,7 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iVerifyCreateContractHeaderTextOnCreateContractsPage(text);
 	    }
 	
-	@And("^I verify \"([^\"]*)\" field on create Contracts page$")
+	@And("^I verify \"([^\"]*)\" dropdown box on create Contracts page$")
 	  public void i_Verify_Field_On_Create_Contracts_Page(String text) throws Throwable {
 		programs.iVerifyFieldOnCreateContractsPage(text);
 	    }

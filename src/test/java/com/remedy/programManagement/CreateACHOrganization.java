@@ -331,7 +331,7 @@ public class CreateACHOrganization extends BaseClass{
     			tempAchOrg.put("LID", createRandomNumber(20));
     			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), tempAchOrg.get("LID"));
     		}
-    		if(text.equals("LIDmorethan20characters"))
+    		else if(text.equals("LIDmorethan20characters"))
         	{
     			tempAchOrg.put("LID", createRandomNumber(21));
     			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), tempAchOrg.get("LID"));
@@ -359,11 +359,11 @@ public class CreateACHOrganization extends BaseClass{
         	{
         		iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), CreateSNFOrganization.tempSNFOrg.get("LID"));
         	}
-        	else if(text.equals("greaterthan20"))
+        	else if(text.equals("LIDmorethan20characters"))
         	{
-        		String value = createRandomNumber(22);
-    			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), value);
-        	}
+    			CreateSNFOrganization.tempSNFOrg.put("LID", createRandomNumber(21));
+    			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), tempAchOrg.get("LID"));
+    		}
         	else
         	{
         		iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), text);
@@ -402,6 +402,9 @@ public class CreateACHOrganization extends BaseClass{
     	else if(id.equalsIgnoreCase("Location_Id")){
     		iFillInText(driver.findElement(By.xpath("//input[@name='locations[0].locationId']")), location_Id);
     	}
-    	
+    }
+    
+    public void iVerifyDuplicateLocationMessage(String text){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[text()='Duplicate Location']")), text);
     }
 }

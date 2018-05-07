@@ -53,6 +53,7 @@ public class CreateManagingOrganization extends BaseClass {
 		 WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
 		 JavascriptExecutor executor = (JavascriptExecutor)driver;
 		 executor.executeScript("arguments[0].click();", element);
+		 waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 	}
 
 	public void iVerifyOnButtonOnCreateOrganizationPage(String text) {

@@ -84,6 +84,9 @@ Feature: View SNF organization functionality tests
     And I verify Market name <Loc_Market> on view profile of "SNF" organization
     And I verify "Managing Organization - <Has_MO>" on view profile of "SNF" Organization
     And I verify "Participant Id - <Has_MO>" on view profile of "SNF" Organization
+    And I verify "Location" tab present under "SNF" Organization
+    And I verify "Bundle Payment Contracts" tab present under "SNF" Organization
+    And I click on "Location" tab on view profile of "SNF" Organization
     And I verify "1" location count on view "SNF" organization page
     And I verify header name "ID" under "Location" for "SNF" organization
     And I verify header name "Location Name" under "Location" for "SNF" organization

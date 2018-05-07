@@ -132,7 +132,7 @@ Feature: Create SNF organization functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                                      | SNF_Name                                                                     | Address1                                                  | Short_Name                                     | Address2                                                  | City                                           | Postal_Code  | Loc_Name                                                                     | Loc_Address1                                              | Location_Id             | Loc_Address2                                              | Loc_City                                                  | Loc_Postal_Code | CCN           | EIN           | NPI           | ValidationMessage                                              |
+      | Description                                                      | SNF_Name                                                                     | Address1                                                  | Short_Name                                     | Address2                                                  | City                                           | Postal_Code  | Loc_Name                                                                     | Loc_Address1                                              | Location_ID             | Loc_Address2                                              | Loc_City                                                  | Loc_Postal_Code | CCN           | EIN           | NPI           | ValidationMessage                                              |
       | Check Character Limit for SNF name field                         | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx |                                                           |                                                |                                                           |                                                |              |                                                                              |                                                           |                         |                                                           |                                                           |                 |               |               |               | The Organization Name may not be greater than 75 characters.   |
       | Check Character Limit for Address1 field                         |                                                                              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                                                |                                                           |                                                |              |                                                                              |                                                           |                         |                                                           |                                                           |                 |               |               |               | The first address line may not be greater than 55 characters.  |
       | Check Character Limit for Short Name field                       |                                                                              |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                           |                                                |              |                                                                              |                                                           |                         |                                                           |                                                           |                 |               |               |               | The shortName may not be greater than 45 characters.           |
@@ -260,7 +260,7 @@ Feature: Create SNF organization functionality tests
     Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
     When I search with "SNFNAME - <Has_MO>" on organization in search box
     And I click "SNFNAME - <Has_MO>" field in search list on organization page
-    And I verify Location ID should be greater than "100000"
+    #And I verify Location ID should be greater than "100000"
 
     Examples: 
       | Description                                                                                      | Has_MO | Managing_Org | SNF_Name             | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                |
@@ -292,7 +292,7 @@ Feature: Create SNF organization functionality tests
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "+" button on "SNF" organization page
     And I verify "Location 2" on "Create SNF" organization page
-    And I enter location name <Loc_Name> for Location "2" on "create" organization page
+    And I enter location name <Loc_Name1> for Location "2" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "2" on "create" organization page
     And I select location type <Loc_Type> for Location "2" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
@@ -305,11 +305,11 @@ Feature: Create SNF organization functionality tests
     Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
     When I search with "SNFNAME - <Has_MO>" on organization in search box
     And I click "SNFNAME - <Has_MO>" field in search list on organization page
-    And I verify Location ID should be greater than "100000"
+    #And I verify Location ID should be greater than "100000"
 
     Examples: 
-      | Description                                                                                 | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name      | CCN | EIN | NPI | Message                                |
-      | Create a SNF Organization without CCN identifier and having multiple locations - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | CCN | EIN | NPI | SNF Organization Successfully Created. |
+      | Description                                                                                 | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name1      |  NPI | Message                                |
+      | Create a SNF Organization without CCN identifier and having multiple locations - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 |  NPI | SNF Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "SNF" organization tab on organization dashboard
@@ -339,7 +339,7 @@ Feature: Create SNF organization functionality tests
     Then I verify "SNF Organization Successfully Created." after submitting the "create SNF - <Has_MO>" organization page
     When I search with "SNFNAME - <Has_MO>" on organization in search box
     And I click "SNFNAME - <Has_MO>" field in search list on organization page
-    And I verify Location ID should be greater than "100000"
+    #And I verify Location ID should be greater than "100000"
     When I click on Organization link on Program Management page
     When I click on "SNF" organization tab on organization dashboard
     Then I click on "+" button on "SNF" organization page
@@ -400,8 +400,8 @@ Feature: Create SNF organization functionality tests
     Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
 
     Examples: 
-      | Description                                         | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Location_ID | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name      | CCN | EIN | NPI | Message                                |
-      | Create a SNF Organization(With - Location Id + CCN) | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 |  1236547890 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | CCN | EIN | NPI | SNF Organization Successfully Created. |
+      | Description                                         | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Location_ID | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code |  CCN |  Message                                |
+      | Create a SNF Organization(With - Location Id + CCN) | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 |  LID | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 |  CCN |  SNF Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard

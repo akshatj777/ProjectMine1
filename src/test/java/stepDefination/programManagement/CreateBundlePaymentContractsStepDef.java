@@ -25,4 +25,9 @@ public class CreateBundlePaymentContractsStepDef extends DriverScript {
 	  public void i_Click_and_Search_with_Invalid_Name_on_Dropdown_Box(String text) throws Throwable {
 		CreateBPContracts.iClickandSearchWithInvalidNameonDropdownBox(text);
 	 }
+	
+	@And("^I verify \"([^\"]*)\" dropdown box is appearing on \"([^\"]*)\" page$")
+	  public void i_Verify_Bundle_Dropdown_Box_Is_Appearing_on_Create_Contract_Page(String text, String act) throws Throwable {
+		CreateBPContracts.iVerifyBundleDropdownBoxIsAppearingonCreateContractPage(text,act);
+	 }
 }

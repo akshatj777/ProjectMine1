@@ -5,7 +5,6 @@ Feature: Search Network Contracts functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    #And I switch to new window
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -158,8 +157,8 @@ Feature: Search Network Contracts functionality tests
 
     Examples: 
       | Description                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1                    | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using PGP Organization | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | DelRefBundle1iUcLlBcukb0312 |   113 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BNC1FhdQtwAnpJ1426          |   113 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BPCI_AMPUTATION_60 |   113 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BPCI_BLOODCELLDISORDERS_90          |   113 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard

@@ -5,7 +5,6 @@ Feature: Create Network Contracts functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    #And I switch to new window
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -141,7 +140,6 @@ Feature: Create Network Contracts functionality tests
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
-    And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
     And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
@@ -159,10 +157,12 @@ Feature: Create Network Contracts functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1                    | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using PGP Organization | NO     | PAYORNAME  | 2017/01/30        | 2019/12/27      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BPCI_AMI_60 |   113 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BPCI_AMI_60          |   113 |          121 |         135 |         106 | Contract Successfully Created |
-
+      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id     | Bundle_1                   | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/07/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | BPCI_AICD_90               |    96 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using Hospital Organization | YES    | PAYORNAME  | 2017/01/15        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | BPCI_AMPUTATION_60         |   103 |           91 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/16        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_ATHEROSCLEROSIS_60    |   113 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_BACKNECKNONFUSION_60  |    56 |          121 |         135 |         106 | Contract Successfully Created |
+      
   Scenario Outline: Verify available fields on create network contract page
     When I click on "PGP" organization tab on organization dashboard
     When I search with "<PGP_Name> - <Has_MO>" on organization in search box

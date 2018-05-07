@@ -99,6 +99,8 @@ Feature: Search SNF organization functionality tests
     When I click on "SNF" organization tab on organization dashboard
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
+    And I verify "Location" tab present under "SNF" Organization
+    And I click on "Location" tab on view profile of "SNF" Organization
     Then I search "<SearchParam>" and verify with search list options on Location in "<SNF_Name> - <Has_MO>" profile page
 
     Examples: 
@@ -113,11 +115,13 @@ Feature: Search SNF organization functionality tests
     When I click on "SNF" organization tab on organization dashboard
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
+    And I verify "Location" tab present under "SNF" Organization
+    And I click on "Location" tab on view profile of "SNF" Organization
     Then I search with "<Loc_Name>" on Location search box in "SNF" View Profile page
     Then I verify the "No matches" message for invalid search in Organization
 
     Examples: 
-      | Description                                                                    | Has_MO | SNF_Name | Loc_Name       |
+      | Description                                                                    | Has_MO | SNF_Name | Loc_Name  |
       | Search SNF Organization with Location Name in SNF view profile page  - With MO | YES    | SNFNAME  | NoMatches |
 
   Scenario Outline: <Description>
@@ -127,5 +131,5 @@ Feature: Search SNF organization functionality tests
     And I verify the "Create New SNF Organization" link under No matches
 
     Examples: 
-      | Description                                                              | SNF_Name       |
-      | Verification of error message if SNF organization is not found in search | NoMatchSNFNAME |
+      | Description                                                              | SNF_Name      |
+      | Verification of error message if SNF organization is not found in search | NoMatchSNFOrg |
