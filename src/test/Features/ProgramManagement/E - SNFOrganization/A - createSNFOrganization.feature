@@ -6,7 +6,6 @@ Feature: Create SNF organization functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    #And I switch to new window
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -432,7 +431,7 @@ Feature: Create SNF organization functionality tests
     Then I verify "Hospital Organization Successfully Created." after submitting the "create ACH - <Has_MO>" organization page
     When I search with "ACHNAME - <Has_MO>" on organization in search box
     And I click "ACHNAME - <Has_MO>" field in search list on organization page
-    And I verify Location ID should be greater than "100000"
+    #And I verify Location ID should be greater than "100000"
     When I click on Organization link on Program Management page
     When I click on "SNF" organization tab on organization dashboard
     Then I click on "+" button on "SNF" organization page
@@ -449,7 +448,7 @@ Feature: Create SNF organization functionality tests
     And I provide unique "SNF - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
-    And I provide "Location_Id" as last created "Location_Id" on create organization page
+    #And I provide "Location_Id" as last created "Location_Id" on create organization page
     And I select location type <Loc_Type> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
