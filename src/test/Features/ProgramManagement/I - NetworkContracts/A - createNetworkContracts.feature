@@ -410,12 +410,12 @@ Feature: Create Network Contracts functionality tests
     And I click on react date picker close icon for "End Date"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
     Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
+    Then I verify duplicate "<Message>" after submitting the "create Network Contract" organization page
 
     Examples: 
-      | Description                                                                                                                                                       | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | ContractStartDate | ContractEndDate | Message                              |
-      | Create Network Contract using duplicate Program and Hospital Organization combination with separate date range when Bundle payment contract having only StartDate | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/04/12        | 2019/09/20      | NetworkContract Successfully Created |
-      | Create Network Contract using duplicate Program and Hospital Organization combination with separate date range when Bundle payment contract having only StartDate | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/03/12        | 2019/08/20      | NetworkContract Successfully Created |
+      | Description                                                                                                                                                       | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | ContractStartDate | ContractEndDate | Message                                                                                                                          |
+      | Create Network Contract using duplicate Program and Hospital Organization combination with separate date range when Bundle payment contract having only StartDate | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/04/12        | 2019/09/20      | Validation errors: Contract already exists for organization with id 769 for PGP contract with id 497 with overlapping date range |
+      | Create Network Contract using duplicate Program and Hospital Organization combination with separate date range when Bundle payment contract having only StartDate | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/03/12        | 2019/08/20      | Validation errors: Contract already exists for organization with id 769 for PGP contract with id 497 with overlapping date range |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
