@@ -213,7 +213,7 @@ public class CompleteCarlform extends BaseClass {
 		if (value == true) {
 			return;
 		} else {
-			System.out.println("Disabled");
+			delay();
 		}
 	}
 
@@ -223,7 +223,7 @@ public class CompleteCarlform extends BaseClass {
 		if (value == false) {
 			return;
 		} else {
-			System.out.println("Enabled");
+			delay();
 		}
 	}
 

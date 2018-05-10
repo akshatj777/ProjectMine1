@@ -298,7 +298,7 @@ public class NoteCreation extends BaseClass {
 	public void Iverifynoteshouldbestoredintheclinicaldocumentsectiononceitiscreated() {
 		String NoteText = driver.findElement(By.cssSelector("h1.ng-binding")).getText();
 		if (NoteText.equals("Baseline")) {
-			System.out.println("Note is successfully present");
+			delay();
 		} else {
 			return;
 		}

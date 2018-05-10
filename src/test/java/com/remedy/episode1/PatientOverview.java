@@ -42,6 +42,7 @@ public class PatientOverview extends BaseClass {
 	public void iClickOnGearIconOnPatientOverviewPage() {
 		longDelay();
 		longDelay();
+		longDelay();
 		new Actions(driver).moveToElement(driver.findElement(By.cssSelector("span.ec2-embed-patient-actions>div.pull-right"))).build().perform();
 		clickElement(driver.findElement(By.cssSelector("span.ec2-embed-patient-actions>div.pull-right")));
 	}

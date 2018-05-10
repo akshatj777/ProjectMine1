@@ -1312,10 +1312,7 @@ public class PatientsPage extends BaseClass {
 	public void iVerifyAttestationMessageOfNewyork(String s){
 		iWillWaitToSee(By.cssSelector(".col-md-12>ul>li:nth-of-type(1)"));
 		String text=getTextForElement(driver.findElement(By.cssSelector(".col-md-12>ul>li:nth-of-type(1)")));
-		System.out.println(text);
-		System.out.println(s);
 		s= s.replaceAll("patients", "patient’s");
-		System.out.println(s);
 		Assert.assertTrue(text.trim().contains(s));
 		
 	}
@@ -1420,7 +1417,6 @@ public class PatientsPage extends BaseClass {
 		longDelay();
 		iWillWaitToSee(By.cssSelector("#eligibility_button"));
 		String actual = getTextForElement(driver.findElement(By.cssSelector("#eligibility_button"))).replaceAll("-","").trim();
-		System.out.println("Actual is"+actual);
 		Assert.assertEquals("Not Eligible – ESRD",actual);
 		
 	}

@@ -108,14 +108,17 @@ Feature: Patient Details on Patient overview page
     Then I verify "Medical Record" tab is present under header navigation on patient overview
     Then I verify "Activity" tab is present under header navigation on patient overview
     And I verify search present under transition on patient overview
-    And I verify "Stamford - Stamford Hospital" appearing under "Episode Initiator" for "1" tranisition on patient overview
-    And I verify "(HHH) Stamford - Stamford Hospital" appearing under "facility-column" for "1" tranisition on patient overview
-    And I verify "Inpatient" appearing under "type-column" for "1" tranisition on patient overview
-    And I verify "(SNF) Coosa valley health care" appearing under "discharge_location-column" for "1" tranisition on patient overview
-    And I verify "Test" appearing under "admit_reason-column" for "1" tranisition on patient overview
+    And I verify "Stamford - Stamford Hospital" appearing under "Episode Initiator" for "2" tranisition on patient overview
+    And I verify "(HHH) Stamford - Stamford Hospital" appearing under "facility-column" for "2" tranisition on patient overview
+    And I verify "Inpatient" appearing under "type-column" for "2" tranisition on patient overview
+    And I verify "(SNF) Coosa valley health care" appearing under "discharge_location-column" for "2" tranisition on patient overview
+    And I verify "Test" appearing under "admit_reason-column" for "2" tranisition on patient overview
     And I verify "admit date" appearing in transition on patient overview
     And I verify "discharge date" appearing in transition on patient overview
-    And I click on first gear menu under Transitions on patient overview
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
+    And I click on second gear menu under Transitions on patient overview
     And I should see "Edit" under transition gear icon on patient overview page
     And I should see "Add Transition" under transition gear icon on patient overview page
     And I should see "Delete" under transition gear icon on patient overview page

@@ -3,6 +3,7 @@ package com.remedy.episode1;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -305,11 +306,12 @@ public class PatientsListPage extends BaseClass {
 
 	public void iClickOnFirstCheckboxOnClinicianModal() {
 		longDelay();
+		driver.manage().timeouts().pageLoadTimeout(600, TimeUnit.SECONDS);
 		try{
-			new WebDriverWait(driver,150).until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span")))); 	
+			new WebDriverWait(driver,550).until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span")))); 	
 			longDelay();
-			new WebDriverWait(driver,200).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".dataTables_processing")));
-			new WebDriverWait(driver,600).until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".dataTables_processing")));
+			new WebDriverWait(driver,500).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".dataTables_processing")));
+			new WebDriverWait(driver,1000).until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".dataTables_processing")));
 			longDelay();
 		}catch(Exception e){
 			longDelay();
@@ -473,7 +475,7 @@ public class PatientsListPage extends BaseClass {
     	}
     	catch(Exception e)
     	{
-    		System.out.println(e.toString());
+    		delay();
     	}
 		
 	}

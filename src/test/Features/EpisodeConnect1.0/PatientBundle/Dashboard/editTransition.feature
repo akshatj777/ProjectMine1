@@ -60,6 +60,6 @@ Background: Episode Active - create anchor transition
     And I enter "Test hospitalist" in "hospitalist" field on transition modal
     And I enter "Test specialist" in "specialist" field on transition modal
     And I click on Update Transition button present on the patient overview page
-   And I close modal popup
+    And I close modal popup
     And I will wait to see patient's name on patient summary page
     

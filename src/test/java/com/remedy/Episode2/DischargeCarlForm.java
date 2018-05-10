@@ -493,29 +493,15 @@ public class DischargeCarlForm extends BaseClass {
     Reader reader = new InputStreamReader(is);
 	BufferedReader bufferedReader = new BufferedReader(reader);
 	StringBuilder builder = new StringBuilder();
-/*	while (true) {
-	try {
-    String line = bufferedReader.readLine();
-	if (line != null) {
-	builder.append(line);
-    } else {
-    break;
-	}} catch (Exception e) {
-    e.printStackTrace();}}
-    System.out.println(builder.toString());
-	System.out.println("****************");*/
-	} catch (Exception ex) {
+    } catch (Exception ex) {
 	ex.printStackTrace();
 	}}
 
 	public void IenterrandomsocialsecuritynumberintheSSNtextboxfieldpresentontheAddPatientpage() {
 	 Random r = new Random( System.currentTimeMillis() );
-	 String ssn_start="5";
-	 int ssn_end=(r.nextInt(1000)+1000);
-	 int ssn_middle= (r.nextInt(1000)+1000);
-	// int ssn_end=((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
-	 final_ssn=ssn_start+Integer.toString(ssn_middle)+Integer.toString(ssn_end);
-	 System.out.println("$$$Final ssn is"+final_ssn);
+	 String ssn_start="9";
+	 int ssn_end=r.nextInt(90000000) + 10000000;
+     final_ssn=ssn_start+Integer.toString(ssn_end);
 	 iFillInText(driver.findElement(By.cssSelector("#Patient_Details_ssn")),final_ssn);
 	 }
 	

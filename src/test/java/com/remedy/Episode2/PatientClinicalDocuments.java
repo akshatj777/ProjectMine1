@@ -835,7 +835,6 @@ public class PatientClinicalDocuments extends BaseClass {
 					  value=item.getText().trim();  
 				  } 
 			}
-			System.out.println("Valueeeeeeee"+value);
 			Assert.assertTrue(value.trim().contains(text));
 		}
 		
@@ -861,6 +860,14 @@ public class PatientClinicalDocuments extends BaseClass {
 			iWillWaitToSee(By.xpath("//*[@id='page-content-frame']/h3/span[2]/div"));
 			clickElement(driver.findElement(By.xpath("//*[@id='page-content-frame']/h3/span[2]/div")));
 		}
-
+		
+		public void SecondGearMenuUndersecondTransition() throws InterruptedException {
+			delay();
+			iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[2]/td[contains(@class, 'settings-column')]/div"));
+			new Actions(driver).moveToElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[2]/td[contains(@class, 'settings-column')]/div"))).build().perform();
+			delay();
+			clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[2]/td[contains(@class, 'settings-column')]/div")));
+			Thread.sleep(5000);
+		}
 	
 }

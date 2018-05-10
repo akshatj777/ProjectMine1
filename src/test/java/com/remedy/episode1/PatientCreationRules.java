@@ -87,8 +87,7 @@ public class PatientCreationRules extends BaseClass {
     
     public void iFillInUserEmailOnRegisterUserPage(String text){
     	 String random_UserEmail=text+"+"+(RandomStringUtils.randomAlphabetic(5))+"@Example.com";
-    	 System.out.println(random_UserEmail);
-    	iFillInText(driver.findElement(By.cssSelector("#new_bppatientnavigator_user_email")), random_UserEmail);
+    	 iFillInText(driver.findElement(By.cssSelector("#new_bppatientnavigator_user_email")), random_UserEmail);
     }
     
     public void iFillInPasswordOnRegisterUserPage(String text){
@@ -174,7 +173,6 @@ public class PatientCreationRules extends BaseClass {
     
     public void IwaitToSeeThePopUp(String text){
     	delay();
-    	System.out.println(text);
     	iWillWaitToSee(By.xpath("//p[contains(text(),'"+text+"')]"));
     	isElementVisible(driver.findElement(By.xpath("//p[contains(text(),'"+text+"')]")));
     }
