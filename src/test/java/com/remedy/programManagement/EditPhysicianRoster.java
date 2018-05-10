@@ -45,6 +45,13 @@ public class EditPhysicianRoster extends BaseClass {
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			longDelay();
 		}
+		else if(org.equals("Hospital"))
+		{
+			iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
+			clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			longDelay();
+		}
 		else if(org.equals("Payor"))
 		{
 			iWillWaitToSee(By.xpath("//div[text()='"+CreatePrograms.programs.get(1)+"']"));
@@ -70,8 +77,8 @@ public class EditPhysicianRoster extends BaseClass {
 		if(org.equals("PGP")){
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), value);
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			iWillWaitToSee(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+(value.replace("-", "").trim())+"')]"));
-			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+(value.replace("-", "").trim())+"')]")));
+			iWillWaitToSee(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]"));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
 		}
 		else if(org.equals("Hospital")){
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), value);

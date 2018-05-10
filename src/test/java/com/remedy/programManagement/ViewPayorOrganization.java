@@ -28,6 +28,7 @@ public class ViewPayorOrganization extends BaseClass {
 	public void iClickOnTabOnViewProfileOfPayorOrganization(String tab, String org) {
 		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		clickElement(driver.findElement(By.xpath("//a[text()='"+tab+"']")));
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		delay();
 	}
 }

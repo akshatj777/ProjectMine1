@@ -157,10 +157,10 @@ Feature: Create Physician Roster functionality tests
 
     Examples: 
       | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id     | Bundle_1                   | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/09        | 2019/12/19      | 2017/05/01      | 2019/07/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | BPCI_AICD_90               |    96 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/09        | 2019/12/26      | 2017/05/01      | 2019/07/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | BPCI_AICD_90               |    96 |          121 |         135 |         106 | Contract Successfully Created |
       | Create Contracts with all available fields using Hospital Organization | YES    | PAYORNAME  | 2017/01/15        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | BPCI_AMPUTATION_60         |   103 |           91 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/16        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_ATHEROSCLEROSIS_60    |   113 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_BACKNECKNONFUSION_60  |    56 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/16        | 2019/12/26      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_ATHEROSCLEROSIS_60    |   113 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/25      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_BACKNECKNONFUSION_60  |    56 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -253,7 +253,7 @@ Feature: Create Physician Roster functionality tests
 
     Examples: 
       | Description                                                | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician | FirstName | LastName     | NPI      |
-      | Elements on Add Physician page after selecting a Physician | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017-01-09 | 2019-12-26 | pc150501  | firstName | testLastName | pc150501 |
+      | Elements on Add Physician page after selecting a Physician | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017-01-16 | 2019-12-26 | pc150501  | firstName | testLastName | pc150501 |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -465,6 +465,7 @@ Feature: Create Physician Roster functionality tests
       | Description             | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician1 | Physician2 | Message                         |
       | Add multiple Physicians | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | pc11917121   | pc11005121   | Physicians Successfully Updated |
 
+  @Hospital
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
     When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
@@ -516,7 +517,7 @@ Feature: Create Physician Roster functionality tests
 
     Examples: 
       | Description                                                                                     | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   |
-      | Elements on Add Physician page after selecting a Contract(Program) with Start Date and End Date | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-19 |
+      | Elements on Add Physician page after selecting a Contract(Program) with Start Date and End Date | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -558,7 +559,7 @@ Feature: Create Physician Roster functionality tests
 
     Examples: 
       | Description                                                | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician | FirstName | LastName     | NPI      |
-      | Elements on Add Physician page after selecting a Physician | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-19 | up100653  | firstName | testLastName | up100653 |
+      | Elements on Add Physician page after selecting a Physician | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 | up100653  | firstName | testLastName | up100653 |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -613,11 +614,11 @@ Feature: Create Physician Roster functionality tests
 
     Examples: 
       | Description                                                                                                | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Physician | FirstName | LastName     | NPI      | ContractStartDate | ContractEndDate | ValidationMessage                                                  |
-      | Check validation message when Physician Roster Start Date is prior to Bundle Payment Contract Start Date   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2017/01/08        | 2019/12/26      | The start date is before the start of the Bundled Payment Contract |
-      | Check validation message when Physician Roster Start Date is greater than Bundle Payment Contract End Date | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2019/12/27        | 2019/12/26      | The start date and end date are not valid.                         |
-      | Validation when Physician Roster Start Date is greater than Physician Roster End Date                      | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2019/12/02        | 2019/12/01      | The start date and end date are not valid.                         |
-      | Validation when Physician Roster End Date is greater than Bundle Payment Contract End Date                 | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2019/12/27        | 2019/12/26      | The start date and end date are not valid.                         |
-      | Validation when Physician Roster End Date is prior to Bundle Payment Contract Start Date                   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2017/01/30        | 2017/01/28      | The start date and end date are not valid.                         |
+      | Check validation message when Physician Roster Start Date is prior to Bundle Payment Contract Start Date   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2017/01/01        | 2019/12/26      | The start date is before the start of the Bundled Payment Contract |
+      | Check validation message when Physician Roster Start Date is greater than Bundle Payment Contract End Date | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2019/12/30        | 2019/12/26      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster Start Date is greater than Physician Roster End Date                      | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2019/12/06        | 2019/12/01      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster End Date is greater than Bundle Payment Contract End Date                 | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2017/01/30        | 2019/12/30      | The end date is after the end of the Bundled Payment Contract                        |
+      | Validation when Physician Roster End Date is prior to Bundle Payment Contract Start Date                   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2017/01/09        | 2017/01/01      | The start date and end date are not valid.                         |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
