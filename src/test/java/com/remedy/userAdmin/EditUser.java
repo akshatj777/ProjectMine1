@@ -58,8 +58,8 @@ public class EditUser extends BaseClass {
 	}
 
 	public void iClickOnRoleFieldToEdit() {
-		iWillWaitToSee(By.cssSelector(".ui.fluid.selection.dropdown"));
-		clickElement(driver.findElement(By.cssSelector(".ui.fluid.selection.dropdown")));
+		iWillWaitToSee(By.cssSelector(".ui.selection.dropdown"));
+		clickElement(driver.findElement(By.cssSelector(".ui.selection.dropdown")));
 	}
 
 	public void iClickOnTab(String text) {
@@ -556,9 +556,8 @@ public class EditUser extends BaseClass {
 	}
 
 	public void iClickOnLearningPathwayDropdown() {
-		iWillWaitToSee(By.xpath("//div[@class='ui label']/../following-sibling::i[@class='dropdown icon']"));
-		clickElement(driver
-				.findElement(By.xpath("//div[@class='ui label']/../following-sibling::i[@class='dropdown icon']")));
+		iWillWaitToSee(By.xpath("//i[@class='select-dropdown-icon']"));
+		clickElement(driver.findElement(By.xpath("//i[@class='select-dropdown-icon']")));
 	}
 
 	public void iVerifyMessageForInvalidHealthSystem() throws InterruptedException {

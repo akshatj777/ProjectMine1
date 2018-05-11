@@ -42,14 +42,14 @@ public class CreateUserPage extends BaseClass{
 
     public void iClickOrganizationalField() 
     {
-        iWillWaitToSee(By.xpath("//div[text()='Select Role']"));
-    	clickElement(driver.findElement(By.xpath("//div[text()='Select Role']")));
+        iWillWaitToSee(By.xpath("//div[text()='Select']"));
+    	clickElement(driver.findElement(By.xpath("//div[text()='Select']")));
     }
     
     public void iClickAlreadySelectedOrganizationalField() 
     {
-        iWillWaitToSee(By.xpath("//div[@class='ui fluid selection dropdown']/div[@class='text']"));
-    	clickElement(driver.findElement(By.xpath("//div[@class='ui fluid selection dropdown']/div[@class='text']")));
+        iWillWaitToSee(By.xpath("//div[@class='ui selection dropdown']/div[@class='text']"));
+    	clickElement(driver.findElement(By.xpath("//div[@class='ui selection dropdown']/div[@class='text']")));
     }
 
     public void iTurnOffShareFile()
@@ -219,8 +219,8 @@ public class CreateUserPage extends BaseClass{
     	{
     		iWillWaitToSee(By.xpath("//div[text()='Select']"));
     		clickElement(driver.findElement(By.xpath("//div[text()='Select']")));
-    		iWillWaitToSee(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input"));
-            driver.findElement(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input")).sendKeys(text);
+    		iWillWaitToSee(By.xpath("//div[text()='Select']/parent::div/div[@class='menu transition visible']//input"));
+            driver.findElement(By.xpath("//div[text()='Select']/parent::div/div[@class='menu transition visible']//input")).sendKeys(text);
             Thread.sleep(4000);
     	}
     }
@@ -229,8 +229,8 @@ public class CreateUserPage extends BaseClass{
     {
     	if(!(desc.equals("")))
     	{
-    	iWillWaitToSee(By.xpath("//div[text()='"+desc+"']"));
-        clickElement(driver.findElement(By.xpath("//div[text()='"+desc+"']")));
+    	iWillWaitToSee(By.xpath("//span[text()='"+desc+"']"));
+        clickElement(driver.findElement(By.xpath("//span[text()='"+desc+"']")));
         Thread.sleep(3000);
     	}
     }
@@ -1101,8 +1101,8 @@ public class CreateUserPage extends BaseClass{
    public void clickLessonsSelectButton() throws Throwable {
        if(userApplications.contains("Lessons"))
        {
-    	   iWillWaitToSee(By.xpath("//div[text()='Select']"));
-    	   clickElement(driver.findElement(By.xpath("//div[text()='Select']")));  
+    	   iWillWaitToSee(By.xpath("//span[text()='Select']"));
+    	   clickElement(driver.findElement(By.xpath("//span[text()='Select']")));  
        }
    }
    
@@ -1165,7 +1165,7 @@ public class CreateUserPage extends BaseClass{
 	   if(!(programList.equals("")))
    	{
 		   delay();
-	   if(!(driver.findElements(By.xpath("//div[text()='Select']")).size()>0))
+	   if(!(driver.findElements(By.xpath("//span[text()='Select']")).size()>0))
 		 {
 			return;
 		 }
@@ -1173,7 +1173,7 @@ public class CreateUserPage extends BaseClass{
 	   if(programList.contains(","))
 	   {
 		   StringTokenizer st = new StringTokenizer(programList,",");
-		   driver.findElement(By.xpath("//div[text()='Select']")).click();
+		   driver.findElement(By.xpath("//span[text()='Select']")).click();
 		   while (st.hasMoreTokens()) {
 	    	   String programs = st.nextToken().trim();
 	    	   iWillWaitToSee(By.xpath("//label[text()='"+programs+"']"));
