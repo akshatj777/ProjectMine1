@@ -1184,7 +1184,7 @@ public class CreateUserPage extends BaseClass{
 	   else
 	   {
 		   longDelay();
-		   driver.findElement(By.xpath("//div[text()='Select']")).click();
+		   driver.findElement(By.xpath("//span[text()='Select']")).click();
 		   longDelay();
 		   driver.findElement(By.xpath("//label[text()='"+programList+"']")).click();
 		   longDelay();
