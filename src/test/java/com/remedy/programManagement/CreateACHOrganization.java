@@ -349,7 +349,9 @@ public class CreateACHOrganization extends BaseClass{
         	{
         		iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), text);
         	}
-    	}else if(field.contains("SNF")){
+    	}
+    	else if(field.contains("SNF"))
+    	{
     		if(text.equals("LID"))
         	{
     			CreateSNFOrganization.tempSNFOrg.put("LID", createRandomNumber(20));

@@ -2,6 +2,7 @@ package com.remedy.programManagement;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -41,21 +42,30 @@ public class EditPhysicianRoster extends BaseClass {
 		if(org.equals("PGP"))
 		{
 			iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
-			clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
+			//clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
+			WebElement element = driver.findElement(By.xpath("//div[text()='"+text+"']"));
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("arguments[0].click();", element);
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			longDelay();
 		}
 		else if(org.equals("Hospital"))
 		{
 			iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
-			clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
+			//clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
+			WebElement element = driver.findElement(By.xpath("//div[text()='"+text+"']"));
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("arguments[0].click();", element);
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			longDelay();
 		}
 		else if(org.equals("Payor"))
 		{
 			iWillWaitToSee(By.xpath("//div[text()='"+CreatePrograms.programs.get(1)+"']"));
-			clickElement(driver.findElement(By.xpath("//div[text()='"+CreatePrograms.programs.get(1)+"']")));
+			//clickElement(driver.findElement(By.xpath("//div[text()='"+CreatePrograms.programs.get(1)+"']")));
+			WebElement element = driver.findElement(By.xpath("//div[text()='"+text+"']"));
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("arguments[0].click();", element);
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			longDelay();
 		}

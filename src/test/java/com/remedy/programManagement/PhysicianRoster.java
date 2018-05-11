@@ -75,7 +75,10 @@ public class PhysicianRoster extends BaseClass{
 	}
 	
 	public void iSelectaPhysicianonCreatePhysicianRosterPage(String text, String act){
-		driver.findElement(By.xpath("//div[text()='Select...']")).click();
+		//driver.findElement(By.xpath("//div[text()='Select...']")).click();
+		WebElement element = driver.findElement(By.xpath("//div[text()='Select...']"));
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", element);
 		longDelay();
 		driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(text);
 		longDelay();
