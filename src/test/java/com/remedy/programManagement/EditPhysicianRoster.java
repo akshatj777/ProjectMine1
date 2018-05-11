@@ -63,7 +63,7 @@ public class EditPhysicianRoster extends BaseClass {
 		{
 			iWillWaitToSee(By.xpath("//div[text()='"+CreatePrograms.programs.get(1)+"']"));
 			//clickElement(driver.findElement(By.xpath("//div[text()='"+CreatePrograms.programs.get(1)+"']")));
-			WebElement element = driver.findElement(By.xpath("//div[text()='"+text+"']"));
+			WebElement element = driver.findElement(By.xpath("//div[text()='"+CreatePrograms.programs.get(1)+"']"));
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", element);
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));

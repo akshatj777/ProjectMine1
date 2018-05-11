@@ -172,7 +172,7 @@ Feature: Search Network Contracts functionality tests
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create Network" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     And I click on react date picker close icon for "End Date"
