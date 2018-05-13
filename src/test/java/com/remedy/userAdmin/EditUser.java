@@ -562,23 +562,17 @@ public class EditUser extends BaseClass {
 
 	public void iVerifyMessageForInvalidHealthSystem() throws InterruptedException {
 		Thread.sleep(3000);
-		waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".message.empty>div"))));
-		String actual = getTextForElement(driver.findElement(By.cssSelector(".message.empty>div")));
-		Assert.assertEquals("No results found.", actual.trim());
+		iWillWaitToSee(By.xpath("//div[text()='0 Results']/following-sibling::span[text()='Try refining your search criteria']"));
+		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='0 Results']/following-sibling::span[text()='Try refining your search criteria']")));
 	}
 
 	public void iVerifyMessageForInvalidLocation(String text) throws InterruptedException {
 		if (text.equalsIgnoreCase("second")) {
-			waitTo().until(ExpectedConditions
-					.visibilityOf(driver.findElements(By.xpath("//h3[text()=' No Results Found ']")).get(1)));
-			String actual = getTextForElement(
-					driver.findElements(By.xpath("//h3[text()=' No Results Found ']")).get(1));
-			Assert.assertEquals("No Results Found", actual.trim());
+			iWillWaitToSee(By.xpath("//div[text()='0 Results']/following-sibling::span[text()='Try refining your search criteria']"));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='0 Results']/following-sibling::span[text()='Try refining your search criteria']")));
 		} else if (text.equalsIgnoreCase("first")) {
-			waitTo().until(
-					ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//h3[text()=' No Results Found ']"))));
-			String actual = getTextForElement(driver.findElement(By.xpath("//h3[text()=' No Results Found ']")));
-			Assert.assertEquals("No Results Found", actual.trim());
+			iWillWaitToSee(By.xpath("//div[text()='0 Results']/following-sibling::span[text()='Try refining your search criteria']"));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='0 Results']/following-sibling::span[text()='Try refining your search criteria']")));
 		}
 
 	}
