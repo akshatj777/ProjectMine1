@@ -568,13 +568,12 @@ public class EditUser extends BaseClass {
 
 	public void iVerifyMessageForInvalidLocation(String text) throws InterruptedException {
 		if (text.equalsIgnoreCase("second")) {
-			iWillWaitToSee(By.xpath("//div[text()='0 Results']/following-sibling::span[text()='Try refining your search criteria']"));
-			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='0 Results']/following-sibling::span[text()='Try refining your search criteria']")));
+			iWillWaitToSee(By.xpath("//h3[contains(text(),'No Results Found')]"));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//h3[contains(text(),'No Results Found')]")));
 		} else if (text.equalsIgnoreCase("first")) {
-			iWillWaitToSee(By.xpath("//div[text()='0 Results']/following-sibling::span[text()='Try refining your search criteria']"));
-			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='0 Results']/following-sibling::span[text()='Try refining your search criteria']")));
+			iWillWaitToSee(By.xpath("//h3[contains(text(),'No Results Found')]"));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//h3[contains(text(),'No Results Found')]")));
 		}
-
 	}
 
 	public void iVerifyIncompleteOrganisation() {
