@@ -731,6 +731,7 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iVerifyNavigationOnRemedyUHomePage(String role){
+	   driver.manage().timeouts().pageLoadTimeout(600, TimeUnit.SECONDS);
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 	   if(application.contains("Lessons")){
 		   String user = role.substring(role.indexOf("-")+1);

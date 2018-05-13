@@ -506,7 +506,7 @@ public class EditUser extends BaseClass {
 	public void selectProgramsForExistingOrg(String programList) throws Throwable {
 		if (!(programList.equals(""))) {
 			longDelay();
-			if (!(driver.findElements(By.xpath("//div[text()='Select']")).size() > 0)) {
+			if (!(driver.findElements(By.xpath("//span[text()='Select']")).size() > 0)) {
 				longDelay();
 				if (programList.contains(",")) {
 					StringTokenizer st = new StringTokenizer(programList, ",");
@@ -530,7 +530,7 @@ public class EditUser extends BaseClass {
 			} else {
 				if (programList.contains(",")) {
 					StringTokenizer st = new StringTokenizer(programList, ",");
-					driver.findElement(By.xpath("//div[text()='Select']")).click();
+					driver.findElement(By.xpath("//span[text()='Select']")).click();
 					while (st.hasMoreTokens()) {
 						String programs = st.nextToken().trim();
 						iWillWaitToSee(By.xpath("//label[text()='" + programs + "']"));
@@ -540,7 +540,7 @@ public class EditUser extends BaseClass {
 				} else {
 
 					longDelay();
-					driver.findElement(By.xpath("//div[text()='Select']")).click();
+					driver.findElement(By.xpath("//span[text()='Select']")).click();
 					longDelay();
 					driver.findElement(By.xpath("//label[text()='" + programList + "']")).click();
 					longDelay();
