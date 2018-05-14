@@ -345,10 +345,6 @@ public class CreateACHOrganization extends BaseClass{
         		String value = createRandomNumber(22);
     			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), value);
         	}
-        	else
-        	{
-        		iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), text);
-        	}
     	}
     	else if(field.contains("SNF"))
     	{
@@ -366,11 +362,11 @@ public class CreateACHOrganization extends BaseClass{
     			CreateSNFOrganization.tempSNFOrg.put("LID", createRandomNumber(21));
     			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), tempAchOrg.get("LID"));
     		}
-        	else
-        	{
-        		iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), text);
-        	}
     	}
+        else
+        {
+        	iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), text);
+        }
     }
     
     public void iVerifyLocationIDShouldbeSameasOrganizationCCN(String text)
@@ -386,7 +382,6 @@ public class CreateACHOrganization extends BaseClass{
         	iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), CreateSNFOrganization.SNFOrg_noMO.get("CCN"));
     		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
     		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='public_fixedDataTableCell_cellContent' and contains(text(),'"+CreateSNFOrganization.SNFOrg_noMO.get("CCN")+"')]")));
-        
     	}
     } 
     
