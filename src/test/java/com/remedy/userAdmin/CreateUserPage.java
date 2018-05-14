@@ -403,6 +403,7 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iVerifyNavigationOnEpisodes2HomePage(String role){
+	   driver.manage().timeouts().pageLoadTimeout(600, TimeUnit.SECONDS);
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 	   StringTokenizer st = new StringTokenizer(application, ",");
 	   while(st.hasMoreTokens())
@@ -1862,7 +1863,6 @@ public class CreateUserPage extends BaseClass{
 		 driver.findElement(By.xpath("//i[@class='close icon']")).click();
 	 }
 	 public void iVerifyTheSelectedLocationsAreNotPresentInSelectLocationsSection (String text){
-		 iWillWaitToSee(By.xpath("//h5[text()='Selected Locations:']"));
 		 if(text.contains(",")){
 			 StringTokenizer st = new StringTokenizer(text, ",");
 			   while(st.hasMoreTokens())
