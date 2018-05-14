@@ -24,7 +24,7 @@ public class EditBundlePaymentContract extends BaseClass {
 	}
 	
 	public void iVerifyProgramDropdownBoxisnotEditable(String text){
-		isElementEnabled(driver.findElement(By.xpath("//div[text()='"+CreatePrograms.programs.get(1)+"']")));
+		isElementEnabled(driver.findElement(By.xpath("//span[text()='"+CreatePrograms.programs.get(1)+"']")));
 	}
 	
 	public void iVerifyContractIdFieldisnotEditable(String text){

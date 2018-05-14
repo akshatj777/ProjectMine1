@@ -621,11 +621,38 @@ public class CreatePrograms extends BaseClass {
 	}
 	
 	public void iClickOnReactDatePickerCloseIconForDate(String field){
-		if(field.contains("Start Date"))
+		if(field.equals("Start Date"))
 		{
 			delay();
 			//clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']")));
 			WebElement element = driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//button[@class='react-datepicker__close-icon']"));
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("arguments[0].click();", element);
+			longDelay();
+		}
+		else if(field.equals("Contract_Start_Date"))
+		{
+			delay();
+			//clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']")));
+			WebElement element = driver.findElement(By.xpath("//div[@class='start-date-end-date-block col-sm-9']//button[@class='react-datepicker__close-icon']"));
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("arguments[0].click();", element);
+			longDelay();
+		}
+		else if(field.equals("Bundle_Start_Date"))
+		{
+			delay();
+			//clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']")));
+			WebElement element = driver.findElement(By.xpath("//div[@class='start-date-end-date-block col-sm-7']//button[@class='react-datepicker__close-icon']"));
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("arguments[0].click();", element);
+			longDelay();
+		}
+		else if(field.equals("Bundle_Price_Start_Date"))
+		{
+			delay();
+			//clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']")));
+			WebElement element = driver.findElement(By.xpath("//div[@class='start-date-end-date-block col-sm-6']//button[@class='react-datepicker__close-icon']"));
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", element);
 			longDelay();
@@ -890,9 +917,9 @@ public class CreatePrograms extends BaseClass {
 				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
 			  }
 			  else if (value.equals("CID")){
-				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), CreatePrograms.programs.get(111));
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), CreatePrograms.programs.get(1));
 				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-				  value = CreatePrograms.programs.get(111);
+				  value = CreatePrograms.programs.get(1);
 				  iWillWaitToSee(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]"));
 				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
 			  }

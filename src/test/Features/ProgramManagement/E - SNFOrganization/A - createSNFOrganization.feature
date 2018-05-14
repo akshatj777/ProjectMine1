@@ -259,8 +259,8 @@ Feature: Create SNF organization functionality tests
     Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
     When I search with "SNFNAME - <Has_MO>" on organization in search box
     And I click "SNFNAME - <Has_MO>" field in search list on organization page
-    #And I verify Location ID should be greater than "100000"
 
+    #And I verify Location ID should be greater than "100000"
     Examples: 
       | Description                                                                                      | Has_MO | Managing_Org | SNF_Name             | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                |
       | Create a SNF Organization with Mandatory Fields and any other identifier except CCN - Without MO | NO     |              | equalsTo75Characters | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
@@ -304,11 +304,11 @@ Feature: Create SNF organization functionality tests
     Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
     When I search with "SNFNAME - <Has_MO>" on organization in search box
     And I click "SNFNAME - <Has_MO>" field in search list on organization page
-    #And I verify Location ID should be greater than "100000"
 
+    #And I verify Location ID should be greater than "100000"
     Examples: 
-      | Description                                                                                 | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name1      |  NPI | Message                                |
-      | Create a SNF Organization without CCN identifier and having multiple locations - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 |  NPI | SNF Organization Successfully Created. |
+      | Description                                                                                 | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name1     | NPI | Message                                |
+      | Create a SNF Organization without CCN identifier and having multiple locations - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | NPI | SNF Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "SNF" organization tab on organization dashboard
@@ -399,8 +399,8 @@ Feature: Create SNF organization functionality tests
     Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
 
     Examples: 
-      | Description                                         | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Location_ID | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code |  CCN |  Message                                |
-      | Create a SNF Organization(With - Location Id + CCN) | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 |  LID | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 |  CCN |  SNF Organization Successfully Created. |
+      | Description                                         | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Location_ID | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | Message                                |
+      | Create a SNF Organization(With - Location Id + CCN) | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | LID         | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | CCN | SNF Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -740,39 +740,8 @@ Feature: Create SNF organization functionality tests
       | Create SNF Organization with Mandatory fields - With MO                                                            | YES    | MONAME       | SNFNAME              | Address1                                                |                                               |                                                         | City                                          | California |       10000 | Loc_Name                                                                    | Loc_Address1                                            |                 |            |            |                                                         | Loc_City                                      | California |           10000 | CCN |     |     | SNF Organization Successfully Created. |
       | Create SNF Organization with all the available fields - Without MO                                                 | NO     |              | SNFNAME              | Address1                                                | Short_Name                                    | Address2                                                | City                                          | California |       10000 | Loc_Name                                                                    | Loc_Address1                                            | Skilled Nursing | Midwest    | Chicago    | Loc_Address2                                            | Loc_City                                      | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
       | Create SNF Organization with all the available fields - With MO                                                    | YES    | MONAME       | SNFNAME              | Address1                                                | Short_Name                                    | Address2                                                | City                                          | California |       10000 | Loc_Name                                                                    | Loc_Address1                                            | Skilled Nursing | Midwest    | Chicago    | Loc_Address2                                            | Loc_City                                      | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
-
-  Scenario Outline: <Description>
-    When I click on "SNF" organization tab on organization dashboard
-    Then I click on "+" button on "SNF" organization page
-    And I verify "Create SNF Organization" header text on create organization page
-    And I select "<Has_MO>" radio button for managing organization
-    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
-    Then I enter <SNF_Name> in "SNF Organization Name" on create organization page
-    And I enter <Address1> in "Address 1" on create organization page
-    And I enter <Short_Name> in "Short Name" on create organization page
-    And I enter <Address2> in "Address 2" on create organization page
-    And I enter <City> in "City" on create organization page
-    And I select <State> in State on create organization page
-    And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "SNF - <CCN>" in "CCN" on create organization page
-    And I provide unique "SNF - <EIN>" in "EIN" on create organization page
-    And I provide unique "SNF - <NPI>" in "NPI" on create organization page
-    And I enter location name <Loc_Name> for Location "1" on "create" organization page
-    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
-    And I select location type <Loc_Type> for Location "1" on "create" organization page
-    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
-    And I select region <Loc_Region> for Location "1" on "create" organization page
-    And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
-    And I select state <Loc_State> for Location "1" on "create" organization page
-    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
-    Then I click on "Submit" button on "create" organization page
-    Then I verify duplicate "<Message>" after submitting the "create SNF" organization page
-
-    Examples: 
-      | Description                                                          | Has_MO | Managing_Org | SNF_Name      | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                                                                          |
-      | Create Duplicate SNF Organization with Mandatory fields - Without MO | NO     |              | DUPLICATE_SNF | Address1 |            |          | City | California |       10000 | Loc_Name | Loc_Address1 |          |            |            |              | Loc_City | California |           10000 | CCN |     |     | There is a conflict error because an entity with similar identifying attributes already existed. |
-      | Create Duplicate SNF Organization with Mandatory fields - With MO    | YES    | MONAME       | DUPLICATE_SNF | Address1 |            |          | City | California |       10000 | Loc_Name | Loc_Address1 |          |            |            |              | Loc_City | California |           10000 | CCN |     |     | There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Create Duplicate SNF Organization with Mandatory fields - Without MO                                               | NO     |              | DUPLICATE_SNF        | Address1                                                |                                               |                                                         | City                                          | California |       10000 | Loc_Name                                                                    | Loc_Address1                                            |                 |            |            |                                                         | Loc_City                                      | California |           10000 | CCN |     |     | SNF Organization Successfully Created. |
+      | Create Duplicate SNF Organization with Mandatory fields - With MO                                                  | YES    | MONAME       | DUPLICATE_SNF        | Address1                                                |                                               |                                                         | City                                          | California |       10000 | Loc_Name                                                                    | Loc_Address1                                            |                 |            |            |                                                         | Loc_City                                      | California |           10000 | CCN |     |     | SNF Organization Successfully Created. |
 
   Scenario Outline: Identifiers - <Description>
     When I click on "SNF" organization tab on organization dashboard

@@ -402,6 +402,7 @@ public class CreateACHOrganization extends BaseClass{
     }
     
     public void iVerifyDuplicateLocationMessage(String text){
+    	iWillWaitToSee(By.xpath("//div[text()='Duplicate Location']"));
     	verifyTextForElement(driver.findElement(By.xpath("//div[text()='Duplicate Location']")), text);
     }
 }

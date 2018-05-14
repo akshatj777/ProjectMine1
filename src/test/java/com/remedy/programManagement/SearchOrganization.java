@@ -306,6 +306,7 @@ public class SearchOrganization extends BaseClass{
 	}
 	
 	public void iVerifytheNewMatchesMessage(String text) {
+		scrollIntoViewByJS(driver.findElement(By.cssSelector(".data-table-overlay-message")));
 		iWillWaitToSee(By.cssSelector(".data-table-overlay-message"));
 		Assert.assertEquals(text, driver.findElement(By.cssSelector(".data-table-overlay-message")).getText().trim());
 	}

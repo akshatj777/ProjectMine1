@@ -5,7 +5,6 @@ Feature: Create PGP organization functionality tests.
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    #And I switch to new window
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -164,31 +163,8 @@ Feature: Create PGP organization functionality tests.
       | Create PGP Organization with Mandatory fields + Address1 + Address2 + City + State + postal Code + Region + Market- Without MO               | NO     |              | PGPNAME              | Address1                                                |                                               | Address2                                                | City                                          | Midwest | Chicago | California |       10000 | EIN |     | PGP Organization Successfully Created. |
       | Create PGP Organization with all the available fields - Without MO                                                                           | NO     |              | PGPNAME              | Address1                                                | Short_Name                                    | Address2                                                | City                                          | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
       | Create PGP Organization with all the available fields - With MO                                                                              | YES    | MONAME       | PGPNAME              | Address1                                                | Short_Name                                    | Address2                                                | City                                          | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
-
-  Scenario Outline: <Description>
-    When I click on "PGP" organization tab on organization dashboard
-    Then I click on "+" button on "PGP" organization page
-    And I verify "Create PGP Organization" header text on create organization page
-    And I select "<Has_MO>" radio button for managing organization
-    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
-    Then I enter <PGP_Name> in "PGP Organization Name" on create organization page
-    And I enter <Address1> in "Address 1" on create organization page
-    And I enter <Short_Name> in "Short Name" on create organization page
-    And I enter <Address2> in "Address 2" on create organization page
-    And I enter <City> in "City" on create organization page
-    And I select region "<Region>" in "create PGP" organization page
-    And I select market "<Market>" in "create PGP" organization page
-    And I select <State> in State on create organization page
-    And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "PGP - <EIN>" in "EIN" on create organization page
-    And I provide unique "PGP - <NPI>" in "NPI" on create organization page
-    Then I click on "Submit" button on "create" organization page
-    Then I verify duplicate "<Message>" after submitting the "create PGP - <Has_MO>" organization page
-
-    Examples: 
-      | Description                                                                                   | Has_MO | Managing_Org | PGP_Name      | Address1 | Short_Name | Address2 | City | Region | Market | State | Postal_Code | EIN | NPI | Message                                                                                          |
-      | Create PGP Organization with Mandatory fields having duplicate organization name - Without MO | NO     |              | DUPLICATE_PGP |          |            |          |      |        |        |       |             | EIN |     | There is a conflict error because an entity with similar identifying attributes already existed. |
-      | Create PGP Organization with Mandatory fields having duplicate organization name - With MO    | YES    | MONAME       | DUPLICATE_PGP |          |            |          |      |        |        |       |             | EIN |     | There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Create PGP Organization with Mandatory fields having duplicate organization name - Without MO                                                | NO     |              | DUPLICATE_PGP        |                                                         |                                               |                                                         |                                               |         |         |            |             | EIN |     | PGP Organization Successfully Created. |
+      | Create PGP Organization with Mandatory fields having duplicate organization name - With MO                                                   | YES    | MONAME       | DUPLICATE_PGP        |                                                         |                                               |                                                         |                                               |         |         |            |             | EIN |     | PGP Organization Successfully Created. |
 
   Scenario Outline: Identifiers - <Description>
     When I click on "PGP" organization tab on organization dashboard

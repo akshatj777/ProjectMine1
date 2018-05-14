@@ -5,7 +5,6 @@ Feature: View SNF organization functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    #And I switch to new window
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -112,12 +111,14 @@ Feature: View SNF organization functionality tests
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
     And I verify "<SNF_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Location" tab present under "SNF" Organization
+    And I click on "Location" tab on view profile of "SNF" Organization
     And I verify "2" location count on view "SNF" organization page
 
     Examples: 
       | Description                                                                             | Has_MO | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name  | Loc_Address1 | Loc_Type        | Loc_Address2 | Loc_Region | Loc_City | Loc_Market | Loc_State  | Loc_Postal_Code | CCN | EIN/TIN | NPI | StateVerification | Organization Type | Message                                |
-      | Verification of SNF details and count of locations displayed under SNF org - with MO    | YES    | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Skilled Nursing | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | SNF               | SNF Organization Successfully Updated. |
-      | Verification of SNF details and count of locations displayed under SNF org - without MO | NO     | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Skilled Nursing | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | SNF               | SNF Organization Successfully Updated. |
+      | Verification of SNF details and count of locations displayed under SNF org - with MO    | YES    | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name new2 | Loc_Address1 | Skilled Nursing | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | SNF               | SNF Organization Successfully Updated. |
+      | Verification of SNF details and count of locations displayed under SNF org - without MO | NO     | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 new2 | Loc_Address1 | Skilled Nursing | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | SNF               | SNF Organization Successfully Updated. |
 
   Scenario Outline: <Description>
     When I search with "<MO_Name>" on organization in search box

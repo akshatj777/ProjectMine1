@@ -5,7 +5,6 @@ Feature: Edit HHA organization functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    #And I switch to new window
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -169,28 +168,5 @@ Feature: Edit HHA organization functionality tests
       | Edit HHA Organization with Mandatory fields - With MO                           | YES    | HHANAME  | HHANAME              | Address1                                                |                                               |                                                         | City                                          | California |       10000 |         |         | HHA Organization Successfully Updated. |
       | Edit HHA Organization with all the available fields - Without MO                | NO     | HHANAME  | HHANAME              | Address1                                                | Short_Name                                    | Address2                                                | City                                          | California |       10000 | Midwest | Chicago | HHA Organization Successfully Updated. |
       | Edit HHA Organization with all the available fields - With MO                   | YES    | HHANAME  | HHANAME              | Address1                                                | Short_Name                                    | Address2                                                | City                                          | California |       10000 | Midwest | Chicago | HHA Organization Successfully Updated. |
-
-  Scenario Outline: <Description>
-    When I click on "HHA" organization tab on organization dashboard
-    When I search with "<HHA_Name> - <Has_MO>" on organization in search box
-    And I verify "<HHA_Name> - <Has_MO>" name on the header of view profile
-    And I click "<HHA_Name> - <Has_MO>" field in search list on organization page
-    And I click on "Edit" button on particular organization
-    And I verify "Edit HHA Organization" header text on edit organization page
-    And I verify Managing Organization field on "Edit HHA - <Has_MO>" organization page
-    And I edit "HHA Organization Name" field to "<Edited_HHA_Name> - <Has_MO>" for organization
-    And I edit "Address 1" field to "<Address1>" for organization
-    And I edit "Short Name" field to "<Short_Name>" for organization
-    And I edit "Address 2" field to "<Address2>" for organization
-    And I edit Region "<Region>" in "edit HHA" organization page
-    And I edit Market dropdown field to "<Market>" for Region "<Region>" for "HHA" organization
-    And I edit "City" field to "<City>" for organization
-    And I edit <State> field for organization
-    And I edit "Postal Code" field to "<Postal_Code>" for organization
-    Then I click on "Submit" button on "Edit" organization page
-    Then I verify duplicate "<Message>" after submitting the "Edit HHA - <Has_MO>" organization page
-
-    Examples: 
-      | Description                                                        | Has_MO | HHA_Name | Edited_HHA_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Region | Market | Message                                                                                          |
-      | Edit Duplicate HHA Organization with Mandatory fields - Without MO | NO     | HHANAME  | DUPLICATE_HHA   | Address1 |            |          | City | California |       10000 |        |        | There is a conflict error because an entity with similar identifying attributes already existed. |
-      | Edit Duplicate HHA Organization with Mandatory fields - With MO    | YES    | HHANAME  | DUPLICATE_HHA   | Address1 |            |          | City | California |       10000 |        |        | There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Edit Duplicate HHA Organization with Mandatory fields - Without MO              | NO     | HHANAME  | DUPLICATE_HHA        | Address1                                                |                                               |                                                         | City                                          | California |       10000 |         |         | HHA Organization Successfully Updated. |
+      | Edit Duplicate HHA Organization with Mandatory fields - With MO                 | YES    | HHANAME  | DUPLICATE_HHA        | Address1                                                |                                               |                                                         | City                                          | California |       10000 |         |         | HHA Organization Successfully Updated. |

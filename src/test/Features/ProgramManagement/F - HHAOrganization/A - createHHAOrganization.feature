@@ -5,7 +5,6 @@ Feature: Create HHA organization functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    #And I switch to new window
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -188,32 +187,8 @@ Feature: Create HHA organization functionality tests
       | Create HHA Organization with Mandatory fields - With MO                                          | YES    | MONAME       | HHANAME              | Address1                                                |                                               |                                                         | City                                          | California |       10000 |         |         | CCN |     |     | HHA Organization Successfully Created. |
       | Create HHA Organization with all the available fields - Without MO                               | NO     |              | HHANAME              | Address1                                                | Short_Name                                    | Address2                                                | City                                          | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
       | Create HHA Organization with all the available fields - With MO                                  | YES    | MONAME       | HHANAME              | Address1                                                | Short_Name                                    | Address2                                                | City                                          | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
-
-  Scenario Outline: <Description>
-    When I click on "HHA" organization tab on organization dashboard
-    Then I click on "+" button on "HHA" organization page
-    And I verify "Create HHA Organization" header text on create organization page
-    And I select "<Has_MO>" radio button for managing organization
-    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
-    Then I enter <HHA_Name> in "HHA Organization Name" on create organization page
-    And I enter <Address1> in "Address 1" on create organization page
-    And I enter <Short_Name> in "Short Name" on create organization page
-    And I enter <Address2> in "Address 2" on create organization page
-    And I select region "<Region>" in "create HHA" organization page
-    And I select market "<Market>" in "create HHA" organization page
-    And I enter <City> in "City" on create organization page
-    And I select <State> in State on create organization page
-    And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "HHA - <CCN>" in "CCN" on create organization page
-    And I provide unique "HHA - <EIN>" in "EIN" on create organization page
-    And I provide unique "HHA - <NPI>" in "NPI" on create organization page
-    Then I click on "Submit" button on "create" organization page
-    Then I verify duplicate "<Message>" after submitting the "create HHA - <Has_MO>" organization page
-
-    Examples: 
-      | Description                                                          | Has_MO | Managing_Org | HHA_Name      | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Region | Market | CCN | EIN | NPI | Message                                                                                          |
-      | Create Duplicate HHA Organization with Mandatory fields - Without MO | NO     |              | DUPLICATE_hha | Address1 |            |          | City | California |       10000 |        |        | CCN |     |     | There is a conflict error because an entity with similar identifying attributes already existed. |
-      | Create Duplicate HHA Organization with Mandatory fields - With MO    | YES    | MONAME       | DUPLICATE_hha | Address1 |            |          | City | California |       10000 |        |        | CCN |     |     | There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Create Duplicate HHA Organization with Mandatory fields - Without MO                             | NO     |              | DUPLICATE_hha        | Address1                                                |                                               |                                                         | City                                          | California |       10000 |         |         | CCN |     |     | HHA Organization Successfully Created. |
+      | Create Duplicate HHA Organization with Mandatory fields - With MO                                | YES    | MONAME       | DUPLICATE_hha        | Address1                                                |                                               |                                                         | City                                          | California |       10000 |         |         | CCN |     |     | HHA Organization Successfully Created. |
 
   Scenario Outline: Identifiers - <Description>
     When I click on "HHA" organization tab on organization dashboard

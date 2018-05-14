@@ -240,6 +240,138 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
+    And I click on react date picker close icon for "Contract_Start_Date"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
+    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
+    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
+    Then I enter date "<PriceEndDate>" in "Baseline Date" field for index "5"
+    Then I enter date "<BaselineStartDate>" in "BaselineStartDate" field for index "6"
+    Then I enter date "<BaselineEndDate>" in "BaselineEndDate" field for index "7"
+    And I enter "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price1" on create Contract page
+    And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on create Contract page
+    And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price1" on create Contract page
+    Then I click on "Submit" button on "create" organization page
+    And I verify "<ValidationMsg>" mandatory field validation message on create organization page
+
+    Examples: 
+      | Description                                                      | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1           | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg |
+      | Validation message if Start Date is left blank- Contract Section | NO     | PAYORNAME  |                   | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | Required      |
+
+  Scenario Outline: <Description>
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
+    Then I click on "Create New Contract" button on "create" organization page
+    And I verify "Create Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
+    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    And I click on react date picker close icon for "Bundle_Start_Date"
+    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
+    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
+    Then I enter date "<PriceEndDate>" in "Baseline Date" field for index "5"
+    Then I enter date "<BaselineStartDate>" in "BaselineStartDate" field for index "6"
+    Then I enter date "<BaselineEndDate>" in "BaselineEndDate" field for index "7"
+    And I enter "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price1" on create Contract page
+    And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on create Contract page
+    And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price1" on create Contract page
+    Then I click on "Submit" button on "create" organization page
+    And I verify "<ValidationMsg>" mandatory field validation message on create organization page
+
+    Examples: 
+      | Description                                                             | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1           | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg |
+      | Check validation message if Start Date is left blank for Bundle Section | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      |                 | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | Required      |
+
+  Scenario Outline: <Description>
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
+    Then I click on "Create New Contract" button on "create" organization page
+    And I verify "Create Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
+    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    And I click on react date picker close icon for "Bundle Start Date"
+    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
+    Then I enter date "<PriceEndDate>" in "Baseline Date" field for index "5"
+    And I click on react date picker close icon for "Bundle_Price_Start_Date"
+    Then I enter date "<BaselineStartDate>" in "BaselineStartDate" field for index "6"
+    Then I enter date "<BaselineEndDate>" in "BaselineEndDate" field for index "7"
+    And I enter "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price1" on create Contract page
+    And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on create Contract page
+    And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price1" on create Contract page
+    Then I click on "Submit" button on "create" organization page
+    And I verify "<ValidationMsg>" mandatory field validation message on create organization page
+
+    Examples: 
+      | Description                                                                   | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1           | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg |
+      | Check validation message if Start Date is left blank for Bundle price Section | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    |                | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | Required      |
+
+  Scenario Outline: <Description>
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
+    Then I click on "Create New Contract" button on "create" organization page
+    And I verify "Create Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
+    And I select Organization name "<Organization_Name>" for Contract "1" on "create" Contracts page
+    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
+    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
+    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
+    Then I enter date "<PriceEndDate>" in "Baseline Date" field for index "5"
+    Then I enter date "<BaselineStartDate>" in "BaselineStartDate" field for index "6"
+    Then I enter date "<BaselineEndDate>" in "BaselineEndDate" field for index "7"
+    And I enter "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price1" on create Contract page
+    And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on create Contract page
+    And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price1" on create Contract page
+    Then I click on "Submit" button on "create" organization page
+    And I verify "<ValidationMsg>" mandatory field validation message on create organization page
+
+    Examples: 
+      | Description                                             | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1           | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg                 |
+      | Check validation message if Provider Name is left blank | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               |                   | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | Please select an organization |
+
+  Scenario Outline: <Description>
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
+    Then I click on "Create New Contract" button on "create" organization page
+    And I verify "Create Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
+    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
     Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
@@ -257,12 +389,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     Examples: 
       | Description                                                                                                     | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1           | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg                                                   |
       | Check validation message if Program Name is left blank                                                          | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      |              | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | Please select a Program                                         |
-      | Check validation message if Provider Name is left blank                                                         |        | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               |                   | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | Please select an organization                                   |
-      #| Check validation message if Start Date is left blank for Contract Section                                       | NO     | PAYORNAME  |                   | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | Required                                                        |
       | Check validation message if Bundle Name is left blank                                                           | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           |                    |   123 |          121 |         135 |         106 | Required                                                        |
-      #| Check validation message if Start Date is left blank for Bundle Section                                         | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      |                 | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | Required                                                        |
       | Check validation message if Price field is left blank                                                           | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |       |          121 |         135 |         106 | Required                                                        |
-      #| Check validation message if Start Date is left blank for Bundle price Section                                   | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    |                | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | Required                                                        |
       | Check validation message for Contract creation with Contract End Date is before the Contract Start Date         | NO     | PAYORNAME  | 2017/01/05        | 2017/01/03      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | The Contract End Date is before the start date                  |
       | Check validation message for contract creation with Bundle End Date is before the bundle Start Date             | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/02/24      | 2019/01/24    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | The bundle end date is before the bundle start date             |
       | Check validation message for Contract creation with Bundle Price End Date is before the Bundle Price Start Date | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/05/03     | 2019/04/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |       |          121 |         135 |         106 | The bundle price end date is before the bundle price start date |

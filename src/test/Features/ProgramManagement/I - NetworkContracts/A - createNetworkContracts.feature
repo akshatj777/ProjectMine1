@@ -390,7 +390,7 @@ Feature: Create Network Contracts functionality tests
 
     Examples: 
       | Description                                                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | ContractStartDate | ContractEndDate | Message                              |
-      | Create Network Contract using duplicate Program and Hospital Organization combination | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/01/12        | 2019/12/20      | NetworkContract Successfully Created |
+      | Create Network Contract using duplicate Program and Hospital Organization combination | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/01/20        | 2019/12/20      | NetworkContract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard

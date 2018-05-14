@@ -216,7 +216,7 @@ Feature: Edit Bundle Payment Contract functionality tests
 
     Examples: 
       | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1     | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/02/01        | 2019/12/01      | 2017/05/01      | 2018/07/30    | 2017/07/01     | 2018/02/01   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_AICD_30 |    96 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/02/01        | 2019/12/01      | 2017/05/01      | 2018/07/30    | 2017/07/01     | 2018/02/01   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_CERVICALSPINALFUSION_30 |    96 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -241,8 +241,8 @@ Feature: Edit Bundle Payment Contract functionality tests
     And I verify "End Date" field for "Bundle1" on edit Contracts page
     And I verify "*Start Date" field for "Bundle_price1" on edit Contracts page
     And I verify "End Date" field for "Bundle_price1" on edit Contracts page
-    #And I verify "*Start Date" field for "Baseline Start" on edit Contracts page
-    #And I verify "End Date" field for "Baseline End" on edit Contracts page
+    And I verify "Baseline Start" field for "Baseline_Start_Date" on edit Contracts page
+    And I verify "Baseline End" field for "Baseline_End_Date" on edit Contracts page
     And I verify "Trend Factor" field is editable
     And I verify "Upper Bound" field is editable
     And I verify "Lower Bound" field is editable
@@ -268,9 +268,9 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
     And I verify "Edit Contract" header text on edit organization page
     Then I edit "<Price>" in "price" field for "Bundle1 Price1" on edit Contract page
-    Then I click on react date picker icon for "Contract Start Date" for index "0" on edit contract page
-    Then I click on react date picker icon for "Bundle Start Date" for index "1" on edit contract page
-    Then I click on react date picker icon for "Bundle_Price Start Date" for index "2" on edit contract page
+    And I click on react date picker close icon for "Contract_Start_Date"
+And I click on react date picker close icon for "Bundle_Start_Date"
+And I click on react date picker close icon for "Bundle_Price_Start_Date"
     Then I click on "Submit" button on "edit" organization page
     And I verify "<ValidationMsg>" mandatory field validation message on edit organization page
 
@@ -289,7 +289,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I verify "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
     Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
     And I verify "Edit Contract" header text on edit organization page
-    Then I click on react date picker icon for "Contract Start Date" for index "0" on edit contract page
+    And I click on react date picker close icon for "Contract_Start_Date"
     Then I click on "Submit" button on "edit" organization page
     And I verify "<ValidationMsg>" mandatory field validation message on edit organization page
 
@@ -308,7 +308,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I verify "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
     Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
     And I verify "Edit Contract" header text on edit organization page
-    Then I click on react date picker icon for "Bundle Start Date" for index "1" on edit contract page
+    And I click on react date picker close icon for "Bundle_Start_Date"
     Then I click on "Submit" button on "edit" organization page
     And I verify "<ValidationMsg>" mandatory field validation message on edit organization page
 
@@ -327,7 +327,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I verify "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
     Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
     And I verify "Edit Contract" header text on edit organization page
-    Then I click on react date picker icon for "Bundle_Price Start Date" for index "2" on edit contract page
+    And I click on react date picker close icon for "Bundle_Price_Start_Date"
     Then I click on "Submit" button on "edit" organization page
     And I verify "<ValidationMsg>" mandatory field validation message on edit organization page
 
