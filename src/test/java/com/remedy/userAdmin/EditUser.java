@@ -569,7 +569,7 @@ public class EditUser extends BaseClass {
 	public void iVerifyMessageForInvalidLocation(String text) throws InterruptedException {
 		if (text.equalsIgnoreCase("second")) {
 			iWillWaitToSee(By.xpath("//h3[contains(text(),'No Results Found')]"));
-			Assert.assertTrue(isElementPresentOnPage(By.xpath("//h3[contains(text(),'No Results Found')]")));
+			Assert.assertTrue(isElementVisible(driver.findElements(By.xpath("//h3[contains(text(),'No Results Found')]")).get(1)));
 		} else if (text.equalsIgnoreCase("first")) {
 			iWillWaitToSee(By.xpath("//h3[contains(text(),'No Results Found')]"));
 			Assert.assertTrue(isElementPresentOnPage(By.xpath("//h3[contains(text(),'No Results Found')]")));

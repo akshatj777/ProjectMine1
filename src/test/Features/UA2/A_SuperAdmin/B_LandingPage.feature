@@ -60,8 +60,8 @@ Feature: Super Admin Landing page verification
 
     Examples: 
       | Description                    | user        | Role      | Email             | InvalidSearchParameter | SearchParameter                          |
-      | Search a user using First Name | Super Admin | Executive | test.automatemail |                1768789 | FirstName                                |
-      | Search a user using Last Name  | Super Admin | Executive | test.automatemail |                1768789 | LastNameLastNameLastNameLastNameLastName |
+      | Search a user using First Name | Super Admin | Executive | test.automatemail |                1768789 | Firstname                                |
+      | Search a user using Last Name  | Super Admin | Executive | test.automatemail |                1768789 | Lastnamelastnamelastnamelastnamelastname |
       | Search a user using Email      | Super Admin | Executive | test.automatemail |                1768789 | FetchFromHM                              |
 
   Scenario Outline: Verify ability of Super Admin user to lock a user
