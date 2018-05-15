@@ -161,6 +161,30 @@ Feature: Search Physician Roster functionality tests
       | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/16        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_ATHEROSCLEROSIS_60    |   113 |          121 |         135 |         106 | Contract Successfully Created |
       | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_BACKNECKNONFUSION_60  |    56 |          121 |         135 |         106 | Contract Successfully Created |
 
+  Scenario Outline: : <Description>
+    When create provider taxonomy classification grouping sepecialization Json "classificationForPhysRoster"
+    Given create provider taxonomy with this data "classification"
+    Then verification of Actual vs expected results 201 and ""
+    When create provider taxonomy classification grouping sepecialization Json "groupingForPhysRoster"
+    Given create provider taxonomy with this data "grouping"
+    Then verification of Actual vs expected results 201 and ""
+    When create provider taxonomy classification grouping sepecialization Json "specializationForPhysRoster"
+    Given create provider taxonomy with this data "specialization"
+    Then verification of Actual vs expected results 201 and ""
+    When create provider taxonomy Json "definition" and "notes" and "<providerTaxonCode>" and "<classificationId>" and "<groupingId>" and "<specializationId>"
+    Given create provider taxonomy
+    Then verification of Actual vs expected results 201 and ""
+    When create practitioner Json "<firstName>" and "<lastName>" and "<npi>" and "<gender>" and "<enumerationDate>" and "<prefix>" and "<suffix>" and "<npiDeactivationDate>" and "<npiDeactivationReasonCode>" and "<otherFirstName>" and "<otherLastName>" and "<otherPrefix>" and "<otherSuffix>" and "<primaryTaxonomyId>" and "<secondaryTaxonomyId>" and "<licenseNumber>" and "<licenseNumberStateCode>" and "<address1>" and "<address2>" and "<city>" and "<state>" and "<zip>" and "<noOfLicenses>"
+    Given create practitioner with this data
+    Then verification of Actual vs expected results <expStatusCode> and "<responseMsg>"
+    When Get by id 0 and practitioner
+
+    Examples: 
+      | Description           | firstName | lastName     | npi | gender | enumerationDate | prefix | suffix | npiDeactivationDate | npiDeactivationReasonCode | otherFirstName | otherLastName | otherPrefix | otherSuffix | primaryTaxonomyId    | secondaryTaxonomyId | noOfLicenses | licenseNumber | licenseNumberStateCode | address1 | address2 | city | state | zip | expStatusCode | responseMsg | classificationId | groupingId | specializationId | providerTaxonCode |
+      | validPractionerCreate | firstName | testLastName | PC  | f      | 2018-01-01      | ap     | test   | 2018-01-01          | dd                        | otherFirstName | otherLastName | ff          | ff          | generatePrimaryTaxId |                   1 |            2 |           2,5 |                  23,78 | addr1    | addr2    | city | ny    | zip |           201 |             |                0 |          0 |                0 | CPT               |
+  
+  
+  
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
     When I search with "<PGP_Name> - <Has_MO>" on organization in search box
@@ -176,7 +200,7 @@ Feature: Search Physician Roster functionality tests
     And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     Then I enter date "<PhysicianStartDate>" in "PhysicianStartDate" field for index "0"
@@ -186,8 +210,8 @@ Feature: Search Physician Roster functionality tests
 
     Examples: 
       | Description                                                        | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician | PhysicianStartDate | PhysicianEndDate | Message                         |
-      | Add Physician with all the available fields under PGP Organization | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | pc211917  | 2017/01/30         | 2017/06/30       | Physicians Successfully Updated |
-      | Add Physician with all the available fields under PGP Organization | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | pc211917  | 2017/07/01         | 2017/12/01       | Physicians Successfully Updated |
+      | Add Physician with all the available fields under PGP Organization | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI  | 2017/01/30         | 2017/06/30       | Physicians Successfully Updated |
+      | Add Physician with all the available fields under PGP Organization | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI  | 2017/07/01         | 2017/12/01       | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -204,7 +228,7 @@ Feature: Search Physician Roster functionality tests
     And I verify the "<Hospital_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     Then I enter date "<PhysicianStartDate>" in "PhysicianStartDate" field for index "0"
@@ -214,8 +238,8 @@ Feature: Search Physician Roster functionality tests
 
     Examples: 
       | Description                                                             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician | PhysicianStartDate | PhysicianEndDate | Message                         |
-      | Add Physician with all the available fields under Hospital Organization | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653  | 2017/01/30         | 2017/12/01       | Physicians Successfully Updated |
-      | Add Physician with all the available fields under Hospital Organization | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653  | 2018/01/01         | 2018/12/01       | Physicians Successfully Updated |
+      | Add Physician with all the available fields under Hospital Organization | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI  | 2017/01/30         | 2017/12/01       | Physicians Successfully Updated |
+      | Add Physician with all the available fields under Hospital Organization | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI  | 2018/01/01         | 2018/12/01       | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -230,7 +254,7 @@ Feature: Search Physician Roster functionality tests
 
     Examples: 
       | Description                          | Has_MO | PGP_Name | SearchParam  |
-      | Search for a Physician by NPI        | NO     | PGPNAME  | pc211917     |
+      | Search for a Physician by NPI        | NO     | PGPNAME  | FETCHFROMAPI     |
       | Search for a Physician by First Name | NO     | PGPNAME  | firstName    |
       | Search for a Physician by Last Name  | NO     | PGPNAME  | testLastName |
       | Search for a Physician by Start Date | NO     | PGPNAME  | 2017-01-30   |
@@ -265,7 +289,7 @@ Feature: Search Physician Roster functionality tests
 
     Examples: 
       | Description                          | Has_MO | Hosp_Name | SearchParam  |
-      | Search for a Physician by NPI        | NO     | ACHNAME  | up100653     |
+      | Search for a Physician by NPI        | NO     | ACHNAME  | FETCHFROMAPI     |
       | Search for a Physician by First Name | NO     | ACHNAME  | firstName    |
       | Search for a Physician by Last Name  | NO     | ACHNAME  | testLastName |
       | Search for a Physician by Start Date | NO     | ACHNAME  | 2017-01-30   |

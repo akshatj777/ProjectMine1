@@ -50,9 +50,9 @@ public class PhysicianRosterStepDef extends DriverScript{
 		physicianroster.iVerifytextAfterSelectingProgramFromDropdownOnPhysicianRosterPage(text);
 	}
 	
-	@And("^I select a Physician \"([^\"]*)\" on \"([^\"]*)\" Physician Roster page$")
-	public void i_Select_a_Physician_on_Create_Physician_Roster_Page(String text, String act) throws Throwable{
-		physicianroster.iSelectaPhysicianonCreatePhysicianRosterPage(text, act);
+	@And("^I select \"([^\"]*)\" Physician \"([^\"]*)\" on \"([^\"]*)\" Physician Roster page$")
+	public void i_Select_a_Physician_on_Create_Physician_Roster_Page(int numberOfPractitioners, String text, String act) throws Throwable{
+		physicianroster.iSelectaPhysicianonCreatePhysicianRosterPage(numberOfPractitioners, text, act);
 	}
 	
 	@And("^I click on \"([^\"]*)\" button on \"([^\"]*)\" Physician Roster page$")
@@ -73,6 +73,11 @@ public class PhysicianRosterStepDef extends DriverScript{
 	@Then("^I verify npi \"([^\"]*)\" after adding Physician from dropdown on ([^\"]*) physician roster page$")
 	public void i_Verify_NPI_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text, String act) throws Throwable{
 		physicianroster.iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
+	}
+	
+	@Then("^I verify \"([^\"]*)\" npi \"([^\"]*)\" after adding Physician from dropdown on ([^\"]*) physician roster page$")
+	public void i_Verify_NPI_after_adding_Physician(int numberOfPractitioner, String text, String act) throws Throwable{
+		physicianroster.iVerifyNPIDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(numberOfPractitioner, text);
 	}
 	
 	@Then("^I verify start date \"([^\"]*)\" after adding Physician from dropdown on ([^\"]*) physician roster page$")

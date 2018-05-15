@@ -155,11 +155,33 @@ Feature: Edit Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id     | Bundle_1                   | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/09        | 2019/12/19      | 2017/05/01      | 2019/07/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | BPCI_AICD_90               |    96 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using Hospital Organization | YES    | PAYORNAME  | 2017/01/15        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | BPCI_AMPUTATION_60         |   103 |           91 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/16        | 2019/12/26      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_ATHEROSCLEROSIS_60    |   113 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_BACKNECKNONFUSION_60  |    56 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1                  | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/09        | 2019/12/19      | 2017/05/01      | 2019/07/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_AICD_90              |    96 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using Hospital Organization | YES    | PAYORNAME  | 2017/01/15        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_AMPUTATION_60        |   103 |           91 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/16        | 2019/12/26      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BPCI_ATHEROSCLEROSIS_60   |   113 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BPCI_BACKNECKNONFUSION_60 |    56 |          121 |         135 |         106 | Contract Successfully Created |
+
+  Scenario Outline: : <Description>
+    When create provider taxonomy classification grouping sepecialization Json "classificationForPhysRoster"
+    Given create provider taxonomy with this data "classification"
+    Then verification of Actual vs expected results 201 and ""
+    When create provider taxonomy classification grouping sepecialization Json "groupingForPhysRoster"
+    Given create provider taxonomy with this data "grouping"
+    Then verification of Actual vs expected results 201 and ""
+    When create provider taxonomy classification grouping sepecialization Json "specializationForPhysRoster"
+    Given create provider taxonomy with this data "specialization"
+    Then verification of Actual vs expected results 201 and ""
+    When create provider taxonomy Json "definition" and "notes" and "<providerTaxonCode>" and "<classificationId>" and "<groupingId>" and "<specializationId>"
+    Given create provider taxonomy
+    Then verification of Actual vs expected results 201 and ""
+    When create practitioner Json "<firstName>" and "<lastName>" and "<npi>" and "<gender>" and "<enumerationDate>" and "<prefix>" and "<suffix>" and "<npiDeactivationDate>" and "<npiDeactivationReasonCode>" and "<otherFirstName>" and "<otherLastName>" and "<otherPrefix>" and "<otherSuffix>" and "<primaryTaxonomyId>" and "<secondaryTaxonomyId>" and "<licenseNumber>" and "<licenseNumberStateCode>" and "<address1>" and "<address2>" and "<city>" and "<state>" and "<zip>" and "<noOfLicenses>"
+    Given create practitioner with this data
+    Then verification of Actual vs expected results <expStatusCode> and "<responseMsg>"
+
+    Examples: 
+      | Description           | firstName | lastName     | npi | gender | enumerationDate | prefix | suffix | npiDeactivationDate | npiDeactivationReasonCode | otherFirstName | otherLastName | otherPrefix | otherSuffix | primaryTaxonomyId    | secondaryTaxonomyId | noOfLicenses | licenseNumber | licenseNumberStateCode | address1 | address2 | city | state | zip | expStatusCode | responseMsg | classificationId | groupingId | specializationId | providerTaxonCode |
+      | validPractionerCreate | firstName | testLastName | PC  | f      | 2018-01-01      | ap     | test   | 2018-01-01          | dd                        | otherFirstName | otherLastName | ff          | ff          | generatePrimaryTaxId |                   1 |            2 |           2,5 |                  23,78 | addr1    | addr2    | city | ny    | zip |           201 |             |                0 |          0 |                0 | CPT               |
+      | validPractionerCreate | firstName | testLastName | PC  | f      | 2018-01-01      | ap     | test   | 2018-01-01          | dd                        | otherFirstName | otherLastName | ff          | ff          | generatePrimaryTaxId |                   1 |            2 |           2,5 |                  23,78 | addr1    | addr2    | city | ny    | zip |           201 |             |                0 |          0 |                0 | CPT               |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -176,7 +198,7 @@ Feature: Edit Physician Roster functionality tests
     And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     Then I enter date "<PhysicianStartDate>" in "PhysicianStartDate" field for index "0"
@@ -185,9 +207,9 @@ Feature: Edit Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                 | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician | PhysicianStartDate | PhysicianEndDate | Message                         |
-      | Add Physician with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | pc211917  | 2017/01/30         | 2017/06/30       | Physicians Successfully Updated |
-      | Add Physician with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | pc211917  | 2017/07/01         | 2017/12/01       | Physicians Successfully Updated |
+      | Description                                 | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician    | PhysicianStartDate | PhysicianEndDate | Message                         |
+      | Add Physician with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | 2017/01/30         | 2017/06/30       | Physicians Successfully Updated |
+      | Add Physician with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | 2017/07/01         | 2017/12/01       | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -204,7 +226,7 @@ Feature: Edit Physician Roster functionality tests
     And I verify the "<Hospital_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     Then I enter date "<PhysicianStartDate>" in "PhysicianStartDate" field for index "0"
@@ -213,9 +235,9 @@ Feature: Edit Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician | PhysicianStartDate | PhysicianEndDate | Message                         |
-      | Add Physician with all the available fields under Hospital Organization | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653  | 2017/01/30         | 2017/12/01       | Physicians Successfully Updated |
-      | Add Physician with all the available fields under Hospital Organization | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653  | 2018/01/01         | 2018/12/01       | Physicians Successfully Updated |
+      | Description                                                             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | PhysicianStartDate | PhysicianEndDate | Message                         |
+      | Add Physician with all the available fields under Hospital Organization | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | 2017/01/30         | 2017/12/01       | Physicians Successfully Updated |
+      | Add Physician with all the available fields under Hospital Organization | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | 2018/01/01         | 2018/12/01       | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -233,7 +255,7 @@ Feature: Edit Physician Roster functionality tests
     Then I verify Program name is not editable
     Then I verify first name "<FirstName>" after adding Physician from dropdown on edit physician roster page
     Then I verify last name "<LastName>" after adding Physician from dropdown on edit physician roster page
-    Then I verify npi "<NPI>" after adding Physician from dropdown on edit physician roster page
+    Then I verify "1" npi "<NPI>" after adding Physician from dropdown on edit physician roster page
     Then I verify start date "<Start_Date>" after adding Physician from dropdown on edit physician roster page
     Then I verify end date "<End_Date>" after adding Physician from dropdown on edit physician roster page
     And I verify "Select a physician" text is appearing on the "Create" Physician Roster page
@@ -243,8 +265,8 @@ Feature: Edit Physician Roster functionality tests
     And I verify "Cancel" button on create Physician Roster page
 
     Examples: 
-      | Description                                                                                     | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician_Roster | FirstName | LastName     | NPI      | Start_Date | End_Date   |
-      | Editable fields for Physician and To verify user is not allowed to edit the non-editable fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | pc211917         | firstName | testLastName | pc211917 | 2017-01-30 | 2017-06-30 |
+      | Description                                                                                     | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician_Roster | FirstName | LastName     | NPI          | Start_Date | End_Date   |
+      | Editable fields for Physician and To verify user is not allowed to edit the non-editable fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | 2017-01-30 | 2017-06-30 |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -264,8 +286,8 @@ Feature: Edit Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                                                  | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician_Roster | FirstName | LastName     | NPI      | ValidationMessage                                                  |
-      | Validation message if Start Date is left blank on edit Physician Roster page | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017-01-09 | 2019-12-26 | pc211917         | firstName | testLastName | pc211917 | The start date is before the start of the Bundled Payment Contract |
+      | Description                                                                  | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician_Roster | FirstName | LastName     | NPI          | ValidationMessage                                                  |
+      | Validation message if Start Date is left blank on edit Physician Roster page | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017-01-09 | 2019-12-26 | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | The start date is before the start of the Bundled Payment Contract |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -285,8 +307,8 @@ Feature: Edit Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                                                                                          | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician_Roster | FirstName | LastName     | NPI      | ValidationMessage                                             |
-      | Validation message if End Date is left blank when Bundle Payment Contract has End Date on Edit Physician Roster page | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017-01-09 | 2019-12-26 | pc211917         | firstName | testLastName | pc211917 | The end date is after the end of the Bundled Payment Contract |
+      | Description                                                                                                          | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician_Roster | FirstName | LastName     | NPI          | ValidationMessage                                             |
+      | Validation message if End Date is left blank when Bundle Payment Contract has End Date on Edit Physician Roster page | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017-01-09 | 2019-12-26 | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | The end date is after the end of the Bundled Payment Contract |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -307,12 +329,12 @@ Feature: Edit Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                                                                                                              | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Physician_Roster | FirstName | LastName     | NPI      | ContractStartDate | ContractEndDate | ValidationMessage                                                  |
-      | Check validation message when Physician Roster Start Date is prior to Bundle Payment Contract Start Date on Edit Physician Roster page   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | pc211917         | firstName | testLastName | pc211917 | 2017/01/08        | 2019/12/26      | The start date is before the start of the Bundled Payment Contract |
-      | Check validation message when Physician Roster Start Date is greater than Bundle Payment Contract End Date on Edit Physician Roster page | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | pc211917         | firstName | testLastName | pc211917 | 2019/12/27        | 2019/12/26      | The start date and end date are not valid.                         |
-      | Validation when Physician Roster Start Date is greater than Physician Roster End Date on Edit Physician Roster page                      | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | pc211917         | firstName | testLastName | pc211917 | 2019/12/02        | 2019/12/01      | The start date and end date are not valid.                         |
-      | Validation when Physician Roster End Date is greater than Bundle Payment Contract End Date on Edit Physician Roster page                 | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | pc211917         | firstName | testLastName | pc211917 | 2017/01/30        | 2019/12/30      | The end date is after the end of the Bundled Payment Contract    |
-      | Validation when Physician Roster End Date is prior to Bundle Payment Contract Start Date on Edit Physician Roster page                   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | pc211917         | firstName | testLastName | pc211917 | 2017/01/30        | 2017/01/28      | The start date and end date are not valid.                         |
+      | Description                                                                                                                              | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Physician_Roster | FirstName | LastName     | NPI          | ContractStartDate | ContractEndDate | ValidationMessage                                                  |
+      | Check validation message when Physician Roster Start Date is prior to Bundle Payment Contract Start Date on Edit Physician Roster page   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | 2017/01/08        | 2019/12/26      | The start date is before the start of the Bundled Payment Contract |
+      | Check validation message when Physician Roster Start Date is greater than Bundle Payment Contract End Date on Edit Physician Roster page | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | 2019/12/27        | 2019/12/26      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster Start Date is greater than Physician Roster End Date on Edit Physician Roster page                      | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | 2019/12/02        | 2019/12/01      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster End Date is greater than Bundle Payment Contract End Date on Edit Physician Roster page                 | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | 2017/01/30        | 2019/12/30      | The end date is after the end of the Bundled Payment Contract      |
+      | Validation when Physician Roster End Date is prior to Bundle Payment Contract Start Date on Edit Physician Roster page                   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | 2017/01/30        | 2017/01/28      | The start date and end date are not valid.                         |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -333,8 +355,8 @@ Feature: Edit Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on edit Physician Roster page
 
     Examples: 
-      | Description                                                              | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Physician_Roster | FirstName | LastName     | NPI      | PhysicianStartDate | PhysicianEndDate | ValidationMessage                                                                                                    |
-      | Validation when Physician Start and End Dates are edited with same dates | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | pc211917         | firstName | testLastName | pc211917 | 2018/04/02         | 2018/04/02       | Validation errors: Require valid date range. End date (if specified) should be less a future date to the start date. |
+      | Description                                                              | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Physician_Roster | FirstName | LastName     | NPI          | PhysicianStartDate | PhysicianEndDate | ValidationMessage                                                                                                    |
+      | Validation when Physician Start and End Dates are edited with same dates | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | 2018/04/02         | 2018/04/02       | Validation errors: Require valid date range. End date (if specified) should be less a future date to the start date. |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -356,8 +378,8 @@ Feature: Edit Physician Roster functionality tests
 
     Examples: 
       | Description                                             | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician_Roster | PhysicianStartDate | PhysicianEndDate | Message                         |
-      | Edit and save a physician with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | pc211917         | 2017/01/30         | 2017/06/30       | Physicians Successfully Updated |
-      | Edit and save a physician with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | pc211917         | 2018/07/01         | 2018/12/01       | Physicians Successfully Updated |
+      | Edit and save a physician with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI     | 2017/01/30         | 2017/06/30       | Physicians Successfully Updated |
+      | Edit and save a physician with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI     | 2018/07/01         | 2018/12/01       | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -386,8 +408,8 @@ Feature: Edit Physician Roster functionality tests
     And I verify "Cancel" button on create Physician Roster page
 
     Examples: 
-      | Description                                                                                     | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician_Roster | FirstName | LastName     | NPI      | Start_Date | End_Date   |
-      | Editable fields for Physician and To verify user is not allowed to edit the non-editable fields | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653         | firstName | testLastName | up100653 | 2017-01-30 | 2017-12-01 |
+      | Description                                                                                     | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician_Roster | FirstName | LastName     | NPI          | Start_Date | End_Date   |
+      | Editable fields for Physician and To verify user is not allowed to edit the non-editable fields | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | 2017-01-30 | 2017-12-01 |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -408,8 +430,8 @@ Feature: Edit Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                                                  | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician_Roster | FirstName | LastName     | NPI      | ValidationMessage                                                  |
-      | Validation message if Start Date is left blank on edit Physician Roster page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 | up100653         | firstName | testLastName | up100653 | The start date is before the start of the Bundled Payment Contract |
+      | Description                                                                  | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician_Roster | FirstName | LastName     | NPI          | ValidationMessage                                                  |
+      | Validation message if Start Date is left blank on edit Physician Roster page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | The start date is before the start of the Bundled Payment Contract |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -430,8 +452,8 @@ Feature: Edit Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                                                                                          | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician_Roster | FirstName | LastName     | NPI      | ValidationMessage                                             |
-      | Validation message if End Date is left blank when Bundle Payment Contract has End Date on Edit Physician Roster page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653         | firstName | testLastName | up100653 | The end date is after the end of the Bundled Payment Contract |
+      | Description                                                                                                          | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician_Roster | FirstName | LastName     | NPI          | ValidationMessage                                             |
+      | Validation message if End Date is left blank when Bundle Payment Contract has End Date on Edit Physician Roster page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | The end date is after the end of the Bundled Payment Contract |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -453,12 +475,12 @@ Feature: Edit Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                                                                                                              | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician_Roster | FirstName | LastName     | NPI      | ContractStartDate | ContractEndDate | ValidationMessage                                                  |
-      | Check validation message when Physician Roster Start Date is prior to Bundle Payment Contract Start Date on Edit Physician Roster page   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653         | firstName | testLastName | up100653 | 2017/01/08        | 2017/12/01      | The start date is before the start of the Bundled Payment Contract |
-      | Check validation message when Physician Roster Start Date is greater than Bundle Payment Contract End Date on Edit Physician Roster page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653         | firstName | testLastName | up100653 | 2019/12/27        | 2017/12/01      | The start date and end date are not valid.                         |
-      | Validation when Physician Roster Start Date is greater than Physician Roster End Date on Edit Physician Roster page                      | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653         | firstName | testLastName | up100653 | 2019/12/05        | 2019/12/01      | The start date and end date are not valid.                         |
-      | Validation when Physician Roster End Date is greater than Bundle Payment Contract End Date on Edit Physician Roster page                 | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653         | firstName | testLastName | up100653 | 2017/01/30        | 2019/12/28      | The end date is after the end of the Bundled Payment Contract    |
-      | Validation when Physician Roster End Date is prior to Bundle Payment Contract Start Date on Edit Physician Roster page                   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653         | firstName | testLastName | up100653 | 2017/01/30        | 2017/01/02      | The start date and end date are not valid.                         |
+      | Description                                                                                                                              | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician_Roster | FirstName | LastName     | NPI          | ContractStartDate | ContractEndDate | ValidationMessage                                                  |
+      | Check validation message when Physician Roster Start Date is prior to Bundle Payment Contract Start Date on Edit Physician Roster page   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | 2017/01/08        | 2017/12/01      | The start date is before the start of the Bundled Payment Contract |
+      | Check validation message when Physician Roster Start Date is greater than Bundle Payment Contract End Date on Edit Physician Roster page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | 2019/12/27        | 2017/12/01      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster Start Date is greater than Physician Roster End Date on Edit Physician Roster page                      | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | 2019/12/05        | 2019/12/01      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster End Date is greater than Bundle Payment Contract End Date on Edit Physician Roster page                 | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | 2017/01/30        | 2019/12/28      | The end date is after the end of the Bundled Payment Contract      |
+      | Validation when Physician Roster End Date is prior to Bundle Payment Contract Start Date on Edit Physician Roster page                   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | 2017/01/30        | 2017/01/02      | The start date and end date are not valid.                         |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -480,8 +502,8 @@ Feature: Edit Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on edit Physician Roster page
 
     Examples: 
-      | Description                                                              | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician_Roster | FirstName | LastName     | NPI      | PhysicianStartDate | PhysicianEndDate | ValidationMessage                                                                                                    |
-      | Validation when Physician Start and End Dates are edited with same dates | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653         | firstName | testLastName | up100653 | 2017/12/01         | 2017/12/01       | Validation errors: Require valid date range. End date (if specified) should be less a future date to the start date. |
+      | Description                                                              | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician_Roster | FirstName | LastName     | NPI          | PhysicianStartDate | PhysicianEndDate | ValidationMessage                                                                                                    |
+      | Validation when Physician Start and End Dates are edited with same dates | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI     | firstName | testLastName | FETCHFROMAPI | 2017/12/01         | 2017/12/01       | Validation errors: Require valid date range. End date (if specified) should be less a future date to the start date. |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -504,5 +526,5 @@ Feature: Edit Physician Roster functionality tests
 
     Examples: 
       | Description                                             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician_Roster | PhysicianStartDate | PhysicianEndDate | Message                         |
-      | Edit and save a physician with all the available fields | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653         | 2017/02/30         | 2017/08/30       | Physicians Successfully Updated |
-      | Edit and save a physician with all the available fields | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653         | 2018/03/01         | 2018/12/01       | Physicians Successfully Updated |
+      | Edit and save a physician with all the available fields | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI     | 2017/02/30         | 2017/08/30       | Physicians Successfully Updated |
+      | Edit and save a physician with all the available fields | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI     | 2018/03/01         | 2018/12/01       | Physicians Successfully Updated |

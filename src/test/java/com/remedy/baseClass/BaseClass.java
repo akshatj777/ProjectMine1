@@ -9,6 +9,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.jayway.restassured.response.Response;
 import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.resources.DriverScript;
 
@@ -51,7 +56,10 @@ public class BaseClass {
 	static InputStream inPropFile = null;
 	FileInputStream fisCache;
 	OutputStream outPropFile;
+	static protected String jsonString;
 	public static String parentWindow = null;
+	private static Gson gson = new Gson();
+	protected static Response response;
 	public BaseClass(final WebDriver driver) {
 		this.driver = driver;
 	}
@@ -550,4 +558,15 @@ public class BaseClass {
 	public void scrollToTopOfThePage(){
 		((JavascriptExecutor)driver).executeScript("window.scrollTo(0, -document.body.scrollHeight)");	
 	}
+	
+	public static String generateJson(Object object) {
+
+        return gson.toJson(object).toString();
+    }
+	
+	public JsonObject getJsonObject(String jsonString) {
+		  JsonParser jsonParser = new JsonParser();
+		  JsonElement element = jsonParser.parse(jsonString);
+		  return element.getAsJsonObject();
+		 }
 }

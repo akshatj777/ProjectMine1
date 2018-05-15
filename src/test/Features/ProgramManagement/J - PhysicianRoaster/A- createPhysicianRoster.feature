@@ -156,11 +156,34 @@ Feature: Create Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id     | Bundle_1                   | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/09        | 2019/12/26      | 2017/05/01      | 2019/07/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | BPCI_AICD_90               |    96 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using Hospital Organization | YES    | PAYORNAME  | 2017/01/15        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | BPCI_AMPUTATION_60         |   103 |           91 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/16        | 2019/12/26      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_ATHEROSCLEROSIS_60    |   113 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/25      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_BACKNECKNONFUSION_60  |    56 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1                  | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/09        | 2019/12/26      | 2017/05/01      | 2019/07/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_AICD_90              |    96 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using Hospital Organization | YES    | PAYORNAME  | 2017/01/15        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_AMPUTATION_60        |   103 |           91 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/16        | 2019/12/26      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BPCI_ATHEROSCLEROSIS_60   |   113 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/25      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BPCI_BACKNECKNONFUSION_60 |    56 |          121 |         135 |         106 | Contract Successfully Created |
+
+  Scenario Outline: : <Description>
+    When create provider taxonomy classification grouping sepecialization Json "classificationForPhysRoster"
+    Given create provider taxonomy with this data "classification"
+    Then verification of Actual vs expected results 201 and ""
+    When create provider taxonomy classification grouping sepecialization Json "groupingForPhysRoster"
+    Given create provider taxonomy with this data "grouping"
+    Then verification of Actual vs expected results 201 and ""
+    When create provider taxonomy classification grouping sepecialization Json "specializationForPhysRoster"
+    Given create provider taxonomy with this data "specialization"
+    Then verification of Actual vs expected results 201 and ""
+    When create provider taxonomy Json "definition" and "notes" and "<providerTaxonCode>" and "<classificationId>" and "<groupingId>" and "<specializationId>"
+    Given create provider taxonomy
+    Then verification of Actual vs expected results 201 and ""
+    When create practitioner Json "<firstName>" and "<lastName>" and "<npi>" and "<gender>" and "<enumerationDate>" and "<prefix>" and "<suffix>" and "<npiDeactivationDate>" and "<npiDeactivationReasonCode>" and "<otherFirstName>" and "<otherLastName>" and "<otherPrefix>" and "<otherSuffix>" and "<primaryTaxonomyId>" and "<secondaryTaxonomyId>" and "<licenseNumber>" and "<licenseNumberStateCode>" and "<address1>" and "<address2>" and "<city>" and "<state>" and "<zip>" and "<noOfLicenses>"
+    Given create practitioner with this data
+    Then verification of Actual vs expected results <expStatusCode> and "<responseMsg>"
+    When Get by id 0 and practitioner
+
+    Examples: 
+      | Description           | firstName | lastName     | npi | gender | enumerationDate | prefix | suffix | npiDeactivationDate | npiDeactivationReasonCode | otherFirstName | otherLastName | otherPrefix | otherSuffix | primaryTaxonomyId    | secondaryTaxonomyId | noOfLicenses | licenseNumber | licenseNumberStateCode | address1 | address2 | city | state | zip | expStatusCode | responseMsg | classificationId | groupingId | specializationId | providerTaxonCode |
+      | validPractionerCreate | firstName | testLastName | PC  | f      | 2018-01-01      | ap     | test   | 2018-01-01          | dd                        | otherFirstName | otherLastName | ff          | ff          | generatePrimaryTaxId |                   1 |            2 |           2,5 |                  23,78 | addr1    | addr2    | city | ny    | zip |           201 |             |                0 |          0 |                0 | CPT               |
+      | validPractionerCreate | firstName | testLastName | PC  | f      | 2018-01-01      | ap     | test   | 2018-01-01          | dd                        | otherFirstName | otherLastName | ff          | ff          | generatePrimaryTaxId |                   1 |            2 |           2,5 |                  23,78 | addr1    | addr2    | city | ny    | zip |           201 |             |                0 |          0 |                0 | CPT               |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -231,20 +254,20 @@ Feature: Create Physician Roster functionality tests
     And I verify "contract-id" is appearing after selecting program from dropdown on physician roster page
     And I verify "start-date" is appearing after selecting program from dropdown on physician roster page
     And I verify "end-date" is appearing after selecting program from dropdown on physician roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     Then I verify first name "<FirstName>" after adding Physician from dropdown on Create physician roster page
     Then I verify last name "<LastName>" after adding Physician from dropdown on Create physician roster page
-    Then I verify npi "<NPI>" after adding Physician from dropdown on Create physician roster page
+    Then I verify "1" npi "<NPI>" after adding Physician from dropdown on Create physician roster page
     Then I verify start date "<Start_Date>" after adding Physician from dropdown on Create physician roster page
     Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "2" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     Then I verify first name "<FirstName>" after adding Physician from dropdown on Create physician roster page
     Then I verify last name "<LastName>" after adding Physician from dropdown on Create physician roster page
-    Then I verify npi "<NPI>" after adding Physician from dropdown on Create physician roster page
+    Then I verify "2" npi "<NPI>" after adding Physician from dropdown on Create physician roster page
     Then I verify start date "<Start_Date>" after adding Physician from dropdown on Create physician roster page
     Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
@@ -252,8 +275,8 @@ Feature: Create Physician Roster functionality tests
     And I verify "Cancel" button on create Physician Roster page
 
     Examples: 
-      | Description                                                | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician | FirstName | LastName     | NPI      |
-      | Elements on Add Physician page after selecting a Physician | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017-01-16 | 2019-12-26 | pc150501  | firstName | testLastName | pc150501 |
+      | Description                                                | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician    | FirstName | LastName     | NPI          |
+      | Elements on Add Physician page after selecting a Physician | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017-01-16 | 2019-12-26 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -269,7 +292,7 @@ Feature: Create Physician Roster functionality tests
     And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     And I click on react date picker close icon for "Start Date"
@@ -277,8 +300,8 @@ Feature: Create Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                    | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician | FirstName | LastName     | NPI      | ValidationMessage                                                  |
-      | Validation message if Start Date is left blank | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017-01-09 | 2019-12-26 | pc150501  | firstName | testLastName | pc150501 | The start date is before the start of the Bundled Payment Contract |
+      | Description                                    | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician    | FirstName | LastName     | NPI          | ValidationMessage                                                  |
+      | Validation message if Start Date is left blank | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017-01-09 | 2019-12-26 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | The start date is before the start of the Bundled Payment Contract |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -294,7 +317,7 @@ Feature: Create Physician Roster functionality tests
     And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     And I click on react date picker close icon for "Start Date"
@@ -305,12 +328,12 @@ Feature: Create Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                                                                                | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Physician | FirstName | LastName     | NPI      | ContractStartDate | ContractEndDate | ValidationMessage                                                  |
-      | Check validation message when Physician Roster Start Date is prior to Bundle Payment Contract Start Date   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | pc150501  | firstName | testLastName | pc150501 | 2017/01/08        | 2019/12/26      | The start date is before the start of the Bundled Payment Contract |
-      | Check validation message when Physician Roster Start Date is greater than Bundle Payment Contract End Date | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | pc150501  | firstName | testLastName | pc150501 | 2019/12/27        | 2019/12/26      | The start date and end date are not valid.                         |
-      | Validation when Physician Roster Start Date is greater than Physician Roster End Date                      | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | pc150501  | firstName | testLastName | pc150501 | 2019/12/02        | 2019/12/01      | The start date and end date are not valid.                         |
-      | Validation when Physician Roster End Date is greater than Bundle Payment Contract End Date                 | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | pc150501  | firstName | testLastName | pc150501 | 2019/12/27        | 2019/12/26      | The start date and end date are not valid.                         |
-      | Validation when Physician Roster End Date is prior to Bundle Payment Contract Start Date                   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | pc150501  | firstName | testLastName | pc150501 | 2017/01/30        | 2017/01/28      | The start date and end date are not valid.                         |
+      | Description                                                                                                | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Physician    | FirstName | LastName     | NPI          | ContractStartDate | ContractEndDate | ValidationMessage                                                  |
+      | Check validation message when Physician Roster Start Date is prior to Bundle Payment Contract Start Date   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2017/01/08        | 2019/12/26      | The start date is before the start of the Bundled Payment Contract |
+      | Check validation message when Physician Roster Start Date is greater than Bundle Payment Contract End Date | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2019/12/27        | 2019/12/26      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster Start Date is greater than Physician Roster End Date                      | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2019/12/02        | 2019/12/01      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster End Date is greater than Bundle Payment Contract End Date                 | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2019/12/27        | 2019/12/26      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster End Date is prior to Bundle Payment Contract Start Date                   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2017/01/30        | 2017/01/28      | The start date and end date are not valid.                         |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -326,7 +349,7 @@ Feature: Create Physician Roster functionality tests
     And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     And I click on react date picker close icon for "Start Date"
@@ -337,8 +360,8 @@ Feature: Create Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create Physician Roster page
 
     Examples: 
-      | Description                                                              | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Physician | FirstName | LastName     | NPI      | ContractStartDate | ContractEndDate | ValidationMessage                                                                                                    |
-      | Validation when Physician Start and End Dates are edited with same dates | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | pc150501  | firstName | testLastName | pc150501 | 2019/12/26        | 2019/12/26      | Validation errors: Require valid date range. End date (if specified) should be less a future date to the start date. |
+      | Description                                                              | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Physician    | FirstName | LastName     | NPI          | ContractStartDate | ContractEndDate | ValidationMessage                                                                                                    |
+      | Validation when Physician Start and End Dates are edited with same dates | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2019/12/26        | 2019/12/26      | Validation errors: Require valid date range. End date (if specified) should be less a future date to the start date. |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -358,7 +381,7 @@ Feature: Create Physician Roster functionality tests
 
     Examples: 
       | Description                                       | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | SearchParam  |
-      | Search for a Physician organization by NPI        | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | pc150501     |
+      | Search for a Physician organization by NPI        | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI |
       | Search for a Physician organization by First Name | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | firstName    |
       | Search for a Physician organization by Last Name  | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | testLastName |
 
@@ -398,16 +421,16 @@ Feature: Create Physician Roster functionality tests
     And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                 | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician | Message                         |
-      | Add Physician with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | firstName | Physicians Successfully Updated |
-      | Add Physician with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | firstName | Physicians Successfully Updated |
+      | Description                                 | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician    | Message                         |
+      | Add Physician with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | Physicians Successfully Updated |
+      | Add Physician with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -424,7 +447,7 @@ Feature: Create Physician Roster functionality tests
     And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     Then I enter date "<PhysicianStartDate>" in "PhysicianStartDate" field for index "0"
@@ -433,9 +456,9 @@ Feature: Create Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                 | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician | PhysicianStartDate | PhysicianEndDate | Message                         |
-      | Add Physician with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | firstName | 2017/01/30         | 2017/12/01       | Physicians Successfully Updated |
-      | Add Physician with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | firstName | 2018/01/01         | 2018/12/01       | Physicians Successfully Updated |
+      | Description                                 | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician    | PhysicianStartDate | PhysicianEndDate | Message                         |
+      | Add Physician with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | 2017/01/30         | 2017/12/01       | Physicians Successfully Updated |
+      | Add Physician with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | 2018/01/01         | 2018/12/01       | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -452,18 +475,18 @@ Feature: Create Physician Roster functionality tests
     And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician1>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
-    And I select a Physician "<Physician2>" on "Create" Physician Roster page
+    And I select "2" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description             | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician1 | Physician2 | Message                         |
-      | Add multiple Physicians | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | pc11917121   | pc11005121   | Physicians Successfully Updated |
+      | Description             | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician    | Message                         |
+      | Add multiple Physicians | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | Physicians Successfully Updated |
 
   @Hospital
   Scenario Outline: <Description>
@@ -537,20 +560,20 @@ Feature: Create Physician Roster functionality tests
     And I verify "contract-id" is appearing after selecting program from dropdown on physician roster page
     And I verify "start-date" is appearing after selecting program from dropdown on physician roster page
     And I verify "end-date" is appearing after selecting program from dropdown on physician roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     Then I verify first name "<FirstName>" after adding Physician from dropdown on Create physician roster page
     Then I verify last name "<LastName>" after adding Physician from dropdown on Create physician roster page
-    Then I verify npi "<NPI>" after adding Physician from dropdown on Create physician roster page
+    Then I verify "1" npi "<NPI>" after adding Physician from dropdown on Create physician roster page
     Then I verify start date "<Start_Date>" after adding Physician from dropdown on Create physician roster page
     Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "2" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     Then I verify first name "<FirstName>" after adding Physician from dropdown on Create physician roster page
     Then I verify last name "<LastName>" after adding Physician from dropdown on Create physician roster page
-    Then I verify npi "<NPI>" after adding Physician from dropdown on Create physician roster page
+    Then I verify "2" npi "<NPI>" after adding Physician from dropdown on Create physician roster page
     Then I verify start date "<Start_Date>" after adding Physician from dropdown on Create physician roster page
     Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
@@ -558,8 +581,8 @@ Feature: Create Physician Roster functionality tests
     And I verify "Cancel" button on create Physician Roster page
 
     Examples: 
-      | Description                                                | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician | FirstName | LastName     | NPI      |
-      | Elements on Add Physician page after selecting a Physician | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 | up100653  | firstName | testLastName | up100653 |
+      | Description                                                | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician    | FirstName | LastName     | NPI          |
+      | Elements on Add Physician page after selecting a Physician | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -576,7 +599,7 @@ Feature: Create Physician Roster functionality tests
     And I verify the "<Hospital_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     And I click on react date picker close icon for "Start Date"
@@ -584,8 +607,8 @@ Feature: Create Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                    | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician | FirstName | LastName     | NPI      | ValidationMessage                                                  |
-      | Validation message if Start Date is left blank | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 | up100653  | firstName | testLastName | pc150501 | The start date is before the start of the Bundled Payment Contract |
+      | Description                                    | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician    | FirstName | LastName     | NPI          | ValidationMessage                                                  |
+      | Validation message if Start Date is left blank | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | The start date is before the start of the Bundled Payment Contract |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -602,7 +625,7 @@ Feature: Create Physician Roster functionality tests
     And I verify the "<Hospital_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     And I click on react date picker close icon for "Start Date"
@@ -613,12 +636,12 @@ Feature: Create Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                                                                                | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Physician | FirstName | LastName     | NPI      | ContractStartDate | ContractEndDate | ValidationMessage                                                  |
-      | Check validation message when Physician Roster Start Date is prior to Bundle Payment Contract Start Date   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2017/01/01        | 2019/12/26      | The start date is before the start of the Bundled Payment Contract |
-      | Check validation message when Physician Roster Start Date is greater than Bundle Payment Contract End Date | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2019/12/30        | 2019/12/26      | The start date and end date are not valid.                         |
-      | Validation when Physician Roster Start Date is greater than Physician Roster End Date                      | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2019/12/06        | 2019/12/01      | The start date and end date are not valid.                         |
-      | Validation when Physician Roster End Date is greater than Bundle Payment Contract End Date                 | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2017/01/30        | 2019/12/30      | The end date is after the end of the Bundled Payment Contract                        |
-      | Validation when Physician Roster End Date is prior to Bundle Payment Contract Start Date                   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2017/01/09        | 2017/01/01      | The start date and end date are not valid.                         |
+      | Description                                                                                                | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Physician    | FirstName | LastName     | NPI          | ContractStartDate | ContractEndDate | ValidationMessage                                                  |
+      | Check validation message when Physician Roster Start Date is prior to Bundle Payment Contract Start Date   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2017/01/01        | 2019/12/26      | The start date is before the start of the Bundled Payment Contract |
+      | Check validation message when Physician Roster Start Date is greater than Bundle Payment Contract End Date | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2019/12/30        | 2019/12/26      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster Start Date is greater than Physician Roster End Date                      | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2019/12/06        | 2019/12/01      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster End Date is greater than Bundle Payment Contract End Date                 | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2017/01/30        | 2019/12/30      | The end date is after the end of the Bundled Payment Contract      |
+      | Validation when Physician Roster End Date is prior to Bundle Payment Contract Start Date                   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2017/01/09        | 2017/01/01      | The start date and end date are not valid.                         |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -634,7 +657,7 @@ Feature: Create Physician Roster functionality tests
     And I verify the "<Hospital_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     And I click on react date picker close icon for "Start Date"
@@ -645,8 +668,8 @@ Feature: Create Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create Physician Roster page
 
     Examples: 
-      | Description                                                                      | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Physician | FirstName | LastName     | NPI      | ContractStartDate | ContractEndDate | ValidationMessage                                                                                                    |
-      | Validation when Physician Roster Start Date is same as Physician Roster End Date | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | up100653  | firstName | testLastName | up100653 | 2019/12/26        | 2019/12/26      | Validation errors: Require valid date range. End date (if specified) should be less a future date to the start date. |
+      | Description                                                                      | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Physician    | FirstName | LastName     | NPI          | ContractStartDate | ContractEndDate | ValidationMessage                                                                                                    |
+      | Validation when Physician Roster Start Date is same as Physician Roster End Date | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2019/12/26        | 2019/12/26      | Validation errors: Require valid date range. End date (if specified) should be less a future date to the start date. |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -667,7 +690,7 @@ Feature: Create Physician Roster functionality tests
 
     Examples: 
       | Description                                       | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | SearchParam  |
-      | Search for a Physician organization by NPI        | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653     |
+      | Search for a Physician organization by NPI        | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI |
       | Search for a Physician organization by First Name | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | firstName    |
       | Search for a Physician organization by Last Name  | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | testLastName |
 
@@ -708,16 +731,16 @@ Feature: Create Physician Roster functionality tests
     And I verify the "<Hospital_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                 | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician | Message                         |
-      | Add Physician with all the available fields | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653  | Physicians Successfully Updated |
-      | Add Physician with all the available fields | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | firstName | Physicians Successfully Updated |
+      | Description                                 | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | Message                         |
+      | Add Physician with all the available fields | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | Physicians Successfully Updated |
+      | Add Physician with all the available fields | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -734,7 +757,7 @@ Feature: Create Physician Roster functionality tests
     And I verify the "<Hospital_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     Then I enter date "<PhysicianStartDate>" in "PhysicianStartDate" field for index "0"
@@ -743,9 +766,9 @@ Feature: Create Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                 | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician | PhysicianStartDate | PhysicianEndDate | Message                         |
-      | Add Physician with all the available fields | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653  | 2017/01/30         | 2017/12/01       | Physicians Successfully Updated |
-      | Add Physician with all the available fields | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653  | 2018/01/01         | 2018/12/01       | Physicians Successfully Updated |
+      | Description                                 | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | PhysicianStartDate | PhysicianEndDate | Message                         |
+      | Add Physician with all the available fields | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | 2017/01/30         | 2017/12/01       | Physicians Successfully Updated |
+      | Add Physician with all the available fields | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | 2018/01/01         | 2018/12/01       | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -762,15 +785,15 @@ Feature: Create Physician Roster functionality tests
     And I verify the "<Hospital_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select "<Program_Name>" Program name from program dropdown on "Create" Physician Roster page
-    And I select a Physician "<Physician1>" on "Create" Physician Roster page
+    And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
-    And I select a Physician "<Physician2>" on "Create" Physician Roster page
+    And I select "2" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician1 | Physician2 | Message                         |
-      | Add multiple Physicians | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | up100653   | pc2119171   | Physicians Successfully Updated |
+      | Description             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | Message                         |
+      | Add multiple Physicians | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | Physicians Successfully Updated |

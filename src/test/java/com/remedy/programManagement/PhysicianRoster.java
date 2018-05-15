@@ -74,16 +74,29 @@ public class PhysicianRoster extends BaseClass{
 		delay();
 	}
 	
-	public void iSelectaPhysicianonCreatePhysicianRosterPage(String text, String act){
+	public void iSelectaPhysicianonCreatePhysicianRosterPage(int numberOfPractitioners, String text, String act){
 		//driver.findElement(By.xpath("//div[text()='Select...']")).click();
 		WebElement element = driver.findElement(By.xpath("//div[text()='Select...']"));
 		JavascriptExecutor executor = (JavascriptExecutor)driver;
 		executor.executeScript("arguments[0].click();", element);
 		longDelay();
-		driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(text);
-		longDelay();
-		clickElement(driver.findElement(By.cssSelector(".practitioner-field.npi")));
-		longDelay();
+			if(text.equals("FETCHFROMAPI"))
+			{
+				for(int i=0;i<numberOfPractitioners;i++)
+				{
+					driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(CreatePractictionerAPI.practitionerNameList.get(i).toString());
+					longDelay();
+					clickElement(driver.findElement(By.cssSelector(".practitioner-field.npi")));
+					longDelay();
+				}
+			}
+			else
+			{
+				driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(text);
+				longDelay();
+				clickElement(driver.findElement(By.cssSelector(".practitioner-field.npi")));
+				longDelay();
+			}
 	}
 	
 	public void iClickOnAddPhysicianButton(String text, String act){
@@ -95,9 +108,25 @@ public class PhysicianRoster extends BaseClass{
 	}
 	
 	public void iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(String text){
-		iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
-		verifyTextForElement(driver.findElement(By.xpath("//div[text()='"+text+"']")), text);
+			iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
+			verifyTextForElement(driver.findElement(By.xpath("//div[text()='"+text+"']")), text);
 	}
+	
+	public void iVerifyNPIDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(int numberOfPractitioner, String text){
+		if(text.equals("FETCHFROMAPI"))
+		{
+			for(int i=0;i<numberOfPractitioner;i++)
+			{
+				iWillWaitToSee(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(i).toString()+"']"));
+				Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(i).toString()+"']")));
+			}
+		}
+		else
+		{
+			iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
+			verifyTextForElement(driver.findElement(By.xpath("//div[text()='"+text+"']")), text);
+		}
+}
 	
 	public void iVerifyDateAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(String text){
 		verifyTextForElement(driver.findElement(By.xpath("//label[text()='"+text+"']")), text);
@@ -105,11 +134,23 @@ public class PhysicianRoster extends BaseClass{
 	
 	public void iSearchWithSearchListOptionsOnSelectAPhysicianDropdownBox(String searchParam){
 		String value = searchParam;
-		driver.findElement(By.xpath("//div[text()='Select...']")).click();
-		longDelay();
-		driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(value);
-		longDelay();
-		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+value+"']")));
+		if(value.equals("FETCHFROMAPI"))
+		{
+			driver.findElement(By.xpath("//div[text()='Select...']")).click();
+			longDelay();
+			driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(CreatePractictionerAPI.practitionerNameList.get(0).toString());
+			longDelay();
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+value+"']")));
+		}
+		else
+		{
+			driver.findElement(By.xpath("//div[text()='Select...']")).click();
+			longDelay();
+			driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(value);
+			longDelay();
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+value+"']")));
+		}
+		
 	}
 	
 	public void iVerifyTheErrorMessageForInvalidSearchInSelectaPhysicianDropdownBox(String text)

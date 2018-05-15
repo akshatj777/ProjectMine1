@@ -18,12 +18,12 @@ public class EditPhysicianRoster extends BaseClass {
 	public void iSearchWithPhysicianRosterOnViewProfileOfOrganizationSearchBox(String text, String org){
 		if(org.equals("PGP")){
 			iWillWaitToSee(By.xpath("//input[@class='text-input-field-programFilterTerm']"));
-			iFillInText(driver.findElement(By.xpath("//input[@class='text-input-field-programFilterTerm']")), text);
+			iFillInText(driver.findElement(By.xpath("//input[@class='text-input-field-programFilterTerm']")), CreatePractictionerAPI.practitionerNameList.get(0).toString());
 			delay();
 		}
 		else if(org.equals("Hospital")){
 			iWillWaitToSee(By.xpath("//input[@class='text-input-field-locationFilterTerm']"));
-			iFillInText(driver.findElement(By.xpath("//input[@class='text-input-field-locationFilterTerm']")), text);
+			iFillInText(driver.findElement(By.xpath("//input[@class='text-input-field-locationFilterTerm']")), CreatePractictionerAPI.practitionerNameList.get(0).toString());
 			delay();
 		}
 		else if(org.equals("Payor")){
@@ -35,7 +35,7 @@ public class EditPhysicianRoster extends BaseClass {
 	
 	public void iVerifyPhysicianRosterFieldInSearchListOnViewProfileOfOrganizationSearchBox(String text, String org){
 		iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
-		isElementPresentOnPage(By.xpath("//div[text()='"+text+"']"));
+		isElementPresentOnPage(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(0).toString()+"']"));
 	}
 	
 	public void iClickPhysicianRosterFieldInSearchListOnViewProfileOfOrganizationSearchBox(String text, String org){
@@ -43,7 +43,7 @@ public class EditPhysicianRoster extends BaseClass {
 		{
 			iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
 			//clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
-			WebElement element = driver.findElement(By.xpath("//div[text()='"+text+"']"));
+			WebElement element = driver.findElement(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(0).toString()+"']"));
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", element);
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
@@ -53,7 +53,7 @@ public class EditPhysicianRoster extends BaseClass {
 		{
 			iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
 			//clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
-			WebElement element = driver.findElement(By.xpath("//div[text()='"+text+"']"));
+			WebElement element = driver.findElement(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(0).toString()+"']"));
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", element);
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
