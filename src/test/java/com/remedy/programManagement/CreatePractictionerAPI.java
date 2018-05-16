@@ -152,9 +152,7 @@ public class CreatePractictionerAPI extends BaseClass{
 	    }
 	 
 	 public void getById(Long idToGet, String type) throws Throwable {
-
 	        String urlExt = "";
-
 	        if (type.equals("management") || type.equals("hospital") || type.equals("ltch") || type.equals("snf") || type.equals("pgp") || type.equals("payor") || type.equals("hha")) {
 	            urlExt = "organization/";
 	        } else if (type.equals("bundle")) {
@@ -180,8 +178,9 @@ public class CreatePractictionerAPI extends BaseClass{
 	        Long id;
 	        if (idToGet != 0L) {
 	            id = idToGet;
-	        } else {
-	            id = CreatePractictionerAPI.idList.get(0);
+	        } 
+	        else {
+	            id = CreatePractictionerAPI.idProvidertexnomyList.get(0);
 	        }
 	        response = RestCallUtil.getById(urlExt, id,  DriverScript.Config.getProperty("contentType"),  new GenerateToken().getAccessToken());
 	        CreatePractictionerAPI.idList.clear();
@@ -189,7 +188,6 @@ public class CreatePractictionerAPI extends BaseClass{
 	        	JsonObject jsonObject = getJsonObject(response.asString());
 	        	practitionerNameList.add((((JsonObject) jsonObject.get("data")).get("npi")).toString());
 	        	System.out.println(practitionerNameList.toString());
-	        			
 	        }
 	    }
 }
