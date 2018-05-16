@@ -82,7 +82,7 @@ public class PhysicianRoster extends BaseClass{
 		longDelay();
 			if(text.equals("FETCHFROMAPI"))
 			{
-					driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioners).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioners).toString().length()-1));
+					driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioners-1).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioners-1).toString().length()-1));
 					longDelay();
 					clickElement(driver.findElement(By.cssSelector(".practitioner-field.npi")));
 					longDelay();
@@ -112,8 +112,8 @@ public class PhysicianRoster extends BaseClass{
 	public void iVerifyNPIDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(int numberOfPractitioner, String text){
 		if(text.equals("FETCHFROMAPI"))
 		{
-				iWillWaitToSee(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioner).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioner).toString().length()-1)+"']"));
-				Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioner).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioner).toString().length()-1)+"']")));
+				iWillWaitToSee(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioner-1).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioner-1).toString().length()-1)+"']"));
+				Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioner-1).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioner-1).toString().length()-1)+"']")));
 		}
 		else
 		{
@@ -134,7 +134,7 @@ public class PhysicianRoster extends BaseClass{
 			longDelay();
 			driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(CreatePractictionerAPI.practitionerNameList.get(0).toString());
 			longDelay();
-			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+value+"']")));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(0).toString()+"']")));
 		}
 		else
 		{
