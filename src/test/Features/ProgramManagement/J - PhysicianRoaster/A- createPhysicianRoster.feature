@@ -270,7 +270,6 @@ Feature: Create Physician Roster functionality tests
     Then I verify "2" npi "<NPI>" after adding Physician from dropdown on Create physician roster page
     Then I verify start date "<Start_Date>" after adding Physician from dropdown on Create physician roster page
     Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
-    And I verify "Add Physician" button on "Create" Physician Roster page
     And I verify "Submit" button on create Physician Roster page
     And I verify "Cancel" button on create Physician Roster page
 

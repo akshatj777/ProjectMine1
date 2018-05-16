@@ -181,12 +181,12 @@ public class CreatePractictionerAPI extends BaseClass{
 	        if (idToGet != 0L) {
 	            id = idToGet;
 	        } else {
-	            id = CreatePractictionerAPI.idProvidertexnomyList.get(0);
+	            id = CreatePractictionerAPI.idList.get(0);
 	        }
 	        response = RestCallUtil.getById(urlExt, id,  DriverScript.Config.getProperty("contentType"),  new GenerateToken().getAccessToken());
-	        CreatePractictionerAPI.idProvidertexnomyList.clear();
+	        CreatePractictionerAPI.idList.clear();
 	        if (response.statusCode() == 200) {
-	        	JsonObject jsonObject = getJsonObject(response.getBody().toString());
+	        	JsonObject jsonObject = getJsonObject(response.asString());
 	        	practitionerNameList.add((((JsonObject) jsonObject.get("data")).get("npi")).toString());
 	        	System.out.println(practitionerNameList.toString());
 	        			
