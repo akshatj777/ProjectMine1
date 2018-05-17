@@ -8,192 +8,192 @@ Feature: Create Bundled Payment Contracts functionality tests
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
-  Then I verify "+" button under "Managing" organization page
-  Then I click on "+" button on "Managing" organization page
-  And I verify "Create Managing Organization" header text on create organization page
-  Then I enter <MO_Name> in "Managing Organization Name" on create organization page
-  And I enter <Address1> in "Address 1" on create organization page
-  And I enter <Contact_Person> in "Contact Person" on create organization page
-  And I enter <Address2> in "Address 2" on create organization page
-  And I enter <Contact_Email> in "Contact Email" on create organization page
-  And I enter <City> in "City" on create organization page
-  And I enter <Contact_Phone> in "Contact Phone" on create organization page
-  And I select <State> in State on create organization page
-  And I enter <Postal_Code> in "Postal Code" on create organization page
-  Then I click on "Submit" button on "create" organization page
-  Then I verify "<Message>" after submitting the "create MO" organization page
-  
-  Examples:
-  | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                     |
-  | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Managing Organization Successfully Created. |
-  
+    Then I verify "+" button under "Managing" organization page
+    Then I click on "+" button on "Managing" organization page
+    And I verify "Create Managing Organization" header text on create organization page
+    Then I enter <MO_Name> in "Managing Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Contact_Person> in "Contact Person" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <Contact_Email> in "Contact Email" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I enter <Contact_Phone> in "Contact Phone" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create MO" organization page
+
+    Examples: 
+      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                     |
+      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Managing Organization Successfully Created. |
+
   Scenario Outline: <Description>
-  When I click on "Hospital" organization tab on organization dashboard
-  Then I click on "+" button on "Hospital" organization page
-  And I verify "Create Hospital Organization" header text on create organization page
-  And I select "<Has_MO>" radio button for managing organization
-  Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
-  Then I enter <Hosp_Name> in "Hospital Organization Name" on create organization page
-  And I enter <Address1> in "Address 1" on create organization page
-  And I enter <Short_Name> in "Short Name" on create organization page
-  And I enter <Address2> in "Address 2" on create organization page
-  And I enter <City> in "City" on create organization page
-  And I select <State> in State on create organization page
-  And I enter <Postal_Code> in "Postal Code" on create organization page
-  And I provide unique "ACH - <CCN>" in "CCN" on create organization page
-  And I provide unique "ACH - <EIN>" in "EIN" on create organization page
-  And I provide unique "ACH - <NPI>" in "NPI" on create organization page
-  And I enter location name <Loc_Name> for Location "1" on "create" organization page
-  And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
-  And I select location type <Loc_Type> for Location "1" on "create" organization page
-  And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
-  And I select region <Loc_Region> for Location "1" on "create" organization page
-  And I enter city <Loc_City> for Location "1" on "create" organization page
-  And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
-  And I select state <Loc_State> for Location "1" on "create" organization page
-  And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
-  Then I click on "Submit" button on "create" organization page
-  Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
-  
-  Examples:
-  | Description                                                             | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                     |
-  | Create Hospital Organization with all the available fields - Without MO | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
-  | Create Hospital Organization with all the available fields - With MO    | YES    | MONAME       | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
-  
+    When I click on "Hospital" organization tab on organization dashboard
+    Then I click on "+" button on "Hospital" organization page
+    And I verify "Create Hospital Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <Hosp_Name> in "Hospital Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                             | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                     |
+      | Create Hospital Organization with all the available fields - Without MO | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
+      | Create Hospital Organization with all the available fields - With MO    | YES    | MONAME       | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
+
   Scenario Outline: <Description>
-  When I click on "PGP" organization tab on organization dashboard
-  Then I click on "+" button on "PGP" organization page
-  And I verify "Create PGP Organization" header text on create organization page
-  And I select "<Has_MO>" radio button for managing organization
-  Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
-  Then I enter <PGP_Name> in "PGP Organization Name" on create organization page
-  And I enter <Address1> in "Address 1" on create organization page
-  And I enter <Short_Name> in "Short Name" on create organization page
-  And I enter <Address2> in "Address 2" on create organization page
-  And I enter <City> in "City" on create organization page
-  And I select region "<Region>" in "create PGP" organization page
-  And I select market "<Market>" in "create PGP" organization page
-  And I select <State> in State on create organization page
-  And I enter <Postal_Code> in "Postal Code" on create organization page
-  And I provide unique "PGP - <EIN>" in "EIN" on create organization page
-  And I provide unique "PGP - <NPI>" in "NPI" on create organization page
-  Then I click on "Submit" button on "create" organization page
-  Then I verify "<Message>" after submitting the "create PGP - <Has_MO>" organization page
-  
-  Examples:
-  | Description                                                        | Has_MO | Managing_Org | PGP_Name | Address1 | Short_Name | Address2 | City | Region  | Market  | State      | Postal_Code | EIN | NPI | Message                                |
-  | Create PGP Organization with all the available fields - Without MO | NO     |              | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
-  | Create PGP Organization with all the available fields - With MO    | YES    | MONAME       | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
-  
+    When I click on "PGP" organization tab on organization dashboard
+    Then I click on "+" button on "PGP" organization page
+    And I verify "Create PGP Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <PGP_Name> in "PGP Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select region "<Region>" in "create PGP" organization page
+    And I select market "<Market>" in "create PGP" organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "PGP - <EIN>" in "EIN" on create organization page
+    And I provide unique "PGP - <NPI>" in "NPI" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create PGP - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                        | Has_MO | Managing_Org | PGP_Name | Address1 | Short_Name | Address2 | City | Region  | Market  | State      | Postal_Code | EIN | NPI | Message                                |
+      | Create PGP Organization with all the available fields - Without MO | NO     |              | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
+      | Create PGP Organization with all the available fields - With MO    | YES    | MONAME       | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
+
   Scenario Outline: <Description>
-  When I click on "SNF" organization tab on organization dashboard
-  Then I click on "+" button on "SNF" organization page
-  And I verify "Create SNF Organization" header text on create organization page
-  And I select "<Has_MO>" radio button for managing organization
-  Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
-  Then I enter <SNF_Name> in "SNF Organization Name" on create organization page
-  And I enter <Address1> in "Address 1" on create organization page
-  And I enter <Short_Name> in "Short Name" on create organization page
-  And I enter <Address2> in "Address 2" on create organization page
-  And I enter <City> in "City" on create organization page
-  And I select <State> in State on create organization page
-  And I enter <Postal_Code> in "Postal Code" on create organization page
-  And I provide unique "SNF - <CCN>" in "CCN" on create organization page
-  And I provide unique "SNF - <EIN>" in "EIN" on create organization page
-  And I provide unique "SNF - <NPI>" in "NPI" on create organization page
-  And I enter location name <Loc_Name> for Location "1" on "create" organization page
-  And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
-  And I select location type <Loc_Type> for Location "1" on "create" organization page
-  And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
-  And I select region <Loc_Region> for Location "1" on "create" organization page
-  And I enter city <Loc_City> for Location "1" on "create" organization page
-  And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
-  And I select state <Loc_State> for Location "1" on "create" organization page
-  And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
-  Then I click on "Submit" button on "create" organization page
-  Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
-  
-  Examples:
-  | Description                                                        | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                |
-  | Create SNF Organization with all the available fields - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
-  | Create SNF Organization with all the available fields - With MO    | YES    | MONAME       | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
-  
+    When I click on "SNF" organization tab on organization dashboard
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Create SNF Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <SNF_Name> in "SNF Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "SNF - <CCN>" in "CCN" on create organization page
+    And I provide unique "SNF - <EIN>" in "EIN" on create organization page
+    And I provide unique "SNF - <NPI>" in "NPI" on create organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                        | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                |
+      | Create SNF Organization with all the available fields - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
+      | Create SNF Organization with all the available fields - With MO    | YES    | MONAME       | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
+
   Scenario Outline: <Description>
-  When I click on "HHA" organization tab on organization dashboard
-  Then I click on "+" button on "HHA" organization page
-  And I verify "Create HHA Organization" header text on create organization page
-  And I select "<Has_MO>" radio button for managing organization
-  Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
-  Then I enter <HHA_Name> in "HHA Organization Name" on create organization page
-  And I enter <Address1> in "Address 1" on create organization page
-  And I enter <Short_Name> in "Short Name" on create organization page
-  And I enter <Address2> in "Address 2" on create organization page
-  And I select region "<Region>" in "create HHA" organization page
-  And I select market "<Market>" in "create HHA" organization page
-  And I enter <City> in "City" on create organization page
-  And I select <State> in State on create organization page
-  And I enter <Postal_Code> in "Postal Code" on create organization page
-  And I provide unique "HHA - <CCN>" in "CCN" on create organization page
-  And I provide unique "HHA - <EIN>" in "EIN" on create organization page
-  And I provide unique "HHA - <NPI>" in "NPI" on create organization page
-  Then I click on "Submit" button on "create" organization page
-  Then I verify "<Message>" after submitting the "create HHA - <Has_MO>" organization page
-  
-  Examples:
-  | Description                                                        | Has_MO | Managing_Org | HHA_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Region  | Market  | CCN | EIN | NPI | Message                                |
-  | Create HHA Organization with all the available fields - Without MO | NO     |              | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
-  | Create HHA Organization with all the available fields - With MO    | YES    | MONAME       | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
-  
+    When I click on "HHA" organization tab on organization dashboard
+    Then I click on "+" button on "HHA" organization page
+    And I verify "Create HHA Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <HHA_Name> in "HHA Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I select region "<Region>" in "create HHA" organization page
+    And I select market "<Market>" in "create HHA" organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "HHA - <CCN>" in "CCN" on create organization page
+    And I provide unique "HHA - <EIN>" in "EIN" on create organization page
+    And I provide unique "HHA - <NPI>" in "NPI" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create HHA - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                        | Has_MO | Managing_Org | HHA_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Region  | Market  | CCN | EIN | NPI | Message                                |
+      | Create HHA Organization with all the available fields - Without MO | NO     |              | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
+      | Create HHA Organization with all the available fields - With MO    | YES    | MONAME       | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
+
   Scenario Outline: <Description>
-  When I click on "Payor" organization tab on organization dashboard
-  Then I click on "+" button on "Payor" organization page
-  And I verify "Create Payor Organization" header text on create organization page
-  Then I enter <Payor_Name> in "Payor Organization Name" on create organization page
-  And I enter <Address1> in "Address 1" on create organization page
-  And I enter <Contact_Person> in "Contact Person" on create organization page
-  And I enter <Address2> in "Address 2" on create organization page
-  And I enter <Contact_Email> in "Contact Email" on create organization page
-  And I enter <City> in "City" on create organization page
-  And I enter <Contact_Phone> in "Contact Phone" on create organization page
-  And I select <State> in State on create organization page
-  And I enter <Postal_Code> in "Postal Code" on create organization page
-  And I provide unique "Payor - <EIN>" in "EIN" on create organization page
-  Then I click on "Submit" button on "create" organization page
-  Then I verify "<Message>" after submitting the "create Payor" organization page
-  
-  Examples:
-  | Description                                         | Payor_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | EIN | Message                                  |
-  | Create Payor Organization with all available fields | PAYORNAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | EIN | Payor Organization Successfully Created. |
-  
+    When I click on "Payor" organization tab on organization dashboard
+    Then I click on "+" button on "Payor" organization page
+    And I verify "Create Payor Organization" header text on create organization page
+    Then I enter <Payor_Name> in "Payor Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Contact_Person> in "Contact Person" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <Contact_Email> in "Contact Email" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I enter <Contact_Phone> in "Contact Phone" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "Payor - <EIN>" in "EIN" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create Payor" organization page
+
+    Examples: 
+      | Description                                         | Payor_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | EIN | Message                                  |
+      | Create Payor Organization with all available fields | PAYORNAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | EIN | Payor Organization Successfully Created. |
+
   Scenario Outline: Create Programs under Payor Organization
-  When I click on "Payor" organization tab on organization dashboard
-  When I search with "<Payor_Name>" on organization in search box
-  And I click "<Payor_Name>" field in search list on organization page
-  And I verify "<Payor_Name>" name on the header of view profile
-  And I verify "Programs" as default tab selected on view profile of "Payor" Organization
-  And I verify the "Create New Program" button on view profile of "payor" Organization
-  Then I click on "Create New Program" button on "create" organization page
-  And I verify "Create Program" header text on create organization page
-  Then I enter <Program_Name> in "Program Name" on create organization page
-  And I click on checkbox for "Attribute to the physician who admitted the patient" Attribution rule
-  And I click on checkbox for "Attribute to the triggering provider id on the triggering claim" Attribution rule
-  Then I click on "Submit" button on "create" organization page
-  Then I verify "<Message>" after submitting the "create Programs" on Payor organization page
-  
-  Examples:
-  | Description                              | Payor_Name | Program_Name | Message                      |
-  | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME  | Program Successfully Created |
- 
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Programs" as default tab selected on view profile of "Payor" Organization
+    And I verify the "Create New Program" button on view profile of "payor" Organization
+    Then I click on "Create New Program" button on "create" organization page
+    And I verify "Create Program" header text on create organization page
+    Then I enter <Program_Name> in "Program Name" on create organization page
+    And I click on checkbox for "Attribute to the physician who admitted the patient" Attribution rule
+    And I click on checkbox for "Attribute to the triggering provider id on the triggering claim" Attribution rule
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create Programs" on Payor organization page
+
+    Examples: 
+      | Description                              | Payor_Name | Program_Name | Message                      |
+      | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME  | Program Successfully Created |
+
   Scenario Outline: Create Bundle using API calls
     Given create Bundle Json to String and pass it to body with "<name>" and "<content>" and "<bundleCode>"
     When create Bundle with this data
     Then verification of Actual vs expected results <expStatusCode> and "<responseMsg>"
-    When Get by id 0 and practitioner
+    When Get by id 0 and bundle
 
     Examples: 
       | desc        | bundleCode | name    | content                | expStatusCode | responseMsg |
       | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
-  
+
   Scenario Outline: Verification of details on Contracts under Payor Organization
     When I click on "Payor" organization tab on organization dashboard
     When I search with "<Payor_Name>" on organization in search box
@@ -248,7 +248,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     And I click on react date picker close icon for "Contract_Start_Date"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -265,8 +265,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify "<ValidationMsg>" mandatory field validation message on create organization page
 
     Examples: 
-      | Description                                                      | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1           | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg |
-      | Validation message if Start Date is left blank- Contract Section | NO     | PAYORNAME  |                   | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | Required      |
+      | Description                                                      | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg |
+      | Validation message if Start Date is left blank- Contract Section | NO     | PAYORNAME  |                   | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |   123 |          121 |         135 |         106 | Required      |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -281,7 +281,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -298,8 +298,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify "<ValidationMsg>" mandatory field validation message on create organization page
 
     Examples: 
-      | Description                                                             | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1           | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg |
-      | Check validation message if Start Date is left blank for Bundle Section | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      |                 | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | Required      |
+      | Description                                                             | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg |
+      | Check validation message if Start Date is left blank for Bundle Section | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      |                 | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |   123 |          121 |         135 |         106 | Required      |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -314,7 +314,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -331,8 +331,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify "<ValidationMsg>" mandatory field validation message on create organization page
 
     Examples: 
-      | Description                                                                   | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1           | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg |
-      | Check validation message if Start Date is left blank for Bundle price Section | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    |                | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | Required      |
+      | Description                                                                   | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg |
+      | Check validation message if Start Date is left blank for Bundle price Section | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    |                | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |   123 |          121 |         135 |         106 | Required      |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -347,7 +347,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name>" for Contract "1" on "create" Contracts page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -364,8 +364,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify "<ValidationMsg>" mandatory field validation message on create organization page
 
     Examples: 
-      | Description                                             | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1           | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg                 |
-      | Check validation message if Provider Name is left blank | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               |                   | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | Please select an organization |
+      | Description                                             | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg                 |
+      | Check validation message if Provider Name is left blank | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               |                   | FETCHFROMAPI |   123 |          121 |         135 |         106 | Please select an organization |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -380,7 +380,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -397,17 +397,17 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify "<ValidationMsg>" mandatory field validation message on create organization page
 
     Examples: 
-      | Description                                                                                                     | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1           | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg                                                   |
-      | Check validation message if Program Name is left blank                                                          | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      |              | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | Please select a Program                                         |
-      | Check validation message if Bundle Name is left blank                                                           | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           |                    |   123 |          121 |         135 |         106 | Required                                                        |
-      | Check validation message if Price field is left blank                                                           | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |       |          121 |         135 |         106 | Required                                                        |
-      | Check validation message for Contract creation with Contract End Date is before the Contract Start Date         | NO     | PAYORNAME  | 2017/01/05        | 2017/01/03      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | The Contract End Date is before the start date                  |
-      | Check validation message for contract creation with Bundle End Date is before the bundle Start Date             | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/02/24      | 2019/01/24    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |   123 |          121 |         135 |         106 | The bundle end date is before the bundle start date             |
-      | Check validation message for Contract creation with Bundle Price End Date is before the Bundle Price Start Date | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/05/03     | 2019/04/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |       |          121 |         135 |         106 | The bundle price end date is before the bundle price start date |
-      | Check validation message for contract creation with Bundle End Date is after Contract End Date                  | NO     | PAYORNAME  | 2017/01/01        | 2019/10/25      | 2019/01/01      | 2019/11/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |       |          121 |         135 |         106 | The bundle end date is after the contract end date              |
-      | Check validation messages for contract creation with Bundle Price End Date is after Bundle End Date             | NO     | PAYORNAME  | 2017/01/01        | 2019/12/25      | 2019/01/01      | 2019/09/30    | 2019/03/03     | 2019/10/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |       |          121 |         135 |         106 | The bundle price end date is after the bundle end date          |
-      | Check validation messages for contract creation with Bundle Start Date is before the Contract Start Date        | NO     | PAYORNAME  | 2017/03/01        | 2019/12/25      | 2017/02/21      | 2019/09/30    | 2019/03/03     | 2019/08/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |       |          121 |         135 |         106 | The bundle start date is before the contract start date         |
-      | Check validation messages for contract creation with Bundle Price Start Date is before the Bundle Start Date    | NO     | PAYORNAME  | 2017/01/01        | 2019/12/25      | 2018/04/21      | 2019/09/30    | 2018/03/03     | 2019/08/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_AMPUTATION_60 |       |          121 |         135 |         106 | The bundle price start date is before the bundle start date     |
+      | Description                                                                                                     | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg                                                   |
+      | Check validation message if Program Name is left blank                                                          | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      |              | ACH               | ACHNAME           | FETCHFROMAPI |   123 |          121 |         135 |         106 | Please select a Program                                         |
+      | Check validation message if Bundle Name is left blank                                                           | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           |              |   123 |          121 |         135 |         106 | Required                                                        |
+      | Check validation message if Price field is left blank                                                           | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |       |          121 |         135 |         106 | Required                                                        |
+      | Check validation message for Contract creation with Contract End Date is before the Contract Start Date         | NO     | PAYORNAME  | 2017/01/05        | 2017/01/03      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |   123 |          121 |         135 |         106 | The Contract End Date is before the start date                  |
+      | Check validation message for contract creation with Bundle End Date is before the bundle Start Date             | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/02/24      | 2019/01/24    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |   123 |          121 |         135 |         106 | The bundle end date is before the bundle start date             |
+      | Check validation message for Contract creation with Bundle Price End Date is before the Bundle Price Start Date | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/05/03     | 2019/04/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |       |          121 |         135 |         106 | The bundle price end date is before the bundle price start date |
+      | Check validation message for contract creation with Bundle End Date is after Contract End Date                  | NO     | PAYORNAME  | 2017/01/01        | 2019/10/25      | 2019/01/01      | 2019/11/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |       |          121 |         135 |         106 | The bundle end date is after the contract end date              |
+      | Check validation messages for contract creation with Bundle Price End Date is after Bundle End Date             | NO     | PAYORNAME  | 2017/01/01        | 2019/12/25      | 2019/01/01      | 2019/09/30    | 2019/03/03     | 2019/10/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |       |          121 |         135 |         106 | The bundle price end date is after the bundle end date          |
+      | Check validation messages for contract creation with Bundle Start Date is before the Contract Start Date        | NO     | PAYORNAME  | 2017/03/01        | 2019/12/25      | 2017/02/21      | 2019/09/30    | 2019/03/03     | 2019/08/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |       |          121 |         135 |         106 | The bundle start date is before the contract start date         |
+      | Check validation messages for contract creation with Bundle Price Start Date is before the Bundle Start Date    | NO     | PAYORNAME  | 2017/01/01        | 2019/12/25      | 2018/04/21      | 2019/09/30    | 2018/03/03     | 2019/08/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |       |          121 |         135 |         106 | The bundle price start date is before the bundle start date     |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -423,7 +423,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -440,8 +440,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     Then I verify duplicate "<Message>" after submitting the "create BPC" organization page
 
     Examples: 
-      | Description                                                  | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1             | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                                                                                                                                      |
-      | Validation message for invalid Character format- Contract Id | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | @$%G&*9!    | BPCI_REMOVALORTHO_90 |   123 |          121 |         135 |         106 | Validation errors: Validation failed for contractId. Only alpha-numeric characters and dashes - are allowed and maximum character limit is 8 |
+      | Description                                                  | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                                                                                                                                      |
+      | Validation message for invalid Character format- Contract Id | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | @$%G&*9!    | FETCHFROMAPI |   123 |          121 |         135 |         106 | Validation errors: Validation failed for contractId. Only alpha-numeric characters and dashes - are allowed and maximum character limit is 8 |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -481,12 +481,12 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
-    Then I search "<SearchParam>" and verify with search list options on "Bundle_1" dropdown box
+    Then I search "<SearchParam>" and verify with search list options on "Bundle" dropdown box
 
     Examples: 
-      | Description                        | Has_MO | Payor_Name | Program_Name | Organization_Type | Organization_Name | SearchParam             |
-      | Search for a Bundle by Bundle Name | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_ATHEROSCLEROSIS_90 |
-      | Search for a Bundle by Bundle Code | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           |                      12 |
+      | Description                        | Has_MO | Payor_Name | Program_Name | Organization_Type | Organization_Name | SearchParam  |
+      | Search for a Bundle by Bundle Name | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |
+      | Search for a Bundle by Bundle Code | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           |           12 |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -540,7 +540,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price1>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -554,7 +554,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on create Contract page
     And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price1" on create Contract page
     Then I click on "Add Bundle" button on "create" organization page
-    And I select Bundle "<Bundle_2>" for Contract "1" on "create" Contracts page
+    And I select "2" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price2>" in "price" field for "Bundle2 Price1" on create Contract page
     Then I enter date "<BundleStartDate1>" in "BundleStartDate" field for index "8"
     Then I enter date "<BundleEndDate1>" in "BundleEndDate" field for index "9"
@@ -570,9 +570,9 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify "<ValidationMsg2>" mandatory field validation message on create organization page
 
     Examples: 
-      | Description                                                                  | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1                | Bundle_2                | Price1 | Price2 | Trend_Factor | Upper_Bound | Lower_Bound | Trend_Factor1 | Upper_Bound1 | Lower_Bound1 | ValidationMsg1          | ValidationMsg2                               |
-      | Create contract using duplicate Bundles                                      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2017/03/01      | 2018/03/30    | 2017/05/01     | 2017/08/30   | 2017/06/09        | 2017/07/12      | 2018/05/01       | 2019/06/30     | 2018/08/03      | 2019/03/26    | 2018/11/09         | 2019/01/12       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_ATHEROSCLEROSIS_90 | BPCI_ATHEROSCLEROSIS_90 |    113 |     96 |          121 |         135 |         106 |           121 |          135 |          106 | Bundle already selected |                                              |
-      | Create contract using duplicate Bundles with overlapping dates in 1 contract | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2017/03/01      | 2018/03/30    | 2017/05/01     | 2017/08/30   | 2017/06/09        | 2017/07/12      | 2017/03/01       | 2018/03/30     | 2018/08/03      | 2019/03/26    | 2018/11/09         | 2019/01/12       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_ATHEROSCLEROSIS_90 | BPCI_ATHEROSCLEROSIS_90 |    113 |     96 |          121 |         135 |         106 |           121 |          135 |          106 | Bundle already selected | Bundle Date Range overlaps with other bundle |
+      | Description                                                                  | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Bundle_2     | Price1 | Price2 | Trend_Factor | Upper_Bound | Lower_Bound | Trend_Factor1 | Upper_Bound1 | Lower_Bound1 | ValidationMsg1          | ValidationMsg2                               |
+      | Create contract using duplicate Bundles                                      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2017/03/01      | 2018/03/30    | 2017/05/01     | 2017/08/30   | 2017/06/09        | 2017/07/12      | 2018/05/01       | 2019/06/30     | 2018/08/03      | 2019/03/26    | 2018/11/09         | 2019/01/12       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI | FETCHFROMAPI |    113 |     96 |          121 |         135 |         106 |           121 |          135 |          106 | Bundle already selected |                                              |
+      | Create contract using duplicate Bundles with overlapping dates in 1 contract | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2017/03/01      | 2018/03/30    | 2017/05/01     | 2017/08/30   | 2017/06/09        | 2017/07/12      | 2017/03/01       | 2018/03/30     | 2018/08/03      | 2019/03/26    | 2018/11/09         | 2019/01/12       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI | FETCHFROMAPI |    113 |     96 |          121 |         135 |         106 |           121 |          135 |          106 | Bundle already selected | Bundle Date Range overlaps with other bundle |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -587,7 +587,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
@@ -596,8 +596,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                        | Has_MO | Payor_Name | ContractStartDate | BundleStartDate | PriceStartDate | Program_Name | Organization_Type | Organization_Name | Bundle_1                | Price | Message                       |
-      | Create Contracts only Mandatory fields using Hospital Organization | NO     | PAYORNAME  | 2017/05/23        | 2018/07/24      | 2019/02/03     | PROGRAMNAME  | ACH               | ACHNAME           | BPCI_ATHEROSCLEROSIS_90 |    89 | Contract Successfully Created |
+      | Description                                                        | Has_MO | Payor_Name | ContractStartDate | BundleStartDate | PriceStartDate | Program_Name | Organization_Type | Organization_Name | Bundle       | Price | Message                       |
+      | Create Contracts only Mandatory fields using Hospital Organization | NO     | PAYORNAME  | 2017/05/23        | 2018/07/24      | 2019/02/03     | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |    89 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -613,7 +613,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -630,15 +630,15 @@ Feature: Create Bundled Payment Contracts functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                                                          | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id     | Bundle_1                   | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using Hospital Organization                               | NO     | PAYORNAME  | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/07/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | BPCI_AICD_90               |    96 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using Hospital Organization                               | YES    | PAYORNAME  | 2017/01/15        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | BPCI_AMPUTATION_60         |   103 |           91 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization                                    | NO     | PAYORNAME  | 2017/01/16        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_ATHEROSCLEROSIS_60    |   113 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization                                    | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_BACKNECKNONFUSION_60  |    56 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using SNF Organization                                    | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | CID             | BPCI_BLOODCELLDISORDERS_60 |    73 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using SNF Organization                                    | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | CID             | BPCI_CELLULITIS_60         |   123 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using HHA Organization                                    | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | CID             | BPCI_GIHEMORRHAGE_60       |    46 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using HHA Organization - Contract ID having All alphabets | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | AllAlphabetsCID | BPCI_REMOVALORTHO_90       |    99 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                                                                          | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id     | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields using Hospital Organization                               | NO     | PAYORNAME  | 2017/02/09        | 2019/12/19      | 2017/05/01      | 2019/07/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | FETCHFROMAPI |    96 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using Hospital Organization                               | YES    | PAYORNAME  | 2017/01/15        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | FETCHFROMAPI |   103 |           91 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization                                    | NO     | PAYORNAME  | 2017/01/16        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | FETCHFROMAPI |   113 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization                                    | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | FETCHFROMAPI |    56 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using SNF Organization                                    | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | CID             | FETCHFROMAPI |    73 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using SNF Organization                                    | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | CID             | FETCHFROMAPI |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using HHA Organization                                    | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | CID             | FETCHFROMAPI |    46 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using HHA Organization - Contract ID having All alphabets | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | AllAlphabetsCID | FETCHFROMAPI |    99 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -654,7 +654,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -671,8 +671,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify "<ValidationMsg>" mandatory field validation message on create organization page
 
     Examples: 
-      | Description                                 | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id   | Bundle_1             | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg     |
-      | Create contract using duplicate Contract Id | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | Duplicate_CID | BPCI_REMOVALORTHO_90 |   123 |          121 |         135 |         106 | ID already exists |
+      | Description                                 | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id   | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg     |
+      | Create contract using duplicate Contract Id | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | Duplicate_CID | FETCHFROMAPI |   123 |          121 |         135 |         106 | ID already exists |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -688,7 +688,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -705,8 +705,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1     | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create contract using duplicate (Program+Provider+Bundle) combination with non-overlapping dates. | NO     | PAYORNAME  | 2017/01/31        | 2019/12/01      | 2019/01/02      | 2019/06/29    | 2019/03/02     | 2019/05/25   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_AICD_90 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create contract using duplicate (Program+Provider+Bundle) combination with non-overlapping dates. | NO     | PAYORNAME  | 2017/01/31        | 2019/12/01      | 2019/01/02      | 2019/06/29    | 2019/03/02     | 2019/05/25   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI |   123 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -722,7 +722,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -739,9 +739,9 @@ Feature: Create Bundled Payment Contracts functionality tests
     Then I verify duplicate "<Message>" after submitting the "create BPC" organization page
 
     Examples: 
-      | Description                                                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1     | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                                                                                          |
-      | Create contract using duplicate (Program+Provider+Bundle) combination with overlapping dates      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_AICD_90 |   123 |          121 |         135 |         106 | There is a conflict error because an entity with similar identifying attributes already existed. |
-      | Create contract using duplicate (Program+Provider+Bundle) combination with non-overlapping dates. | NO     | PAYORNAME  | 2017/01/31        | 2019/12/01      | 2019/01/02      | 2019/06/29    | 2019/03/02     | 2019/05/25   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_AICD_90 |   123 |          121 |         135 |         106 | There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Description                                                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                                                                                          |
+      | Create contract using duplicate (Program+Provider+Bundle) combination with overlapping dates      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI |   123 |          121 |         135 |         106 | There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Create contract using duplicate (Program+Provider+Bundle) combination with non-overlapping dates. | NO     | PAYORNAME  | 2017/01/31        | 2019/12/01      | 2019/01/02      | 2019/06/29    | 2019/03/02     | 2019/05/25   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI |   123 |          121 |         135 |         106 | There is a conflict error because an entity with similar identifying attributes already existed. |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -757,7 +757,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -783,8 +783,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                          | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1                     | Price | Price1 | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create contract with 1 Bundle having multiple Prices | NO     | PAYORNAME  | 2017/02/05        | 2019/12/28      | 2018/01/04      | 2019/06/21    | 2018/02/02     | 2018/05/30   | 2018/03/01        | 2018/04/04      | 2018/06/02      | 2018/10/30    | 2018/07/01         | 2018/08/04       | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BPCI_CERVICALSPINALFUSION_30 |   123 |    101 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                          | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Price | Price1 | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create contract with 1 Bundle having multiple Prices | NO     | PAYORNAME  | 2017/02/05        | 2019/12/28      | 2018/01/04      | 2019/06/21    | 2018/02/02     | 2018/05/30   | 2018/03/01        | 2018/04/04      | 2018/06/02      | 2018/10/30    | 2018/07/01         | 2018/08/04       | PROGRAMNAME  | PGP               | PGPNAME           | CID         | FETCHFROMAPI |   123 |    101 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -800,7 +800,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price1>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -814,7 +814,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on create Contract page
     And I enter "<Lower_Bound>" in "lowerBound" field for "Bundl1 Price1" on create Contract page
     Then I click on "Add Bundle" button on "create" organization page
-    And I select Bundle "<Bundle_2>" for Contract "1" on "create" Contracts page
+    And I select "2" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price2>" in "price" field for "Bundle2 Price1" on create Contract page
     Then I enter date "<BundleStartDate1>" in "BundleStartDate" field for index "8"
     Then I enter date "<BundleEndDate1>" in "BundleEndDate" field for index "9"
@@ -828,5 +828,5 @@ Feature: Create Bundled Payment Contracts functionality tests
     Then I click on "Submit" button on "create" organization page
 
     Examples: 
-      | Description                           | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1     | Bundle_2    | Price1 | Price2 | Trend_Factor | Upper_Bound | Lower_Bound | Trend_Factor1 | Upper_Bound1 | Lower_Bound1 | Message                       |
-      | Create contract with multiple Bundles | YES    | PAYORNAME  | 2017/01/02        | 2019/12/30      | 2017/03/04      | 2018/03/30    | 2017/05/01     | 2017/08/30   | 2017/06/09        | 2017/07/12      | 2018/05/01       | 2019/06/30     | 2018/08/03      | 2019/03/26    | 2018/11/09         | 2019/01/16       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_CABG_60 | BPCI_PCI_30 |    108 |     96 |          121 |         135 |         106 |            98 |          107 |           67 | Contract Successfully Created |
+      | Description                           | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Bundle_2     | Price1 | Price2 | Trend_Factor | Upper_Bound | Lower_Bound | Trend_Factor1 | Upper_Bound1 | Lower_Bound1 | Message                       |
+      | Create contract with multiple Bundles | YES    | PAYORNAME  | 2017/01/02        | 2019/12/30      | 2017/03/04      | 2018/03/30    | 2017/05/01     | 2017/08/30   | 2017/06/09        | 2017/07/12      | 2018/05/01       | 2019/06/30     | 2018/08/03      | 2019/03/26    | 2018/11/09         | 2019/01/16       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI | FETCHFROMAPI |    108 |     96 |          121 |         135 |         106 |            98 |          107 |           67 | Contract Successfully Created |

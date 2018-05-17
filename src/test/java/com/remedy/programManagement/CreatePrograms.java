@@ -821,13 +821,13 @@ public class CreatePrograms extends BaseClass {
 			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-main-id")));
 		  }
 		}
-		else if(org.equals("Bundle_1"))
+		else if(org.equals("Bundle"))
 		{
 			delay();
 			driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
 //			delay();
 			iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input"));
-			driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(value);
+			driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(CreateBundleAPI.bundleNameList.get(0).substring(1, CreateBundleAPI.bundleNameList.get(0).length()-1));
 			iWillWaitToSee(By.cssSelector(".react-select-option-row.highlight>div"));
 			Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".react-select-option-row.highlight>div")));
 		}
@@ -838,7 +838,7 @@ public class CreatePrograms extends BaseClass {
 			driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
 //			delay();
 			iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input"));
-			driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(value);
+			driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(CreateBundleAPI.bundleNameList.get(1).substring(1, CreateBundleAPI.bundleNameList.get(1).length()-1));
 			iWillWaitToSee(By.cssSelector(".react-select-option-row.highlight>div"));
 			Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".react-select-option-row.highlight>div")));
 		}

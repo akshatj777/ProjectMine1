@@ -184,6 +184,16 @@ Feature: Edit Bundle Payment Contract functionality tests
       | Description                              | Payor_Name | Program_Name | Message                      |
       | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME  | Program Successfully Created |
 
+  Scenario Outline: Create Bundle using API calls
+    Given create Bundle Json to String and pass it to body with "<name>" and "<content>" and "<bundleCode>"
+    When create Bundle with this data
+    Then verification of Actual vs expected results <expStatusCode> and "<responseMsg>"
+    When Get by id 0 and bundle
+
+    Examples: 
+      | desc        | bundleCode | name    | content                | expStatusCode | responseMsg |
+      | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
+
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
     When I search with "<Payor_Name>" on organization in search box
@@ -198,7 +208,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -215,8 +225,8 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1     | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/02/01        | 2019/12/01      | 2017/05/01      | 2018/07/30    | 2017/07/01     | 2018/02/01   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPCI_CERVICALSPINALFUSION_30 |    96 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle     | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/02/01        | 2019/12/01      | 2017/05/01      | 2018/07/30    | 2017/07/01     | 2018/02/01   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI |    96 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -269,8 +279,8 @@ Feature: Edit Bundle Payment Contract functionality tests
     And I verify "Edit Contract" header text on edit organization page
     Then I edit "<Price>" in "price" field for "Bundle1 Price1" on edit Contract page
     And I click on react date picker close icon for "Contract_Start_Date"
-And I click on react date picker close icon for "Bundle_Start_Date"
-And I click on react date picker close icon for "Bundle_Price_Start_Date"
+    And I click on react date picker close icon for "Bundle_Start_Date"
+    And I click on react date picker close icon for "Bundle_Price_Start_Date"
     Then I click on "Submit" button on "edit" organization page
     And I verify "<ValidationMsg>" mandatory field validation message on edit organization page
 
@@ -411,9 +421,9 @@ And I click on react date picker close icon for "Bundle_Price_Start_Date"
     Then I search "<SearchParam>" and verify with search list options on "Bundle_2" dropdown box
 
     Examples: 
-      | Description                                              | Payor_Name | Bundle_Payment_Contract | Program     | SearchParam |
-      | Search for a Bundle by Bundle Name on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90 |
-      | Search for a Bundle by Bundle code on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |           6 |
+      | Description                                              | Payor_Name | Bundle_Payment_Contract | Program     | SearchParam  |
+      | Search for a Bundle by Bundle Name on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |
+      | Search for a Bundle by Bundle code on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |            6 |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -431,7 +441,7 @@ And I click on react date picker close icon for "Bundle_Price_Start_Date"
     Then I verify the "No results found" message for invalid search in Organization Name dropdown box
 
     Examples: 
-      | Description                                                      | Payor_Name | Bundle_Payment_Contract | Program     | Bundle2             |
+      | Description                                                      | Payor_Name | Bundle_Payment_Contract | Program     | Bundle             |
       | Error message for an invalid Bundle search on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | InvalidSearchBundle |
 
   Scenario Outline: <Description>
@@ -446,7 +456,7 @@ And I click on react date picker close icon for "Bundle_Price_Start_Date"
     Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
     And I verify "Edit Contract" header text on edit organization page
     Then I click on "Add Bundle" button on "edit" organization page
-    And I select Bundle "<Bundle2>" for Contract "1" on "edit" Contracts page
+    And I select "2" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     Then I edit "<Price2>" in "price" field for "Bundle2 Price1" on edit Contract page
     Then I enter date "<BundleStartDate1>" in "BundleStartDate" field for index "8"
     Then I enter date "<BundleEndDate1>" in "BundleEndDate" field for index "9"
@@ -461,8 +471,8 @@ And I click on react date picker close icon for "Bundle_Price_Start_Date"
     And I verify "<ValidationMsg>" mandatory field validation message on edit organization page
 
     Examples: 
-      | Description                                                  | Payor_Name | Bundle_Payment_Contract | Program     | Bundle2                      | Price2 | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor2 | Upper_Bound2 | Lower_Bound2 | ValidationMsg           |
-      | Edit contract using duplicate Bundles with overlapping dates | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_CERVICALSPINALFUSION_30 |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Bundle already selected |
+      | Description                                                  | Payor_Name | Bundle_Payment_Contract | Program     | Bundle2      | Price2 | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor2 | Upper_Bound2 | Lower_Bound2 | ValidationMsg           |
+      | Edit contract using duplicate Bundles with overlapping dates | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Bundle already selected |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -476,7 +486,7 @@ And I click on react date picker close icon for "Bundle_Price_Start_Date"
     Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
     And I verify "Edit Contract" header text on edit organization page
     Then I click on "Add Bundle" button on "edit" organization page
-    And I select Bundle "<Bundle2>" for Contract "1" on "edit" Contracts page
+    And I select "2" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     Then I edit "<Price2>" in "price" field for "Bundle2 Price1" on edit Contract page
     Then I enter date "<BundleStartDate1>" in "BundleStartDate" field for index "8"
     Then I enter date "<BundleEndDate1>" in "BundleEndDate" field for index "9"
@@ -491,17 +501,17 @@ And I click on react date picker close icon for "Bundle_Price_Start_Date"
     And I verify "<ValidationMsg>" mandatory field validation message on edit organization page
 
     Examples: 
-      | Description                                                                                          | Payor_Name | Bundle_Payment_Contract | Program     | Bundle2                      | Price2 | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor2 | Upper_Bound2 | Lower_Bound2 | ValidationMsg                                               |
-      | Validation message if newly added Bundle - Bundle Name is left blank                                 | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |                              |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
-      | Validation message if newly added Bundle - Start Date is left blank                                  | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90                  |     98 |                  | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
-      | Validation message if newly added Bundle - price is left blank                                       | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90                  |        | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
-      | Validation message if newly added Bundle - price Start Date is left blank                            | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90                  |     98 | 2018/09/30       | 2019/09/30     |                 | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
-      | Validation message if newly added Bundle Bundle End Date is before the bundle Start Date             | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90                  |     98 | 2018/09/30       | 2018/09/01     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle end date is before the bundle start date         |
-      | Validation message if newly added Bundle Bundle Price End Date is before the Bundle Price Start Date | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90                  |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2018/10/01    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle end date is before the bundle start date         |
-      | Validation message if newly added Bundle Bundle End Date is after Contract End Date                  | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90                  |     98 | 2018/09/30       | 2019/12/11     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle end date is after the contract end date          |
-      | Validation message if newly added Bundle Bundle Price End Date is after Bundle End Date              | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90                  |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/10/03    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle price end date is after the bundle end date      |
-      | Validation message if newly added Bundle Bundle Start Date is before the Contract Start Date         | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_AMI_90                  |     98 | 2017/01/15       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle start date is before the contract start date     |
-      | Validation message if newly added Bundle Bundle Price Start Date is before the Bundle Start Date     | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | BPCI_CERVICALSPINALFUSION_30 |     98 | 2018/09/30       | 2019/09/30     | 2018/07/30      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle price start date is before the bundle start date |
+      | Description                                                                                          | Payor_Name | Bundle_Payment_Contract | Program     | Bundle      | Price2 | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor2 | Upper_Bound2 | Lower_Bound2 | ValidationMsg                                               |
+      | Validation message if newly added Bundle - Bundle Name is left blank                                 | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |              |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
+      | Validation message if newly added Bundle - Start Date is left blank                                  | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |     98 |                  | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
+      | Validation message if newly added Bundle - price is left blank                                       | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |        | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
+      | Validation message if newly added Bundle - price Start Date is left blank                            | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |     98 | 2018/09/30       | 2019/09/30     |                 | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
+      | Validation message if newly added Bundle Bundle End Date is before the bundle Start Date             | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |     98 | 2018/09/30       | 2018/09/01     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle end date is before the bundle start date         |
+      | Validation message if newly added Bundle Bundle Price End Date is before the Bundle Price Start Date | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2018/10/01    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle end date is before the bundle start date         |
+      | Validation message if newly added Bundle Bundle End Date is after Contract End Date                  | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |     98 | 2018/09/30       | 2019/12/11     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle end date is after the contract end date          |
+      | Validation message if newly added Bundle Bundle Price End Date is after Bundle End Date              | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/10/03    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle price end date is after the bundle end date      |
+      | Validation message if newly added Bundle Bundle Start Date is before the Contract Start Date         | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |     98 | 2017/01/15       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle start date is before the contract start date     |
+      | Validation message if newly added Bundle Bundle Price Start Date is before the Bundle Start Date     | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |     98 | 2018/09/30       | 2019/09/30     | 2018/07/30      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | The bundle price start date is before the bundle start date |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
