@@ -125,6 +125,16 @@ Feature: Search Physician Roster functionality tests
       | Description                              | Payor_Name | Program_Name | Message                      |
       | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME  | Program Successfully Created |
 
+  Scenario Outline: Create Bundle using API calls
+    Given create Bundle Json to String and pass it to body with "<name>" and "<content>" and "<bundleCode>"
+    When create Bundle with this data
+    Then verification of Actual vs expected results <expStatusCode> and "<responseMsg>"
+    When Get by id 0 and bundle
+
+    Examples: 
+      | desc        | bundleCode | name    | content                | expStatusCode | responseMsg |
+      | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
+
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
     When I search with "<Payor_Name>" on organization in search box
@@ -138,7 +148,7 @@ Feature: Search Physician Roster functionality tests
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
-    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
@@ -155,11 +165,11 @@ Feature: Search Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id     | Bundle_1                   | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/09        | 2019/12/19      | 2017/05/01      | 2019/07/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | BPCI_AICD_90               |    96 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using Hospital Organization | YES    | PAYORNAME  | 2017/01/15        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID             | BPCI_AMPUTATION_60         |   103 |           91 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/16        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_ATHEROSCLEROSIS_60    |   113 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID             | BPCI_BACKNECKNONFUSION_60  |    56 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1     | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/09        | 2019/12/19      | 2017/05/01      | 2019/07/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI |    96 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using Hospital Organization | YES    | PAYORNAME  | 2017/01/15        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI |   103 |           91 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/16        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | FETCHFROMAPI |   113 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | FETCHFROMAPI |    56 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: : <Description>
     When create provider taxonomy classification grouping sepecialization Json "classificationForPhysRoster"
@@ -182,9 +192,7 @@ Feature: Search Physician Roster functionality tests
     Examples: 
       | Description           | firstName | lastName     | npi | gender | enumerationDate | prefix | suffix | npiDeactivationDate | npiDeactivationReasonCode | otherFirstName | otherLastName | otherPrefix | otherSuffix | primaryTaxonomyId    | secondaryTaxonomyId | noOfLicenses | licenseNumber | licenseNumberStateCode | address1 | address2 | city | state | zip | expStatusCode | responseMsg | classificationId | groupingId | specializationId | providerTaxonCode |
       | validPractionerCreate | firstName | testLastName | PC  | f      | 2018-01-01      | ap     | test   | 2018-01-01          | dd                        | otherFirstName | otherLastName | ff          | ff          | generatePrimaryTaxId |                   1 |            2 |           2,5 |                  23,78 | addr1    | addr2    | city | ny    | zip |           201 |             |                0 |          0 |                0 | CPT               |
-  
-  
-  
+
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
     When I search with "<PGP_Name> - <Has_MO>" on organization in search box
@@ -209,9 +217,9 @@ Feature: Search Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                        | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician | PhysicianStartDate | PhysicianEndDate | Message                         |
-      | Add Physician with all the available fields under PGP Organization | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI  | 2017/01/30         | 2017/06/30       | Physicians Successfully Updated |
-      | Add Physician with all the available fields under PGP Organization | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI  | 2017/07/01         | 2017/12/01       | Physicians Successfully Updated |
+      | Description                                                        | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician    | PhysicianStartDate | PhysicianEndDate | Message                         |
+      | Add Physician with all the available fields under PGP Organization | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | 2017/01/30         | 2017/06/30       | Physicians Successfully Updated |
+      | Add Physician with all the available fields under PGP Organization | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | 2017/07/01         | 2017/12/01       | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -237,9 +245,9 @@ Feature: Search Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician | PhysicianStartDate | PhysicianEndDate | Message                         |
-      | Add Physician with all the available fields under Hospital Organization | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI  | 2017/01/30         | 2017/12/01       | Physicians Successfully Updated |
-      | Add Physician with all the available fields under Hospital Organization | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI  | 2018/01/01         | 2018/12/01       | Physicians Successfully Updated |
+      | Description                                                             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | PhysicianStartDate | PhysicianEndDate | Message                         |
+      | Add Physician with all the available fields under Hospital Organization | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | 2017/01/30         | 2017/12/01       | Physicians Successfully Updated |
+      | Add Physician with all the available fields under Hospital Organization | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | 2018/01/01         | 2018/12/01       | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -254,7 +262,7 @@ Feature: Search Physician Roster functionality tests
 
     Examples: 
       | Description                          | Has_MO | PGP_Name | SearchParam  |
-      | Search for a Physician by NPI        | NO     | PGPNAME  | FETCHFROMAPI     |
+      | Search for a Physician by NPI        | NO     | PGPNAME  | FETCHFROMAPI |
       | Search for a Physician by First Name | NO     | PGPNAME  | firstName    |
       | Search for a Physician by Last Name  | NO     | PGPNAME  | testLastName |
       | Search for a Physician by Start Date | NO     | PGPNAME  | 2017-01-30   |
@@ -274,7 +282,7 @@ Feature: Search Physician Roster functionality tests
 
     Examples: 
       | Description                               | Has_MO | PGP_Name | Physician_Roster |
-      | Search for a Physician by invalid details | NO     | PGPNAME  | Invalidsearch     |
+      | Search for a Physician by invalid details | NO     | PGPNAME  | Invalidsearch    |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -289,11 +297,11 @@ Feature: Search Physician Roster functionality tests
 
     Examples: 
       | Description                          | Has_MO | Hosp_Name | SearchParam  |
-      | Search for a Physician by NPI        | NO     | ACHNAME  | FETCHFROMAPI     |
-      | Search for a Physician by First Name | NO     | ACHNAME  | firstName    |
-      | Search for a Physician by Last Name  | NO     | ACHNAME  | testLastName |
-      | Search for a Physician by Start Date | NO     | ACHNAME  | 2017-01-30   |
-      | Search for a Physician by End Date   | NO     | ACHNAME  | 2017-12-01   |
+      | Search for a Physician by NPI        | NO     | ACHNAME   | FETCHFROMAPI |
+      | Search for a Physician by First Name | NO     | ACHNAME   | firstName    |
+      | Search for a Physician by Last Name  | NO     | ACHNAME   | testLastName |
+      | Search for a Physician by Start Date | NO     | ACHNAME   | 2017-01-30   |
+      | Search for a Physician by End Date   | NO     | ACHNAME   | 2017-12-01   |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -309,4 +317,4 @@ Feature: Search Physician Roster functionality tests
 
     Examples: 
       | Description                               | Has_MO | Hosp_Name | Physician_Roster |
-      | Search for a Physician by invalid details | NO     | ACHNAME   | Invalidsearch     |
+      | Search for a Physician by invalid details | NO     | ACHNAME   | Invalidsearch    |

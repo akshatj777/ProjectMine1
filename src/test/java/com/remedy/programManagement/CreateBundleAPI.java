@@ -12,6 +12,7 @@ import com.remedy.resources.DriverScript;
 public class CreateBundleAPI extends BaseClass{
 
 	public static List<Long> idList = new ArrayList<>();
+	public static List<String> bundleNameList = new ArrayList<>();
 	
 	public CreateBundleAPI(WebDriver driver) {
 		super(driver);

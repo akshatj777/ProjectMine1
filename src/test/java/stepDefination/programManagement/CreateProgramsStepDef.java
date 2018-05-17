@@ -46,9 +46,9 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iSelectOrganizationNameOnCreateContratsPageUnderPayorOrganization(text, num, field);
 	    }
 	
-	@And("^I select Bundle \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
-	  public void i_Select_Bundle1_on_Create_Contracts_Page(String text, int num, String field) throws Throwable {
-		programs.iSelectBundleOnCreateContractsPageUnderPayorOrganization(text,num,field);
+	@And("^I select \"([^\"]*)\" Bundle \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
+	  public void i_Select_Bundle1_on_Create_Contracts_Page(int bundleNumber, String text, int num, String field) throws Throwable {
+		programs.iSelectBundleOnCreateContractsPageUnderPayorOrganization(bundleNumber, text,num,field);
 	    }
 	
 	@And("^I enter price \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")

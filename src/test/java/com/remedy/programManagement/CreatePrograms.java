@@ -188,7 +188,7 @@ public class CreatePrograms extends BaseClass {
 	{
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Price of bundle']")), text);
 	}
-	public void iSelectBundleOnCreateContractsPageUnderPayorOrganization(String text, int num, String field)
+	public void iSelectBundleOnCreateContractsPageUnderPayorOrganization(int bundleNumber, String text, int num, String field)
 	{
 		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		if(!text.equals("")){
@@ -197,8 +197,14 @@ public class CreatePrograms extends BaseClass {
 		driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
 //		delay();
 		iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input"));
-		driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(text);
-//		delay();
+		if(text.equals("FETCHFROMAPI"))
+		{
+			driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(CreateBundleAPI.bundleNameList.get(bundleNumber-1));	
+		}
+		else
+		{
+			driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(text);
+		}
 		iWillWaitToSee(By.cssSelector(".react-select-option-row.highlight>div"));
 		driver.findElement(By.cssSelector(".react-select-option-row.highlight>div")).click();
 		delay();

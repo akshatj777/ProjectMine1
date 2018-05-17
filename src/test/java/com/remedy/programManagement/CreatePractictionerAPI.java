@@ -180,14 +180,12 @@ public class CreatePractictionerAPI extends BaseClass{
 	            id = idToGet;
 	        } 
 	        else {
-	            id = CreatePractictionerAPI.idProvidertexnomyList.get(0);
+	            id = getId(type).get(0);
 	        }
 	        response = RestCallUtil.getById(urlExt, id,  DriverScript.Config.getProperty("contentType"),  new GenerateToken().getAccessToken());
-	        CreatePractictionerAPI.idList.clear();
 	        if (response.statusCode() == 200) {
 	        	JsonObject jsonObject = getJsonObject(response.asString());
-	        	practitionerNameList.add((((JsonObject) jsonObject.get("data")).get("npi")).toString());
-	        	System.out.println(practitionerNameList.toString());
+	        	storeName(type, jsonObject);
 	        }
 	    }
 }
