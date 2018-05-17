@@ -187,6 +187,7 @@ Feature: Edit Physician Roster functionality tests
     When create practitioner Json "<firstName>" and "<lastName>" and "<npi>" and "<gender>" and "<enumerationDate>" and "<prefix>" and "<suffix>" and "<npiDeactivationDate>" and "<npiDeactivationReasonCode>" and "<otherFirstName>" and "<otherLastName>" and "<otherPrefix>" and "<otherSuffix>" and "<primaryTaxonomyId>" and "<secondaryTaxonomyId>" and "<licenseNumber>" and "<licenseNumberStateCode>" and "<address1>" and "<address2>" and "<city>" and "<state>" and "<zip>" and "<noOfLicenses>"
     Given create practitioner with this data
     Then verification of Actual vs expected results <expStatusCode> and "<responseMsg>"
+    When Get by id 0 and practitioner
 
     Examples: 
       | Description           | firstName | lastName     | npi | gender | enumerationDate | prefix | suffix | npiDeactivationDate | npiDeactivationReasonCode | otherFirstName | otherLastName | otherPrefix | otherSuffix | primaryTaxonomyId    | secondaryTaxonomyId | noOfLicenses | licenseNumber | licenseNumberStateCode | address1 | address2 | city | state | zip | expStatusCode | responseMsg | classificationId | groupingId | specializationId | providerTaxonCode |
@@ -408,7 +409,7 @@ Feature: Edit Physician Roster functionality tests
     Then I verify Program name is not editable
     Then I verify first name "<FirstName>" after adding Physician from dropdown on edit physician roster page
     Then I verify last name "<LastName>" after adding Physician from dropdown on edit physician roster page
-    Then I verify npi "<NPI>" after adding Physician from dropdown on edit physician roster page
+    Then I verify "1" npi "<NPI>" after adding Physician from dropdown on Create physician roster page
     Then I verify start date "<Start_Date>" after adding Physician from dropdown on edit physician roster page
     Then I verify end date "<End_Date>" after adding Physician from dropdown on edit physician roster page
     And I verify "Select a physician" text is appearing on the "Edit" Physician Roster page

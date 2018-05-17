@@ -59,23 +59,48 @@ public class EditPhysicianRoster extends BaseClass {
 	public void iClickPhysicianRosterFieldInSearchListOnViewProfileOfOrganizationSearchBox(String text, String org){
 		if(org.equals("PGP"))
 		{
-			iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
-			//clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
-			WebElement element = driver.findElement(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(0).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(0).toString().length()-1)+"']"));
-			JavascriptExecutor executor = (JavascriptExecutor)driver;
-			executor.executeScript("arguments[0].click();", element);
-			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			longDelay();
+			if(text.equals("FETCHFROMAPI"))
+			{
+				iWillWaitToSee(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(0).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(0).toString().length()-1)+"']"));
+				WebElement element = driver.findElement(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(0).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(0).toString().length()-1)+"']"));
+				JavascriptExecutor executor = (JavascriptExecutor)driver;
+				executor.executeScript("arguments[0].click();", element);
+				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				longDelay();
+			}
+			else
+			{
+				iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
+				//clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
+				WebElement element = driver.findElement(By.xpath("//div[text()='"+text+"']"));
+				JavascriptExecutor executor = (JavascriptExecutor)driver;
+				executor.executeScript("arguments[0].click();", element);
+				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				longDelay();
+			}
+			
 		}
 		else if(org.equals("Hospital"))
 		{
-			iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
-			//clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
-			WebElement element = driver.findElement(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(0).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(0).toString().length()-1)+"']"));
-			JavascriptExecutor executor = (JavascriptExecutor)driver;
-			executor.executeScript("arguments[0].click();", element);
-			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			longDelay();
+			if(text.equals("FETCHFROMAPI"))
+			{
+				iWillWaitToSee(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(0).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(0).toString().length()-1)+"']"));
+				WebElement element = driver.findElement(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(0).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(0).toString().length()-1)+"']"));
+				JavascriptExecutor executor = (JavascriptExecutor)driver;
+				executor.executeScript("arguments[0].click();", element);
+				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				longDelay();
+			}
+			else
+			{
+				iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
+				//clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
+				WebElement element = driver.findElement(By.xpath("//div[text()='"+text+"']"));
+				JavascriptExecutor executor = (JavascriptExecutor)driver;
+				executor.executeScript("arguments[0].click();", element);
+				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				longDelay();
+			}
 		}
 		else if(org.equals("Payor"))
 		{
