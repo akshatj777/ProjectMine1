@@ -84,14 +84,14 @@ public class PhysicianRoster extends BaseClass{
 			{
 					driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioners-1).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioners-1).toString().length()-1));
 					longDelay();
-					clickElement(driver.findElement(By.cssSelector(".practitioner-field.npi")));
+					driver.findElements(By.cssSelector(".practitioner-field.npi")).get(numberOfPractitioners-1).click();
 					longDelay();
 			}
 			else
 			{
 				driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(text);
 				longDelay();
-				clickElement(driver.findElement(By.cssSelector(".practitioner-field.npi")));
+				driver.findElement(By.cssSelector(".practitioner-field.npi")).click();
 				longDelay();
 			}
 	}
@@ -100,6 +100,7 @@ public class PhysicianRoster extends BaseClass{
 		//clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
 		 delay();
 		 WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
+		 scrollIntoViewByJS(element);
 		 JavascriptExecutor executor = (JavascriptExecutor)driver;
 		 executor.executeScript("arguments[0].click();", element);
 	}
