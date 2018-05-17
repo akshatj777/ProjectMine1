@@ -199,7 +199,7 @@ public class CreatePrograms extends BaseClass {
 		iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input"));
 		if(text.equals("FETCHFROMAPI"))
 		{
-			driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(CreateBundleAPI.bundleNameList.get(bundleNumber-1));	
+			driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(CreateBundleAPI.bundleNameList.get(bundleNumber-1).substring(1, CreateBundleAPI.bundleNameList.get(bundleNumber-1).length()-1));	
 		}
 		else
 		{
