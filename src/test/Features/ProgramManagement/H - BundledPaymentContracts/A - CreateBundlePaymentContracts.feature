@@ -781,7 +781,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price2" on create Contract page
     And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price2" on create Contract page
     Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
+    #Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
       | Description                                          | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Price | Price1 | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |

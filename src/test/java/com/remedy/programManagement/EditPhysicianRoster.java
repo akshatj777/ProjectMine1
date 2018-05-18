@@ -52,8 +52,15 @@ public class EditPhysicianRoster extends BaseClass {
 	}
 	
 	public void iVerifyPhysicianRosterFieldInSearchListOnViewProfileOfOrganizationSearchBox(String text, String org){
-		iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
-		isElementPresentOnPage(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(0).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(0).toString().length()-1)+"']"));
+		if(org.equals("Payor")){
+			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreatePrograms.programs.get(1)+"']"));
+		}
+		else
+		{
+			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreatePractictionerAPI.practitionerNameList.get(0).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(0).toString().length()-1)+"']"));
+		}
 	}
 	
 	public void iClickPhysicianRosterFieldInSearchListOnViewProfileOfOrganizationSearchBox(String text, String org){
