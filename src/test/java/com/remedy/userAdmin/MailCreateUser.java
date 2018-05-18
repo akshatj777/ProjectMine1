@@ -162,6 +162,12 @@ public class MailCreateUser extends BaseClass{
 		clickElement(driver.findElement((By.xpath("//a[contains(text(),'"+text+"')]"))));
 	}
 	
+	public void iEnterEmailToGeneratePasswordLinkForBulkUsers(String role) {
+		String emailVal = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
+		iWillWaitToSee(By.xpath("//input[@name='email']"));
+		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(emailVal);
+	}
+	
 	public void iEnterEmailToGeneratePasswordLink() {
 		iWillWaitToSee(By.xpath("//input[@name='email']"));
 		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);

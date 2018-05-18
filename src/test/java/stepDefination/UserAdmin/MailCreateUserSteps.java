@@ -84,6 +84,11 @@ public class MailCreateUserSteps extends DriverScript {
 		mailcreateuser.iClickOnLinkInMailContentInInboxInMyAccount(link);
 	}
 	
+	@Then("^I enter email \"([^\"]*)\" to generate password link for bulk users$") 
+	public void i_Enter_Email_To_GeneratePassword_Link_ForBulkUsers(String bulkUserEmail) throws Throwable {
+		mailcreateuser.iEnterEmailToGeneratePasswordLinkForBulkUsers(bulkUserEmail);
+	}
+	
 	@Then("^I enter email to generate password link$") 
 	public void i_Enter_Email_To_GeneratePassword_Link() throws Throwable {
 		mailcreateuser.iEnterEmailToGeneratePasswordLink();
