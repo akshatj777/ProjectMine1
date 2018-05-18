@@ -193,6 +193,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     Examples: 
       | desc        | bundleCode | name    | content                | expStatusCode | responseMsg |
       | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
+      | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -423,7 +424,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     Examples: 
       | Description                                              | Payor_Name | Bundle_Payment_Contract | Program     | SearchParam  |
       | Search for a Bundle by Bundle Name on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |
-      | Search for a Bundle by Bundle code on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |            6 |
+      | Search for a Bundle by Bundle code on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |            FETCHFROMAPI |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -471,7 +472,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     And I verify "<ValidationMsg>" mandatory field validation message on edit organization page
 
     Examples: 
-      | Description                                                  | Payor_Name | Bundle_Payment_Contract | Program     | Bundle2      | Price2 | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor2 | Upper_Bound2 | Lower_Bound2 | ValidationMsg           |
+      | Description                                                  | Payor_Name | Bundle_Payment_Contract | Program     | Bundle      | Price2 | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor2 | Upper_Bound2 | Lower_Bound2 | ValidationMsg           |
       | Edit contract using duplicate Bundles with overlapping dates | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Bundle already selected |
 
   Scenario Outline: <Description>

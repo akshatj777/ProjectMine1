@@ -193,6 +193,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     Examples: 
       | desc        | bundleCode | name    | content                | expStatusCode | responseMsg |
       | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
+      | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
+      | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
 
   Scenario Outline: Verification of details on Contracts under Payor Organization
     When I click on "Payor" organization tab on organization dashboard
@@ -486,7 +488,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     Examples: 
       | Description                        | Has_MO | Payor_Name | Program_Name | Organization_Type | Organization_Name | SearchParam  |
       | Search for a Bundle by Bundle Name | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |
-      | Search for a Bundle by Bundle Code | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           |           12 |
+      | Search for a Bundle by Bundle Code | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
