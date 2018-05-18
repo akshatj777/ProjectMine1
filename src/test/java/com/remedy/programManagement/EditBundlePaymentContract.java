@@ -23,6 +23,9 @@ public class EditBundlePaymentContract extends BaseClass {
 		if(text.equals("ACHNAME")){
 			isElementEnabled(driver.findElement(By.xpath("//div[contains(text(),'"+CreateACHOrganization.achOrg_noMO.get("ACHNAME")+"')]")));
 		}
+		else if(text.equals("FETCHFROMAPI")){
+			isElementEnabled(driver.findElement(By.xpath("//div[contains(text(),'"+CreateBundleAPI.bundleNameList.get(0).substring(1, CreateBundleAPI.bundleNameList.get(0).length()-1)+"')]")));
+		}
 		else{
 			isElementEnabled(driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]")));
 		}

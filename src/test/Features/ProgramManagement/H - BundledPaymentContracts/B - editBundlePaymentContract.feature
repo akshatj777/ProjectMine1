@@ -244,7 +244,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I verify "<Organization_Type>" dropdown box is not editable
     Then I verify "<Organization_Name>" dropdown box is not editable
     Then I verify "Contract_Id" field is not editable
-    Then I verify "<Bundle>" dropdown box is not editable
+    #Then I verify "<Bundle>" dropdown box is not editable
     And I verify "Price of bundle" field is editable
     And I verify "*Start Date" field for "Contract1" on edit Contracts page
     And I verify "End Date" field for "Contract1" on edit Contracts page
@@ -264,8 +264,8 @@ Feature: Edit Bundle Payment Contract functionality tests
     And I verify "Cancel" button on edit organization page
 
     Examples: 
-      | Description                                                                         | Payor_Name | Bundle_Payment_Contract | Program     | Organization_Type | Organization_Name |
-      | Verification of details on Contracts under Payor Organization on edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | ACH               | ACHNAME           |
+      | Description                                                                         | Payor_Name | Bundle_Payment_Contract | Program     | Organization_Type | Organization_Name |Bundle|
+      | Verification of details on Contracts under Payor Organization on edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | ACH               | ACHNAME           |FETCHFROMAPI|
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
