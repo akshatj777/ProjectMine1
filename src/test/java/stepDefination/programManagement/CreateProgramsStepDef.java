@@ -57,8 +57,8 @@ public class CreateProgramsStepDef extends DriverScript{
 	    }
 	
 	@And("^I enter \"([^\"]*)\" in \"([^\"]*)\" field for \"([^\"]*)\" on create Contract page$")
-	  public void i_Enter_For_Bundle_Price1_on_Create_Contracts_Page(String text, String field, String field1) throws Throwable {
-		programs.iEnterDetailsOnCreateContractPage(text, field,field1);
+	  public void i_Enter_For_Bundle_Price1_on_Create_Contracts_Page(String text, String field, String act) throws Throwable {
+		programs.iEnterDetailsOnCreateContractPage(text, field,act);
 	    }
 	
 	@Then ("^I select the date from date picker with logic \"([^\"]*)\" days from current date$")

@@ -194,8 +194,7 @@ Feature: Create Bundled Payment Contracts functionality tests
       | desc        | bundleCode | name    | content                | expStatusCode | responseMsg |
       | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
       | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
-      | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
-
+      
   Scenario Outline: Verification of details on Contracts under Payor Organization
     When I click on "Payor" organization tab on organization dashboard
     When I search with "<Payor_Name>" on organization in search box
@@ -556,7 +555,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on create Contract page
     And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price1" on create Contract page
     Then I click on "Add Bundle" button on "create" organization page
-    And I select "2" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     And I enter "<Price2>" in "price" field for "Bundle2 Price1" on create Contract page
     Then I enter date "<BundleStartDate1>" in "BundleStartDate" field for index "8"
     Then I enter date "<BundleEndDate1>" in "BundleEndDate" field for index "9"
@@ -674,7 +673,7 @@ Feature: Create Bundled Payment Contracts functionality tests
 
     Examples: 
       | Description                                 | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id   | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg     |
-      | Create contract using duplicate Contract Id | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | Duplicate_CID | FETCHFROMAPI |   123 |          121 |         135 |         106 | ID already exists |
+      | Create contract using duplicate Contract Id | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | Duplicate_CID | FETCHFROMAPI |   123 |          121 |         135 |         106 | ID already exists |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -786,7 +785,7 @@ Feature: Create Bundled Payment Contracts functionality tests
 
     Examples: 
       | Description                                          | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Price | Price1 | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create contract with 1 Bundle having multiple Prices | NO     | PAYORNAME  | 2017/02/05        | 2019/12/28      | 2018/01/04      | 2019/06/21    | 2018/02/02     | 2018/05/30   | 2018/03/01        | 2018/04/04      | 2018/06/02      | 2018/10/30    | 2018/07/01         | 2018/08/04       | PROGRAMNAME  | PGP               | PGPNAME           | CID         | FETCHFROMAPI |   123 |    101 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create contract with 1 Bundle having multiple Prices | NO     | PAYORNAME  | 2017/02/05        | 2019/12/28      | 2018/01/04      | 2019/06/21    | 2018/02/02     | 2018/05/30   | 2018/03/01        | 2018/04/04      | 2018/06/02      | 2018/10/30    | 2018/07/01         | 2018/08/08       | PROGRAMNAME  | PGP               | PGPNAME           | CID         | FETCHFROMAPI |   123 |    101 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard

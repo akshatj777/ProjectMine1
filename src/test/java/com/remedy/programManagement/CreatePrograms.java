@@ -211,31 +211,36 @@ public class CreatePrograms extends BaseClass {
 		}
 	}
 	
-	public void iEnterDetailsOnCreateContractPage(String text, String field, String field1) 
+	public void iEnterDetailsOnCreateContractPage(String text, String field, String act) 
 	{
-		if(text.equals("CID"))
-		{
-			tempPrograms.put(1, createRandomNumber(8));
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempPrograms.get(1));
-		}
-		if(text.equals("AllAlphabetsCID"))
-		{
-			tempPrograms.put(111, createRandomName(text));
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempPrograms.get(111));
-		}
-		else if(text.equals("Duplicate_CID"))
-		{
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.programs.get(111));
+		if(field.equals("Contract Id")){
+			if(text.equals("CID"))
+			{
+				tempPrograms.put(1, createRandomNumber(8));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempPrograms.get(1));
+			}
+			else if(text.equals("AllAlphabetsCID"))
+			{
+				tempPrograms.put(111, createRandomName(text));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempPrograms.get(111));
+			}
+			else if(text.equals("Duplicate_CID"))
+			{
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.programs.get(111));
+			}
+			else{
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);
+			}
 		}
 		else
 		{
-			if(field1.equals("Bundle1 Price1")){
+			if(act.equals("Bundle1 Price1")){
 				iFillInText(driver.findElement(By.xpath("//input[@name='contracts[0].contractBundles[0].bundlePrices[0]."+field+"']")), text);
 			}
-			else if(field1.equals("Bundle1 Price2")){
+			else if(act.equals("Bundle1 Price2")){
 				iFillInText(driver.findElement(By.xpath("//input[@name='contracts[0].contractBundles[0].bundlePrices[1]."+field+"']")), text);
 			}
-			else if(field1.equals("Bundle2 Price1")){
+			else if(act.equals("Bundle2 Price1")){
 				iFillInText(driver.findElement(By.xpath("//input[@name='contracts[0].contractBundles[1].bundlePrices[0]."+field+"']")), text);
 			}
 			else{
