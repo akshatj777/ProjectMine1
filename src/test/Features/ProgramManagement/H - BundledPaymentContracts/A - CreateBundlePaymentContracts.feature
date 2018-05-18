@@ -751,7 +751,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify "<Payor_Name>" name on the header of view profile
     And I verify "Contracts" tab present under "Payor" Organization
     And I click on "Contracts" tab on view profile of "Payor" Organization
-    And I verify the "Create New Contract" button on view profile of "Payor" Organization
+    And I verify the "Create New Contracgit checkout t" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization

@@ -760,5 +760,4 @@ Feature: Create SNF organization functionality tests
       | Verify Validation Message of SNF Organization with same CCN and NPI |    1234567890 |               |    1234567890 | The CCN and npi must be different. | The NPI and ccn must be different. |
       | Verify Validation Message of SNF Organization with same EIN and NPI |               |    1234567890 |    1234567890 | The EIN and npi must be different. | The NPI and ein must be different. |
       | Verify Validation of SNF Organization with duplicate CCN            | DUPLICATE_CCN |               |               | CCN Id already taken               |                                    |
-      | Verify Validation of SNF Organization with duplicate EIN            |               | DUPLICATE_EIN |               | EIN Id already taken               |                                    |
-      | Verify Validation of SNF Organization with duplicate NPI            |               |               | DUPLICATE_NPI | NPI Id already taken               |                                    |
+      

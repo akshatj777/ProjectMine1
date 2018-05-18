@@ -20,7 +20,12 @@ public class EditBundlePaymentContract extends BaseClass {
 	}
 	
 	public void iVerifyDropdownBoxisnotEditable(String text){
-		isElementEnabled(driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]")));
+		if(text.equals("ACHNAME")){
+			isElementEnabled(driver.findElement(By.xpath("//div[contains(text(),'"+CreateACHOrganization.achOrg_noMO.get("ACHNAME")+"')]")));
+		}
+		else{
+			isElementEnabled(driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]")));
+		}
 	}
 	
 	public void iVerifyProgramDropdownBoxisnotEditable(String text){

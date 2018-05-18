@@ -424,7 +424,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     Examples: 
       | Description                                              | Payor_Name | Bundle_Payment_Contract | Program     | SearchParam  |
       | Search for a Bundle by Bundle Name on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |
-      | Search for a Bundle by Bundle code on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |            FETCHFROMAPI |
+      | Search for a Bundle by Bundle code on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -457,7 +457,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
     And I verify "Edit Contract" header text on edit organization page
     Then I click on "Add Bundle" button on "edit" organization page
-    And I select "2" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
     Then I edit "<Price2>" in "price" field for "Bundle2 Price1" on edit Contract page
     Then I enter date "<BundleStartDate1>" in "BundleStartDate" field for index "8"
     Then I enter date "<BundleEndDate1>" in "BundleEndDate" field for index "9"

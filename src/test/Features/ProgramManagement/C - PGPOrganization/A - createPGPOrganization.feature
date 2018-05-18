@@ -179,5 +179,4 @@ Feature: Create PGP organization functionality tests.
     Examples: 
       | Description                                                         | EIN           | NPI           | Message                            | Message1                           |
       | Verify Validation Message of PGP Organization with same EIN and NPI |    1234567890 |    1234567890 | The EIN and npi must be different. | The NPI and ein must be different. |
-      | Verify Validation PGP Organization with duplicate EIN               | DUPLICATE_EIN |               | EIN Id already taken               |                                    |
-      | Verify Validation of PGP Organization with duplicate NPI            |               | DUPLICATE_NPI | NPI Id already taken               |                                    |
+      
