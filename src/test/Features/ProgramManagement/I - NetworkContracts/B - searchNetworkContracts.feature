@@ -125,6 +125,17 @@ Feature: Search Network Contracts functionality tests
       | Description                              | Payor_Name | Program_Name | Message                      |
       | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME  | Program Successfully Created |
 
+  Scenario Outline: Create Bundle using API calls
+    Given create Bundle Json to String and pass it to body with "<name>" and "<content>" and "<bundleCode>"
+    When create Bundle with this data
+    Then verification of Actual vs expected results <expStatusCode> and "<responseMsg>"
+    When Get by id 0 and bundle
+
+    Examples: 
+      | desc        | bundleCode | name    | content                | expStatusCode | responseMsg |
+      | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
+      | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
+
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
     When I search with "<Payor_Name>" on organization in search box

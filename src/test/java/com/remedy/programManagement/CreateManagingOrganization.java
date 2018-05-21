@@ -367,9 +367,17 @@ public class CreateManagingOrganization extends BaseClass {
 	
 	public void iVerifyDuplicateMessageAfterSubmittingCreateOrganizationPage(String msg, String org)
 	{
-		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
-		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
-		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		if(org.equals("Create_Network_Contract")){
+			iWillWaitToSee(By.xpath("//div[@class='alert alert-dismissible alert-danger']//div[contains(text(),'"+msg+"')]"));
+			//verifyTextForElement(driver.findElement(By.xpath("//div[@class='alert alert-dismissible alert-danger']//div[contains(text(),'"+msg+"')]")), msg);
+			Assert.assertTrue(isElementPresent(By.cssSelector(".alert.alert-dismissible.alert-danger>div")));
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
+		else{
+			iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
+			verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
 	}
 	
 	public void iSwitchFocusToButton(String text) {
