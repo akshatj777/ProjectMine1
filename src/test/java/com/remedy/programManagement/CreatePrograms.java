@@ -348,7 +348,7 @@ public class CreatePrograms extends BaseClass {
 	}
 
 	public void iVerifyPGPOrganizationNameOnNetworkContractPage(String text, String page){
-		isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.moOrg.get("MONAME")+"'"));
+		isElementPresentOnPage(By.xpath("//div[text()='"+CreatePGPOrganization.pgpOrg_noMO.get("PGPNAME")+"'"));
 	}
 	
 	public void iVerifySearchBoxForHospitalOrganizationOnNetworkContractPage(String page){
@@ -830,15 +830,20 @@ public class CreatePrograms extends BaseClass {
 		{
 			if(value.equals("FETCHFROMAPI")){
 				driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-//				delay();
 				iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input"));
 				driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(CreateBundleAPI.bundleNameList.get(0).substring(1, CreateBundleAPI.bundleNameList.get(0).length()-1));
 				iWillWaitToSee(By.cssSelector(".react-select-option-row.highlight>div"));
 				Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".react-select-option-row.highlight>div")));
 			}
+			else if(value.equals("FETCHFROMAPIForBundleCode")){
+				driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+				iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input"));
+				driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(CreateBundleAPI.bundleCodeList.get(0).substring(1, CreateBundleAPI.bundleCodeList.get(0).length()-1));
+				iWillWaitToSee(By.cssSelector(".react-select-option-row.highlight>div"));
+				Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".react-select-option-row.highlight>div")));
+			}
 			else{
 				driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-//				delay();
 				iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input"));
 				driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(value);
 				iWillWaitToSee(By.cssSelector(".react-select-option-row.highlight>div"));

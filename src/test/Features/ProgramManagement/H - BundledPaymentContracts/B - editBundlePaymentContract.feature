@@ -244,7 +244,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I verify "<Organization_Type>" dropdown box is not editable
     Then I verify "<Organization_Name>" dropdown box is not editable
     Then I verify "Contract_Id" field is not editable
-    #Then I verify "<Bundle>" dropdown box is not editable
+    Then I verify "<Bundle>" dropdown box is not editable
     And I verify "Price of bundle" field is editable
     And I verify "*Start Date" field for "Contract1" on edit Contracts page
     And I verify "End Date" field for "Contract1" on edit Contracts page

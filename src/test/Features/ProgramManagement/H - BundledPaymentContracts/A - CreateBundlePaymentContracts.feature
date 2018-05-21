@@ -194,7 +194,7 @@ Feature: Create Bundled Payment Contracts functionality tests
       | desc        | bundleCode | name    | content                | expStatusCode | responseMsg |
       | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
       | validBundle | BC         | bundle- | create-bundle-content1 |           201 |             |
-      
+
   Scenario Outline: Verification of details on Contracts under Payor Organization
     When I click on "Payor" organization tab on organization dashboard
     When I search with "<Payor_Name>" on organization in search box
@@ -485,9 +485,9 @@ Feature: Create Bundled Payment Contracts functionality tests
     Then I search "<SearchParam>" and verify with search list options on "Bundle" dropdown box
 
     Examples: 
-      | Description                        | Has_MO | Payor_Name | Program_Name | Organization_Type | Organization_Name | SearchParam  |
-      | Search for a Bundle by Bundle Name | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |
-      | Search for a Bundle by Bundle Code | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |
+      | Description                        | Has_MO | Payor_Name | Program_Name | Organization_Type | Organization_Name | SearchParam               |
+      | Search for a Bundle by Bundle Name | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI              |
+      | Search for a Bundle by Bundle Code | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPIForBundleCode |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -751,7 +751,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify "<Payor_Name>" name on the header of view profile
     And I verify "Contracts" tab present under "Payor" Organization
     And I click on "Contracts" tab on view profile of "Payor" Organization
-    And I verify the "Create New Contracgit checkout t" button on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
@@ -781,7 +781,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price2" on create Contract page
     And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price2" on create Contract page
     Then I click on "Submit" button on "create" organization page
-    #Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
+    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
       | Description                                          | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Price | Price1 | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
@@ -827,7 +827,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I enter "<Upper_Bound1>" in "upperBound" field for "Bundle2 Price1" on create Contract page
     And I enter "<Lower_Bound1>" in "lowerBound" field for "Bundle2 Price1" on create Contract page
     Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
       | Description                           | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Bundle_2     | Price1 | Price2 | Trend_Factor | Upper_Bound | Lower_Bound | Trend_Factor1 | Upper_Bound1 | Lower_Bound1 | Message                       |
-      | Create contract with multiple Bundles | YES    | PAYORNAME  | 2017/01/02        | 2019/12/30      | 2017/03/04      | 2018/03/30    | 2017/05/01     | 2017/08/30   | 2017/06/09        | 2017/07/12      | 2018/05/01       | 2019/06/30     | 2018/08/03      | 2019/03/26    | 2018/11/09         | 2019/01/16       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI | FETCHFROMAPI |    108 |     96 |          121 |         135 |         106 |            98 |          107 |           67 | Contract Successfully Created |
+      | Create contract with multiple Bundles | NO     | PAYORNAME  | 2017/01/02        | 2019/12/30      | 2017/03/04      | 2018/03/30    | 2017/05/01     | 2017/08/30   | 2017/06/09        | 2017/07/12      | 2018/05/01       | 2019/06/30     | 2018/08/03      | 2019/03/26    | 2018/11/09         | 2019/01/16       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI | FETCHFROMAPI |    108 |     96 |          121 |         135 |         106 |            98 |          107 |           67 | Contract Successfully Created |

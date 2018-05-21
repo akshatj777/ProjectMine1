@@ -35,7 +35,7 @@ import stepDefination.Hooks.*;
                 "junit:target/cucumber-results/cucumber-results.xml", "json:target/cucumber-results/cucumber.json",
                 "com.cucumber.listener.ExtentCucumberFormatter:target/vimalSelvam-cucumberReport/report.html"},
 
-        features = {"src/test/Features/ProgramManagement/B - HospitalOrganization/A - createHospitalOrganization.feature:799"}
+        features = {"src/test/Features/ProgramManagement/I - NetworkContracts/A - createNetworkContracts.feature"}
 
         //glue = { "./src/test/java/stepDefination" },
         //tags = {"@Location_Id"}
