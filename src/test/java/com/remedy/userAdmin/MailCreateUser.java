@@ -6,9 +6,9 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-
-
+import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
@@ -25,6 +25,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 import com.remedy.resources.DriverScript;
+
+import stepDefination.CommonSteps;
 
 public class MailCreateUser extends BaseClass{
 
@@ -144,7 +146,58 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iVerifyAccountVerificationMailInInboxInMyAccount() throws InterruptedException {
+		scrollIntoViewByJS(driver.findElement(By.xpath("//span/b[contains(text(),'Verify your account')]")));
 		Assert.assertTrue(isElementPresentOnPage((By.xpath("//span/b[contains(text(),'Verify your account')]"))));
+	}
+	
+	public void verifyAccountForAllCreatedUsers() throws InterruptedException {
+		List<String> keyList = new ArrayList<String>(CreateUserPage.usersEmailPerRole.keySet());
+		for(int i=0;i<keyList.size();i++)
+		{
+			Assert.assertTrue(isElementPresentOnPage((By.xpath("//span/b[contains(text(),'Verify your account')]"))));
+			iWillWaitToSee(By.xpath("//span/b[contains(text(),'Verify your account')]"));
+			clickElement(driver.findElement(By.xpath("//span/b[contains(text(),'Verify your account')]")));
+			iWillWaitToSee(By.xpath("//a[contains(text(),'Confirm my account!')]"));
+			Assert.assertTrue(isElementPresentOnPage((By.xpath("//a[contains(text(),'Confirm my account!')]"))));
+			iWillWaitToSee(By.xpath("//a[contains(text(),'Confirm my account!')]"));
+			clickElement(driver.findElement((By.xpath("//a[contains(text(),'Confirm my account!')]"))));
+			new CommonSteps().iSwitchoNewWindow();
+			String key1 = keyList.get(i);
+		    String value = CreateUserPage.usersEmailPerRole.get(key1).get(key1.substring((key1.indexOf("-")+1)).trim());
+		    iWillWaitToSee(By.xpath("//input[@name='email']"));
+			driver.findElement(By.xpath("//input[@name='email']")).sendKeys(value);
+			iWillWaitToSee(By.xpath("//button[@type='submit']"));
+			clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
+			Thread.sleep(3000);
+			new CommonSteps().iSwitchBackToOLDWindow();
+			Thread.sleep(4000);
+			iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox')]"));
+			clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
+			Thread.sleep(4000);
+			clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
+			iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox (')]"));
+			isElementPresentOnPage(By.xpath("//a[contains(text(),'Inbox (')]"));
+			iWillWaitToSee(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password We recently received a request to create')]"));
+	    	Assert.assertTrue(isElementPresentOnPage((By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password We recently received a request to create')]"))));
+	    	iWillWaitToSee(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]"));
+			Thread.sleep(3000);
+			if(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")).isEnabled())
+			{
+				clickElement(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")));
+			}
+			iWillWaitToSee(By.xpath("//a[contains(text(),'Change my password')]"));
+			Assert.assertTrue(isElementPresentOnPage((By.xpath("//a[contains(text(),'Change my password')]"))));
+			iWillWaitToSee(By.xpath("//a[contains(text(),'Change my password')]')]"));
+			clickElement(driver.findElement((By.xpath("//a[contains(text(),'Change my password')]')]"))));
+			new CommonSteps().iSwitchoNewWindow();
+			iWillWaitToSee(By.name("password"));
+			iFillInText(driver.findElement(By.name("password")), "Testing1");
+			iWillWaitToSee(By.xpath("//input[@placeholder='confirm your new password']"));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), "Testing1");
+			iWillWaitToSee(By.xpath("//button[@type='submit']"));
+			clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
+			Thread.sleep(3000);
+		}
 	}
 	
 	public void iClickOnAccountVerificationMailInInboxInMyAccount() {
