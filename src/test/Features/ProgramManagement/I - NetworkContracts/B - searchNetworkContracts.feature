@@ -146,7 +146,7 @@ Feature: Search Network Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
@@ -182,7 +182,7 @@ Feature: Search Network Contracts functionality tests
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"

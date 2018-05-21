@@ -145,7 +145,7 @@ Feature: Edit Physician Roster functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I select "1" Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
@@ -388,9 +388,9 @@ Feature: Edit Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "edit Contracts " on Payor organization page
 
     Examples: 
-      | Description                                             | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician_Roster | PhysicianStartDate | PhysicianEndDate | Message                         |
-      | Edit and save a physician with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI     | 2017/01/30         | 2017/06/30       | Physicians Successfully Updated |
-      | Edit and save a physician with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI     | 2018/07/01         | 2018/12/01       | Physicians Successfully Updated |
+      | Description                                                        | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician_Roster | PhysicianStartDate | PhysicianEndDate | Message                         |
+      | Edit and save a physician with all the available fields without MO | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI     | 2017/01/30         | 2017/06/30       | Physicians Successfully Updated |
+      | Edit and save a physician with all the available fields with MO    | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI     | 2018/07/01         | 2018/12/01       | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -536,6 +536,6 @@ Feature: Edit Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "edit Contracts" on Payor organization page
 
     Examples: 
-      | Description                                             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician_Roster | PhysicianStartDate | PhysicianEndDate | Message                         |
-      | Edit and save a physician with all the available fields | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI     | 2017/02/30         | 2017/08/30       | Physicians Successfully Updated |
-      | Edit and save a physician with all the available fields | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI     | 2018/03/01         | 2018/12/01       | Physicians Successfully Updated |
+      | Description                                                        | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician_Roster | PhysicianStartDate | PhysicianEndDate | Message                         |
+      | Edit and save a physician with all the available fields without MO | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI     | 2017/02/30         | 2017/08/30       | Physicians Successfully Updated |
+      | Edit and save a physician with all the available fields with MO    | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI     | 2018/03/01         | 2018/12/01       | Physicians Successfully Updated |

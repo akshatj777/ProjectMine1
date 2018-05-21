@@ -76,7 +76,7 @@ public class CreatePrograms extends BaseClass {
 		iVerifyTextFromListOfElement(By.cssSelector(".data-table-header-cell>a"), header);
 	}
 
-	public void iSelectProgramNameInCreateContractPageUnderPayorOrganization(String text) 
+	public void iSelectProgramNameInCreateContractPageUnderPayorOrganization(String text, String org) 
 	{
 		if(!text.equals(""))
 		{

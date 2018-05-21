@@ -246,7 +246,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
@@ -279,7 +279,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
@@ -312,7 +312,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
@@ -345,7 +345,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name>" for Contract "1" on "create" Contracts page
     And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
@@ -378,7 +378,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
@@ -420,7 +420,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
@@ -454,7 +454,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     Then I search "<SearchParam> - <Has_MO>" and verify with search list options on "Organization_Name" dropdown box
 
@@ -479,7 +479,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     Then I search "<SearchParam>" and verify with search list options on "Bundle" dropdown box
@@ -499,7 +499,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I click and search with invalid name on "<Organization_Name>" dropdown box
     Then I verify the "No results found" message for invalid search in Organization Name dropdown box
@@ -518,7 +518,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I click and search with invalid name on "<Bundle1>" dropdown box
@@ -538,7 +538,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
@@ -585,7 +585,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
@@ -610,7 +610,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
@@ -651,7 +651,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
@@ -685,7 +685,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
@@ -719,7 +719,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
@@ -754,7 +754,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
@@ -797,7 +797,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page

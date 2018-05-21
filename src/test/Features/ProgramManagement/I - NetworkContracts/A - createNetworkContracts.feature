@@ -146,7 +146,7 @@ Feature: Create Network Contracts functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
@@ -181,8 +181,8 @@ Feature: Create Network Contracts functionality tests
     And I verify "Network Contracts" tab present under "PGP" Organization
     And I click on "Network Contracts" tab on view profile of "PGP" Organization
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
+    Then I click on "Create New Network Contract" button on view profile of "PGP" Organization
+    And I verify "Create Network Contract" header text on "create Network Contract" page
     And I verify the "<PGP_Organization_Name>" on "Create" Network Contract page
     And I verify "*Program" on Create Network Contract page
     And I verify Search box for Hospital Organization on "Create" Network Contract page
@@ -205,10 +205,11 @@ Feature: Create Network Contracts functionality tests
     And I verify "Network Contracts" tab present under "PGP" Organization
     And I click on "Network Contracts" tab on view profile of "PGP" Organization
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
+    Then I click on "Create New Network Contract" button on view profile of "PGP" Organization
+    And I verify "Create Network Contract" header text on "create Network Contract" page
     And I verify the "<PGP_Organization_Name>" on "Create" Network Contract page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "PGP" Organization
+    And I verify Search box for Hospital Organization on "Create" Network Contract page
     And I verify "<Contract_ID>" in "Contract Id" after selecting Contract Name
     And I verify "<Start_Date>" in "Start Date" after selecting Contract Name
     And I verify "<End_Date>" in "End Date" after selecting Contract Name
@@ -230,9 +231,9 @@ Feature: Create Network Contracts functionality tests
     And I verify "Network Contracts" tab present under "PGP" Organization
     And I click on "Network Contracts" tab on view profile of "PGP" Organization
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    Then I click on "Create New Network Contract" button on view profile of "PGP" Organization
+    And I verify "Create Network Contract" header text on "create Network Contract" page
+    And I select "<Program_Name>" Program name in create Contract page under "PGP" Organization
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     Then I click on "Submit" button on "create" organization page
     And I verify "<ValidationMessage>" field validation message on create organization page
@@ -250,9 +251,9 @@ Feature: Create Network Contracts functionality tests
     And I verify "Network Contracts" tab present under "PGP" Organization
     And I click on "Network Contracts" tab on view profile of "PGP" Organization
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    Then I click on "Create New Network Contract" button on view profile of "PGP" Organization
+    And I verify "Create Network Contract" header text on "create Network Contract" page
+    And I select "<Program_Name>" Program name in create Contract page under "PGP" Organization
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     And I click on react date picker close icon for "Start Date"
     And I click on react date picker close icon for "End Date"
@@ -274,9 +275,9 @@ Feature: Create Network Contracts functionality tests
     And I verify "Network Contracts" tab present under "PGP" Organization
     And I click on "Network Contracts" tab on view profile of "PGP" Organization
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    Then I click on "Create New Network Contract" button on view profile of "PGP" Organization
+    And I verify "Create Network Contract" header text on "create Network Contract" page
+    And I select "<Program_Name>" Program name in create Contract page under "PGP" Organization
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
@@ -301,9 +302,9 @@ Feature: Create Network Contracts functionality tests
     And I verify "Network Contracts" tab present under "PGP" Organization
     And I click on "Network Contracts" tab on view profile of "PGP" Organization
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    Then I click on "Create New Network Contract" button on view profile of "PGP" Organization
+    And I verify "Create Network Contract" header text on "create Network Contract" page
+    And I select "<Program_Name>" Program name in create Contract page under "PGP" Organization
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
@@ -325,9 +326,9 @@ Feature: Create Network Contracts functionality tests
     And I verify "Network Contracts" tab present under "PGP" Organization
     And I click on "Network Contracts" tab on view profile of "PGP" Organization
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    Then I click on "Create New Network Contract" button on view profile of "PGP" Organization
+    And I verify "Create Network Contract" header text on "create Network Contract" page
+    And I select "<Program_Name>" Program name in create Contract page under "PGP" Organization
     Then I search "<SearchParam> - <Has_MO>" and verify with search list options on "Organization_Name" dropdown box in Network Contract page
 
     Examples: 
@@ -344,9 +345,9 @@ Feature: Create Network Contracts functionality tests
     And I verify "Network Contracts" tab present under "PGP" Organization
     And I click on "Network Contracts" tab on view profile of "PGP" Organization
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    Then I click on "Create New Network Contract" button on view profile of "PGP" Organization
+    And I verify "Create Network Contract" header text on "create Network Contract" page
+    And I select "<Program_Name>" Program name in create Contract page under "PGP" Organization
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
@@ -369,9 +370,9 @@ Feature: Create Network Contracts functionality tests
     And I verify "Network Contracts" tab present under "PGP" Organization
     And I click on "Network Contracts" tab on view profile of "PGP" Organization
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    Then I click on "Create New Network Contract" button on view profile of "PGP" Organization
+    And I verify "Create Network Contract" header text on "create Network Contract" page
+    And I select "<Program_Name>" Program name in create Contract page under "PGP" Organization
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     Then I click on "Submit" button on "create" organization page
 
@@ -388,9 +389,9 @@ Feature: Create Network Contracts functionality tests
     And I verify "Network Contracts" tab present under "PGP" Organization
     And I click on "Network Contracts" tab on view profile of "PGP" Organization
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    Then I click on "Create New Network Contract" button on view profile of "PGP" Organization
+    And I verify "Create Network Contract" header text on "create Network Contract" page
+    And I select "<Program_Name>" Program name in create Contract page under "PGP" Organization
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
@@ -412,9 +413,32 @@ Feature: Create Network Contracts functionality tests
     And I verify "Network Contracts" tab present under "PGP" Organization
     And I click on "Network Contracts" tab on view profile of "PGP" Organization
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    Then I click on "Create New Network Contract" button on view profile of "PGP" Organization
+    And I verify "Create Network Contract" header text on "create Network Contract" page
+    And I select "<Program_Name>" Program name in create Contract page under "PGP" Organization
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
+    And I click on react date picker close icon for "Start Date"
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    And I click on react date picker close icon for "End Date"
+    Then I click on "Submit" button on "create" organization page
+    And I verify "<ValidationMessage>" field validation message on create organization page
+
+    Examples: 
+      | Description                                                                                       | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | ContractStartDate | ContractEndDate | Organization_Name | ValidationMessage                                        |
+      | Create Network Contract with Start Date, when Bundle Payment contract has Start Date and End Date | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017/01/01        | 2019/12/28      | ACHNAME           | End Date is greater than the Contract (Program) End Date |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
+    And I verify "Network Contracts" tab present under "PGP" Organization
+    And I click on "Network Contracts" tab on view profile of "PGP" Organization
+    And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Network Contract" button on view profile of "PGP" Organization
+    And I verify "Create Network Contract" header text on "create Network Contract" page
+    And I select "<Program_Name>" Program name in create Contract page under "PGP" Organization
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
@@ -426,7 +450,6 @@ Feature: Create Network Contracts functionality tests
     Examples: 
       | Description                                                                                                                                                       | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | ContractStartDate | ContractEndDate | Message                                                          |
       | Create Network Contract using duplicate Program and Hospital Organization combination with separate date range when Bundle payment contract having only StartDate | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/04/12        | 2019/09/20      | Validation errors: Contract already exists for organization with |
-      | Create Network Contract using duplicate Program and Hospital Organization combination with separate date range when Bundle payment contract having only StartDate | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/03/12        | 2019/08/20      | Validation errors: Contract already exists for organization with |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -437,9 +460,9 @@ Feature: Create Network Contracts functionality tests
     And I verify "Network Contracts" tab present under "PGP" Organization
     And I click on "Network Contracts" tab on view profile of "PGP" Organization
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    Then I click on "Create New Network Contract" button on view profile of "PGP" Organization
+    And I verify "Create Network Contract" header text on "create Network Contract" page
+    And I select "<Program_Name>" Program name in create Contract page under "PGP" Organization
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     Then I click on cancel search button
     And I verify the selected Hospital organization should not be displayed in the search box
@@ -457,12 +480,12 @@ Feature: Create Network Contracts functionality tests
     And I verify "Network Contracts" tab present under "PGP" Organization
     And I click on "Network Contracts" tab on view profile of "PGP" Organization
     And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    Then I click on "Create New Network Contract" button on view profile of "PGP" Organization
+    And I verify "Create Network Contract" header text on "create Network Contract" page
+    And I select "<Program_Name>" Program name in create Contract page under "PGP" Organization
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     Then I verify the "No results found" message for invalid search in Organization Name dropdown box
 
     Examples: 
-      | Description | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name |
-      #| Error message if an organization is not found | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | NoNetworkContractName |
+      | Description                                   | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name     |
+      | Error message if an organization is not found | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | NoNetworkContractName |

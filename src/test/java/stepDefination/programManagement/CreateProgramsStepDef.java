@@ -26,9 +26,9 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iVerifyHeaderLabelUnderSelectedOrganization(header,org);
 		}
 	
-	@And("^I select \"([^\"]*)\" Program name in create Contract page under Payor Organization$")
-	  public void i_select_Program_name_in_create_Contract_page_under_Payor_Organization(String text) throws Throwable {
-		programs.iSelectProgramNameInCreateContractPageUnderPayorOrganization(text);
+	@And("^I select \"([^\"]*)\" Program name in create Contract page under \"([^\"]*)\" Organization$")
+	  public void i_select_Program_name_in_create_Contract_page_under_Payor_Organization(String text, String org) throws Throwable {
+		programs.iSelectProgramNameInCreateContractPageUnderPayorOrganization(text,org);
 		}
 	
 	@And("^I verify \"([^\"]*)\" on \"([^\"]*)\" page under Payor Organization$")
@@ -191,4 +191,16 @@ public class CreateProgramsStepDef extends DriverScript{
 	  public void i_Search_With_Search_List_Options_On_Dropdown_Box_In_NetworkContract_Page(String searchParam, String org) throws Throwable {
 		programs.iSearchWithSearchListOptionsOnDropdownBoxinNetworkContractpage(searchParam, org);
 	    }
+	
+	 @And("^I click on \"([^\"]*)\" button on view profile of \"([^\"]*)\" Organization$")
+	  public void i_Click_On_Button_On_Create_Organization_Page(String text, String page) throws Throwable {
+		 createMO.iClickOnButtonOnCreateOrganizationPage(text);
+	    }
+	 
+	 @And("^I verify \"([^\"]*)\" header text on \"([^\"]*)\" page$")
+	  public void i_Verify_HeaderText_On_Create_Organization_Page(String text, String action) throws Throwable {
+		 createMO.iVerifyHeaderTextOnCreateOrganizationPage(text);
+	    }
+	
+
 }

@@ -146,7 +146,7 @@ Feature: Create Physician Roster functionality tests
     And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I select "1" Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
@@ -519,8 +519,8 @@ Feature: Create Physician Roster functionality tests
     And I verify "Cancel" button on create Physician Roster page
 
     Examples: 
-      | Description                                                  | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name |
-      | Elements on Add Physician page without selecting any program | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |
+      | Description                                                                              | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name |
+      | Elements on Add Physician page without selecting any program under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -548,8 +548,8 @@ Feature: Create Physician Roster functionality tests
     And I verify "Cancel" button on create Physician Roster page
 
     Examples: 
-      | Description                                                                                     | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   |
-      | Elements on Add Physician page after selecting a Contract(Program) with Start Date and End Date | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 |
+      | Description                                                                                                                 | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   |
+      | Elements on Add Physician page after selecting a Contract(Program) with Start Date and End Date under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -590,8 +590,8 @@ Feature: Create Physician Roster functionality tests
     And I verify "Cancel" button on create Physician Roster page
 
     Examples: 
-      | Description                                                | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician    | FirstName | LastName     | NPI          |
-      | Elements on Add Physician page after selecting a Physician | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI |
+      | Description                                                                            | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician    | FirstName | LastName     | NPI          |
+      | Elements on Add Physician page after selecting a Physician under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -616,8 +616,8 @@ Feature: Create Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                    | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician    | FirstName | LastName     | NPI          | ValidationMessage                                                  |
-      | Validation message if Start Date is left blank | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | The start date is before the start of the Bundled Payment Contract |
+      | Description                                                                | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician    | FirstName | LastName     | NPI          | ValidationMessage                                                  |
+      | Validation message if Start Date is left blank under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | The start date is before the start of the Bundled Payment Contract |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -645,12 +645,12 @@ Feature: Create Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                                                                                | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Physician    | FirstName | LastName     | NPI          | ContractStartDate | ContractEndDate | ValidationMessage                                                  |
-      | Check validation message when Physician Roster Start Date is prior to Bundle Payment Contract Start Date   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2017/01/01        | 2019/12/26      | The start date is before the start of the Bundled Payment Contract |
-      | Check validation message when Physician Roster Start Date is greater than Bundle Payment Contract End Date | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2019/12/30        | 2019/12/26      | The start date and end date are not valid.                         |
-      | Validation when Physician Roster Start Date is greater than Physician Roster End Date                      | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2019/12/06        | 2019/12/01      | The start date and end date are not valid.                         |
-      | Validation when Physician Roster End Date is greater than Bundle Payment Contract End Date                 | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2017/01/30        | 2019/12/30      | The end date is after the end of the Bundled Payment Contract      |
-      | Validation when Physician Roster End Date is prior to Bundle Payment Contract Start Date                   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2017/01/09        | 2017/01/01      | The start date and end date are not valid.                         |
+      | Description                                                                                                                            | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Physician    | FirstName | LastName     | NPI          | ContractStartDate | ContractEndDate | ValidationMessage                                                  |
+      | Check validation message when Physician Roster Start Date is prior to Bundle Payment Contract Start Date under Hospital Profile page   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2017/01/01        | 2019/12/26      | The start date is before the start of the Bundled Payment Contract |
+      | Check validation message when Physician Roster Start Date is greater than Bundle Payment Contract End Date under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2019/12/30        | 2019/12/26      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster Start Date is greater than Physician Roster End Date under Hospital Profile page                      | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2019/12/06        | 2019/12/01      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster End Date is greater than Bundle Payment Contract End Date under Hospital Profile page                 | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2017/01/30        | 2019/12/30      | The end date is after the end of the Bundled Payment Contract      |
+      | Validation when Physician Roster End Date is prior to Bundle Payment Contract Start Date under Hospital Profile page                   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2017/01/09        | 2017/01/01      | The start date and end date are not valid.                         |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -677,8 +677,8 @@ Feature: Create Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create Physician Roster page
 
     Examples: 
-      | Description                                                                      | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Physician    | FirstName | LastName     | NPI          | ContractStartDate | ContractEndDate | ValidationMessage                                                                                                    |
-      | Validation when Physician Roster Start Date is same as Physician Roster End Date | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2019/12/26        | 2019/12/26      | Validation errors: Require valid date range. End date (if specified) should be less a future date to the start date. |
+      | Description                                                                                                  | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Physician    | FirstName | LastName     | NPI          | ContractStartDate | ContractEndDate | ValidationMessage                                                                                                    |
+      | Validation when Physician Roster Start Date is same as Physician Roster End Date under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | FETCHFROMAPI | firstName | testLastName | FETCHFROMAPI | 2019/12/26        | 2019/12/26      | Validation errors: Require valid date range. End date (if specified) should be less a future date to the start date. |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -698,10 +698,10 @@ Feature: Create Physician Roster functionality tests
     Then I search "<SearchParam>" and verify with search list options on select a Physician dropdown box
 
     Examples: 
-      | Description                                       | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | SearchParam  |
-      | Search for a Physician organization by NPI        | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI |
-      | Search for a Physician organization by First Name | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | firstName    |
-      | Search for a Physician organization by Last Name  | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | testLastName |
+      | Description                                                                   | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | SearchParam  |
+      | Search for a Physician organization by NPI under Hospital Profile page        | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI |
+      | Search for a Physician organization by First Name under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | firstName    |
+      | Search for a Physician organization by Last Name under Hospital Profile page  | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | testLastName |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -722,8 +722,8 @@ Feature: Create Physician Roster functionality tests
     Then I verify the "No results found" message for invalid search in select a Physician dropdown box
 
     Examples: 
-      | Description                      | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | SearchParam   |
-      | Error message for invalid search | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | invalidsearch |
+      | Description                                                  | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | SearchParam   |
+      | Error message for invalid search under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | invalidsearch |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -747,9 +747,9 @@ Feature: Create Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                 | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | Message                         |
-      | Add Physician with all the available fields | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | Physicians Successfully Updated |
-      | Add Physician with all the available fields | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | Physicians Successfully Updated |
+      | Description                                                             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | Message                         |
+      | Add Physician with all the available fields under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | Physicians Successfully Updated |
+      | Add Physician with all the available fields under Hospital Profile page | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -775,9 +775,9 @@ Feature: Create Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                 | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | PhysicianStartDate | PhysicianEndDate | Message                         |
-      | Add Physician with all the available fields | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | 2017/01/30         | 2017/12/01       | Physicians Successfully Updated |
-      | Add Physician with all the available fields | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | 2018/01/01         | 2018/12/01       | Physicians Successfully Updated |
+      | Description                                                             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | PhysicianStartDate | PhysicianEndDate | Message                         |
+      | Add Physician with all the available fields under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | 2017/01/30         | 2017/12/01       | Physicians Successfully Updated |
+      | Add Physician with all the available fields under Hospital Profile page | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | 2018/01/01         | 2018/12/01       | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -804,5 +804,5 @@ Feature: Create Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | Message                         |
-      | Add multiple Physicians | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | Physicians Successfully Updated |
+      | Description                                         | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | Message                         |
+      | Add multiple Physicians under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | Physicians Successfully Updated |
