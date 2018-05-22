@@ -16,9 +16,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-
 import java.util.Map;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -221,12 +221,12 @@ public class CreatePrograms extends BaseClass {
 			}
 			else if(text.equals("AllAlphabetsCID"))
 			{
-				tempPrograms.put(111, createRandomName(text));
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempPrograms.get(111));
+				tempPrograms.put(1, RandomStringUtils.randomAlphabetic(8));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempPrograms.get(1));
 			}
 			else if(text.equals("Duplicate_CID"))
 			{
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.programs.get(111));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.programs.get(1));
 			}
 			else{
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);
@@ -835,10 +835,10 @@ public class CreatePrograms extends BaseClass {
 				iWillWaitToSee(By.cssSelector(".react-select-option-row.highlight>div"));
 				Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".react-select-option-row.highlight>div")));
 			}
-			else if(value.equals("FETCHFROMAPIForBundleCode")){
+			else if(value.equals("FETCHFROMAPIForBundleID")){
 				driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
 				iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input"));
-				driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(CreateBundleAPI.bundleCodeList.get(0).substring(1, CreateBundleAPI.bundleCodeList.get(0).length()-1));
+				driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(CreateBundleAPI.idList.get(0).toString());
 				iWillWaitToSee(By.cssSelector(".react-select-option-row.highlight>div"));
 				Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".react-select-option-row.highlight>div")));
 			}
@@ -966,13 +966,6 @@ public class CreatePrograms extends BaseClass {
 				 iWillWaitToSee(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]"));
 				 Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
 			}
-//			else if (value.equals("ACHNAME - YES")){
-//				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), CreateACHOrganization.achOrg.get("ACHNAME"));
-//				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-//				  value = CreateACHOrganization.achOrg.get("ACHNAME");
-//				  iWillWaitToSee(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]"));
-//				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
-//			  }
 			  else if (value.equals("ACHNAME")){
 				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
 				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));

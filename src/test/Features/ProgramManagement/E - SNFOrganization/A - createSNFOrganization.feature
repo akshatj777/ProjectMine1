@@ -305,7 +305,6 @@ Feature: Create SNF organization functionality tests
     When I search with "SNFNAME - <Has_MO>" on organization in search box
     And I click "SNFNAME - <Has_MO>" field in search list on organization page
 
-    #And I verify Location ID should be greater than "100000"
     Examples: 
       | Description                                                                                 | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name1     | NPI | Message                                |
       | Create a SNF Organization without CCN identifier and having multiple locations - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | NPI | SNF Organization Successfully Created. |

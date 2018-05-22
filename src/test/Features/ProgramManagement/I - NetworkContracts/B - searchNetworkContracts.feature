@@ -223,7 +223,7 @@ Feature: Search Network Contracts functionality tests
     And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
     And I verify "Network Contracts" tab present under "PGP" Organization
     And I click on "Network Contracts" tab on view profile of "PGP" Organization
-    Then I search "<SearchParam>" and verify with search list options on "Network Contracts" search box
+    Then I search "<SearchParam>" and verify with search list options on "" search box
     Then I verify the "No matches" message for invalid search in Organization
 
     Examples: 

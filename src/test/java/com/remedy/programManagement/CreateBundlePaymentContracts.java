@@ -49,7 +49,7 @@ public class CreateBundlePaymentContracts extends BaseClass{
 			driver.findElement(By.xpath("//div[text()='Search Name or CCN/EIN']/following-sibling::div/input")).sendKeys(text);
 			longDelay();
 		}
-		else if(text.equalsIgnoreCase("InvalidSearchBundle"))
+		else if(text.equalsIgnoreCase("InvalidSearch"))
 		{
 			delay();
 			scrollIntoViewByJS(driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")));

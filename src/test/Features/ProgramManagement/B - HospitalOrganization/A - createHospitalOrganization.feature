@@ -589,6 +589,7 @@ Feature: Create Hospital organization functionality tests
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I enter Location Id <Location_ID> for Location "1" on "create Hospital" organization page
     And I select location type <Loc_Type> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
@@ -597,6 +598,7 @@ Feature: Create Hospital organization functionality tests
     And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
     Then I click on "+" button on "Hospital" organization page
     And I verify "Create Hospital Organization" header text on create organization page
     And I select "<Has_MO>" radio button for managing organization
@@ -608,7 +610,7 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide "CCN" as last created "Location_Id" on create organization page
+    #And I provide "CCN" as last created "Location_Id" on create organization page
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
@@ -624,7 +626,7 @@ Feature: Create Hospital organization functionality tests
 
     Examples: 
       | Description                                                                                                                   | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Location_ID | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name      | CCN | EIN | NPI | Message                                                                                          |
-      | verify auto generated location ID when CCN of current organization is already used as location Id for some other organization | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 |  1234567890 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | CCN | EIN | NPI | There is a conflict error because an entity with similar identifying attributes already existed. |
+      | verify auto generated location ID when CCN of current organization is already used as location Id for some other organization | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 |  LID | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | CCN | EIN | NPI | There is a conflict error because an entity with similar identifying attributes already existed. |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard

@@ -619,7 +619,6 @@ public class BaseClass {
 		else if(type.equals("bundle"))
 		{
 			CreateBundleAPI.bundleNameList.add((((JsonObject) jsonObject.get("data")).get("name")).toString());
-			CreateBundleAPI.bundleCodeList.add((((JsonObject) jsonObject.get("data")).get("bundleCode")).toString());
 		}
 	}
 }

@@ -485,10 +485,10 @@ Feature: Create Bundled Payment Contracts functionality tests
     Then I search "<SearchParam>" and verify with search list options on "Bundle" dropdown box
 
     Examples: 
-      | Description                        | Has_MO | Payor_Name | Program_Name | Organization_Type | Organization_Name | SearchParam               |
-      | Search for a Bundle by Bundle Name | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI              |
-      | Search for a Bundle by Bundle Code | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPIForBundleCode |
+      | Description                        | Has_MO | Payor_Name | Program_Name | Organization_Type | Organization_Name | SearchParam  |
+      | Search for a Bundle by Bundle Name | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |
 
+  #| Search for a Bundle by Bundle Code | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPIForBundleID |
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
     When I search with "<Payor_Name>" on organization in search box
@@ -525,80 +525,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     Then I verify the "No results found" message for invalid search in Organization Name dropdown box
 
     Examples: 
-      | Description                                | Has_MO | Payor_Name | Program_Name | Organization_Type | Organization_Name | Bundle1             |
-      | Error message for an invalid Bundle search | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           | InvalidSearchBundle |
-
-  Scenario Outline: <Description>
-    When I click on "Payor" organization tab on organization dashboard
-    When I search with "<Payor_Name>" on organization in search box
-    And I click "<Payor_Name>" field in search list on organization page
-    And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Contracts" tab present under "Payor" Organization
-    And I click on "Contracts" tab on view profile of "Payor" Organization
-    And I verify the "Create New Contract" button on view profile of "Payor" Organization
-    Then I click on "Create New Contract" button on "create" organization page
-    And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
-    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
-    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
-    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
-    And I enter "<Price1>" in "price" field for "Bundle1 Price1" on create Contract page
-    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
-    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
-    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
-    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
-    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
-    Then I enter date "<PriceEndDate>" in "Baseline Date" field for index "5"
-    Then I enter date "<BaselineStartDate>" in "BaselineStartDate" field for index "6"
-    Then I enter date "<BaselineEndDate>" in "BaselineEndDate" field for index "7"
-    And I enter "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price1" on create Contract page
-    And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on create Contract page
-    And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price1" on create Contract page
-    Then I click on "Add Bundle" button on "create" organization page
-    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
-    And I enter "<Price2>" in "price" field for "Bundle2 Price1" on create Contract page
-    Then I enter date "<BundleStartDate1>" in "BundleStartDate" field for index "8"
-    Then I enter date "<BundleEndDate1>" in "BundleEndDate" field for index "9"
-    Then I enter date "<PriceStartDate1>" in "PriceStartDate" field for index "10"
-    Then I enter date "<PriceEndDate1>" in "Baseline Date" field for index "11"
-    Then I enter date "<BaselineStartDate1>" in "BaselineStartDate" field for index "12"
-    Then I enter date "<BaselineEndDate1>" in "BaselineEndDate" field for index "13"
-    And I enter "<Trend_Factor1>" in "trendFactor" field for "Bundle2 Price1" on create Contract page
-    And I enter "<Upper_Bound1>" in "upperBound" field for "Bundle2 Price1" on create Contract page
-    And I enter "<Lower_Bound1>" in "lowerBound" field for "Bundle2 Price1" on create Contract page
-    Then I click on "Submit" button on "create" organization page
-    And I verify "<ValidationMsg1>" mandatory field validation message on create organization page
-    And I verify "<ValidationMsg2>" mandatory field validation message on create organization page
-
-    Examples: 
-      | Description                                                                  | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Bundle_2     | Price1 | Price2 | Trend_Factor | Upper_Bound | Lower_Bound | Trend_Factor1 | Upper_Bound1 | Lower_Bound1 | ValidationMsg1          | ValidationMsg2                               |
-      | Create contract using duplicate Bundles                                      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2017/03/01      | 2018/03/30    | 2017/05/01     | 2017/08/30   | 2017/06/09        | 2017/07/12      | 2018/05/01       | 2019/06/30     | 2018/08/03      | 2019/03/26    | 2018/11/09         | 2019/01/12       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI | FETCHFROMAPI |    113 |     96 |          121 |         135 |         106 |           121 |          135 |          106 | Bundle already selected |                                              |
-      | Create contract using duplicate Bundles with overlapping dates in 1 contract | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2017/03/01      | 2018/03/30    | 2017/05/01     | 2017/08/30   | 2017/06/09        | 2017/07/12      | 2017/03/01       | 2018/03/30     | 2018/08/03      | 2019/03/26    | 2018/11/09         | 2019/01/12       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI | FETCHFROMAPI |    113 |     96 |          121 |         135 |         106 |           121 |          135 |          106 | Bundle already selected | Bundle Date Range overlaps with other bundle |
-
-  Scenario Outline: <Description>
-    When I click on "Payor" organization tab on organization dashboard
-    When I search with "<Payor_Name>" on organization in search box
-    And I click "<Payor_Name>" field in search list on organization page
-    And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Contracts" tab present under "Payor" Organization
-    And I click on "Contracts" tab on view profile of "Payor" Organization
-    And I verify the "Create New Contract" button on view profile of "Payor" Organization
-    Then I click on "Create New Contract" button on "create" organization page
-    And I verify "Create Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
-    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
-    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
-    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
-    And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
-    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
-    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
-    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
-    Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
-
-    Examples: 
-      | Description                                                        | Has_MO | Payor_Name | ContractStartDate | BundleStartDate | PriceStartDate | Program_Name | Organization_Type | Organization_Name | Bundle       | Price | Message                       |
-      | Create Contracts only Mandatory fields using Hospital Organization | NO     | PAYORNAME  | 2017/05/23        | 2018/07/24      | 2019/02/03     | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |    89 | Contract Successfully Created |
+      | Description                                | Has_MO | Payor_Name | Program_Name | Organization_Type | Organization_Name | Bundle1       |
+      | Error message for an invalid Bundle search | NO     | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAME           | InvalidSearch |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -639,7 +567,76 @@ Feature: Create Bundled Payment Contracts functionality tests
       | Create Contracts with all available fields using SNF Organization                                    | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | CID             | FETCHFROMAPI |    73 |          121 |         135 |         106 | Contract Successfully Created |
       | Create Contracts with all available fields using SNF Organization                                    | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | CID             | FETCHFROMAPI |   123 |          121 |         135 |         106 | Contract Successfully Created |
       | Create Contracts with all available fields using HHA Organization                                    | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | CID             | FETCHFROMAPI |    46 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using HHA Organization - Contract ID having All alphabets | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | AllAlphabetsCID | FETCHFROMAPI |    99 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using HHA Organization - Contract ID having All alphabets | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | AllAlphabetsCID | FETCHFROMAPI |    99 |          121 |         135 |         106 | Contract Successfully Created |
+
+  Scenario Outline: <Description>
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
+    Then I click on "Create New Contract" button on "create" organization page
+    And I verify "Create Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
+    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
+    And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
+    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
+    Then I click on "Submit" button on "create" organization page
+
+    Examples: 
+      | Description                                                        | Has_MO | Payor_Name | ContractStartDate | BundleStartDate | PriceStartDate | Program_Name | Organization_Type | Organization_Name | Bundle       | Price | Message                       |
+      | Create Contracts only Mandatory fields using Hospital Organization | NO     | PAYORNAME  | 2017/05/23        | 2018/07/24      | 2019/02/03     | PROGRAMNAME  | ACH               | ACHNAME           | FETCHFROMAPI |    89 | Contract Successfully Created |
+
+  Scenario Outline: <Description>
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
+    Then I click on "Create New Contract" button on "create" organization page
+    And I verify "Create Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under "Payor" Organization
+    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
+    And I enter "<Price1>" in "price" field for "Bundle1 Price1" on create Contract page
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
+    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
+    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
+    Then I enter date "<PriceEndDate>" in "Baseline Date" field for index "5"
+    Then I enter date "<BaselineStartDate>" in "BaselineStartDate" field for index "6"
+    Then I enter date "<BaselineEndDate>" in "BaselineEndDate" field for index "7"
+    And I enter "<Trend_Factor>" in "trendFactor" field for "Bundle1 Price1" on create Contract page
+    And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price1" on create Contract page
+    And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price1" on create Contract page
+    Then I click on "Add Bundle" button on "create" organization page
+    And I select "1" Bundle "<Bundle>" for Contract "1" on "create" Contracts page
+    And I enter "<Price2>" in "price" field for "Bundle2 Price1" on create Contract page
+    Then I enter date "<BundleStartDate1>" in "BundleStartDate" field for index "8"
+    Then I enter date "<BundleEndDate1>" in "BundleEndDate" field for index "9"
+    Then I enter date "<PriceStartDate1>" in "PriceStartDate" field for index "10"
+    Then I enter date "<PriceEndDate1>" in "Baseline Date" field for index "11"
+    Then I enter date "<BaselineStartDate1>" in "BaselineStartDate" field for index "12"
+    Then I enter date "<BaselineEndDate1>" in "BaselineEndDate" field for index "13"
+    And I enter "<Trend_Factor1>" in "trendFactor" field for "Bundle2 Price1" on create Contract page
+    And I enter "<Upper_Bound1>" in "upperBound" field for "Bundle2 Price1" on create Contract page
+    And I enter "<Lower_Bound1>" in "lowerBound" field for "Bundle2 Price1" on create Contract page
+    Then I click on "Submit" button on "create" organization page
+    And I verify "<ValidationMsg>" mandatory field validation message on create organization page
+
+    Examples: 
+      | Description                                                                  | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Bundle_2     | Price1 | Price2 | Trend_Factor | Upper_Bound | Lower_Bound | Trend_Factor1 | Upper_Bound1 | Lower_Bound1 | ValidationMsg                                |
+      | Create contract using duplicate Bundles with overlapping dates in 1 contract | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2017/03/01      | 2018/03/30    | 2017/05/01     | 2017/08/30   | 2017/06/09        | 2017/07/12      | 2017/03/01       | 2018/03/30     | 2017/05/01      | 2017/08/30    | 2017/06/09         | 2017/07/12       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI | FETCHFROMAPI |    113 |     96 |          121 |         135 |         106 |           121 |          135 |          106 | Bundle Date Range overlaps with other bundle |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -673,7 +670,7 @@ Feature: Create Bundled Payment Contracts functionality tests
 
     Examples: 
       | Description                                 | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id   | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg     |
-      | Create contract using duplicate Contract Id | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | Duplicate_CID | FETCHFROMAPI |   123 |          121 |         135 |         106 | ID already exists |
+      | Create contract using duplicate Contract Id | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | Duplicate_CID | FETCHFROMAPI |   123 |          121 |         135 |         106 | ID already exists |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -740,9 +737,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     Then I verify duplicate "<Message>" after submitting the "create BPC" organization page
 
     Examples: 
-      | Description                                                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                                                                                          |
-      | Create contract using duplicate (Program+Provider+Bundle) combination with overlapping dates      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI |   123 |          121 |         135 |         106 | There is a conflict error because an entity with similar identifying attributes already existed. |
-      | Create contract using duplicate (Program+Provider+Bundle) combination with non-overlapping dates. | NO     | PAYORNAME  | 2017/01/31        | 2019/12/01      | 2019/01/02      | 2019/06/29    | 2019/03/02     | 2019/05/25   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI |   123 |          121 |         135 |         106 | There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Description                                                                                  | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                                                                                          |
+      | Create contract using duplicate (Program+Provider+Bundle) combination with overlapping dates | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI |   123 |          121 |         135 |         106 | There is a conflict error because an entity with similar identifying attributes already existed. |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -781,7 +777,6 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price2" on create Contract page
     And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price2" on create Contract page
     Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
       | Description                                          | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Price | Price1 | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
@@ -827,7 +822,6 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I enter "<Upper_Bound1>" in "upperBound" field for "Bundle2 Price1" on create Contract page
     And I enter "<Lower_Bound1>" in "lowerBound" field for "Bundle2 Price1" on create Contract page
     Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
       | Description                           | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Bundle_2     | Price1 | Price2 | Trend_Factor | Upper_Bound | Lower_Bound | Trend_Factor1 | Upper_Bound1 | Lower_Bound1 | Message                       |

@@ -226,8 +226,15 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle     | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle       | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
       | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/02/01        | 2019/12/01      | 2017/05/01      | 2018/07/30    | 2017/07/01     | 2018/02/01   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI |    96 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using Hospital Organization | YES    | PAYORNAME  | 2017/01/15        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI |   103 |           91 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/16        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | FETCHFROMAPI |   113 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | FETCHFROMAPI |    56 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using SNF Organization      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | CID         | FETCHFROMAPI |    73 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using SNF Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | CID         | FETCHFROMAPI |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using HHA Organization      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | CID         | FETCHFROMAPI |    46 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using HHA Organization      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | CID         | FETCHFROMAPI |    99 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -264,8 +271,8 @@ Feature: Edit Bundle Payment Contract functionality tests
     And I verify "Cancel" button on edit organization page
 
     Examples: 
-      | Description                                                                         | Payor_Name | Bundle_Payment_Contract | Program     | Organization_Type | Organization_Name |Bundle|
-      | Verification of details on Contracts under Payor Organization on edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | ACH               | ACHNAME           |FETCHFROMAPI|
+      | Description                                                                         | Payor_Name | Bundle_Payment_Contract | Program     | Organization_Type | Organization_Name | Bundle       |
+      | Verification of details on Contracts under Payor Organization on edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | ACH               | ACHNAME           | FETCHFROMAPI |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -422,9 +429,9 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I search "<SearchParam>" and verify with search list options on "Bundle_2" dropdown box
 
     Examples: 
-      | Description                                              | Payor_Name | Bundle_Payment_Contract | Program     | SearchParam  |
-      | Search for a Bundle by Bundle Name on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |
-      | Search for a Bundle by Bundle code on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |
+      | Description                                              | Payor_Name | Bundle_Payment_Contract | Program     | SearchParam             |
+      | Search for a Bundle by Bundle Name on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI            |
+      #| Search for a Bundle by Bundle code on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPIForBundleID |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -438,12 +445,12 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I click "<Bundle_Payment_Contract>" field in search list on view profile of "Payor" Organization search box
     And I verify "Edit Contract" header text on edit organization page
     Then I click on "Add Bundle" button on "edit" organization page
-    And I click and search with invalid name on "<Bundle2>" dropdown box
+    And I click and search with invalid name on "<Bundle>" dropdown box
     Then I verify the "No results found" message for invalid search in Organization Name dropdown box
 
     Examples: 
-      | Description                                                      | Payor_Name | Bundle_Payment_Contract | Program     | Bundle             |
-      | Error message for an invalid Bundle search on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | InvalidSearchBundle |
+      | Description                                                      | Payor_Name | Bundle_Payment_Contract | Program     | Bundle        |
+      | Error message for an invalid Bundle search on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | InvalidSearch |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -472,8 +479,8 @@ Feature: Edit Bundle Payment Contract functionality tests
     And I verify "<ValidationMsg>" mandatory field validation message on edit organization page
 
     Examples: 
-      | Description                                                  | Payor_Name | Bundle_Payment_Contract | Program     | Bundle      | Price2 | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor2 | Upper_Bound2 | Lower_Bound2 | ValidationMsg           |
-      | Edit contract using duplicate Bundles with overlapping dates | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Bundle already selected |
+      | Description                                                  | Payor_Name | Bundle_Payment_Contract | Program     | Bundle       | Price2 | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor2 | Upper_Bound2 | Lower_Bound2 | ValidationMsg                                |
+      | Edit contract using duplicate Bundles with overlapping dates | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |     98 | 2017/05/01       | 2018/07/30     | 2017/07/01      | 2018/02/01    | 2019/03/09         | 2019/05/12       |            37 |           57 |           77 | Bundle Date Range overlaps with other bundle |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -502,7 +509,7 @@ Feature: Edit Bundle Payment Contract functionality tests
     And I verify "<ValidationMsg>" mandatory field validation message on edit organization page
 
     Examples: 
-      | Description                                                                                          | Payor_Name | Bundle_Payment_Contract | Program     | Bundle      | Price2 | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor2 | Upper_Bound2 | Lower_Bound2 | ValidationMsg                                               |
+      | Description                                                                                          | Payor_Name | Bundle_Payment_Contract | Program     | Bundle       | Price2 | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Trend_Factor2 | Upper_Bound2 | Lower_Bound2 | ValidationMsg                                               |
       | Validation message if newly added Bundle - Bundle Name is left blank                                 | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME |              |     98 | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
       | Validation message if newly added Bundle - Start Date is left blank                                  | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |     98 |                  | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
       | Validation message if newly added Bundle - price is left blank                                       | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |        | 2018/09/30       | 2019/09/30     | 2018/11/01      | 2019/07/30    | 2019/01/30         | 2019/04/30       |            37 |           57 |           77 | Required                                                    |
