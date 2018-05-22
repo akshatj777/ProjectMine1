@@ -47,6 +47,7 @@ Feature: Filters - Current Facility
     And I search "Current facility" from the list of Filter
     Then I click on the "Current facility" filter
     Then I will wait to see the "Current Facility" element xpath "//*[@id='filter-selector-current_facility']"
+    When I click "Add Filter" xpath element "//*[@id='filters-selector']" 
     When I click "Current facility" element "#filter-selector-current_facility > div.dynamic-select-filter-widget > div"
     When I fill in Current Facility name with value "stamford hospital"
     When I click "Stamford Hospital - Stamford (STAMFORD, CT)" xpath element "//*[@id='uniform-dynamic_select_filter_current_facility_0']"

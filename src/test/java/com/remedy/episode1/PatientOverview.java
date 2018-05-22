@@ -21,6 +21,7 @@ public class PatientOverview extends BaseClass {
 	}
 
 	public void iShouldSeeDetailsOnPatientsOverviewPage(String text) {
+		longDelay();
 		if (text.contains("SSN")) {
 			String value = driver.findElement(By.cssSelector(".ec2-embed-patient-ssn")).getText();
 			String sSN = DischargeCarlForm.final_ssn;

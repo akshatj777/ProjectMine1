@@ -47,6 +47,7 @@ Feature: Filters - DRG
     And I search "Episode drg" from the list of Filter
     Then I click on the "Episode drg" filter
     Then I will wait to see the "Episode drg" element xpath "//*[@id='filter-selector-episode_drg']"
+    When I click "Add Filter" xpath element "//*[@id='filters-selector']"
     When I click "Episode Drg dropdown" element "#filter-selector-episode_drg > div.dynamic-select-filter-widget > div.btn-group"
     When I fill in DRG with value "63"
     Then I click "(63) ACUTE ISCHEMIC STROKE" text in tag "label"

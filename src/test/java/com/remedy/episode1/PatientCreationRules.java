@@ -258,6 +258,7 @@ public class PatientCreationRules extends BaseClass {
     }
     
     public void iClickOnHelpOnTheEpisodeConnectPage(){
+    	
     	clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-help")));
     }
     
@@ -266,7 +267,21 @@ public class PatientCreationRules extends BaseClass {
     }
     
     public void iClickOnMyProfileEpisodeConnectPage(){
-    	clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));
+    	// if(driver.findElements(By.cssSelector("li.dropdown.dropdown-user.open>ul.dropdown-menu")).size() == 0) {
+    		longDelay();
+    		iWillWaitToSee(By.cssSelector("i.fa.fa-angle-down"));
+    		clickElement(driver.findElement(By.cssSelector("i.fa.fa-angle-down")));
+    		delay();
+    		clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));
+//    	}else if(driver.findElements(By.cssSelector("li.dropdown.dropdown-user.open>ul.dropdown-menu")).size() == 0){
+//    		delay();
+//    		Actions action = new Actions(driver);
+//    		action.moveToElement(driver.findElement(By.cssSelector("span.username"))).perform();
+//    		delay();
+//    		clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));
+//    		
+//    	}
+    	
     }
     
     public void iWaitUntillMyProfileAppears(String text){

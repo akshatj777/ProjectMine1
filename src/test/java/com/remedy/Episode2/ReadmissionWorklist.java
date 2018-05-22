@@ -257,6 +257,7 @@ public class ReadmissionWorklist extends BaseClass {
 		delay();
 		iWillWaitToSee(By.cssSelector(css));
 		selectDropdownVisibleElement(css,value);
+		delay();
 	  }
 
 	public void Iselectthefacilityonaddanewtransition(String admissiontype,String facilityvalue,String locator) {

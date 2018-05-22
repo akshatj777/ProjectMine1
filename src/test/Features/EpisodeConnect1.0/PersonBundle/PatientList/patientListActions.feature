@@ -36,10 +36,6 @@ Feature: Patient list action
     And I will wait to see patient's name on patient summary page
 
   Scenario: Verify Add Form(s) from Patient List
-    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
-    Then I Expand to the patient summary page
-    And I will wait to see patient's name on patient summary page
-    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I click on first patient gear menu
     When I click on Add Forms from patients list patient gear menu
     Then I verify "Assign New Form" header on popup
@@ -57,6 +53,7 @@ Feature: Patient list action
     And I click on first checkbox on Clinician modal
     And I click on "Assign" button
     And I will wait to see "Clinicians assigned to patient correctly" in "p" tag
+    Then I scroll the page to bottom by "-600"
     Then I Expand to the patient summary page
     And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/patient/mongoID/careteam"

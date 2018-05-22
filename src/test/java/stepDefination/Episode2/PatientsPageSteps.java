@@ -771,6 +771,11 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("medicareId", medicareID);
     }
 
+    @When("^I enter \"([^\"]*)\" value in the Medicare ID present on the Add Patient page$")
+    public void i_enter_value_in_the_Medicare_ID_present_on_the_Add_Patient_page(String medicareID) throws Throwable {
+        patientsPage.iEnterValueDetailsInTextFieldPresentOnAddPatientModal("medicareId", medicareID);
+    }
+    
     @Then("^I click on the next button present on the Add Patient page$")
     public void i_click_on_the_next_button_present_on_the_Add_Patient_page() throws Throwable {
         patientsPage.iClickOnTheNextButtonPresentOnTheAddPatientPage();

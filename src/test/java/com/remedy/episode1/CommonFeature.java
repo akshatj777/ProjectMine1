@@ -69,6 +69,10 @@ public class CommonFeature extends BaseClass {
 		if(text.equals("Assigned to Care Team successfully.")){
 		Thread.sleep(1000);
 		isElementVisible(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));	
+		}else if(text.equals("New Transition")){
+	    longDelay();
+		iWillWaitToSee(By.xpath("//" + tag + "[contains(text(),'" + text + "')]"));
+		isElementVisible(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));	
 		}else{
 		Thread.sleep(1000);
 		iWillWaitToSee(By.xpath("//" + tag + "[contains(text(),'" + text + "')]"));
@@ -139,7 +143,7 @@ public class CommonFeature extends BaseClass {
 	}
 
 	public void iWaitToSeeonboarding(String text) {
-		delay();
+		longDelay();
 		iWillWaitToSee(By.xpath("//*[@id='current_onboarding_status']"));
 		verifyTextForElement(driver.findElement(By.xpath("//*[@id='current_onboarding_status']")), text);
 	}
@@ -158,6 +162,7 @@ public class CommonFeature extends BaseClass {
 	}
 
 	public void i_press(String text) {
+		longDelay();
 		iWillWaitToSee(By.linkText(text));
 		clickElement(driver.findElement(By.linkText(text)));
 	}
@@ -238,6 +243,12 @@ public class CommonFeature extends BaseClass {
 		delay();
 		iWillWaitToSee(By.xpath("//*[@id='s2id_episodeSelectionBox']/a/span"));
 		isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'" + facility + "')]")));
+	}
+
+	public void iNavigateOn(String uRL) {
+		driver.navigate().to(uRL);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
 	}
 
 }

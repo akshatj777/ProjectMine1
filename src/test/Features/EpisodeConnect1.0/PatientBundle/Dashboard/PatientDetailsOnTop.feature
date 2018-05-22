@@ -61,7 +61,10 @@ Feature: Patient Details on Patient overview page
     And I should see "Assign Form" under patient overview gear icon
     And I should see "Add New Clinician" under patient overview gear icon
     And I should see "Eligibility Verification" under patient overview gear icon
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
     When I click on episode marker drop down
+    And I will wait to see patient's name on patient summary page
     Then I will wait to see "ACTIVE" state
     Then I will wait to see onboarding status "Needs Onboarding"
     And I verify patient DOB Age Gender on patient summary page

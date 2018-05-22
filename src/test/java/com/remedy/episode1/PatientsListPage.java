@@ -371,7 +371,7 @@ public class PatientsListPage extends BaseClass {
 	}
 
 	public void iclickonNotEligibleESRDfrompatientslistpatientgearmenu() {
-		scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
+	//	scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
 		delay();
 		clickElement(driver.findElement(By.xpath("//a[contains(@ng-if,'notEligibleESRD')]")));
 	}

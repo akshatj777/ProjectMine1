@@ -498,13 +498,19 @@ public class DischargeCarlForm extends BaseClass {
 	}}
 
 	public void IenterrandomsocialsecuritynumberintheSSNtextboxfieldpresentontheAddPatientpage() {
-	 Random r = new Random( System.currentTimeMillis() );
-	 String ssn_start="9";
-	 int ssn_end=r.nextInt(90000000) + 10000000;
-     final_ssn=ssn_start+Integer.toString(ssn_end);
+     String firstSSN=Integer.toString(getRandomNumber(3000,8999));
+	 while(firstSSN.startsWith("666")||firstSSN.startsWith("000")||firstSSN.startsWith("400")){
+	  firstSSN=Integer.toString(getRandomNumber(3000,8999));
+	     }
+	 final_ssn=firstSSN+Integer.toString((int) (Math.random()*10))+Integer.toString(getRandomNumber(1000, 9999));
+	 System.out.println("$$$Final ssn is"+final_ssn);
 	 iFillInText(driver.findElement(By.cssSelector("#Patient_Details_ssn")),final_ssn);
 	 }
 	
+	public static int getRandomNumber(int min, int max) {
+	    return (int) Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
 	public void IenterduplicatesocialsecuritynumberintheSSNtextboxfieldpresentontheAddPatientpage() {
 	iFillInText(driver.findElement(By.cssSelector("#Patient_Details_ssn")),final_ssn);
 	}

@@ -27,7 +27,7 @@ Feature: Patient Matching Test Plan
     And I enter "City" in City on Add Patient page
     Then I select "Arizona" in State on Add Patient page
     And I enter "11011" in Zip on Add Patient page
-    And I enter "WA784654785" in the Medicare ID present on the Add Patient page
+    And I enter "WA784654785" value in the Medicare ID present on the Add Patient page
     Then I click on the next button present on the Add Patient page
     Then I verify "Primary Care Physician Information" text is present on the add patient page
     Then I click on the next button present on the Primary Care Physician Information page
@@ -57,7 +57,7 @@ Feature: Patient Matching Test Plan
     And I enter "11012" in Zip on Add Patient page
     Then I click on Add new button to add phone number
     And I enter "9856321407" in Number "0" on Add Patient page
-    And I enter "WA784654785" in the Medicare ID present on the Add Patient page
+    And I enter "WA784654785" value in the Medicare ID present on the Add Patient page
     Then I click on the next button present on the Add Patient page
     Then I should see "Found patient matching your criteria; view the patient page for more information" on patient found on add patient modal
 

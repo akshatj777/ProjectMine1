@@ -1,5 +1,5 @@
 @EC1Smoke
-Feature: Filters - Anchor Admit Date
+Feature: Filters - Anchor Admit Facility
 
   Scenario: Filtering results by using single widget
     Given I am on the login page
@@ -47,6 +47,7 @@ Feature: Filters - Anchor Admit Date
     And I search "anchor facility" from the list of Filter
     Then I click on the "Anchor facility" filter
     Then I will wait to see the "Anchor Facility" element xpath "//*[@id='filter-selector-anchor_facility']"
+    When I click "Add Filter" xpath element "//*[@id='filters-selector']"
     When I click "Anchor facility" element "#filter-selector-anchor_facility > div.dynamic-select-filter-widget > div"
     When I fill in Facility name with value "stamford hospital"
     When I click "Stamford Hospital - Stamford (STAMFORD, CT)" xpath element "//*[@id='uniform-dynamic_select_filter_anchor_facility_0']"

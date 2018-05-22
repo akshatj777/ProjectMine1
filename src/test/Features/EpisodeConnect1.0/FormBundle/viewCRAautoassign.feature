@@ -66,8 +66,9 @@ Feature: CRA Auto-assignment
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     Then I will wait to see onboarding status "Unknown"
-    Then I navigate to the "/secure/person/mongoID/overview"
-    And I will wait to see patient's name on patient summary page
+     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "1" days

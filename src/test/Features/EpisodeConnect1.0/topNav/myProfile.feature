@@ -9,8 +9,9 @@ Feature: Verification of My Profile
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
     And I switch to new window
-    When I move the mouse to user profile icon
-    Then I click on myprofile section under the profile icon
+  #  When I move the mouse to user profile icon
+ #   Then I click on myprofile section under the profile icon
+    Then I am on "/secure/person/5ae80383881213c6031a1aea/edit"
     And I wait untill i see "My Profile" is appearing on the profile page
     And I click on save changes button on the my profile page
     And I verify "First name required" as field validation on myprofile page

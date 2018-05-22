@@ -507,8 +507,17 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iEnterDetailsInTextFieldPresentOnAddPatientModal(String detailFileds, String patientDetails) {
-		iFillInText(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")), patientDetails);
-	}
+		  if(detailFileds.equals("medicareId")){
+		   String medicareID =  Integer.toString(DischargeCarlForm.getRandomNumber(100000000,999999999));
+		   medicareID = "WA"+medicareID;
+		   System.out.println(medicareID);
+		   iFillInText(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")), medicareID);
+		  }
+		  else{
+		   iFillInText(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")), patientDetails);
+		  }
+		 }
+
 
 	public void iSwitchToAddPatientEmbeddedIframe() {
 		switchToFrameByNameOrId("iFrameEC2PatientAdd");
@@ -1418,6 +1427,14 @@ public class PatientsPage extends BaseClass {
 		iWillWaitToSee(By.cssSelector("#eligibility_button"));
 		String actual = getTextForElement(driver.findElement(By.cssSelector("#eligibility_button"))).replaceAll("-","").trim();
 		Assert.assertEquals("Not Eligible – ESRD",actual);
+		
+	}
+
+	public void iEnterValueDetailsInTextFieldPresentOnAddPatientModal(String string, String medicareID) {
+		if(string.equals("medicareId")){
+		iFillInText(driver.findElement(By.cssSelector("#Patient_Details_" + string + "")), medicareID);
+	 }
+			 
 		
 	}
 	

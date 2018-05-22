@@ -46,6 +46,7 @@ Feature: Filters - Anchor Admit Date
     And I search "Anchor admit date" from the list of Filter
     Then I click on the "Anchor admit date" filter
     Then I will wait to see the "Anchor admit Date Filter" element xpath "//*[@id='filter-selector-admitted_anchor']"
+    When I click "Add Filter" xpath element "//*[@id='filters-selector']"
     And I press "Single"
     When I click "Anchor Admit dropdown" element "#filter-selector-admitted_anchor > div.btn-group>div.date-filter-widget"
     When I select "Anchor Admit date" patient list filter xpath "//*[@id='form_admitted_anchor_admitted_anchor_from']" with "-120"

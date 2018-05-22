@@ -47,6 +47,7 @@ Feature: Filters - Anchor Discharge Date
     And I search "Anchor discharge date" from the list of Filter
     Then I click on the "Anchor discharge date" filter
     Then I will wait to see the "Anchor discharge date" element xpath "//*[@id='filter-selector-discharged_anchor']"
+    When I click "Add Filter" xpath element "//*[@id='filters-selector']"
     And I press "Single"
     When I click "Anchor Discharge dropdown" element "#filter-selector-discharged_anchor >div.btn-group>div.date-filter-widget"
     When I select "Anchor Discharge date" patient list filter xpath "//*[@id='form_discharged_anchor_discharged_anchor_from']" with "-119"

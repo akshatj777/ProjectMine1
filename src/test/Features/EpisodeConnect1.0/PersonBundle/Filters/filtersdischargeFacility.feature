@@ -51,6 +51,7 @@ Feature: Filters - Anchor Facility
     And I search "anchor discharge facility" from the list of Filter
     Then I click on the "Anchor discharge facility" filter
     Then I will wait to see the "Anchor discharge facility" element xpath "//*[@id='filter-selector-anchor_dicharge_facility']"
+    When I click "Add Filter" xpath element "//*[@id='filters-selector']"
     When I click "Anchor Discharge dropdown" element "#filter-selector-anchor_dicharge_facility >div.btn-group>div"
     When I fill in Discharge Facility name with value "stamford hospital"
     When I click "Stamford Hospital - Stamford (STAMFORD, CT)" xpath element "//*[@id='uniform-dynamic_select_filter_anchor_dicharge_facility_0']"

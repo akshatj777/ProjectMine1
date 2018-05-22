@@ -51,6 +51,11 @@ public class CommonFeatureSteps extends DriverScript {
 		common.iAmOn(URL);
 	}
 
+	@And("^I navigate on \"([^\"]*)\"$")
+	public void i_navigate_On(String URL) {
+		common.iNavigateOn(URL);
+	}
+	
 	@Then("^I search \"([^\"]*)\" from the list of Filter$")
 	public void i_Search_Filter(String Filter) {
 		common.iSearchFilter(Filter);

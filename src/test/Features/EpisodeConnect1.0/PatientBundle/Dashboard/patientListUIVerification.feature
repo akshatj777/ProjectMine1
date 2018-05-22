@@ -35,7 +35,7 @@ Feature: Patient List - Tabs - Patient List Card View
     And I verify "Blue" color with code "#4b8df8" should be followed for onboarding status "Needs Onboarding"
     And I verify "Orange" color with code "#e87e04" should be followed for onboarding status "Not-Onboarded"
     And I verify "Green" color with code "#35aa47" should be followed for onboarding status "Onboarded"
-    When I click "Onboarding status" xpath element "//*[@id='current_onboarding_status_container']"
+    Then I refresh the page
     And I verify "Grey" color with code "#bfbfbf" should be followed for onboarding status "Unknown"
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
@@ -48,9 +48,9 @@ Feature: Patient List - Tabs - Patient List Card View
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
-    Then I will wait to see onboarding status "Needs Onboarding" 
     And I should see details "Stamford - Stamford Hospital" on patients overview page
     And I should see details "ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC (63)" on patients overview page
     And I should see details "Initiator: Stamford - Stamford Hospital" on patients overview page
     And I should see details "Account not activated" on patients overview page
     And I should see details "Error" on patients overview page
+     Then I will wait to see onboarding status "Needs Onboarding" 
