@@ -50,6 +50,7 @@ public class PatientEligiblity extends BaseClass {
 	}
 
 	public void Ishouldseetag(String tag) {
+		longDelay();
 		iWillWaitToSee(By.xpath("//*[@id='eligibility_button']"));
 		verifyTextForElement(driver.findElement(By.xpath("//*[@id='eligibility_button']")), tag);
 	}

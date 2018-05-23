@@ -321,13 +321,15 @@ public class PatientsListPage extends BaseClass {
 	}
 
 	public void iverifypatientcountlessthan1000(String operand) {
-		delay();
+		longDelay();
+		longDelay();
 		iWillWaitToSee(By.cssSelector("div.count_info"));
 		longDelay();
 		String patient_count = getTextForElement(driver.findElement(By.cssSelector("div.count_info")));
 		String[] sp = patient_count.split(" ");
 		String count_in_string = sp[5].replaceAll(",", "");
 		int exact_count = Integer.parseInt(count_in_string);
+		System.out.println(+exact_count);
 		if (operand.equals("less")) {
 			Assert.assertTrue(exact_count < 1000);
 		} else if (operand.equals("greater")) {
@@ -434,6 +436,7 @@ public class PatientsListPage extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//a[contains(@symfony-routing,'new_appointment_form')]")));
 		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
 		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
+		delay();
 	}
 
 	public void switchbacktooldwindowfromECwindow() {
@@ -479,5 +482,15 @@ public class PatientsListPage extends BaseClass {
     	}
 		
 	}
+
+	public void clickcustom() {
+		delay();
+		iWillWaitToSee(By.xpath("//*[@id=\"filterTab_custom\"]"));
+		clickElement(driver.findElement(By.xpath("//*[@id=\"filterTab_custom\"]")));
+		try {
+		new WebDriverWait(driver,1000).until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".dataTables_processing")));
+	}catch(Exception e) {
+		delay();
+	}}
 
 }

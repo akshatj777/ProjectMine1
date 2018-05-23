@@ -51,7 +51,7 @@ Feature: Activity List
 	And I should see "Hl7" buttons under Recent Activity
 	And I should see "Notifications" buttons under Recent Activity
 	Then I click on "Notifications" button under Recent Activity
-	And I should see "New Episode has been created" in Notification column on Recent Activity Notification tab 
+  #And I should see "New Episode has been created" in Notification column on Recent Activity Notification tab 
 	And I should see "USERINFO ADMINONE" in By column on Recent Activity Notification tab 
 	And I click on View Changes under Activity
 	And I should see "id" under chnages in view changes

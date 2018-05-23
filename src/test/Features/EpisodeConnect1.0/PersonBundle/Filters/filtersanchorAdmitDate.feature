@@ -42,6 +42,7 @@ Feature: Filters - Anchor Admit Date
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I will see patient name title on the patient card
     When I click "Add Filter" xpath element "//*[@id='filters-selector']"
     And I search "Anchor admit date" from the list of Filter
     Then I click on the "Anchor admit date" filter

@@ -22,7 +22,32 @@ Feature: Patient list action
     And I enter "WA784654785" in the Medicare ID present on the Add Patient page
     Then I click on the next button present on the Add Patient page
     Then I click on the next button present on the Primary Care Physician Information page
+  
+
+  Scenario: Verify Add Form(s) from Patient List
     And I will wait to see "New Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "1" days
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I click on the Create Transition Button to add a new transition
+    And I will wait to see "Attestation" in "span" tag
+    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
+    And I will wait to see patient's name on patient summary page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    And I click on first patient gear menu
+    When I click on Add Forms from patients list patient gear menu
+    Then I verify "Assign New Form" header on popup
+    Then I select "Clinical Risk Assessment" from "Form Type" by xpath "//*[@id='bp_personbundle_addnewformratype_formType']"
+    And I click on "Assign" button
+    Then I scroll the page to bottom by "-600"
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    And I verify "Needs Onboarding" onboarding status on patient list page
+    Then I navigate to the "/secure/person/mongoID/careflow#/careFlowForms"
+    And I should see "Clinical Risk Assessment" in Assigned forms under Care Plan on Patient page
+
+  Scenario: Add New Clinician for specific patient from patient list
+     And I will wait to see "New Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "1" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
@@ -34,19 +59,6 @@ Feature: Patient list action
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
-
-  Scenario: Verify Add Form(s) from Patient List
-    And I click on first patient gear menu
-    When I click on Add Forms from patients list patient gear menu
-    Then I verify "Assign New Form" header on popup
-    Then I select "Clinical Risk Assessment" from "Form Type" by xpath "//*[@id='bp_personbundle_addnewformratype_formType']"
-    And I click on "Assign" button
-    And I refresh the page
-    And I verify "Needs Onboarding" onboarding status on patient list page
-    Then I navigate to the "/secure/person/mongoID/careflow#/careFlowForms"
-    And I should see "Clinical Risk Assessment" in Assigned forms under Care Plan on Patient page
-
-  Scenario: Add New Clinician for specific patient from patient list
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I click on first patient gear menu
     When I click on Add New Clinician from patients list patient gear menu

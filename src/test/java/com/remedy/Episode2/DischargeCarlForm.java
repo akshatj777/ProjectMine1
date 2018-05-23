@@ -499,7 +499,7 @@ public class DischargeCarlForm extends BaseClass {
 
 	public void IenterrandomsocialsecuritynumberintheSSNtextboxfieldpresentontheAddPatientpage() {
      String firstSSN=Integer.toString(getRandomNumber(3000,8999));
-	 while(firstSSN.startsWith("666")||firstSSN.startsWith("000")||firstSSN.startsWith("400")){
+	 while(firstSSN.startsWith("666")||firstSSN.startsWith("000")||firstSSN.startsWith("400")||firstSSN.startsWith("825")){
 	  firstSSN=Integer.toString(getRandomNumber(3000,8999));
 	     }
 	 final_ssn=firstSSN+Integer.toString((int) (Math.random()*10))+Integer.toString(getRandomNumber(1000, 9999));

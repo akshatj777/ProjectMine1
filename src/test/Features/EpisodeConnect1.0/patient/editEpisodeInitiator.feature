@@ -106,6 +106,8 @@ Feature: Episode connect 1 edit Episode
     Then I select the "Discharge" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "89" to show end date and Episode Status "ACTIVE"
     And I will wait to see "Episode Initiator" in "th" tag

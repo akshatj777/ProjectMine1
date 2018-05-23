@@ -46,6 +46,7 @@ Feature: Episode Connect export patient list
     Then I should see Episode header text "Dashboard"
     And I am on "/secure/pn/patientslist"
     Then I should see patient list count info present on the patient list page
+    Then I click Custom on patient list
     Then I verify the patient count is "greater" than 1000 on the patient list page
     Then I verify export button is present on the patient list page
     Then I click on the export button present on the patient list page
@@ -63,6 +64,7 @@ Feature: Episode Connect export patient list
     Then I should see Episode header text "Dashboard"
     And I am on "/secure/pn/patientslist"
     Then I should see patient list count info present on the patient list page
+    Then I click Custom on patient list
     Then I verify the patient count is "greater" than 1000 on the patient list page
     And I am on "/secure/pn/patientslist#/filterId=custom&ssn=123456789&"
     And I will wait to see "Showing 0 to 0 of 0 results" in "div" tag

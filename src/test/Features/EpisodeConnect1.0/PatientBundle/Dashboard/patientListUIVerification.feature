@@ -48,6 +48,8 @@ Feature: Patient List - Tabs - Patient List Card View
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
     And I should see details "Stamford - Stamford Hospital" on patients overview page
     And I should see details "ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC (63)" on patients overview page
     And I should see details "Initiator: Stamford - Stamford Hospital" on patients overview page

@@ -42,6 +42,7 @@ Feature: Filters - Care Setting
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I will see patient name title on the patient card    
     When I click "Care Setting" xpath element "//span[text()='Care Setting']"
     When I fill in "Search box" xpath "//div[@class='btn-group pull-left open']//input[@id='name']" with "Hospital"
     And I click on "(Hospital) Inpatient" under Care Setting filter

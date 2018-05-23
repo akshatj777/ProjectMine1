@@ -47,6 +47,7 @@ Feature: Filters - Anchor Facility
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+     Then I will see patient name title on the patient card
     When I click "Add Filter" xpath element "//*[@id='filters-selector']"
     And I search "anchor discharge facility" from the list of Filter
     Then I click on the "Anchor discharge facility" filter

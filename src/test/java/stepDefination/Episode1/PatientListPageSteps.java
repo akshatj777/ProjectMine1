@@ -75,6 +75,11 @@ public class PatientListPageSteps extends DriverScript {
     public void i_should_see_patient_list_count_info_present_on_the_patient_list_page() throws Throwable {
     	patientsList.iShouldSeePatientListCountInfoPresentOnThePatientListPage();
     }
+    
+    @Then ("^I click Custom on patient list$")
+    public void click_custom() {
+    	patientsList.clickcustom();
+    }
 
     @Then("^I verify export button is present on the patient list page$")
     public void i_verify_export_button_is_present_on_the_patient_list_page() throws Throwable {

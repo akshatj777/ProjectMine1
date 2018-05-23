@@ -178,8 +178,13 @@ public class ReadmissionWorklist extends BaseClass {
 		iWillWaitToSee(By.cssSelector("#submitButton"));
          Actions actions = new Actions(driver);
          actions.moveToElement(driver.findElement(By.cssSelector("#submitButton"))).build().perform();
+         delay();
          clickElement(driver.findElement(By.cssSelector("#submitButton")));
-         new WebDriverWait(driver,10).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='ajax-modal-lg']/div/div/div[3]/div/span")));
+         try {
+         new WebDriverWait(driver,10).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='ajax-modal-lg']/div/div/div[3]/div/span")));}
+         catch(Exception e) {
+        	 delay();
+         }
          longDelay();
 	}
 
