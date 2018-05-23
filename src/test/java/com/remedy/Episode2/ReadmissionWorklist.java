@@ -180,6 +180,7 @@ public class ReadmissionWorklist extends BaseClass {
          actions.moveToElement(driver.findElement(By.cssSelector("#submitButton"))).build().perform();
          delay();
          clickElement(driver.findElement(By.cssSelector("#submitButton")));
+         longDelay();
          try {
          new WebDriverWait(driver,10).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='ajax-modal-lg']/div/div/div[3]/div/span")));}
          catch(Exception e) {
@@ -263,6 +264,11 @@ public class ReadmissionWorklist extends BaseClass {
 		iWillWaitToSee(By.cssSelector(css));
 		selectDropdownVisibleElement(css,value);
 		delay();
+		try {
+		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+		}catch(Exception e) {
+		return;
+		}
 	  }
 
 	public void Iselectthefacilityonaddanewtransition(String admissiontype,String facilityvalue,String locator) {

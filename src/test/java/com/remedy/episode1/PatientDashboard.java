@@ -128,6 +128,7 @@ public class PatientDashboard extends BaseClass {
 	}
 
 	public void iVerifyTaskDescriptionUnderTaskInCarePlan(String text) {
+		longDelay();
 		iWillWaitToSee(By.xpath("//div[contains(@class,'collapse-text') and text()='" + text + "']"));
 	}
 

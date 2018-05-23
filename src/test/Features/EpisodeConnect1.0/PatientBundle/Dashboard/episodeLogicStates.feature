@@ -97,6 +97,9 @@ Feature: Managing Various Episode States (Potential & Potential Cancelled)
     Then I select the "177" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "POTENTIAL MODEL 3" state
     Then I verify Episode Marker with Admit Date "1" is created without end date
@@ -139,6 +142,9 @@ Feature: Managing Various Episode States (Potential & Potential Cancelled)
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "177" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
+    And I will wait to see patient's name on patient summary page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "POTENTIAL MODEL 3" state

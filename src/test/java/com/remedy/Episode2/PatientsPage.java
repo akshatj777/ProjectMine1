@@ -507,7 +507,8 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iEnterDetailsInTextFieldPresentOnAddPatientModal(String detailFileds, String patientDetails) {
-		  if(detailFileds.equals("medicareId")){
+		delay(); 
+		if(detailFileds.equals("medicareId")){
 		   String medicareID =  Integer.toString(DischargeCarlForm.getRandomNumber(100000000,999999999));
 		   medicareID = "WA"+medicareID;
 		   System.out.println(medicareID);
@@ -541,6 +542,7 @@ public class PatientsPage extends BaseClass {
 		iFillInText(driver.findElement(By.cssSelector("div.select2-search>input.select2-input")), facility);
 		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".select2-searching"))));
 		driver.findElements(By.xpath("//div[@id='select2-drop']//ul/li")).get(0).click();
+		delay();
 	}
 	
 	public void iSelectFromTheListOfAddressTypePresentOnTheAddPatientPage(String type) {
@@ -692,6 +694,8 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnEditButtonPresentOnThePatientOverviewPage() {
+		iWillWaitToSee(By.cssSelector("table#ui-transitions-table>tbody>tr>td>a"));
+		delay();
 		clickElement(driver.findElement(By.cssSelector("table#ui-transitions-table>tbody>tr>td>a")));
 	}
 

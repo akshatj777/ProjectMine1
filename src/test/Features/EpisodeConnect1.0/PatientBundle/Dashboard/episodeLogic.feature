@@ -83,6 +83,9 @@ Feature: Managing Various Episode States
     Then I Expand to the patient summary page
     And I will wait to see patient's name on patient summary page
     When I click anchor transition delete link "1"
+    Then I will wait to see "No data available in table" in "td" tag
+    And I will wait to see patient's name on patient summary page
+    When I reload the page
     And I will wait to see patient's name on patient summary page
     Then I will not see "Episode Marker" xpath element "//*[@id='s2id_episodeSelectionBox']"
 
