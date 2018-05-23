@@ -24,7 +24,6 @@ public class CreateBundlePaymentContracts extends BaseClass{
 	public void iVerifyDateFieldsOnCreateContractsPage(String text, String action){
 		if(text.contains("Start Date"))
 		{
-			//verifyTextForElement(driver.findElement(By.xpath("//div[@class='react-datepicker-input-field-container start-date-picker ']")), text);
 			isElementPresent(By.xpath("//div[@class='react-datepicker-input-field-container start-date-picker ']"));
 		}
 		else if(action.equals("Baseline_Start_Date"))

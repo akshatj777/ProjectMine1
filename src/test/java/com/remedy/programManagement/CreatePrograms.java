@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -16,8 +15,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -26,7 +23,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import com.remedy.baseClass.BaseClass;
 import com.remedy.resources.DriverScript;
 
@@ -40,28 +36,21 @@ public class CreatePrograms extends BaseClass {
 		super(driver);
 	}
 	
-	Actions build= new Actions(driver);
-	
-	
 	public void iVerifyMessageAfterSubmittingCreateOrganizationPageUnderPayorOrganization(String msg, String org) {
-		
-//		if(driver.findElements(By.cssSelector(".alert.alert-dismissible.alert-success>div")).size() > 0)	
-//		{
-			if(org.contains("Programs")){
-				iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>div"));
-				verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>div")), msg);
-				if(!CreatePrograms.tempPrograms.isEmpty())
-				{
-					CreatePrograms.programs.putAll(CreatePrograms.tempPrograms);
-					CreatePrograms.tempPrograms.clear();
-				}
-				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		if(org.contains("Programs")){
+			iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>div"));
+			verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>div")), msg);
+			if(!CreatePrograms.tempPrograms.isEmpty())
+			{
+				CreatePrograms.programs.putAll(CreatePrograms.tempPrograms);
+				CreatePrograms.tempPrograms.clear();
 			}
-			else if(org.contains("Contracts")){
-				iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>div"));
-				verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>div")), msg);
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			}
-		//}
+		else if(org.contains("Contracts")){
+			iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>div"));
+			verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>div")), msg);
+		}
 		else 
 		   {
 		    	iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
@@ -89,7 +78,6 @@ public class CreatePrograms extends BaseClass {
 	
 	public void iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(String text, String act) {
 		verifyTextForElement(driver.findElement(By.xpath("//div[@class='col-sm-11 row contract-indicator']//div[contains(text(),'Contract')]")), text);
-		//driver.findElement(By.xpath("//div[@class='col-sm-11 row contract-indicator']//div[contains(text(),'Contract')]")).getText();
 	}
 	
 	public void iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
@@ -105,8 +93,6 @@ public class CreatePrograms extends BaseClass {
 	
 	public void iSelectOrganizationNameOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
 	{
-		//driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-		//longDelay();
 		if(!text.equals(""))
 		{
 			if(text.contains("ACHNAME - NO"))
@@ -195,7 +181,6 @@ public class CreatePrograms extends BaseClass {
 		delay();
 		scrollIntoViewByJS(driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")));
 		driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-//		delay();
 		iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input"));
 		if(text.equals("FETCHFROMAPI"))
 		{
@@ -264,63 +249,7 @@ public class CreatePrograms extends BaseClass {
 		                element, attName, attValue);
 		    }
 	
-	public void iInsertdays1(List<Map<String,Integer>> data) throws ParseException {
-		List<WebElement> startelemnts = null;
-		List<WebElement> endelemnts = null;
-		for(int i=0;i<data.size();i++)
-		{
-			startelemnts=driver.findElements(By.xpath("//label[@class='date-picker-input-label' and text()='Enter the start date']"));
-			endelemnts=driver.findElements(By.xpath("//label[@class='date-picker-input-label' and text()='YYYY/MM/DD']"));
-		}
-		for(int i=0;i<data.size();i++)
-		{
-			scrollIntoViewByJS(startelemnts.get(i));
-			handleDatepicker(data.get(i).get("Start Date"),startelemnts.get(i));
-			handleDatepicker(data.get(i).get("End Date"),endelemnts.get(i));
-		}
-	}			
-
-	public void handleDatepicker(int date1,WebElement element) throws ParseException 
-	{
-		System.out.println(date1);
-		String newDate=currentdate(date1,"yyyy/MM/dd");
-		Date convertedDate=covertStringtoInt(newDate);
-		String date3=convertedDate.toString();
-		System.out.println(date3);
-		String year=getLastnCharacters(date3,4);
-		String date6=date3.substring(4,7);
-	    System.out.println("String is"+year);
-	    System.out.println("month is"+date6);
-	    element.click();
-	    WebElement midtext = driver.findElement(By.cssSelector("div.react-datepicker__current-month")); 
-	    String yeartext=midtext.getText();
-	    String date44=getLastnCharacters(newDate,2);
-	    if(year.equals(getLastnCharacters(yeartext,4)) && date6.equals(yeartext.substring(0, 3)))
-	    {
-	    	clickElement(driver.findElement(By.xpath("//div[contains(@class,'react-datepicker__month')]/div[contains(@class,'react-datepicker__week')]/div[contains(@class,'react-datepicker__day') and not(contains(@class,'react-datepicker__day--outside')) and text()='"+date44+"']")));
-	         delay();
-	    }
-	    else
-	    {
-	    	driver.findElement(By.cssSelector(".react-datepicker__navigation.react-datepicker__navigation--previous")).click();
-	    	delay();
-	    	clickElement(driver.findElement(By.xpath("//div[contains(@class,'react-datepicker__month')]/div[contains(@class,'react-datepicker__week')]/div[contains(@class,'react-datepicker__day') and not(contains(@class,'react-datepicker__day--outside')) and text()='"+date44+"']")));
-	    }
-	}
-	
-	public Date covertStringtoInt(String source) throws ParseException{
-		DateFormat formatter =new SimpleDateFormat("yyyy/MM/dd");
-		Date convertedDate =(Date) formatter.parse(source);
-		return convertedDate;
-	}
-	
-	public void i_navigate_to_the(String url) {
-		driver.navigate().to(url);
-		 longDelay();
-	}
-	
-	public String getLastnCharacters(String inputString, int subStringLength)
-	{
+	public String getLastnCharacters(String inputString, int subStringLength){
 		int length = inputString.length();
 		if(length <= subStringLength)
 		{
@@ -341,7 +270,6 @@ public class CreatePrograms extends BaseClass {
 	
 	public void iClickOnCheckboxeForAttributionRulesOnCreatePrograms(String text)
 	{
-		//clickElement(driver.findElement(By.xpath("//li[text()='"+text+"']/child::input")));
 		WebElement element= driver.findElement(By.xpath("//li[text()='"+text+"']/child::input"));
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", element);
@@ -376,15 +304,9 @@ public class CreatePrograms extends BaseClass {
 			Assert.assertEquals(result,CreatePrograms.programs.get(1));
 		}
 		else if(field.contains("Start Date")){
-//			result = getTextForElement(driver.findElement(By.xpath("//div[@class='start-date']")));
-//			result = result.substring(result.indexOf(":")+1);
-//			Assert.assertEquals(result,text);
 			isElementPresent(By.xpath("//div[@class='start-date']"));
 		}
 		else if(field.contains("End Date")){
-//			result = getTextForElement(driver.findElement(By.xpath("//div[@class='end-date']")));
-//			result = result.substring(result.indexOf(":")+1);
-//			Assert.assertEquals(result,text);
 			isElementPresent(By.xpath("//div[@class='end-date']"));
 		}
 	}
@@ -408,7 +330,6 @@ public class CreatePrograms extends BaseClass {
 			int year = cal.get(Calendar.YEAR);
 			int iMonth = cal.get(Calendar.MONTH);
 			String month = arrMonth[iMonth];
-			//iMonth = iMonth + 1;
 			int day = cal.get(Calendar.DAY_OF_MONTH);
 			List<WebElement> startDate = driver.findElements(By.xpath("//label[@class='date-picker-input-label']"));
 			scrollIntoViewByJS(startDate.get(index));
@@ -635,7 +556,6 @@ public class CreatePrograms extends BaseClass {
 		if(field.equals("Start Date"))
 		{
 			delay();
-			//clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']")));
 			WebElement element = driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//button[@class='react-datepicker__close-icon']"));
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", element);
@@ -644,7 +564,6 @@ public class CreatePrograms extends BaseClass {
 		else if(field.equals("Contract_Start_Date"))
 		{
 			delay();
-			//clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']")));
 			WebElement element = driver.findElement(By.xpath("//div[@class='start-date-end-date-block col-sm-9']//button[@class='react-datepicker__close-icon']"));
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", element);
@@ -653,7 +572,6 @@ public class CreatePrograms extends BaseClass {
 		else if(field.equals("Bundle_Start_Date"))
 		{
 			delay();
-			//clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']")));
 			WebElement element = driver.findElement(By.xpath("//div[@class='start-date-end-date-block col-sm-7']//button[@class='react-datepicker__close-icon']"));
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", element);
@@ -662,7 +580,6 @@ public class CreatePrograms extends BaseClass {
 		else if(field.equals("Bundle_Price_Start_Date"))
 		{
 			delay();
-			//clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']")));
 			WebElement element = driver.findElement(By.xpath("//div[@class='start-date-end-date-block col-sm-6']//button[@class='react-datepicker__close-icon']"));
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", element);
@@ -671,7 +588,6 @@ public class CreatePrograms extends BaseClass {
 		else
 		{
 			delay();
-			//clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container end-date-picker ']//a[@class='react-datepicker__close-icon']")));
 			WebElement element = driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container end-date-picker ']//button[@class='react-datepicker__close-icon']"));
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", element);
@@ -850,17 +766,6 @@ public class CreatePrograms extends BaseClass {
 				Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".react-select-option-row.highlight>div")));
 			}
 		}
-//		else if(org.equals("Bundle_2"))
-//		{
-//			delay();
-//			scrollIntoViewByJS(driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")));
-//			driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-////		delay();
-//			iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input"));
-//			driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(CreateBundleAPI.bundleNameList.get(0).substring(1, CreateBundleAPI.bundleNameList.get(0).length()-1));
-//			iWillWaitToSee(By.cssSelector(".react-select-option-row.highlight>div"));
-//			Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".react-select-option-row.highlight>div")));
-//		}
 	}
 	
 	public void iClickOnCancelSearchButton()
@@ -927,14 +832,7 @@ public class CreatePrograms extends BaseClass {
 				 iWillWaitToSee(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]"));
 				 Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
 			}
-//			else if (value.equals("ACHNAME - YES")){
-//				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), CreateACHOrganization.achOrg.get("ACHNAME"));
-//				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-//				  value = CreateACHOrganization.achOrg.get("ACHNAME");
-//				  iWillWaitToSee(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]"));
-//				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
-//			  }
-			  else if (value.equals("ACHNAME")){
+			 else if (value.equals("ACHNAME")){
 				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
 				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				  value = CreateACHOrganization.achOrg_noMO.get("ACHNAME");
@@ -997,7 +895,6 @@ public class CreatePrograms extends BaseClass {
 	
 	public void iClickonDatePickerCloseIcon(){
 		longDelay();
-		//scrollIntoViewByJS(driver.findElement(By.cssSelector(".react-datepicker__close-icon")));
 		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='react-datepicker__close-icon']")));
 		clickElement(driver.findElement(By.xpath("//a[@class='react-datepicker__close-icon']")));
 	}
@@ -1089,7 +986,7 @@ public class CreatePrograms extends BaseClass {
 	        }
 	        String a = Integer.toString(rs.getRow());
 	        row.put(a, column);
-	        }
+	     }
 	    String pID = row.get("1").get("id");
 	    con.close();
 	    return pID;

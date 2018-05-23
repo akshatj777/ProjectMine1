@@ -1,13 +1,11 @@
 package com.remedy.programManagement;
 
 import junit.framework.Assert;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import com.remedy.baseClass.BaseClass;
 
 public class PhysicianRoster extends BaseClass{
@@ -75,17 +73,16 @@ public class PhysicianRoster extends BaseClass{
 	}
 	
 	public void iSelectaPhysicianonCreatePhysicianRosterPage(int numberOfPractitioners, String text, String act){
-		//driver.findElement(By.xpath("//div[text()='Select...']")).click();
 		WebElement element = driver.findElement(By.xpath("//div[text()='Select...']"));
 		JavascriptExecutor executor = (JavascriptExecutor)driver;
 		executor.executeScript("arguments[0].click();", element);
 		longDelay();
 			if(text.equals("FETCHFROMAPI"))
 			{
-					driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioners-1).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioners-1).toString().length()-1));
-					longDelay();
-					driver.findElements(By.cssSelector(".practitioner-field.npi")).get(numberOfPractitioners-1).click();
-					longDelay();
+				driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioners-1).toString().substring(1, CreatePractictionerAPI.practitionerNameList.get(numberOfPractitioners-1).toString().length()-1));
+				longDelay();
+				driver.findElements(By.cssSelector(".practitioner-field.npi")).get(numberOfPractitioners-1).click();
+				longDelay();
 			}
 			else
 			{
@@ -97,7 +94,6 @@ public class PhysicianRoster extends BaseClass{
 	}
 	
 	public void iClickOnAddPhysicianButton(String text, String act){
-		//clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
 		 delay();
 		 WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
 		 scrollIntoViewByJS(element);
@@ -121,7 +117,7 @@ public class PhysicianRoster extends BaseClass{
 			iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
 			verifyTextForElement(driver.findElement(By.xpath("//div[text()='"+text+"']")), text);
 		}
-}
+	}
 	
 	public void iVerifyDateAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(String text){
 		verifyTextForElement(driver.findElement(By.xpath("//label[text()='"+text+"']")), text);
@@ -145,7 +141,6 @@ public class PhysicianRoster extends BaseClass{
 			longDelay();
 			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+value+"']")));
 		}
-		
 	}
 	
 	public void iVerifyTheErrorMessageForInvalidSearchInSelectaPhysicianDropdownBox(String text)

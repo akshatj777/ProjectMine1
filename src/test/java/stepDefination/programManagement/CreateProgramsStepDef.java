@@ -1,14 +1,8 @@
 package stepDefination.programManagement;
 
-import java.text.ParseException;
-import java.util.List;
-import java.util.Map;
-
 import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.programManagement.CreatePrograms;
 import com.remedy.resources.DriverScript;
-
-import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
@@ -60,12 +54,6 @@ public class CreateProgramsStepDef extends DriverScript{
 	  public void i_Enter_For_Bundle_Price1_on_Create_Contracts_Page(String text, String field, String act) throws Throwable {
 		programs.iEnterDetailsOnCreateContractPage(text, field, act);
 	    }
-	
-	@Then ("^I select the date from date picker with logic \"([^\"]*)\" days from current date$")
-	public void i_insert_days(String logic,DataTable dates) throws ParseException{
-		List<Map<String,Integer>> data = dates.asMaps(String.class,Integer.class);
-		programs.iInsertdays1(data);
-       }
 	
 	@Then ("^I Click on \"([^\"]*)\" button$")
 	public void i_Click_on_Addbundle_Button(String text){
@@ -201,6 +189,4 @@ public class CreateProgramsStepDef extends DriverScript{
 	  public void i_Verify_HeaderText_On_Create_Organization_Page(String text, String action) throws Throwable {
 		 createMO.iVerifyHeaderTextOnCreateOrganizationPage(text);
 	    }
-	
-
 }
