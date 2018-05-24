@@ -265,7 +265,7 @@ public class ReadmissionWorklist extends BaseClass {
 		selectDropdownVisibleElement(css,value);
 		delay();
 		try {
-		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#ajax-modal-lg > div.blockUI.blockMsg.blockElement > div > span"))));
 		}catch(Exception e) {
 		return;
 		}
@@ -282,6 +282,7 @@ public class ReadmissionWorklist extends BaseClass {
 		WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
 		js.executeScript("arguments[0].click();", element2);
 		iFillInText(element2,facilityvalue);
+		delay();
 		iWillWaitToSee(By.cssSelector("li.select2-highlighted"));
 		actions.moveToElement(driver.findElement(By.cssSelector("li.select2-highlighted"))).click().perform();
 		

@@ -509,8 +509,8 @@ public class PatientsPage extends BaseClass {
 	public void iEnterDetailsInTextFieldPresentOnAddPatientModal(String detailFileds, String patientDetails) {
 		delay(); 
 		if(detailFileds.equals("medicareId")){
-		   String medicareID =  Integer.toString(DischargeCarlForm.getRandomNumber(100000000,999999999));
-		   medicareID = "WA"+medicareID;
+		//   String medicareID =  Integer.toString(DischargeCarlForm.getRandomNumber(100000000,999999999));
+		   String medicareID ="WA"+DischargeCarlForm.final_ssn;
 		   System.out.println(medicareID);
 		   iFillInText(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")), medicareID);
 		  }
@@ -542,7 +542,7 @@ public class PatientsPage extends BaseClass {
 		iFillInText(driver.findElement(By.cssSelector("div.select2-search>input.select2-input")), facility);
 		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".select2-searching"))));
 		driver.findElements(By.xpath("//div[@id='select2-drop']//ul/li")).get(0).click();
-		delay();
+		longDelay();
 	}
 	
 	public void iSelectFromTheListOfAddressTypePresentOnTheAddPatientPage(String type) {
@@ -1279,7 +1279,8 @@ public class PatientsPage extends BaseClass {
 	
 	public void iShouldSeeSelectedEligibility(String text) {
 		longDelay();
-		iWillWaitToSee(By.cssSelector("#eligibility_button"));
+		iWillWaitToSee(By.xpath("//*[@id='eligibility_button' and normalize-space(text()='"+text+"')]"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='eligibility_button' and normalize-space(text()='"+text+"')]")));
 		String actual = getTextForElement(driver.findElement(By.cssSelector("#eligibility_button"))).trim();
 		Assert.assertEquals(text, actual);
 	}

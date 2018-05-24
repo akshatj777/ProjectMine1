@@ -291,6 +291,8 @@ public class PatientsListPage extends BaseClass {
 
 	public void iVerifyEligibilityOnPatientList(String text) {
 		longDelay();
+		iWillWaitToSee(By.xpath("//div[contains(@class,'col-md-2 two-rows ng-binding') and normalize-space(text()='"+text+"')]"));
+		isElementVisible(driver.findElement(By.xpath("//div[contains(@class,'col-md-2 two-rows ng-binding') and normalize-space(text()='"+text+"')]")));
 		String actual = driver.findElements(By.cssSelector(".col-md-2.two-rows.ng-binding")).get(0).getText();
 		actual = actual.substring(actual.indexOf("Eligibility") + 1).trim();
 		Assert.assertTrue(actual.contains(text));

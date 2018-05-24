@@ -141,6 +141,7 @@ public class PatientDetails extends BaseClass {
 
 	public void verifyerrorinDOD(String error) {
 		delay();
+		iWillWaitToSee(By.cssSelector("span.help-block"));
 		verifyTextForElement(driver.findElement(By.cssSelector("span.help-block")), error);
 	}
 

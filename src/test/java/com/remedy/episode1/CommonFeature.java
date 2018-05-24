@@ -33,8 +33,13 @@ public class CommonFeature extends BaseClass {
 		clickElement(element);
 	}
 
-	public void iClickXpathElement(String locator) {
+	public void iClickXpathElement(String text,String locator) {
 		delay();
+		try{
+	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#ajax-modal-lg > div > div.blockUI.blockMsg.blockElement > div > span"))));
+        }catch(Exception e){
+        delay();	 
+        }	
 		iWillWaitToSee(By.xpath("" + locator + ""));
 		WebElement element = driver.findElement(By.xpath(locator));
 		clickElement(element);
@@ -70,7 +75,11 @@ public class CommonFeature extends BaseClass {
 		Thread.sleep(1000);
 		isElementVisible(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));	
 		}else if(text.equals("New Transition")){
-	    longDelay();
+	    try{
+		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#ajax-modal-lg > div.blockUI.blockMsg.blockElement > div > span"))));
+	    }catch(Exception e){
+	    delay();	 
+	    }delay();
 		iWillWaitToSee(By.xpath("//" + tag + "[contains(text(),'" + text + "')]"));
 		isElementVisible(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));	
 		}else{
@@ -86,8 +95,9 @@ public class CommonFeature extends BaseClass {
 	}
 
 	public void iAmOn(String uRL) {
+		delay();
 		driver.navigate().to(BaseURL + uRL);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 
 	public void iSearchFilter(String filter) {

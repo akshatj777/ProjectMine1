@@ -19,7 +19,7 @@ public class CommonFeatureSteps extends DriverScript {
 
 	@When("^I click \"([^\"]*)\" xpath element \"([^\"]*)\"$")
 	public void i_Click_Xpath_Element(String text, String locator) {
-		common.iClickXpathElement(locator);
+		common.iClickXpathElement(text,locator);
 	}
 
 	@When("^I will wait to see value \"([^\"]*)\" in element \"([^\"]*)\"$")

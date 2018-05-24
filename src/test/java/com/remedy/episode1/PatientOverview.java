@@ -145,7 +145,8 @@ public class PatientOverview extends BaseClass {
 	}
 
 	public void iShouldSeeTextInNotificationColumnOnRecentActivityNotificationTab(String text) {
-		iWillWaitToSee(By.xpath("//div[@id='notificationsBlock']//tbody/tr[2]/td[3][contains(text(),'" + text + "')]"));
+	    iWillWaitToSee(By.xpath("//div[@id='notificationsBlock']//tbody/tr[2]/td[3][contains(text(),'" + text + "')]"));
+		isElementVisible(driver.findElement(By.xpath("//div[@id='notificationsBlock']//tbody/tr[2]/td[3][contains(text(),'" + text + "')]")));
 	}
 
 	public void iShouldSeeTextInByColumnOnRecentActivityNotificationTab(String text) {
@@ -235,8 +236,10 @@ public class PatientOverview extends BaseClass {
 	}
 
 	public void iShouldSeeChangesInViewChanges(String text) {
+		delay();
 		iWillWaitToSee(By.xpath("//div[@class='modal-body clearfix']"));
 		iWillWaitToSee(By.xpath("//td[text()='" + text + "']"));
+	    isElementVisible(driver.findElement(By.xpath("//td[text()='" + text + "']")));    
 	}
 
 }

@@ -36,7 +36,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 	public static String L_name=null;
 	public static String attribute_value=null;
-	WebDriverWait wait = new WebDriverWait(driver, 30);
+	WebDriverWait wait = new WebDriverWait(driver, 120);
 	public void IverifythesearchedpatienthastheCARLcompletetextornot() {
        isElementVisible(driver.findElement(By.cssSelector("button.btn.btn-primary.btn-auto-square.ng-scope > strong")));
 	}
@@ -466,7 +466,11 @@ public class PatientClinicalDocuments extends BaseClass {
          Actions actions = new Actions(driver);
          actions.moveToElement(driver.findElement(By.cssSelector("#submitButton"))).build().perform();
          clickElement(driver.findElement(By.cssSelector("#submitButton")));
-         waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+         try{
+         waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#ajax-modal-lg > div > div > div.blockUI.blockMsg.blockElement > div.loading-message.loading-message-boxed>span"))));
+         }catch(Exception e){
+         delay();	 
+         }
 		 }
 	
 

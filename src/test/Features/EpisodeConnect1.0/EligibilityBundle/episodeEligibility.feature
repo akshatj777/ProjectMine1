@@ -82,6 +82,7 @@ Feature: Episode eligibility status
   Scenario: Set ESRD from Patient Card Actions
     And I click on first patient gear menu
     When I click on Not Eligible ESRD from patients list patient gear menu
+    Then I scroll the page to bottom by "-600"
     And I verify "NOT_ELIGIBLE_ESRD" Eligibility on patient list page
     Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
