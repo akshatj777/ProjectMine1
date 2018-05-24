@@ -491,6 +491,7 @@ public class CreateUserPage extends BaseClass{
                "arguments[0].dispatchEvent(evObj);";
 
 	   ((JavascriptExecutor)driver).executeScript(javaScript, HoverElement);
+	   HoverElement.click();
 	   clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));
 		   }
 	   }   
