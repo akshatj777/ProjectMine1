@@ -489,12 +489,20 @@ public class CreateUserPage extends BaseClass{
 	   String javaScript = "var evObj = document.createEvent('MouseEvents');" +
                "evObj.initMouseEvent(\"mouseover\",true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);" +
                "arguments[0].dispatchEvent(evObj);";
-
 	   ((JavascriptExecutor)driver).executeScript(javaScript, HoverElement);
-	   HoverElement.click();
-	   clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));
+	   if(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")).isDisplayed())
+	   {
+		   iWillWaitToSee(By.cssSelector("#navbar-dropdown-menu-myprofile"));
+		   clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));  
+	   }
+	   else
+	   {
+		   driver.findElement(By.xpath("//i[@class='fa fa-angle-down']")).click();
+		   iWillWaitToSee(By.cssSelector("#navbar-dropdown-menu-myprofile"));
+		   clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));
+	   }
 		   }
-	   }   
+	   }
    }
    
    public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String role){
