@@ -1273,7 +1273,8 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void Iverifythenotescreatedintheepisode1shouldnotappearinthenotessectionincareplaninepisode2() {
-			verifyTextForElement(driver.findElement(By.cssSelector("#notesTable > tbody > tr:nth-child(1) > td.sorting_1")),"Baseline");
+		longDelay();	
+		verifyTextForElement(driver.findElement(By.cssSelector("#notesTable > tbody > tr:nth-child(1) > td.sorting_1")),"Baseline");
 		}
 	
 	public void iShouldSeeSelectedEligibility(String text) {
