@@ -15,6 +15,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.remedy.baseClass.BaseClass;
@@ -497,7 +498,12 @@ public class CreateUserPage extends BaseClass{
 	   }
 	   else
 	   {
-		   driver.findElement(By.xpath("//i[@class='fa fa-angle-down']")).click();
+		   new Actions(driver).click(driver.findElement(By.xpath("//i[@class='fa fa-angle-down']"))).build().perform();
+		   while(!(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")).isDisplayed()))
+		   {
+			   System.out.println("Hello");
+			   new Actions(driver).click(driver.findElement(By.xpath("//i[@class='fa fa-angle-down']"))).build().perform();
+		   }
 		   iWillWaitToSee(By.cssSelector("#navbar-dropdown-menu-myprofile"));
 		   clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));
 	   }
