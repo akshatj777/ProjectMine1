@@ -576,8 +576,8 @@ Feature: Edit user page for PTA
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
     And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 
@@ -649,8 +649,8 @@ Feature: Edit user page for PTA
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
     And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 
@@ -947,8 +947,8 @@ Feature: Edit user page for PTA
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
     And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 
@@ -1020,8 +1020,8 @@ Feature: Edit user page for PTA
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
     And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 

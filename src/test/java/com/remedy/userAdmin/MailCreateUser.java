@@ -273,7 +273,7 @@ public class MailCreateUser extends BaseClass{
 	
 	public void iEnterNewPasswordForLoginToRemedy() {
 		iWillWaitToSee(By.xpath("//input[@name='password']"));
-		iFillInText(driver.findElement(By.xpath("//input[@name='password']")), "Testing1");
+		iFillInText(driver.findElement(By.xpath("//input[@name='password']")), "Testing1@");
 	}
 	
 	public void iOpenNewTabAndCloseLastTab() throws AWTException, InterruptedException, IOException {		
