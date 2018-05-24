@@ -502,7 +502,7 @@ public class DischargeCarlForm extends BaseClass {
      String middleSSN=Integer.toString((int) (Math.random()*100));
 	 while(firstSSN.startsWith("666")&&firstSSN.startsWith("000")&&firstSSN.startsWith("400")&&firstSSN.startsWith("825")&&middleSSN.startsWith("00")){
 	 firstSSN=Integer.toString(getRandomNumber(300,899));
-	 middleSSN=Integer.toString((int) (Math.random()*100));
+	 middleSSN=Integer.toString(getRandomNumber(10,99));
 	     }
 	 final_ssn=firstSSN+middleSSN+Integer.toString(getRandomNumber(1000, 9999));
 	 System.out.println("$$$Final ssn is"+final_ssn);

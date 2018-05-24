@@ -278,6 +278,7 @@ public class PatientsListPage extends BaseClass {
 	}
 
 	public void iVerifyOnboardingStatusOnPatientList(String text) {
+		longDelay();
 		String actual = driver.findElements(By.xpath("//div[@class='row body']//span[contains(@class,'status-value')]")).get(0).getAttribute("class");
 		actual = actual.replaceAll("status-value", "");
 		actual = actual.replaceAll("display ng-scope", "").trim();
