@@ -73,6 +73,7 @@ public class CommonFeature extends BaseClass {
 	public void i_Wait_To_See(String text, String tag) throws InterruptedException {
 		if(text.equals("Assigned to Care Team successfully.")){
 		Thread.sleep(1000);
+		iWillWaitToSee(By.xpath("//" + tag + "[contains(text(),'" + text + "')]"));
 		isElementVisible(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));	
 		}else if(text.equals("New Transition")){
 	    try{
