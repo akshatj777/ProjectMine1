@@ -192,8 +192,8 @@ Feature: Create Physician Roster functionality tests
 
     Examples: 
       | Description           | firstName | lastName     | npi | gender | enumerationDate | prefix | suffix | npiDeactivationDate | npiDeactivationReasonCode | otherFirstName | otherLastName | otherPrefix | otherSuffix | primaryTaxonomyId    | secondaryTaxonomyId | noOfLicenses | licenseNumber | licenseNumberStateCode | address1 | address2 | city | state | zip | expStatusCode | responseMsg | classificationId | groupingId | specializationId | providerTaxonCode |
-      | validPractionerCreate | firstName | testLastName | PC  | f      | 2018-01-01      | ap     | test   | 2018-01-01          | dd                        | otherFirstName | otherLastName | ff          | ff          | generatePrimaryTaxId |                   1 |            2 |           2,5 |                  NY,NY | addr1    | addr2    | city | ny    | zip |           201 |             |                0 |          0 |                0 | CPT               |
-      | validPractionerCreate | firstName | testLastName | PC  | f      | 2018-01-01      | ap     | test   | 2018-01-01          | dd                        | otherFirstName | otherLastName | ff          | ff          | generatePrimaryTaxId |                   1 |            2 |           2,5 |                  NY,NY | addr1    | addr2    | city | ny    | zip |           201 |             |                0 |          0 |                0 | CPT               |
+      | validPractionerCreate | firstName | testLastName | PC  | f      | 2018-01-01      | ap     | test   | 2018-01-01          | dd                        | otherFirstName | otherLastName | ff          | ff          | generatePrimaryTaxId |                   1 |            2 |           2,5 | NY,NY                  | addr1    | addr2    | city | ny    | zip |           201 |             |                0 |          0 |                0 | CPT               |
+      | validPractionerCreate | firstName | testLastName | PC  | f      | 2018-01-01      | ap     | test   | 2018-01-01          | dd                        | otherFirstName | otherLastName | ff          | ff          | generatePrimaryTaxId |                   1 |            2 |           2,5 | NY,NY                  | addr1    | addr2    | city | ny    | zip |           201 |             |                0 |          0 |                0 | CPT               |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -271,7 +271,7 @@ Feature: Create Physician Roster functionality tests
     Then I verify last name "<LastName>" after adding Physician from dropdown on Create physician roster page
     Then I verify "1" npi "<NPI>" after adding Physician from dropdown on Create physician roster page
     Then I verify start date "<Start_Date>" after adding Physician from dropdown on Create physician roster page
-    Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
+    #Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
     And I select "2" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
@@ -279,7 +279,7 @@ Feature: Create Physician Roster functionality tests
     Then I verify last name "<LastName>" after adding Physician from dropdown on Create physician roster page
     Then I verify "2" npi "<NPI>" after adding Physician from dropdown on Create physician roster page
     Then I verify start date "<Start_Date>" after adding Physician from dropdown on Create physician roster page
-    Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
+    #Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
     And I verify "Submit" button on create Physician Roster page
     And I verify "Cancel" button on create Physician Roster page
 
@@ -329,9 +329,7 @@ Feature: Create Physician Roster functionality tests
     And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
-    And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
-    And I click on react date picker close icon for "End Date"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
     Then I click on "Submit" button on "create" organization page
     And I verify "<ValidationMessage>" field validation message on create organization page
@@ -361,9 +359,7 @@ Feature: Create Physician Roster functionality tests
     And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
-    And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
-    And I click on react date picker close icon for "End Date"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
     Then I click on "Submit" button on "create" organization page
     And I verify "<ValidationMessage>" field validation message on create Physician Roster page
@@ -433,13 +429,14 @@ Feature: Create Physician Roster functionality tests
     And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
+    Then I enter date "<PhysicianEndDate>" in "PhysicianEndDate" field for index "1"
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                 | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician    | Message                         |
-      | Add Physician with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | Physicians Successfully Updated |
-      | Add Physician with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | Physicians Successfully Updated |
+      | Description                                 | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician    | PhysicianEndDate | Message                         |
+      | Add Physician with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | 2019/12/26       | Physicians Successfully Updated |
+      | Add Physician with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | 2019/12/26       | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -487,15 +484,17 @@ Feature: Create Physician Roster functionality tests
     And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
+    Then I enter date "<PhysicianEndDate>" in "PhysicianEndDate" field for index "1"
     And I select "2" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
+    Then I enter date "<PhysicianEndDate1>" in "PhysicianEndDate" field for index "3"
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description             | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician    | Message                         |
-      | Add multiple Physicians | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | Physicians Successfully Updated |
+      | Description             | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician    | PhysicianEndDate | PhysicianEndDate1 | Message                         |
+      | Add multiple Physicians | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | 2019/12/24       | 2019/12/26        | Physicians Successfully Updated |
 
   @Hospital
   Scenario Outline: <Description>
@@ -576,7 +575,7 @@ Feature: Create Physician Roster functionality tests
     Then I verify last name "<LastName>" after adding Physician from dropdown on Create physician roster page
     Then I verify "1" npi "<NPI>" after adding Physician from dropdown on Create physician roster page
     Then I verify start date "<Start_Date>" after adding Physician from dropdown on Create physician roster page
-    Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
+    #Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
     And I select "2" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
@@ -584,7 +583,7 @@ Feature: Create Physician Roster functionality tests
     Then I verify last name "<LastName>" after adding Physician from dropdown on Create physician roster page
     Then I verify "2" npi "<NPI>" after adding Physician from dropdown on Create physician roster page
     Then I verify start date "<Start_Date>" after adding Physician from dropdown on Create physician roster page
-    Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
+    #Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I verify "Submit" button on create Physician Roster page
     And I verify "Cancel" button on create Physician Roster page
@@ -637,9 +636,7 @@ Feature: Create Physician Roster functionality tests
     And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
-    And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
-    And I click on react date picker close icon for "End Date"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
     Then I click on "Submit" button on "create" organization page
     And I verify "<ValidationMessage>" field validation message on create organization page
@@ -669,9 +666,7 @@ Feature: Create Physician Roster functionality tests
     And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
-    And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
-    And I click on react date picker close icon for "End Date"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
     Then I click on "Submit" button on "create" organization page
     And I verify "<ValidationMessage>" field validation message on create Physician Roster page
@@ -743,13 +738,14 @@ Feature: Create Physician Roster functionality tests
     And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
+    Then I enter date "<PhysicianEndDate>" in "PhysicianEndDate" field for index "1"
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | Message                         |
-      | Add Physician with all the available fields under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | Physicians Successfully Updated |
-      | Add Physician with all the available fields under Hospital Profile page | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | Physicians Successfully Updated |
+      | Description                                                             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | PhysicianEndDate | Physician    | Message                         |
+      | Add Physician with all the available fields under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | 2019/12/26       | FETCHFROMAPI | Physicians Successfully Updated |
+      | Add Physician with all the available fields under Hospital Profile page | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | 2019/12/25       | FETCHFROMAPI | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -797,12 +793,14 @@ Feature: Create Physician Roster functionality tests
     And I select "1" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
+    Then I enter date "<PhysicianEndDate>" in "PhysicianEndDate" field for index "1"
     And I select "2" Physician "<Physician>" on "Create" Physician Roster page
     And I verify "Add Physician" button on "Create" Physician Roster page
     And I click on "Add Physician" button on "Create" Physician Roster page
+    Then I enter date "<PhysicianEndDate1>" in "PhysicianEndDate" field for index "3"
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                         | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | Message                         |
-      | Add multiple Physicians under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | Physicians Successfully Updated |
+      | Description                                         | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | PhysicianEndDate | PhysicianEndDate | Message                         |
+      | Add multiple Physicians under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | 2019/12/23       | 2019/12/26       | Physicians Successfully Updated |
