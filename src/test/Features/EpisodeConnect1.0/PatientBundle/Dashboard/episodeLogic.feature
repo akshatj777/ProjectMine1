@@ -298,13 +298,13 @@ Feature: Managing Various Episode States
     Then I verify "My patients" as selected tab on patient dashboard
     And I enter patients fullname in the patient search box under active tab on Dashboard
     And I should see patient first name appearing under search on Dashboard
-    And I should see "0 days to anchor admission" appearing under search on "PROGRESS" "progress-column" Dashboard
+    And I should see "0 days inpatient" appearing under search on "PROGRESS" "progress-column" Dashboard
     And I should see "(6) LIVER TRANSPLANT W/O MCC" appearing under search on "EPISODE DRG" "episode-column" Dashboard
     And I should see "(HHH) Allentown" appearing under search on "ANCHOR FACILITY" "anchor_facility-column" Dashboard
     And I should see " " appearing under search on "CURRENT FACILITY" "current_facility-column" Dashboard
     And I should see "0" appearing under search on "Readmission" "readmission-column" Dashboard
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
-    And I should see "0 days to anchor admission" appearing under progress on patient card
+    And I should see "0 days inpatient" appearing under progress on patient card
     And I should see "(HHH) Inpatient" "St Luke's - Allentown" appearing under current location on patient card
     And I should see "(6) LIVER TRANSPLANT W/O MCC" appearing under drg on patient card
     And I should see "St Luke's" Episode Initiator on Patient list page

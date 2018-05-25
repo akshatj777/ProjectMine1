@@ -99,6 +99,7 @@ public class CommonFeature extends BaseClass {
 		delay();
 		driver.navigate().to(BaseURL + uRL);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		longDelay();
 	}
 
 	public void iSearchFilter(String filter) {

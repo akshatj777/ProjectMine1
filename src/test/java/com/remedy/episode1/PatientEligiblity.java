@@ -51,12 +51,12 @@ public class PatientEligiblity extends BaseClass {
 
 	public void Ishouldseetag(String tag) {
 		longDelay();
-		iWillWaitToSee(By.xpath("//*[@id='eligibility_button']"));
+		iWillWaitToSee(By.xpath("//*[@id='eligibility_button' and contains(text(),'"+tag+"')]')"));
 		verifyTextForElement(driver.findElement(By.xpath("//*[@id='eligibility_button']")), tag);
 	}
 
 	public void Ishouldnotseetag(String tag) {
-		iWillWaitToSee(By.xpath("//*[@id='eligibility_button']"));
+		iWillWaitToSee(By.xpath("//*[@id='eligibility_button' and contains(text(),'"+tag+"')]"));
 		Assert.assertNotEquals(driver.findElement(By.xpath("//*[@id='eligibility_button']")).getText(), tag);
 	}
 

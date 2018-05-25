@@ -145,8 +145,8 @@ public class PatientOverview extends BaseClass {
 	}
 
 	public void iShouldSeeTextInNotificationColumnOnRecentActivityNotificationTab(String text) {
-	    iWillWaitToSee(By.xpath("//div[@id='notificationsBlock']//tbody/tr[2]/td[3][contains(text(),'" + text + "')]"));
-		isElementVisible(driver.findElement(By.xpath("//div[@id='notificationsBlock']//tbody/tr[2]/td[3][contains(text(),'" + text + "')]")));
+	    iWillWaitToSee(By.xpath("//div[@id='notificationsBlock']//tbody/tr[1]/td[3][contains(text(),'" + text + "')]"));
+		isElementVisible(driver.findElement(By.xpath("//div[@id='notificationsBlock']//tbody/tr[1]/td[3][contains(text(),'" + text + "')]")));
 	}
 
 	public void iShouldSeeTextInByColumnOnRecentActivityNotificationTab(String text) {
@@ -224,6 +224,8 @@ public class PatientOverview extends BaseClass {
 	}
 
 	public void iSelectFirstTextFromTagDropdownOnPatientOverview() {
+		longDelay();
+		iWillWaitToSee(By.cssSelector(".select2-search-field"));
 		clickElement(driver.findElement(By.cssSelector(".select2-search-field")));
 		delay();
 		clickElement(

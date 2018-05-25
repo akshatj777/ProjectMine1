@@ -172,6 +172,9 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     Then I select the "Admit" "caretype" "Outpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "POTENTIAL EPISODE CANCELED" state
     Then I will verify Episode Marker Admit Date "-191" and "add" Discharge date "-192" with "1" to show end date and Episode Status "POTENTIAL EPISODE CANCELED"

@@ -45,6 +45,7 @@ public class DischargeCarlForm extends BaseClass {
 	private static final int RANDOM_STRING_LENGTH = 7;
 	public static String firstname  = null;
 	public static String firstSSN  = null;
+	public static String middleSSN  = null;
 	public static String lastname  = null;
 	public static String final_ssn  = null;
 	String BaseURL=DriverScript.Config.getProperty("ECBaseUrl");
@@ -500,10 +501,11 @@ public class DischargeCarlForm extends BaseClass {
 
 	public void IenterrandomsocialsecuritynumberintheSSNtextboxfieldpresentontheAddPatientpage() {
      firstSSN=Integer.toString(getRandomNumber(300,899));
-     String middleSSN=Integer.toString((int) (Math.random()*100));
+     Random random = new Random();
+     middleSSN=Integer.toString(10+random.nextInt(90));
 	 while(firstSSN.startsWith("666")&&firstSSN.startsWith("000")&&firstSSN.startsWith("400")&&firstSSN.startsWith("825")&&middleSSN.startsWith("00")){
 	 firstSSN=Integer.toString(getRandomNumber(300,899));
-	 middleSSN=Integer.toString(getRandomNumber(11,99));
+	 middleSSN=Integer.toString(10+random.nextInt(90));
 	     }
 	 final_ssn=firstSSN+middleSSN+Integer.toString(getRandomNumber(1000, 9999));
 	 System.out.println("$$$Final ssn is"+final_ssn);

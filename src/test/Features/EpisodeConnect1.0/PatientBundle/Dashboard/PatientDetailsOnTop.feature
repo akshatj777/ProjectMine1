@@ -88,12 +88,17 @@ Feature: Patient Details on Patient overview page
     And I should see "flash" icon on details on patients overview page
     And I reload my page
     And I will wait to see patient's name on patient summary page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
     And I select first text from tag drodown on patient overview page
     And I click on Onboarding status dropdown on patient overview page
     And I should see "Unknown" under onboarding status dropdown on patient overview page
     And I should see "Not-Onboarded" under onboarding status dropdown on patient overview page
     And I should see "Onboarded" under onboarding status dropdown on patient overview page
-    And I reload my page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
     And I will wait to see patient's name on patient summary page
     And I click on Eligibility dropdown on patient overview page
     And I should see "Run Service" under Eligibility dropdown on patient overview page

@@ -157,6 +157,9 @@ Feature: Managing Various Episode States (Potential & Potential Cancelled)
     Then I fill in "Discharge" with logic "minus" with "43" days
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I click on update transition to add a new episode
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "POTENTIAL EPISODE CANCELED" state
     Then I will wait to see onboarding status "Unknown"

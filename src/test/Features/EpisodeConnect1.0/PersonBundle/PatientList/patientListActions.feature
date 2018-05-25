@@ -23,7 +23,6 @@ Feature: Patient list action
     Then I click on the next button present on the Add Patient page
     Then I click on the next button present on the Primary Care Physician Information page
   
-
   Scenario: Verify Add Form(s) from Patient List
     And I will wait to see "New Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "1" days
@@ -41,7 +40,6 @@ Feature: Patient list action
     Then I select "Clinical Risk Assessment" from "Form Type" by xpath "//*[@id='bp_personbundle_addnewformratype_formType']"
     And I click on "Assign" button
     Then I scroll the page to bottom by "-600"
-    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I verify "Needs Onboarding" onboarding status on patient list page
     Then I navigate to the "/secure/person/mongoID/careflow#/careFlowForms"
     And I should see "Clinical Risk Assessment" in Assigned forms under Care Plan on Patient page
