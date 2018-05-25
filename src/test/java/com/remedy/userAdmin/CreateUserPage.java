@@ -15,6 +15,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.remedy.baseClass.BaseClass;
@@ -48,8 +49,8 @@ public class CreateUserPage extends BaseClass{
     
     public void iClickAlreadySelectedOrganizationalField() 
     {
-        iWillWaitToSee(By.xpath("//div[@class='ui fluid selection dropdown']/div[@class='text']"));
-    	clickElement(driver.findElement(By.xpath("//div[@class='ui fluid selection dropdown']/div[@class='text']")));
+        iWillWaitToSee(By.xpath("//div[@class='ui selection dropdown']/div[@class='text']"));
+    	clickElement(driver.findElement(By.xpath("//div[@class='ui selection dropdown']/div[@class='text']")));
     }
 
     public void iTurnOffShareFile()
@@ -219,8 +220,8 @@ public class CreateUserPage extends BaseClass{
     	{
     		iWillWaitToSee(By.xpath("//div[text()='Select']"));
     		clickElement(driver.findElement(By.xpath("//div[text()='Select']")));
-    		iWillWaitToSee(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input"));
-            driver.findElement(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input")).sendKeys(text);
+    		iWillWaitToSee(By.xpath("//div[text()='Select']/parent::div/div[@class='menu transition visible']//input"));
+            driver.findElement(By.xpath("//div[text()='Select']/parent::div/div[@class='menu transition visible']//input")).sendKeys(text);
             Thread.sleep(4000);
     	}
     }
@@ -229,8 +230,8 @@ public class CreateUserPage extends BaseClass{
     {
     	if(!(desc.equals("")))
     	{
-    	iWillWaitToSee(By.xpath("//div[text()='"+desc+"']"));
-        clickElement(driver.findElement(By.xpath("//div[text()='"+desc+"']")));
+    	iWillWaitToSee(By.xpath("//span[text()='"+desc+"']"));
+        clickElement(driver.findElement(By.xpath("//span[text()='"+desc+"']")));
         Thread.sleep(3000);
     	}
     }
@@ -403,6 +404,7 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iVerifyNavigationOnEpisodes2HomePage(String role){
+	   driver.manage().timeouts().pageLoadTimeout(600, TimeUnit.SECONDS);
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 	   StringTokenizer st = new StringTokenizer(application, ",");
 	   while(st.hasMoreTokens())
@@ -488,11 +490,25 @@ public class CreateUserPage extends BaseClass{
 	   String javaScript = "var evObj = document.createEvent('MouseEvents');" +
                "evObj.initMouseEvent(\"mouseover\",true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);" +
                "arguments[0].dispatchEvent(evObj);";
-
 	   ((JavascriptExecutor)driver).executeScript(javaScript, HoverElement);
-	   clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));
+	   if(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")).isDisplayed())
+	   {
+		   iWillWaitToSee(By.cssSelector("#navbar-dropdown-menu-myprofile"));
+		   clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));  
+	   }
+	   else
+	   {
+		   new Actions(driver).click(driver.findElement(By.xpath("//i[@class='fa fa-angle-down']"))).build().perform();
+		   while(!(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")).isDisplayed()))
+		   {
+			   System.out.println("Hello");
+			   new Actions(driver).click(driver.findElement(By.xpath("//i[@class='fa fa-angle-down']"))).build().perform();
 		   }
-	   }   
+		   iWillWaitToSee(By.cssSelector("#navbar-dropdown-menu-myprofile"));
+		   clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));
+	   }
+		   }
+	   }
    }
    
    public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String role){
@@ -731,6 +747,7 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iVerifyNavigationOnRemedyUHomePage(String role){
+	   driver.manage().timeouts().pageLoadTimeout(600, TimeUnit.SECONDS);
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 	   if(application.contains("Lessons")){
 		   String user = role.substring(role.indexOf("-")+1);
@@ -1101,8 +1118,8 @@ public class CreateUserPage extends BaseClass{
    public void clickLessonsSelectButton() throws Throwable {
        if(userApplications.contains("Lessons"))
        {
-    	   iWillWaitToSee(By.xpath("//div[text()='Select']"));
-    	   clickElement(driver.findElement(By.xpath("//div[text()='Select']")));  
+    	   iWillWaitToSee(By.xpath("//span[text()='Select']"));
+    	   clickElement(driver.findElement(By.xpath("//span[text()='Select']")));  
        }
    }
    
@@ -1165,7 +1182,7 @@ public class CreateUserPage extends BaseClass{
 	   if(!(programList.equals("")))
    	{
 		   delay();
-	   if(!(driver.findElements(By.xpath("//div[text()='Select']")).size()>0))
+	   if(!(driver.findElements(By.xpath("//span[text()='Select']")).size()>0))
 		 {
 			return;
 		 }
@@ -1173,7 +1190,7 @@ public class CreateUserPage extends BaseClass{
 	   if(programList.contains(","))
 	   {
 		   StringTokenizer st = new StringTokenizer(programList,",");
-		   driver.findElement(By.xpath("//div[text()='Select']")).click();
+		   driver.findElement(By.xpath("//span[text()='Select']")).click();
 		   while (st.hasMoreTokens()) {
 	    	   String programs = st.nextToken().trim();
 	    	   iWillWaitToSee(By.xpath("//label[text()='"+programs+"']"));
@@ -1184,7 +1201,7 @@ public class CreateUserPage extends BaseClass{
 	   else
 	   {
 		   longDelay();
-		   driver.findElement(By.xpath("//div[text()='Select']")).click();
+		   driver.findElement(By.xpath("//span[text()='Select']")).click();
 		   longDelay();
 		   driver.findElement(By.xpath("//label[text()='"+programList+"']")).click();
 		   longDelay();
@@ -1220,6 +1237,7 @@ public class CreateUserPage extends BaseClass{
 	   if(!(locationList.equals("")))
 	   	{
 	   if(locationList.equalsIgnoreCase("All Locations")){
+		   iWillWaitToSee(By.xpath("//div[@class='content active']//label[text()='All Locations']"));
 		   clickElement(driver.findElement(By.xpath("//div[@class='content active']//label[text()='All Locations']")));
 		   delay();
 	   }
@@ -1861,7 +1879,6 @@ public class CreateUserPage extends BaseClass{
 		 driver.findElement(By.xpath("//i[@class='close icon']")).click();
 	 }
 	 public void iVerifyTheSelectedLocationsAreNotPresentInSelectLocationsSection (String text){
-		 iWillWaitToSee(By.xpath("//h5[text()='Selected Locations:']"));
 		 if(text.contains(",")){
 			 StringTokenizer st = new StringTokenizer(text, ",");
 			   while(st.hasMoreTokens())

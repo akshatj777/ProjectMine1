@@ -59,10 +59,10 @@ Feature: Super Admin Landing page verification
     Then I verify availability of "<SearchParameter>" for "<user>-<Role>"
 
     Examples: 
-      | Description                    | user        | Role      | Email             | InvalidSearchParameter | SearchParameter                           |
-      | Search a user using First Name | Super Admin | Executive | test.automatemail |                1768789 | FirstNameFirstNameFirstNameFirstNameFirst |
-      | Search a user using Last Name  | Super Admin | Executive | test.automatemail |                1768789 | LastNameLastNameLastNameLastNameLastName  |
-      | Search a user using Email      | Super Admin | Executive | test.automatemail |                1768789 | FetchFromHM                               |
+      | Description                    | user        | Role      | Email             | InvalidSearchParameter | SearchParameter                          |
+      | Search a user using First Name | Super Admin | Executive | test.automatemail |                1768789 | Firstname                                |
+      | Search a user using Last Name  | Super Admin | Executive | test.automatemail |                1768789 | Lastnamelastnamelastnamelastnamelastname |
+      | Search a user using Email      | Super Admin | Executive | test.automatemail |                1768789 | FetchFromHM                              |
 
   Scenario Outline: Verify ability of Super Admin user to lock a user
     Given I am on the login page
@@ -127,7 +127,7 @@ Feature: Super Admin Landing page verification
     And I click on "User Admin" tile from menu
     Then I should see header text "Users"
     Then I click on "Reports" from Management dropdown
-    #And I switch to new window
+    And I switch to new window
     Then I verify page tile for reports page
     And I click on "User Admin" tile from menu
     Then I should see header text "Users"
@@ -138,7 +138,7 @@ Feature: Super Admin Landing page verification
     Then I should see Tile text User Adming
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-   	And I click on the top user account link
+    And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
     Given I am on the login page

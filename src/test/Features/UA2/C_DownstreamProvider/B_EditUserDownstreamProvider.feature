@@ -66,7 +66,7 @@ Feature: Edit page for Downstream provider
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content
     Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
+    And I switch to new window
     Then I enter email to generate password link
     And I click on send mail button
     Then I switch back to old window
@@ -76,9 +76,9 @@ Feature: Edit page for Downstream provider
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
-    #And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I switch to new window
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 
@@ -130,7 +130,7 @@ Feature: Edit page for Downstream provider
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
@@ -142,7 +142,7 @@ Feature: Edit page for Downstream provider
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
     And I redirect to Remedy connect page
@@ -221,7 +221,7 @@ Feature: Edit page for Downstream provider
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
@@ -233,7 +233,7 @@ Feature: Edit page for Downstream provider
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
     And I redirect to Remedy connect page
@@ -305,7 +305,7 @@ Feature: Edit page for Downstream provider
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
@@ -317,7 +317,7 @@ Feature: Edit page for Downstream provider
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
     And I redirect to Remedy connect page
@@ -392,7 +392,7 @@ Feature: Edit page for Downstream provider
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
@@ -404,7 +404,7 @@ Feature: Edit page for Downstream provider
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
     And I click on Reports tile for "<User>-<Role>" user

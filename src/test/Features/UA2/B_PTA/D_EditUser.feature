@@ -52,7 +52,7 @@ Feature: Edit user page for PTA
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
@@ -64,7 +64,7 @@ Feature: Edit user page for PTA
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
     And I click on Reports tile for "<User>-<Role>" user
@@ -86,9 +86,9 @@ Feature: Edit user page for PTA
     And I verify details "<FirstName> <LastName>" for "<User>-<Role>" user on RemedyU dashboard
     And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
     And I redirect to Remedy connect page
-    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
-    And I redirect to Remedy connect page
+    #And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    #And I redirect to Remedy connect page
     And I click on User Admin tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to User Admin homepage
     And I redirect to Remedy connect page
@@ -105,8 +105,8 @@ Feature: Edit user page for PTA
     And I should see Log in widget
 
     Examples: 
-      | User                            | FirstName        | LastName        | Email             | Phone        | NPI | Role       | RemoveApplications | Applications                         | ApplicationsNotVisible                | LearningPathwayID | RemoveLearningPathwaySearchParameter  | Roletext       | ReportCategory | ReportName                   | BPID | Facilities                                                                                                                                                       | LearningPathway                                 |
-      | Partner Technical Administrator | FirstName'Edited | LastName'Edited | test.automatemail | 996-385-2451 | NPI | Physicians | Reports            | Episodes, Physician Connect, Lessons | Reports, Episodes 2.0, Administration | p11D0Vl2FSg1      | Executive Acute Care Hospital Model 2 | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Pacific Coast Manor, Sunrise Skilled Nursing & Rehabilitation Center, Pyramid Point Post-Acute Rehabilitation Center, Hilltop Skilled Nursing, McCormick's Creek | Clinical Operations Acute Care Hospital Model 2 |
+      | User                            | FirstName        | LastName        | Email             | Phone        | NPI | Role       | RemoveApplications | Applications      | ApplicationsNotVisible                | LearningPathwayID | RemoveLearningPathwaySearchParameter  | Roletext       | ReportCategory | ReportName                   | BPID | Facilities                                                                                                                                                       | LearningPathway                                 |
+      | Partner Technical Administrator | FirstName'Edited | LastName'Edited | test.automatemail | 996-385-2451 | NPI | Physicians | Reports            | Episodes, Lessons | Reports, Episodes 2.0, Administration | p11D0Vl2FSg1      | Executive Acute Care Hospital Model 2 | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Pacific Coast Manor, Sunrise Skilled Nursing & Rehabilitation Center, Pyramid Point Post-Acute Rehabilitation Center, Hilltop Skilled Nursing, McCormick's Creek | Clinical Operations Acute Care Hospital Model 2 |
 
   Scenario: Verify NPI on the EC1 tile
     Given I am on the login page
@@ -114,7 +114,7 @@ Feature: Edit user page for PTA
     And I enter password field Episode1! for Login
     And I click Access button
     And I click on Episode1 tile for "Partner Technical Administrator-Physicians" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "Partner Technical Administrator-Physicians" user
     And I verify NPI on ECI for "Partner Technical Administrator-Physicians" user
 
@@ -281,7 +281,7 @@ Feature: Edit user page for PTA
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
@@ -293,7 +293,7 @@ Feature: Edit user page for PTA
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
     And I click on Reports tile for "<User>-<Role>" user
@@ -315,9 +315,9 @@ Feature: Edit user page for PTA
     And I verify details "<FirstName> <LastName>" for "<User>-<Role>" user on RemedyU dashboard
     And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
     And I redirect to Remedy connect page
-    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
-    And I redirect to Remedy connect page
+    #And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    #And I redirect to Remedy connect page
     And I click on User Admin tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to User Admin homepage
     And I redirect to Remedy connect page
@@ -387,7 +387,7 @@ Feature: Edit user page for PTA
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
@@ -399,7 +399,7 @@ Feature: Edit user page for PTA
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
     And I click on Reports tile for "<User>-<Role>" user
@@ -421,9 +421,9 @@ Feature: Edit user page for PTA
     And I verify details "<FirstName> <LastName>" for "<User>-<Role>" user on RemedyU dashboard
     And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
     And I redirect to Remedy connect page
-    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
-    And I redirect to Remedy connect page
+    #And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    #And I redirect to Remedy connect page
     And I click on User Admin tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to User Admin homepage
     And I redirect to Remedy connect page
@@ -440,8 +440,8 @@ Feature: Edit user page for PTA
     And I should see Log in widget
 
     Examples: 
-      | User                            | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole | Role       | EnableApplications | Applications                                  | ApplicationsNotVisible       | Health System | Programs    | invalidLocations | RemoveLocations                                                                                                             | AddLocations                   | LearningPathwaySearchParameter | Roletext       | ReportCategory | ReportName                   | BPID | Facilities           | ProgramsValidation     | LocationsValidation                      | LearningPathway                                                                                                    |
-      | Partner Technical Administrator | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Executive    | Physicians | Physician Connect  | Episodes, Reports, Physician Connect, Lessons | Episodes 2.0, Administration | Covenant      | BPCI-Model3 | hkfj             | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center, 3056-806--Encinitas Nursing And Rehabilitation Center | 3056-808--Arbor Nursing Center |                                | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Arbor Nursing Center | Covenant--BPCI Model 3 | Covenant--3056-808--Arbor Nursing Center | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2 |
+      | User                            | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole | Role       | EnableApplications | Applications               | ApplicationsNotVisible       | Health System | Programs    | invalidLocations | RemoveLocations                                                                                                             | AddLocations                   | LearningPathwaySearchParameter | Roletext       | ReportCategory | ReportName                   | BPID | Facilities           | ProgramsValidation     | LocationsValidation                      | LearningPathway                                                                                                    |
+      | Partner Technical Administrator | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Executive    | Physicians | Physician Connect  | Episodes, Reports, Lessons | Episodes 2.0, Administration | Covenant      | BPCI-Model3 | hkfj             | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center, 3056-806--Encinitas Nursing And Rehabilitation Center | 3056-808--Arbor Nursing Center |                                | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Arbor Nursing Center | Covenant--BPCI Model 3 | Covenant--3056-808--Arbor Nursing Center | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2 |
 
   Scenario Outline: Verify the search functionality in selected locations and delete a location
     Given I am on the login page
@@ -565,7 +565,7 @@ Feature: Edit user page for PTA
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content
     Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
+    And I switch to new window
     Then I enter email to generate password link
     And I click on send mail button
     Then I switch back to old window
@@ -575,9 +575,9 @@ Feature: Edit user page for PTA
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
-    #And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I switch to new window
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 
@@ -638,7 +638,7 @@ Feature: Edit user page for PTA
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content
     Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
+    And I switch to new window
     Then I enter email to generate password link
     And I click on send mail button
     Then I switch back to old window
@@ -648,9 +648,9 @@ Feature: Edit user page for PTA
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
-    #And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I switch to new window
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 
@@ -693,7 +693,7 @@ Feature: Edit user page for PTA
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
@@ -705,7 +705,7 @@ Feature: Edit user page for PTA
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
     And I click on Reports tile for "<User>-<Role>" user
@@ -727,9 +727,9 @@ Feature: Edit user page for PTA
     And I verify details "<FirstName> <LastName>" for "<User>-<Role>" user on RemedyU dashboard
     And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
     And I redirect to Remedy connect page
-    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
-    And I redirect to Remedy connect page
+    #And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    #And I redirect to Remedy connect page
     And I click on User Admin tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to User Admin homepage
     And I redirect to Remedy connect page
@@ -790,7 +790,7 @@ Feature: Edit user page for PTA
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
@@ -802,7 +802,7 @@ Feature: Edit user page for PTA
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
     And I click on Reports tile for "<User>-<Role>" user
@@ -824,9 +824,9 @@ Feature: Edit user page for PTA
     And I verify details "<FirstName> <LastName>" for "<User>-<Role>" user on RemedyU dashboard
     And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
     And I redirect to Remedy connect page
-    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
-    And I redirect to Remedy connect page
+    #And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    #And I redirect to Remedy connect page
     And I click on User Admin tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to User Admin homepage
     And I redirect to Remedy connect page
@@ -936,7 +936,7 @@ Feature: Edit user page for PTA
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content
     Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
+    And I switch to new window
     Then I enter email to generate password link
     And I click on send mail button
     Then I switch back to old window
@@ -946,9 +946,9 @@ Feature: Edit user page for PTA
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
-    #And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I switch to new window
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 
@@ -1009,7 +1009,7 @@ Feature: Edit user page for PTA
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content
     Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
+    And I switch to new window
     Then I enter email to generate password link
     And I click on send mail button
     Then I switch back to old window
@@ -1019,9 +1019,9 @@ Feature: Edit user page for PTA
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
-    #And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I switch to new window
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 
@@ -1067,7 +1067,7 @@ Feature: Edit user page for PTA
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
@@ -1079,7 +1079,7 @@ Feature: Edit user page for PTA
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
     And I click on Reports tile for "<User>-<Role>" user
@@ -1101,9 +1101,9 @@ Feature: Edit user page for PTA
     And I verify details "<FirstName> <LastName>" for "<User>-<Role>" user on RemedyU dashboard
     And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
     And I redirect to Remedy connect page
-    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
-    And I redirect to Remedy connect page
+    #And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    #And I redirect to Remedy connect page
     And I click on User Admin tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to User Admin homepage
     And I redirect to Remedy connect page

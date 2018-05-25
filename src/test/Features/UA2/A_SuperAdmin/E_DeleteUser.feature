@@ -66,7 +66,7 @@ Feature: Delete a user from SA
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content
     Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
+    And I switch to new window
     Then I enter email to generate password link
     And I click on send mail button
     Then I switch back to old window
@@ -76,9 +76,9 @@ Feature: Delete a user from SA
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
-    #And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I switch to new window
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 
@@ -205,7 +205,7 @@ Feature: Delete a user from SA
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content
     Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
+    And I switch to new window
     Then I enter email to generate password link
     And I click on send mail button
     Then I switch back to old window
@@ -215,9 +215,9 @@ Feature: Delete a user from SA
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
-    #And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I switch to new window
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
     Given I am on the login page
     Then I enter newuser email for "<User>-<Role>" login to Remedy

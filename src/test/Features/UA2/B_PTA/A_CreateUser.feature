@@ -66,7 +66,7 @@ Feature: Create User - PTA User
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content
     Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
+    And I switch to new window
     Then I enter email to generate password link
     And I click on send mail button
     Then I switch back to old window
@@ -76,9 +76,9 @@ Feature: Create User - PTA User
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
-    #And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I switch to new window
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 
@@ -139,7 +139,7 @@ Feature: Create User - PTA User
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content
     Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
+    And I switch to new window
     Then I enter email to generate password link
     And I click on send mail button
     Then I switch back to old window
@@ -149,9 +149,9 @@ Feature: Create User - PTA User
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
-    #And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I switch to new window
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 
@@ -172,7 +172,7 @@ Feature: Create User - PTA User
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
@@ -184,7 +184,7 @@ Feature: Create User - PTA User
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
     And I click on Reports tile for "<User>-<Role>" user
@@ -206,9 +206,9 @@ Feature: Create User - PTA User
     And I verify details "<FirstName> <LastName>" for "<User>-<Role>" user on RemedyU dashboard
     And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
     And I redirect to Remedy connect page
-    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
-    And I redirect to Remedy connect page
+    #And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    #And I redirect to Remedy connect page
     And I click on User Admin tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to User Admin homepage
     And I redirect to Remedy connect page
@@ -228,7 +228,7 @@ Feature: Create User - PTA User
       | Description                                                             | User                            | FirstName                            | LastName                                 | Role         | Applications                    | ApplicationsNotVisible                          | Roletext | ReportCategory | ReportName         | BPID | LearningPathway                                                                                                                                  | Facilities                                                                                                                                                                  |
       | Login with Executive and verify Product Tiles and their redirections    | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName | LastNameLastNameLastNameLastNameLastName | Executive    | Episodes, Reports, TCI, Lessons | Episodes 2.0, Administration, Physician Connect | ROLE_PRM | Patient ID     | Episode DRG Issues |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2                               | Monmouth Medical Center - Southern Campus, RWJ University Hospital at New Brunswick                                                                                         |
       | Login with Manager and verify Product Tiles and their redirections      | Partner Technical Administrator | FirstName                            | LastNameLastNameLastNameLastNameLastName | Manager      | Episodes, Reports, TCI, Lessons | Episodes 2.0, Administration, Physician Connect | ROLE_PRM | Patient ID     | Episode DRG Issues |      | Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University | Monmouth Medical Center - Southern Campus, RWJ University Hospital at New Brunswick                                                                                         |
-      | Login with Case Manager and verify Product Tiles and their redirections | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName | LastName                                 | Case Manager | Episodes, Reports, TCI, Lessons | Episodes 2.0, Administration, Physician Connect | ROLE_TCS | Patient ID     | Episode DRG Issues |      | Care Coordination External                                                                                                                       | Monmouth Medical Center - Southern Campus, Rwj University Hospital At New Brunswick, Rwj University Hospital At Somerset, Robert Wood Johnson University Hospital At Rahway |
+      | Login with Case Manager and verify Product Tiles and their redirections | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName | LastName                                 | Case Manager | Episodes, Reports, TCI, Lessons | Episodes 2.0, Administration, Physician Connect | ROLE_TCS | Patient ID     | Episode DRG Issues |      | Care Coordination External                                                                                                                       | Monmouth Medical Center - Southern Campus, RWJ University Hospital at New Brunswick, RWJ University Hospital at Somerset, Robert Wood Johnson University Hospital At Rahway |
 
   Scenario Outline: <Description>
     Given I am on mail login page
@@ -296,7 +296,7 @@ Feature: Create User - PTA User
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content
     Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
+    And I switch to new window
     Then I enter email to generate password link
     And I click on send mail button
     Then I switch back to old window
@@ -306,9 +306,9 @@ Feature: Create User - PTA User
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
-    #And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I switch to new window
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 
@@ -369,7 +369,7 @@ Feature: Create User - PTA User
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content
     Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
+    And I switch to new window
     Then I enter email to generate password link
     And I click on send mail button
     Then I switch back to old window
@@ -379,9 +379,9 @@ Feature: Create User - PTA User
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
-    #And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I switch to new window
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 
@@ -404,7 +404,7 @@ Feature: Create User - PTA User
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
@@ -416,7 +416,7 @@ Feature: Create User - PTA User
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
     And I click on Reports tile for "<User>-<Role>" user
@@ -438,9 +438,9 @@ Feature: Create User - PTA User
     And I verify details "<FirstName> <LastName>" for "<User>-<Role>" user on RemedyU dashboard
     And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
     And I redirect to Remedy connect page
-    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
-    And I redirect to Remedy connect page
+    #And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    #And I redirect to Remedy connect page
     And I click on User Admin tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to User Admin homepage
     And I redirect to Remedy connect page
@@ -457,12 +457,12 @@ Feature: Create User - PTA User
     And I should see Log in widget
 
     Examples: 
-      | Description                                                                          | User                            | FirstName                                 | LastName                                 | Role                      | Applications                              | ApplicationsNotVisible                                             | Roletext       | ReportCategory | ReportName         | BPID | LearningPathway                                                                                                                                           | Facilities                                                                                                                   |
-      | Login with Executive and verify Product Tiles and their redirections                 | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Executive                 | Episodes, TCI                             | Episodes 2.0, Reports, Lessons, Administration, Physician Connect  | ROLE_PRM       | Patient ID     | Episode DRG Issues |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2                                        | North Shore Med Center                                                                                                       |
-      | Login with Manager and verify Product Tiles and their redirections                   | Partner Technical Administrator | FirstName                                 | LastNameLastNameLastNameLastNameLastName | Manager                   | Episodes, Reports, TCI                    | Episodes 2.0, Administration, Physician Connect, Lessons           | ROLE_PRM       | Patient ID     | Episode DRG Issues |      | Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University          | North Shore Med Center, Mercy Hospital, Baptist Medical Center  Beaches                                                      |
-      | Login with Case Manager and verify Product Tiles and their redirections              | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastName                                 | Case Manager              | Episodes, TCI                             | Episodes 2.0, Administration, Physician Connect, Reports           | ROLE_TCS       | Patient ID     | Episode DRG Issues |      | Care Coordination External                                                                                                                                | North Shore Med Center, Mercy Hospital, Baptist Medical Center  Beaches, The Medical Center At Franklin, Rhea Medical Center |
-      | Login with Physicians and verify Product Tiles and their redirections                | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Physicians                | Episodes, Reports, Physician Connect, TCI | Episodes 2.0, Administration, Lessons                              | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues |      | Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2                                                                    | North Shore Med Center, Rhea Medical Center, The Medical Center At Franklin                                                  |
-      | Login with Transitional Case Manager and verify Product Tiles and their redirections | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstNameFirst | LastName                                 | Transitional Case Manager | Reports, TCI                              | Episodes, Episodes 2.0, Administration, Physician Connect, Lessons | ROLE_TCS       | Patient ID     | Episode DRG Issues |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2 | Baptist Medical Center  Beaches, Mercy Hospital, North Shore Med Center                                                      |
+      | Description                                                                          | User                            | FirstName                                 | LastName                                 | Role                      | Applications           | ApplicationsNotVisible                                             | Roletext       | ReportCategory | ReportName         | BPID | LearningPathway                                                                                                                                           | Facilities                                                                                                                   |
+      | Login with Executive and verify Product Tiles and their redirections                 | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Executive                 | Episodes, TCI          | Episodes 2.0, Reports, Lessons, Administration, Physician Connect  | ROLE_PRM       | Patient ID     | Episode DRG Issues |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2                                        | North Shore Med Center                                                                                                       |
+      | Login with Manager and verify Product Tiles and their redirections                   | Partner Technical Administrator | FirstName                                 | LastNameLastNameLastNameLastNameLastName | Manager                   | Episodes, Reports, TCI | Episodes 2.0, Administration, Physician Connect, Lessons           | ROLE_PRM       | Patient ID     | Episode DRG Issues |      | Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University          | North Shore Med Center, Mercy Hospital, Baptist Medical Center  Beaches                                                      |
+      | Login with Case Manager and verify Product Tiles and their redirections              | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastName                                 | Case Manager              | Episodes, TCI          | Episodes 2.0, Administration, Physician Connect, Reports           | ROLE_TCS       | Patient ID     | Episode DRG Issues |      | Care Coordination External                                                                                                                                | North Shore Med Center, Mercy Hospital, Baptist Medical Center  Beaches, The Medical Center At Franklin, Rhea Medical Center |
+      | Login with Physicians and verify Product Tiles and their redirections                | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Physicians                | Episodes, Reports, TCI | Episodes 2.0, Administration, Lessons                              | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues |      | Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2                                                                    | North Shore Med Center, Rhea Medical Center, The Medical Center At Franklin                                                  |
+      | Login with Transitional Case Manager and verify Product Tiles and their redirections | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstNameFirst | LastName                                 | Transitional Case Manager | Reports, TCI           | Episodes, Episodes 2.0, Administration, Physician Connect, Lessons | ROLE_TCS       | Patient ID     | Episode DRG Issues |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2 | Baptist Medical Center  Beaches, Mercy Hospital, North Shore Med Center                                                      |
 
   Scenario Outline: <Description>
     Given I am on mail login page
@@ -530,7 +530,7 @@ Feature: Create User - PTA User
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content
     Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
+    And I switch to new window
     Then I enter email to generate password link
     And I click on send mail button
     Then I switch back to old window
@@ -540,9 +540,9 @@ Feature: Create User - PTA User
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
-    #And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
+    And I switch to new window
+    And I enter new password "Testing1@" to set new password
+    And I enter confirm new password "Testing1@" to set new password
     And I click on submit button to set new password
 
     Examples: 
@@ -603,7 +603,7 @@ Feature: Create User - PTA User
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content
     Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
+    And I switch to new window
     Then I enter email to generate password link
     And I click on send mail button
     Then I switch back to old window
@@ -613,7 +613,7 @@ Feature: Create User - PTA User
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
-    #And I switch to new window
+    And I switch to new window
     And I enter new password "Testing1" to set new password
     And I enter confirm new password "Testing1" to set new password
     And I click on submit button to set new password
@@ -638,7 +638,7 @@ Feature: Create User - PTA User
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
@@ -650,7 +650,7 @@ Feature: Create User - PTA User
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
     And I click on Reports tile for "<User>-<Role>" user
@@ -672,9 +672,9 @@ Feature: Create User - PTA User
     And I verify details "<FirstName> <LastName>" for "<User>-<Role>" user on RemedyU dashboard
     And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
     And I redirect to Remedy connect page
-    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
-    And I redirect to Remedy connect page
+    #And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    #And I redirect to Remedy connect page
     And I click on User Admin tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to User Admin homepage
     And I redirect to Remedy connect page
@@ -691,12 +691,12 @@ Feature: Create User - PTA User
     And I should see Log in widget
 
     Examples: 
-      | Description                                                                          | User                            | FirstName                                 | LastName                                 | Role                      | Applications                                       | ApplicationsNotVisible                          | Roletext       | ReportCategory | ReportName                   | BPID | LearningPathway                                                                                                                                           | Facilities                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-      | Login with Executive and verify Product Tiles and their redirections                 | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Executive                 | Episodes, Reports, TCI, Lessons                    | Episodes 2.0, Administration, Physician Connect | ROLE_PRM       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2                                        | Catered Manor Nursing Center, Downey Care Center, Encinitas Nursing and Rehabilitation Center                                                                                                                                                                                                                                                                                                                                                                                                        |
-      | Login with Manager and verify Product Tiles and their redirections                   | Partner Technical Administrator | FirstName                                 | LastNameLastNameLastNameLastNameLastName | Manager                   | Episodes, Reports, TCI, Lessons                    | Episodes 2.0, Administration, Physician Connect | ROLE_PRM       | Patient ID     | Episode DRG Issues [Model 3] |      | Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University          | Arbor Nursing Center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-      | Login with Case Manager and verify Product Tiles and their redirections              | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastName                                 | Case Manager              | Episodes, Reports, TCI, Lessons                    | Episodes 2.0, Administration, Physician Connect | ROLE_TCS       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External                                                                                                                                | Courtyard Health Care Center, Emerald Gardens Nursing Center, Buena Vista Care Center, Gilroy Healthcare and Rehabilitation Center, Eagle Point Nursing & Rehabilitation Center, Cedar Ridge Health Rehab Center, Ennoble Skilled Nursing and Rehabilitation Center, Friendship Skilled Nursing & Rehabilitation Center, Covington Manor Health and  Rehabilitation Center, Clinton House Health and Rehab Center, Edgewood Manor Nursing Center, Fairview Skilled Nursing and Rehabilitation Center |
-      | Login with Physicians and verify Product Tiles and their redirections                | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Physicians                | Episodes, Reports, Physician Connect, TCI, Lessons | Episodes 2.0, Administration                    | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2                                                                    | Pacific Coast Manor, Sunrise Skilled Nursing & Rehabilitation Center, Pyramid Point Post-Acute Rehabilitation Center, Hilltop Skilled Nursing, McCormick's Creek                                                                                                                                                                                                                                                                                                                                     |
-      | Login with Transitional Case Manager and verify Product Tiles and their redirections | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstNameFirst | LastName                                 | Transitional Case Manager | Episodes, Reports, TCI, Lessons                    | Episodes 2.0, Administration, Physician Connect | ROLE_TCS       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2 | Palo Alto Sub-Acute, Meadow Manor, Villa Georgetown, Highland Health                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+      | Description                                                                          | User                            | FirstName                                 | LastName                                 | Role                      | Applications                    | ApplicationsNotVisible                          | Roletext       | ReportCategory | ReportName                   | BPID | LearningPathway                                                                                                                                           | Facilities                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+      | Login with Executive and verify Product Tiles and their redirections                 | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Executive                 | Episodes, Reports, TCI, Lessons | Episodes 2.0, Administration, Physician Connect | ROLE_PRM       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2                                        | Catered Manor Nursing Center, Downey Care Center, Encinitas Nursing and Rehabilitation Center                                                                                                                                                                                                                                                                                                                                                                                                        |
+      | Login with Manager and verify Product Tiles and their redirections                   | Partner Technical Administrator | FirstName                                 | LastNameLastNameLastNameLastNameLastName | Manager                   | Episodes, Reports, TCI, Lessons | Episodes 2.0, Administration, Physician Connect | ROLE_PRM       | Patient ID     | Episode DRG Issues [Model 3] |      | Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University          | Arbor Nursing Center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+      | Login with Case Manager and verify Product Tiles and their redirections              | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastName                                 | Case Manager              | Episodes, Reports, TCI, Lessons | Episodes 2.0, Administration, Physician Connect | ROLE_TCS       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External                                                                                                                                | Courtyard Health Care Center, Emerald Gardens Nursing Center, Buena Vista Care Center, Gilroy Healthcare and Rehabilitation Center, Eagle Point Nursing & Rehabilitation Center, Cedar Ridge Health Rehab Center, Ennoble Skilled Nursing and Rehabilitation Center, Friendship Skilled Nursing & Rehabilitation Center, Covington Manor Health and  Rehabilitation Center, Clinton House Health and Rehab Center, Edgewood Manor Nursing Center, Fairview Skilled Nursing and Rehabilitation Center |
+      | Login with Physicians and verify Product Tiles and their redirections                | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Physicians                | Episodes, Reports, TCI, Lessons | Episodes 2.0, Administration                    | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2                                                                    | Pacific Coast Manor, Sunrise Skilled Nursing & Rehabilitation Center, Pyramid Point Post-Acute Rehabilitation Center, Hilltop Skilled Nursing, McCormick's Creek                                                                                                                                                                                                                                                                                                                                     |
+      | Login with Transitional Case Manager and verify Product Tiles and their redirections | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstNameFirst | LastName                                 | Transitional Case Manager | Episodes, Reports, TCI, Lessons | Episodes 2.0, Administration, Physician Connect | ROLE_TCS       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2 | Palo Alto Sub-Acute, Meadow Manor, Villa Georgetown, Highland Health                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
   Scenario: Verify NPI on the EC1 tile
     Given I am on the login page
@@ -704,7 +704,7 @@ Feature: Create User - PTA User
     And I enter password field Episode1! for Login
     And I click Access button
     And I click on Episode1 tile for "Partner Technical Administrator-Physicians" user
-    #And I switch to new window
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "Partner Technical Administrator-Physicians" user
     And I verify NPI on ECI for "Partner Technical Administrator-Physicians" user
 
