@@ -86,65 +86,6 @@ Feature: Edit Bundle Payment Contract functionality tests
       | Create PGP Organization with all the available fields - With MO    | YES    | MONAME       | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
 
   Scenario Outline: <Description>
-    When I click on "SNF" organization tab on organization dashboard
-    Then I click on "+" button on "SNF" organization page
-    And I verify "Create SNF Organization" header text on create organization page
-    And I select "<Has_MO>" radio button for managing organization
-    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
-    Then I enter <SNF_Name> in "SNF Organization Name" on create organization page
-    And I enter <Address1> in "Address 1" on create organization page
-    And I enter <Short_Name> in "Short Name" on create organization page
-    And I enter <Address2> in "Address 2" on create organization page
-    And I enter <City> in "City" on create organization page
-    And I select <State> in State on create organization page
-    And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "SNF - <CCN>" in "CCN" on create organization page
-    And I provide unique "SNF - <EIN>" in "EIN" on create organization page
-    And I provide unique "SNF - <NPI>" in "NPI" on create organization page
-    And I enter location name <Loc_Name> for Location "1" on "create" organization page
-    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
-    And I select location type <Loc_Type> for Location "1" on "create" organization page
-    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
-    And I select region <Loc_Region> for Location "1" on "create" organization page
-    And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
-    And I select state <Loc_State> for Location "1" on "create" organization page
-    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
-    Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
-
-    Examples: 
-      | Description                                                        | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                |
-      | Create SNF Organization with all the available fields - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
-      | Create SNF Organization with all the available fields - With MO    | YES    | MONAME       | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
-
-  Scenario Outline: <Description>
-    When I click on "HHA" organization tab on organization dashboard
-    Then I click on "+" button on "HHA" organization page
-    And I verify "Create HHA Organization" header text on create organization page
-    And I select "<Has_MO>" radio button for managing organization
-    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
-    Then I enter <HHA_Name> in "HHA Organization Name" on create organization page
-    And I enter <Address1> in "Address 1" on create organization page
-    And I enter <Short_Name> in "Short Name" on create organization page
-    And I enter <Address2> in "Address 2" on create organization page
-    And I select region "<Region>" in "create HHA" organization page
-    And I select market "<Market>" in "create HHA" organization page
-    And I enter <City> in "City" on create organization page
-    And I select <State> in State on create organization page
-    And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "HHA - <CCN>" in "CCN" on create organization page
-    And I provide unique "HHA - <EIN>" in "EIN" on create organization page
-    And I provide unique "HHA - <NPI>" in "NPI" on create organization page
-    Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "create HHA - <Has_MO>" organization page
-
-    Examples: 
-      | Description                                                        | Has_MO | Managing_Org | HHA_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Region  | Market  | CCN | EIN | NPI | Message                                |
-      | Create HHA Organization with all the available fields - Without MO | NO     |              | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
-      | Create HHA Organization with all the available fields - With MO    | YES    | MONAME       | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
-
-  Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
     Then I click on "+" button on "Payor" organization page
     And I verify "Create Payor Organization" header text on create organization page
@@ -231,10 +172,6 @@ Feature: Edit Bundle Payment Contract functionality tests
       | Create Contracts with all available fields using Hospital Organization | YES    | PAYORNAME  | 2017/01/15        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | FETCHFROMAPI |   103 |           91 |         135 |         106 | Contract Successfully Created |
       | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/16        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | FETCHFROMAPI |   113 |          121 |         135 |         106 | Contract Successfully Created |
       | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | FETCHFROMAPI |    56 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using SNF Organization      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | CID         | FETCHFROMAPI |    73 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using SNF Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | CID         | FETCHFROMAPI |   123 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using HHA Organization      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | CID         | FETCHFROMAPI |    46 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using HHA Organization      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | CID         | FETCHFROMAPI |    99 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -428,10 +365,10 @@ Feature: Edit Bundle Payment Contract functionality tests
     Then I search "<SearchParam>" and verify with search list options on "Bundle_2" dropdown box
 
     Examples: 
-      | Description                                              | Payor_Name | Bundle_Payment_Contract | Program     | SearchParam             |
-      | Search for a Bundle by Bundle Name on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI            |
-      #| Search for a Bundle by Bundle code on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPIForBundleID |
+      | Description                                              | Payor_Name | Bundle_Payment_Contract | Program     | SearchParam  |
+      | Search for a Bundle by Bundle Name on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPI |
 
+  #| Search for a Bundle by Bundle code on Edit contract page | PAYORNAME  | PROGRAMNAME             | PROGRAMNAME | FETCHFROMAPIForBundleID |
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
     When I search with "<Payor_Name>" on organization in search box

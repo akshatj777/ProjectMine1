@@ -1,4 +1,3 @@
-@Location_Id
 Feature: Create Hospital organization functionality tests
 
   Background: 
@@ -522,7 +521,6 @@ Feature: Create Hospital organization functionality tests
     When I search with "ACHNAME - <Has_MO>" on organization in search box
     And I click "ACHNAME - <Has_MO>" field in search list on organization page
 
-    #And I verify Location ID should be greater than "100000"
     Examples: 
       | Description                                                                                           | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                     |
       | Create a Hospital Organization with Mandatory Fields and any other identifier except CCN - Without MO | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
@@ -567,7 +565,6 @@ Feature: Create Hospital organization functionality tests
     When I search with "ACHNAME - <Has_MO>" on organization in search box
     And I click "ACHNAME - <Has_MO>" field in search list on organization page
 
-    #And I verify Location ID should be greater than "100000"
     Examples: 
       | Description                                                                                      | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name1     | Loc_Address1_2 | EIN | NPI | Message                                     |
       | Create a Hospital Organization without CCN identifier and having multiple locations - Without MO | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10001 | Loc_Name new2 | new address1   | EIN | NPI | Hospital Organization Successfully Created. |

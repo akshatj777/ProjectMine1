@@ -436,7 +436,7 @@ Feature: Create Physician Roster functionality tests
     Examples: 
       | Description                                 | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician    | PhysicianEndDate | Message                         |
       | Add Physician with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | 2019/12/26       | Physicians Successfully Updated |
-      | Add Physician with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | 2019/12/26       | Physicians Successfully Updated |
+      | Add Physician with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | 2019/12/25       | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -494,7 +494,7 @@ Feature: Create Physician Roster functionality tests
 
     Examples: 
       | Description             | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Physician    | PhysicianEndDate | PhysicianEndDate1 | Message                         |
-      | Add multiple Physicians | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | 2019/12/24       | 2019/12/26        | Physicians Successfully Updated |
+      | Add multiple Physicians | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | FETCHFROMAPI | 2019/12/24       | 2019/12/23        | Physicians Successfully Updated |
 
   @Hospital
   Scenario Outline: <Description>
@@ -745,7 +745,7 @@ Feature: Create Physician Roster functionality tests
     Examples: 
       | Description                                                             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | PhysicianEndDate | Physician    | Message                         |
       | Add Physician with all the available fields under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | 2019/12/26       | FETCHFROMAPI | Physicians Successfully Updated |
-      | Add Physician with all the available fields under Hospital Profile page | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | 2019/12/25       | FETCHFROMAPI | Physicians Successfully Updated |
+      | Add Physician with all the available fields under Hospital Profile page | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | 2019/12/31       | FETCHFROMAPI | Physicians Successfully Updated |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -802,5 +802,5 @@ Feature: Create Physician Roster functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                         | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | PhysicianEndDate | PhysicianEndDate | Message                         |
-      | Add multiple Physicians under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | 2019/12/23       | 2019/12/26       | Physicians Successfully Updated |
+      | Description                                         | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician    | PhysicianEndDate | PhysicianEndDate1 | Message                         |
+      | Add multiple Physicians under Hospital Profile page | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | FETCHFROMAPI | 2019/12/21       | 2019/12/23        | Physicians Successfully Updated |
