@@ -5,7 +5,6 @@ Feature: Search the Hospital organizations functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    #And I switch to new window
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -57,9 +56,9 @@ Feature: Search the Hospital organizations functionality tests
     Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
 
     Examples: 
-      | Description                                                             | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                     |
-      | Create Hospital Organization with all the available fields - Without MO | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
-      | Create Hospital Organization with all the available fields - With MO    | YES    | MONAME       | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
+      | Description                                                             | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City           | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                     |
+      | Create Hospital Organization with all the available fields - Without MO | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | AutomationCity | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
+      | Create Hospital Organization with all the available fields - With MO    | YES    | MONAME       | ACHNAME   | Address1 | Short_Name | Address2 | AutomationCity | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -67,14 +66,14 @@ Feature: Search the Hospital organizations functionality tests
     Then I search "<SearchParam> - <Has_MO>" and verify with search list options on "Hospital" organization search box
 
     Examples: 
-      | Description                                                      | Has_MO | SearchParam |
-      | Search Hospital Organization with CCN  - With MO                 | YES    | CCN         |
-      | Search Hospital Organization with CCN  - Without MO              | NO     | CCN         |
-      | Search Hospital Organization with Hospital Org Name - With MO    | YES    | ACHNAME     |
-      | Search Hospital Organization with Hospital Org Name - Without MO | NO     | ACHNAME     |
-      | Search Hospital Organization with City                           |        | City        |
-      | Search Hospital Organization with State                          |        | CA          |
-      | Search Hospital Organization with Postal Code                    |        |       10000 |
+      | Description                                                      | Has_MO | SearchParam    |
+      | Search Hospital Organization with CCN  - With MO                 | YES    | CCN            |
+      | Search Hospital Organization with CCN  - Without MO              | NO     | CCN            |
+      | Search Hospital Organization with Hospital Org Name - With MO    | YES    | ACHNAME        |
+      | Search Hospital Organization with Hospital Org Name - Without MO | NO     | ACHNAME        |
+      | Search Hospital Organization with City                           |        | AutomationCity |
+      | Search Hospital Organization with State                          |        | CA             |
+      | Search Hospital Organization with Postal Code                    |        |          10000 |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard

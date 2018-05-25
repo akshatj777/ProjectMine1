@@ -191,7 +191,7 @@ Feature: Search Physician Roster functionality tests
 
     Examples: 
       | Description           | firstName | lastName     | npi | gender | enumerationDate | prefix | suffix | npiDeactivationDate | npiDeactivationReasonCode | otherFirstName | otherLastName | otherPrefix | otherSuffix | primaryTaxonomyId    | secondaryTaxonomyId | noOfLicenses | licenseNumber | licenseNumberStateCode | address1 | address2 | city | state | zip | expStatusCode | responseMsg | classificationId | groupingId | specializationId | providerTaxonCode |
-      | validPractionerCreate | firstName | testLastName | PC  | f      | 2018-01-01      | ap     | test   | 2018-01-01          | dd                        | otherFirstName | otherLastName | ff          | ff          | generatePrimaryTaxId |                   1 |            2 |           2,5 |                  23,78 | addr1    | addr2    | city | ny    | zip |           201 |             |                0 |          0 |                0 | CPT               |
+      | validPractionerCreate | firstName | testLastName | PC  | f      | 2018-01-01      | ap     | test   | 2018-01-01          | dd                        | otherFirstName | otherLastName | ff          | ff          | generatePrimaryTaxId |                   1 |            2 |           2,5 |                  NY,NY | addr1    | addr2    | city | ny    | zip |           201 |             |                0 |          0 |                0 | CPT               |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard

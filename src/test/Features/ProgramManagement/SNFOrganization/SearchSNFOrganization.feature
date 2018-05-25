@@ -5,7 +5,6 @@ Feature: Search SNF organization functionality tests
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
-    #And I switch to new window
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -57,9 +56,9 @@ Feature: Search SNF organization functionality tests
     Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
 
     Examples: 
-      | Description                                                        | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                |
-      | Create SNF Organization with all the available fields - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
-      | Create SNF Organization with all the available fields - With MO    | YES    | MONAME       | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
+      | Description                                                        | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City           | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                |
+      | Create SNF Organization with all the available fields - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | AutomationCity | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
+      | Create SNF Organization with all the available fields - With MO    | YES    | MONAME       | SNFNAME  | Address1 | Short_Name | Address2 | AutomationCity | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "SNF" organization tab on organization dashboard
@@ -67,14 +66,14 @@ Feature: Search SNF organization functionality tests
     Then I search "<SearchParam> - <Has_MO>" and verify with search list options on "SNF" organization search box
 
     Examples: 
-      | Description                                            | Has_MO | SearchParam |
-      | Search SNF Organization with CCN  - With MO            | YES    | CCN         |
-      | Search SNF Organization with CCN  - Without MO         | NO     | CCN         |
-      | Search SNF Organization with SNF Org Name - With MO    | YES    | SNFNAME     |
-      | Search SNF Organization with SNF Org Name - Without MO | NO     | SNFNAME     |
-      | Search SNF Organization with City                      |        | City        |
-      | Search SNF Organization with State                     |        | CA          |
-      | Search SNF Organization with Postal Code               |        |       10000 |
+      | Description                                            | Has_MO | SearchParam    |
+      | Search SNF Organization with CCN  - With MO            | YES    | CCN            |
+      | Search SNF Organization with CCN  - Without MO         | NO     | CCN            |
+      | Search SNF Organization with SNF Org Name - With MO    | YES    | SNFNAME        |
+      | Search SNF Organization with SNF Org Name - Without MO | NO     | SNFNAME        |
+      | Search SNF Organization with City                      |        | AutomationCity |
+      | Search SNF Organization with State                     |        | CA             |
+      | Search SNF Organization with Postal Code               |        |          10000 |
 
   Scenario Outline: <Description>
     When I click on "SNF" organization tab on organization dashboard

@@ -266,7 +266,6 @@ Feature: Edit Bundle Payment Contract functionality tests
     And I verify "Lower Bound" field is editable
     And I verify "Add Price" button on edit organization page
     And I verify "Add Bundle" button on edit organization page
-    And I verify "+" button on edit organization page
     And I verify "Submit" button on edit organization page
     And I verify "Cancel" button on edit organization page
 

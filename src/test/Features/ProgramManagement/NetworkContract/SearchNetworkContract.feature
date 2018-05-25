@@ -192,9 +192,9 @@ Feature: Search Network Contracts functionality tests
     Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | ContractStartDate | ContractEndDate | Message                              |
-      | Create Network contract with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/01/12        | 2019/12/20      | NetworkContract Successfully Created |
-      | Create Network contract with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/01/12        | 2019/12/20      | NetworkContract Successfully Created |
+      | Description                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | ContractStartDate | ContractEndDate | Message                               |
+      | Create Network contract with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/01/12        | 2019/12/20      | Network Contract Successfully Created |
+      | Create Network contract with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/01/12        | 2019/12/20      | Network Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
