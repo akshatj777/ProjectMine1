@@ -725,7 +725,9 @@ public class PatientClinicalDocuments extends BaseClass {
 		delay();
 		if(logic.equals("Admit")){
 		setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate")),"value",date1);
-		}else if(logic.equals("Discharge")){
+		}else if(logic.equals("Admit at midnight")){
+		setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate")),"value",date2);
+	    }else if(logic.equals("Discharge")){
 	    setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate")),"value",date1);
 		}else if(logic.equals("Discharge at midnight")){
 		setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate")),"value",date2);

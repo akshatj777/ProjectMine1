@@ -177,9 +177,8 @@ Feature: POT3 will get activated on post acute admission
     Then I verify After Hour Call in "1"
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     Then I Expand to the patient summary page
-    
+    And I will wait to see patient's name on patient summary page
     When I click anchor transition delete link "1"
-    Then I will wait to see "No data available in table" in "td" tag
     And I will wait to see patient's name on patient summary page
     When I reload the page
     And I will wait to see patient's name on patient summary page

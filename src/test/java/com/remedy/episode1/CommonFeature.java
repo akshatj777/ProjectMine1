@@ -76,11 +76,16 @@ public class CommonFeature extends BaseClass {
 		iWillWaitToSee(By.xpath("//" + tag + "[contains(text(),'" + text + "')]"));
 		isElementVisible(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));	
 		}else if(text.equals("New Transition")){
+		longDelay();	
 	    try{
-		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#ajax-modal-lg > div.blockUI.blockMsg.blockElement > div > span"))));
+	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#ajax-modal-lg > div.blockUI.blockMsg.blockElement > div > span"))));
 	    }catch(Exception e){
-	    delay();	 
-	    }delay();
+	    delay();}
+	    try {
+	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.xpath("//*[@id='ajax-modal-lg']/div/div[4]/div"))));	
+	    }catch(Exception e1) {
+	    delay();	
+	    }
 		iWillWaitToSee(By.xpath("//" + tag + "[contains(text(),'" + text + "')]"));
 		isElementVisible(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));	
 		}else{
@@ -113,6 +118,7 @@ public class CommonFeature extends BaseClass {
 
 
 	public void iclickOnEpisodeMarker() {
+		longDelay();
 		iWillWaitToSee(By.xpath("//*[@id='s2id_episodeSelectionBox']"));
 		clickElement(driver.findElement(By.xpath("//*[@id='s2id_episodeSelectionBox']")));
 	}
@@ -140,6 +146,7 @@ public class CommonFeature extends BaseClass {
 	}
 
 	public void inavigateto(String uRL) {
+		delay();
 		String mongoId = textBetweenWords(href_URL, "person/", "/overview");
 		String replacedString = uRL.replace("mongoID", mongoId);
 		driver.navigate().to(BaseURL + replacedString);

@@ -270,11 +270,19 @@ Feature: Managing Various Episode States
     Then I will verify Episode Marker Admit Date "400" and "add" Discharge date "400" with "364" to show end date and Episode Status "COMPLETED 365"
 
   Scenario: EPISODE_EXCLUDED Cancelled episode terminated as excluded
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "4" days
+    Then I click on update transition to add a new episode
+    And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "0" days
+    Then I fill in "Admit at midnight" with logic "minus" with "2" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Allentown" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
@@ -286,8 +294,8 @@ Feature: Managing Various Episode States
     When I click on episode marker drop down
     Then I will wait to see "EXCLUDED BY 6" state
     Then I will wait to see onboarding status "Needs Onboarding"
-    Then I verify Episode Marker with Admit Date "0" is created without end date
-    Then I will verify Episode Marker Admit Date "1" and "add" Discharge date "1" with "0" to show end date and Episode Status "EXCLUDED BY 6"
+    Then I verify Episode Marker with Admit Date "2" is created without end date
+    Then I will verify Episode Marker Admit Date "4" and "add" Discharge date "3" with "0" to show end date and Episode Status "EXCLUDED BY 6"
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I verify DRG "(63) ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC" "(BPCI)" in transition "2" in transition modal
     Then I verify DRG "(6) LIVER TRANSPLANT W/O MCC" "(BPCI)" in transition "1" in transition modal
@@ -298,13 +306,13 @@ Feature: Managing Various Episode States
     Then I verify "My patients" as selected tab on patient dashboard
     And I enter patients fullname in the patient search box under active tab on Dashboard
     And I should see patient first name appearing under search on Dashboard
-    And I should see "0 days inpatient" appearing under search on "PROGRESS" "progress-column" Dashboard
+    And I should see "2 days inpatient" appearing under search on "PROGRESS" "progress-column" Dashboard
     And I should see "(6) LIVER TRANSPLANT W/O MCC" appearing under search on "EPISODE DRG" "episode-column" Dashboard
     And I should see "(HHH) Allentown" appearing under search on "ANCHOR FACILITY" "anchor_facility-column" Dashboard
     And I should see " " appearing under search on "CURRENT FACILITY" "current_facility-column" Dashboard
     And I should see "0" appearing under search on "Readmission" "readmission-column" Dashboard
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
-    And I should see "0 days inpatient" appearing under progress on patient card
+    And I should see "2 days inpatient" appearing under progress on patient card
     And I should see "(HHH) Inpatient" "St Luke's - Allentown" appearing under current location on patient card
     And I should see "(6) LIVER TRANSPLANT W/O MCC" appearing under drg on patient card
     And I should see "St Luke's" Episode Initiator on Patient list page

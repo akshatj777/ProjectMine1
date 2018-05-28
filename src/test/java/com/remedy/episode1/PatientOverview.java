@@ -145,7 +145,13 @@ public class PatientOverview extends BaseClass {
 	}
 
 	public void iShouldSeeTextInNotificationColumnOnRecentActivityNotificationTab(String text) {
-	    iWillWaitToSee(By.xpath("//div[@id='notificationsBlock']//tbody/tr[1]/td[3][contains(text(),'" + text + "')]"));
+		 while(driver.findElements(By.xpath("//div[@id='notificationsBlock']//tbody/tr[1]/td[3][contains(text(),'" + text + "')]")).size()!=1){
+			   driver.navigate().refresh();
+			   delay();
+			   clickSingleElementFromList(By.xpath("//h3[contains(text(),'Recent Activity')]//button"), "Notifications");
+			   delay();
+		 }  
+		iWillWaitToSee(By.xpath("//div[@id='notificationsBlock']//tbody/tr[1]/td[3][contains(text(),'" + text + "')]"));
 		isElementVisible(driver.findElement(By.xpath("//div[@id='notificationsBlock']//tbody/tr[1]/td[3][contains(text(),'" + text + "')]")));
 	}
 
