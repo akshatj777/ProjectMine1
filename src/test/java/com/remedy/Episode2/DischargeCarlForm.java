@@ -503,10 +503,12 @@ public class DischargeCarlForm extends BaseClass {
      firstSSN=Integer.toString(getRandomNumber(300,899));
      Random random = new Random();
      middleSSN=Integer.toString(10+random.nextInt(90));
-	 while(firstSSN.startsWith("666")&&firstSSN.startsWith("000")&&firstSSN.startsWith("400")&&firstSSN.startsWith("825")&&middleSSN.startsWith("00")){
+	 while(firstSSN.startsWith("666")||firstSSN.startsWith("000")||firstSSN.startsWith("400")||firstSSN.startsWith("825")){
 	 firstSSN=Integer.toString(getRandomNumber(300,899));
+	 }
+	 while(middleSSN.startsWith("00")){
 	 middleSSN=Integer.toString(10+random.nextInt(90));
-	     }
+     }
 	 final_ssn=firstSSN+middleSSN+Integer.toString(getRandomNumber(1000, 9999));
 	 System.out.println("$$$Final ssn is"+final_ssn);
 	 iFillInText(driver.findElement(By.cssSelector("#Patient_Details_ssn")),final_ssn);

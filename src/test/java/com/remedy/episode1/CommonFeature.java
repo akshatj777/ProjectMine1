@@ -113,6 +113,7 @@ public class CommonFeature extends BaseClass {
 
 
 	public void iclickOnEpisodeMarker() {
+		longDelay();
 		iWillWaitToSee(By.xpath("//*[@id='s2id_episodeSelectionBox']"));
 		clickElement(driver.findElement(By.xpath("//*[@id='s2id_episodeSelectionBox']")));
 	}
