@@ -131,7 +131,6 @@ public class LoginPage extends BaseClass {
 	public void iClickLogInButton() {
 		iWillWaitToSee(By.xpath("//*[contains(text(),'Log In')]"));
 		clickElement(driver.findElement(By.xpath("//*[contains(text(),'Log In')]")));
-
 	}
 
 	public void iVerifyLogInWidget() {
