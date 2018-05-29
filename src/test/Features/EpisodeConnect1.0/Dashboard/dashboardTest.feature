@@ -7,7 +7,7 @@ Feature: Dashboard Search for Patient
     Then I click Access button
     Then I should see Tile text <Episode1>
     And I click on the "Episodes" tile
-    And I switch to new window
+    #And I switch to new window
     Then I should see Episode header text "Dashboard"
 
     Examples: 

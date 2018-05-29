@@ -13,3 +13,12 @@ MySQLServerName = My_SQL_Server_URL
 MySQLDBUserName = My_SQL_UserName
 MySQLPassword = My_SQL_Password
 ECBaseUrl=https://qa.remedypartners.com
+programmanagement.baseURI= Base URI for PM API Calls
+programmanagement.basePath= Base Path for PM API Calls 
+auth0.clientId= AUTH0 Client ID for PM API Calls
+auth0.secret=AUTH0 Secret for PM API Calls
+auth0.audience=AUTH0 Audience for PM API Calls
+auth0.url=AUTH0 URL for PM API Calls
+auth0.grantType=AUTH0 Grant Type for PM API Calls
+contentType = Content Type for PM API Calls
+
