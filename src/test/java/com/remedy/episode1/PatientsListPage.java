@@ -411,8 +411,7 @@ public class PatientsListPage extends BaseClass {
 	}
 
 	public void iClickOnAddFormsFromPatientslistPatientGearMenu() {
-		iWillWaitToSee();
-		scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
+	    scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
 		delay();
 		clickElement(driver.findElement(By.xpath("//a[contains(@symfony-routing,'_assign_ra_form')]")));
 		if (driver.findElements(By.cssSelector(".loading-message.loading-message-boxed>span")).size() > 0) {

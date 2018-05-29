@@ -86,6 +86,7 @@ public class CommonFeature extends BaseClass {
 	    }catch(Exception e1) {
 	    delay();	
 	    }
+	    iWillWaitToSee(By.cssSelector("h4.modal-title"));
 		iWillWaitToSee(By.xpath("//" + tag + "[contains(text(),'" + text + "')]"));
 		isElementVisible(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));	
 		}else{
