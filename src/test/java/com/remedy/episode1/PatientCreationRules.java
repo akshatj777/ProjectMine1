@@ -286,6 +286,7 @@ public class PatientCreationRules extends BaseClass {
     
     public void iWaitUntillMyProfileAppears(String text){
     	iWillWaitToSee(By.xpath("//span[text()='"+text+"']"));
+    	isElementVisible(driver.findElement(By.xpath("//span[text()='"+text+"']")));
     }
     
     public void iFillNamesOnMyProfilePage(String locator,String text){

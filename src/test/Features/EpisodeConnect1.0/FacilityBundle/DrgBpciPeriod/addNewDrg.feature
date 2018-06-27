@@ -8,7 +8,7 @@ Feature: Add new DRG
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     When I am on "/secure/admin/facility/new"
     And I wait untill "New Facility" text is appearing on the new facility creation page
     And I fill in "facilityKey" with "randomKey" on facility creation page

@@ -7,7 +7,7 @@ Feature: Verify the left navigation in users and patient filters
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     When I am on "/secure/admin/user/"
     Then I wait untill "User List" text is appearing on the user list page
     Then I verify "user" tab is highlighted on the left navigation

@@ -8,7 +8,7 @@ Feature: Patient Creation Rules in Admin
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     And I am on "/secure/admin/PatientCreationRules/"
     And I wait untill "List for Patient Creation Rules" text is appearing on the patient creation rule
     Then I click on new button

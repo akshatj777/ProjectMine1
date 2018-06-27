@@ -8,7 +8,7 @@ Feature: Create new User
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     When I am on "/secure/admin/user/new"
     And I wait untill "Register a User" text is appearing on the user creation page
     And I fill in "firstName" with "TestFirstName" on register user page

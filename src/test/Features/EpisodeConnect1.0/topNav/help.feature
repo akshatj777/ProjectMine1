@@ -8,7 +8,7 @@ Feature: Verification of help page from episode connect 1
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     Then I navigate on "https://ec-help.remedypartners.com/display/ECO/Episode+Connect+User+Guide?os_username=ecdocs&os_password=4xpPhXpd05pj"
-    And I switch to new window
+   
     Then I verify the help page url "https://ec-help.remedypartners.com/display/ECO"

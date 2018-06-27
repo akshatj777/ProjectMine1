@@ -34,12 +34,10 @@ public class CommonFeature extends BaseClass {
 	}
 
 	public void iClickXpathElement(String text,String locator) {
-		delay();
-		try{
-	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#ajax-modal-lg > div > div.blockUI.blockMsg.blockElement > div > span"))));
-        }catch(Exception e){
-        delay();	 
-        }	
+		if(text.equals("Agree")){
+		delay();	
+		}else{
+		longDelay();}
 		iWillWaitToSee(By.xpath("" + locator + ""));
 		WebElement element = driver.findElement(By.xpath(locator));
 		clickElement(element);
@@ -77,15 +75,6 @@ public class CommonFeature extends BaseClass {
 		isElementVisible(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));	
 		}else if(text.equals("New Transition")){
 		longDelay();	
-	    try{
-	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#ajax-modal-lg > div.blockUI.blockMsg.blockElement > div > span"))));
-	    }catch(Exception e){
-	    delay();}
-	    try {
-	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.xpath("//*[@id='ajax-modal-lg']/div/div[4]/div"))));	
-	    }catch(Exception e1) {
-	    delay();	
-	    }
 	    iWillWaitToSee(By.cssSelector("h4.modal-title"));
 		iWillWaitToSee(By.xpath("//" + tag + "[contains(text(),'" + text + "')]"));
 		isElementVisible(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));	

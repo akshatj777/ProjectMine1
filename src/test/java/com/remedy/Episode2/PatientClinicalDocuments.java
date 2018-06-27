@@ -717,21 +717,24 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 	
 	public void Ifilldateinwithlogicwithndays1(String logic,int days) throws InterruptedException{
-		delay();
 		String date=currentdate(days,"MM/dd/yyyy");
 		String date1=date+" "+"15:40";
 		String date2=date+" "+"00:00";
 		String date3=date+" "+"11:55";
-		delay();
 		if(logic.equals("Admit")){
+		iWillWaitToSee(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate"));
 		setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate")),"value",date1);
 		}else if(logic.equals("Admit at midnight")){
+		iWillWaitToSee(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate"));
 		setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate")),"value",date2);
 	    }else if(logic.equals("Discharge")){
+	    iWillWaitToSee(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate"));
 	    setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate")),"value",date1);
 		}else if(logic.equals("Discharge at midnight")){
+		iWillWaitToSee(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate"));
 		setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate")),"value",date2);
 		}else if(logic.equals("Discharge before midinight")){
+		iWillWaitToSee(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate"));
 		setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate")),"value",date3);
 		}
 	}

@@ -8,7 +8,7 @@ Feature: Patient tags in admin center
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     When I am on "/secure/admin/BPPatientTag/"
     Then I will wait to see "Patient Tags List" on patient tags list page
     Then I verify "PatientTag" list is appearing on patient tags list page

@@ -8,7 +8,7 @@ Feature: DashBoard Message Functionality
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     Then I click on Message Icon on header navigation bar
     And I click on see all messages under Message on header navigation bar
     And I click on "Compose" under Message tab on Dashboard
@@ -32,7 +32,7 @@ Feature: DashBoard Message Functionality
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     Then I click on Message Icon on header navigation bar
     And I click on see all messages under Message on header navigation bar
     And I click on first messaage in Inbox

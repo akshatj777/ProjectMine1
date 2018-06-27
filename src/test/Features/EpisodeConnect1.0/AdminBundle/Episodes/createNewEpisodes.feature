@@ -8,7 +8,7 @@ Feature: Create Episode from admin center
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     When I am on "/secure/admin/episode/new"
     Then I will wait to see "New Episode" on new episode creation page
     And I fill in "name" with "test9" on new episode page

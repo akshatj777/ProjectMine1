@@ -8,7 +8,7 @@ Feature: Store Correct Admit Facilities
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     And I am on "/secure/pn/patientslist"
     Then I click on Add Patient button present on the ec1 patients page
     Then I verify "Add Patient" text is present on the add patient page
@@ -38,7 +38,7 @@ Feature: Store Correct Admit Facilities
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     Then I should see Episode header text "Dashboard"
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I should see patient fullname appearing on patient card on patient search
@@ -51,7 +51,7 @@ Feature: Store Correct Admit Facilities
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     And I am on "/secure/pn/patientslist"
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     Then I Expand to the patient summary page
@@ -74,6 +74,6 @@ Feature: Store Correct Admit Facilities
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I should see patient fullname appearing on patient card on patient search

@@ -1,14 +1,13 @@
 @AECTestData
 Feature: Configure Test Data for EC smoke automation.
 
-   Scenario: 63 (Stamford Start date should be one year back) (M2 90 days)
+  Scenario: 63 (Stamford Start date should be one year back) (M2 90 days)
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
     When I am on "/secure/admin/facility"
     Then I enter "TSH" in the facilityKey textbox
     And I fill in group with "Stamford" on facility creation page
@@ -31,14 +30,13 @@ Feature: Configure Test Data for EC smoke automation.
     When I click on Add button after selecting the drg
     Then I verify "63" is appearing in the drg list under facility
 
-    Scenario: 6 (BPCI Allentown) (M2 90 days)
+  Scenario: 6 (BPCI Allentown) (M2 90 days)
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
     When I am on "/secure/admin/facility"
     Then I enter "A" in the facilityKey textbox
     And I fill in group with "St Luke's" on facility creation page
@@ -68,7 +66,6 @@ Feature: Configure Test Data for EC smoke automation.
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
     When I am on "/secure/admin/facility"
     Then I enter "RIH" in the facilityKey textbox
     And I fill in group with "LifeSpan" on facility creation page
@@ -99,7 +96,6 @@ Feature: Configure Test Data for EC smoke automation.
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
     When I am on "/secure/admin/facility"
     Then I enter "110109" in the facilityKey textbox
     And I fill in name with "Emanuel County Hospital Authority" on facility creation page
@@ -239,7 +235,6 @@ Feature: Configure Test Data for EC smoke automation.
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
     When I am on "/secure/admin/facility"
     Then I enter "200024" in the facilityKey textbox
     And I fill in name with "Central Maine Medical Center" on facility creation page

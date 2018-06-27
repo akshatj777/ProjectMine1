@@ -9,7 +9,7 @@ Feature: Verification of care plan
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     When I am on "/secure/admin/care-plan"
     Then I will wait to see "Care Plans" on care plan page
     And I should see "Add new Care Plan" button on care plan page
@@ -31,7 +31,7 @@ Feature: Verification of care plan
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     When I am on "/secure/admin/care-plan"
     Then I will wait to see "Care Plans" on care plan page
     And I should see "Add new Care Plan" button on care plan page

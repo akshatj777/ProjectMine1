@@ -8,7 +8,7 @@ Feature: Alert List Verification
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     When I am on "/secure/admin/alerttemplate/"
     Then I will wait to see "Alert Templates" on alerts page
     Then I verify "Alert" list is appearing on the alert template page

@@ -8,7 +8,7 @@ Feature: Create new clinician
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     When I am on "/secure/admin/clinician/new"
     And I wait untill "Register a Clinician" text is appearing on the new clinician creation page
     And I fill in "firstName" with "TestFirstName" on register clinician page

@@ -145,14 +145,8 @@ public class PatientOverview extends BaseClass {
 	}
 
 	public void iShouldSeeTextInNotificationColumnOnRecentActivityNotificationTab(String text) {
-		 while(driver.findElements(By.xpath("//div[@id='notificationsBlock']//tbody/tr[1]/td[3][contains(text(),'" + text + "')]")).size()!=1){
-			   driver.navigate().refresh();
-			   delay();
-			   clickSingleElementFromList(By.xpath("//h3[contains(text(),'Recent Activity')]//button"), "Notifications");
-			   delay();
-		 }  
-		iWillWaitToSee(By.xpath("//div[@id='notificationsBlock']//tbody/tr[1]/td[3][contains(text(),'" + text + "')]"));
-		isElementVisible(driver.findElement(By.xpath("//div[@id='notificationsBlock']//tbody/tr[1]/td[3][contains(text(),'" + text + "')]")));
+		iWillWaitToSee(By.xpath("//td[contains(text(),'"+text+"')]"));
+		isElementVisible(driver.findElement(By.xpath("//td[contains(text(),'"+text+"')]")));
 	}
 
 	public void iShouldSeeTextInByColumnOnRecentActivityNotificationTab(String text) {
@@ -239,8 +233,8 @@ public class PatientOverview extends BaseClass {
 	}
 
 	public void iClickOnViewChangesUnderActivity() {
-		iWillWaitToSee(By.cssSelector(".btn.btn-xs.btn-primary.pull-right"));
-		clickElement(driver.findElements(By.cssSelector(".btn.btn-xs.btn-primary.pull-right")).get(0));
+		iWillWaitToSee(By.xpath("//td[contains(text(),'New Episode has been created')]/../td/a[text()='View changes']"));
+		clickElement(driver.findElement(By.xpath("//td[contains(text(),'New Episode has been created')]/../td/a[text()='View changes']")));
 	}
 
 	public void iShouldSeeChangesInViewChanges(String text) {

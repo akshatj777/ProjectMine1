@@ -42,7 +42,7 @@ Feature: Episode Connect export patient list
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     Then I should see Episode header text "Dashboard"
     And I am on "/secure/pn/patientslist"
     Then I should see patient list count info present on the patient list page
@@ -60,7 +60,7 @@ Feature: Episode Connect export patient list
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     Then I should see Episode header text "Dashboard"
     And I am on "/secure/pn/patientslist"
     Then I should see patient list count info present on the patient list page

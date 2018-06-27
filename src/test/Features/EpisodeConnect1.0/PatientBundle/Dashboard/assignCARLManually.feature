@@ -8,7 +8,7 @@ Feature: Assign CARL Tool Manually
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     And I am on "/secure/pn/patientslist"
     When I click on Add Patient button present on the ec1 patients page
     Then I verify "Add Patient" text is present on the add patient page

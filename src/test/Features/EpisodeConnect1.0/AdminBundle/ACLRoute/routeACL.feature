@@ -8,7 +8,7 @@ Feature: Route ACl Page verification
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     When I am on "/secure/admin/aclroute/"
     Then I will wait to see "Routes ACL" on route acl page
     Then I verify "RouteAcl" list is appearing on the route acl page

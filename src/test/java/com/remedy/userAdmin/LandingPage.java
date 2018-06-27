@@ -22,13 +22,14 @@ public class LandingPage extends BaseClass{
         super(driver);}
 
     public void iVerifyTextforTiles(String text){
-    	iWillWaitToSee(By.cssSelector(".title>p"));
+    	iWillWaitToSee(By.cssSelector("div.description"));
        	if(text.isEmpty()!=true){
-    		verifyTextForElementfromList(".title>p", text);
+    		verifyTextForElementfromList("div.description", text);
     	}
     }
        
     public void iClickOnApplicateTile(String tile){
+    	delay();
         iWillWaitToSee(By.xpath(tile));
         clickElement(driver.findElement(By.xpath(tile)));
         longDelay();

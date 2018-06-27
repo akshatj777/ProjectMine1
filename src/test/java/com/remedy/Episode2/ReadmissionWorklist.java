@@ -260,19 +260,12 @@ public class ReadmissionWorklist extends BaseClass {
 			}
 
 	public void Iselectdropdownvalueonaddanewtransition(String admissiontype,String variable, String value,String css) {
-		delay();
 		iWillWaitToSee(By.cssSelector(css));
 		selectDropdownVisibleElement(css,value);
 		delay();
-		try {
-		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#ajax-modal-lg > div.blockUI.blockMsg.blockElement > div > span"))));
-		}catch(Exception e) {
-		return;
-		}
-	  }
+    }
 
 	public void Iselectthefacilityonaddanewtransition(String admissiontype,String facilityvalue,String locator) {
-		delay();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Actions actions = new Actions(driver);
 		actions.moveToElement(driver.findElement(By.cssSelector(locator))).perform();

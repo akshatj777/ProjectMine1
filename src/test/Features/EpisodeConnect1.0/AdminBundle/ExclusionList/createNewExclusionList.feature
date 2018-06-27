@@ -8,7 +8,7 @@ Feature: Create Exclusion List
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    And I switch to new window
+   
     When I am on "/secure/admin/exclusionlist/new"
     And I wait untill "New object for AdminBundle" text is appearing on the new exclusions lists page
     And I fill in "name" with "test list" on new exclusion lists page
