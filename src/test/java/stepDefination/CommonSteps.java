@@ -156,4 +156,11 @@ public class CommonSteps extends DriverScript {
     public void iSwitchBackToOLDWindowInReports(){
     	baseClass.switchBacktoOldWindow();
     }
+    
+    @Then ("^I logout from accessqa url$")
+    public void iLogOutFromAccessQa() throws InterruptedException{
+    	driver.findElement(By.cssSelector("i.dropdown.icon")).click();
+    	driver.findElement(By.xpath("//span[text()='Log Out']"));
+    	Thread.sleep(4000);
+    }
 }

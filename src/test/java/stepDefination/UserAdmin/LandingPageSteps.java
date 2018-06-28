@@ -33,6 +33,11 @@ public class LandingPageSteps extends DriverScript{
     public void IClickTopUserAccountLinkAndClickOnButton(String button) throws Throwable {
         landingPage.iClickOnTheTopUserAccountIconAndClickOnButton(button);
     }
+    
+    @And("^I click on the top user account link and click on Return To Remedy Connect button$")
+    public void IClickTopUserAccountLinkAndClickOnRemedyConnect() throws Throwable {
+        landingPage.iClickOnTheTopUserAccountIconAndClickOnRemedyConnect();
+    }
 
     @And("^I select ([^\"]*) option from the dropdown$")
     public void ISelectLogoutOption(String link) throws Throwable {

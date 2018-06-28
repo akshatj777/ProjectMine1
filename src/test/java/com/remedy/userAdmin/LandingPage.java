@@ -201,4 +201,16 @@ public class LandingPage extends BaseClass{
     	iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']"));
     	clickElement(driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']")));
     }
+
+	public void iClickOnTheTopUserAccountIconAndClickOnRemedyConnect() {
+		delay();
+        if (driver.findElements(By.xpath("//div[@class='ui dropdown menu-profile-btn']")).size()>0){
+         clickElement(driver.findElement(By.xpath("//div[@class='ui dropdown menu-profile-btn']")));
+        }
+        else{
+            clickElement(driver.findElement(By.xpath("//menu-dropdown[contains(@class,'flex-item item-dropdown-right')]")));
+        }
+        clickElement(driver.findElement(By.xpath("//a[contains(text(),'Return To Remedy Connect')]")));
+		
+	}
 }

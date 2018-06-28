@@ -24,15 +24,14 @@ Feature: DashBoard Message Functionality
     And I click on "Send" button under message tab
     And I should see "You should enter at least one recipient" text error under Message
     And I should see "This value should not be blank." text error under Message
-    And I switch back to old window
-    And I click on the top user account link and click on "Log Out" button
+    And I click on the top user account link and click on Return To Remedy Connect button
+    Then I logout from accessqa url
     Given I am on the login page
     When I enter email field qa.fieldrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-   
     Then I click on Message Icon on header navigation bar
     And I click on see all messages under Message on header navigation bar
     And I click on first messaage in Inbox
