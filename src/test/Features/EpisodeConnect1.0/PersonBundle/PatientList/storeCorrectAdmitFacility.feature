@@ -1,6 +1,7 @@
 @EC1Smoke
 Feature: Store Correct Admit Facilities
-@ECFailedTestRerun
+
+  @ECFailedTestRerun
   Scenario: Patient with No admissions, then only admin user can see the patients
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
@@ -8,7 +9,6 @@ Feature: Store Correct Admit Facilities
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-   
     And I am on "/secure/pn/patientslist"
     Then I click on Add Patient button present on the ec1 patients page
     Then I verify "Add Patient" text is present on the add patient page
@@ -29,29 +29,25 @@ Feature: Store Correct Admit Facilities
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
-    Then I switch back to old window from EC window
-    Then I click on profile icon on Remedy Connect page
-    Then I select "Log Out" from profile icon dropdown
+    Then I navigate on "https://access-qa.remedypartners.com/" 
+    Then I logout from accessqa url
     Given I am on the login page
     When I enter email field qa.lpn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-   
     Then I should see Episode header text "Dashboard"
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I should see patient fullname appearing on patient card on patient search
-    Then I switch back to old window from EC window
-    Then I click on profile icon on Remedy Connect page
-    Then I select "Log Out" from profile icon dropdown
+    Then I navigate on "https://access-qa.remedypartners.com/" 
+    Then I logout from accessqa url
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-   
     And I am on "/secure/pn/patientslist"
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     Then I Expand to the patient summary page
@@ -65,15 +61,13 @@ Feature: Store Correct Admit Facilities
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
-    Then I switch back to old window from EC window
-    Then I click on profile icon on Remedy Connect page
-    Then I select "Log Out" from profile icon dropdown
+    Then I navigate on "https://access-qa.remedypartners.com/" 
+    Then I logout from accessqa url
     Given I am on the login page
     When I enter email field qa.lpn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-   
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I should see patient fullname appearing on patient card on patient search

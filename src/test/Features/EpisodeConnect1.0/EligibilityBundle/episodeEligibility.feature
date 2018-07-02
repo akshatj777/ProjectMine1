@@ -57,8 +57,8 @@ Feature: Episode eligibility status
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "5" days
-    Then I select "SNF - Skilled Nursing Facility" from the care setting dropdown present on the add transition page
-    And I select "TCU" from admission care type drop down menu present on Add transition page
+   Then I select the "Admit" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "TCU" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page

@@ -8,7 +8,7 @@ Feature: Verification of My Profile
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-    Then I am on "/secure/person/5ae80383881213c6031a1aea/edit"
+    Then I am on "/secure/person/5b2c9438881213d5482261a7/edit"
     And I wait untill i see "My Profile" is appearing on the profile page
     And I click on save changes button on the my profile page
     And I verify "First name required" as field validation on myprofile page

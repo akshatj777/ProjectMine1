@@ -57,6 +57,7 @@ public class TransitionModal extends BaseClass {
 
 	public void IClickOnDropDownOnTransitionModal(String text) {
 		longDelay();
+		longDelay();
 		iWillWaitToSee(By.cssSelector("#bp_personbundle_bpadmissiontype_admit" + text));
 		new Actions(driver).moveToElement(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admit" + text))).build().perform();
 		clickElement(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admit" + text)));

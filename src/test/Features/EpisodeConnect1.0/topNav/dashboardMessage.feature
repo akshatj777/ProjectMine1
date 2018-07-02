@@ -8,7 +8,6 @@ Feature: DashBoard Message Functionality
     Then I click Access button
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
-   
     Then I click on Message Icon on header navigation bar
     And I click on see all messages under Message on header navigation bar
     And I click on "Compose" under Message tab on Dashboard
@@ -24,7 +23,7 @@ Feature: DashBoard Message Functionality
     And I click on "Send" button under message tab
     And I should see "You should enter at least one recipient" text error under Message
     And I should see "This value should not be blank." text error under Message
-    And I click on the top user account link and click on Return To Remedy Connect button
+    Then I navigate on "https://access-qa.remedypartners.com/"
     Then I logout from accessqa url
     Given I am on the login page
     When I enter email field qa.fieldrn@yopmail.com for login
