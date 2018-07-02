@@ -160,7 +160,7 @@ public class CommonSteps extends DriverScript {
     @Then ("^I logout from accessqa url$")
     public void iLogOutFromAccessQa() throws InterruptedException{
     	driver.findElement(By.cssSelector("i.dropdown.icon")).click();
-    	driver.findElement(By.xpath("//span[text()='Log Out']"));
+    	driver.findElement(By.xpath("//span[text()='Log Out']")).click();
     	Thread.sleep(4000);
     }
 }

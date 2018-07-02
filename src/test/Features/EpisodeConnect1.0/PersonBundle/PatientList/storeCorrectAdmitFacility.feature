@@ -31,7 +31,6 @@ Feature: Store Correct Admit Facilities
     And I will wait to see patient's name on patient summary page
     Then I navigate on "https://access-qa.remedypartners.com/" 
     Then I logout from accessqa url
-    Given I am on the login page
     When I enter email field qa.lpn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -42,7 +41,6 @@ Feature: Store Correct Admit Facilities
     And I should see patient fullname appearing on patient card on patient search
     Then I navigate on "https://access-qa.remedypartners.com/" 
     Then I logout from accessqa url
-    Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -54,16 +52,14 @@ Feature: Store Correct Admit Facilities
     And I will wait to see patient's name on patient summary page
     Then I click on new transition button present on the patient overview page
     And I will wait to see "New Transition" in "h4" tag
-    And I click on admit date calender button present on the new transition page
-    And I select today's date as the admission date
-    Then I select "HHH - Hospital" from the care setting dropdown present on the add transition page
-    And I select "Inpatient" from admission care type drop down menu present on Add transition page
+    Then I fill in "Admit" with logic "minus" with "0" days
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
     Then I navigate on "https://access-qa.remedypartners.com/" 
     Then I logout from accessqa url
-    Given I am on the login page
     When I enter email field qa.lpn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button

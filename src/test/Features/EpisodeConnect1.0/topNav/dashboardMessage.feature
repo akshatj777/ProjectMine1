@@ -25,7 +25,6 @@ Feature: DashBoard Message Functionality
     And I should see "This value should not be blank." text error under Message
     Then I navigate on "https://access-qa.remedypartners.com/"
     Then I logout from accessqa url
-    Given I am on the login page
     When I enter email field qa.fieldrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button

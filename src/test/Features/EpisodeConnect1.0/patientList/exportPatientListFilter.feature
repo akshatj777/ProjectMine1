@@ -29,6 +29,7 @@ Feature: Episode Connect export patient list
     Then I click on the export button present on the patient list page
     And I will wait to see "Export List" in "h4" tag
     When I click "Anchor Admission Date" check box "admitted_anchor" on export list
+    When I click "Agree" xpath element "//*[@id='uniform-attestation-agreement']"
     When I click "Download File" xpath element "//*[@id='modal-download-file']"
     And I will wait to see "Download Complete" in "h2" tag
     And I will wait to see "This patient list was successfully downloaded to your computer." in "p" tag
